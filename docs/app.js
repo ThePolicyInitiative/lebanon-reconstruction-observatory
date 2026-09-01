@@ -390,7 +390,43 @@ const arabicText = Object.freeze({
   "Every headline number has a public path back to its source.": "لكل رقم رئيسي مسار عام يعود إلى مصدره.",
   "Data sources": "مصادر البيانات",
   "Back to top": "العودة إلى الأعلى",
-  "© 2026 Rebuild Lebanon Observatory": "© 2026 مرصد إعادة إعمار لبنان"
+  "© 2026 Rebuild Lebanon Observatory": "© 2026 مرصد إعادة إعمار لبنان",
+  "Curated public record · last reviewed 31 Aug 2026": "سجل عام منتقى · آخر مراجعة 31 أغسطس 2026",
+  "START WITH A QUESTION": "ابدأ بسؤال",
+  "Understand the picture": "افهم الصورة العامة",
+  "Explore the map": "استكشف الخريطة",
+  "Search records": "ابحث في السجلات",
+  "District evidence, by period": "أدلة الأقضية بحسب الفترة",
+  "MAP EVIDENCE PERIOD": "فترة أدلة الخريطة",
+  "Showing post-2026 evidence. Map context is independent from other page filters.": "تعرض الخريطة أدلة ما بعد حرب 2026. سياق الخريطة مستقل عن عوامل التصفية الأخرى.",
+  "Damage severity": "شدة الأضرار",
+  "Funding status": "حالة التمويل",
+  "Implementation status": "حالة التنفيذ",
+  "Occupation locations": "مواقع الاحتلال",
+  "RESPONSE PERIOD": "فترة الاستجابة",
+  "Coverage": "النطاق الجغرافي",
+  "All coverage": "كل النطاقات",
+  "Nationwide or multi-area": "وطني أو متعدد المناطق",
+  "South & Nabatieh": "الجنوب والنبطية",
+  "Beirut & Mount Lebanon": "بيروت وجبل لبنان",
+  "Bekaa & Baalbek-Hermel": "البقاع وبعلبك الهرمل",
+  "THE PUBLIC RECORD": "السجل العام",
+  "Recovery records & programs": "سجلات وبرامج التعافي",
+  "Project filters": "عوامل تصفية السجلات",
+  "Library response period": "فترة استجابة المكتبة",
+  "Filter records by coverage": "تصفية السجلات بحسب النطاق الجغرافي",
+  "Municipal": "بلدي",
+  "Open primary source": "افتح المصدر الأساسي",
+  "Showing all curated records.": "تعرض كل السجلات المنتقاة.",
+  "Arabic navigation is available; primary-record titles and publisher wording remain in their original language to match the source.": "تتوفر الواجهة العربية، بينما تبقى عناوين السجلات الأساسية وصياغة الناشر بلغتها الأصلية لمطابقة المصدر.",
+  "How we use sources": "كيف نستخدم المصادر",
+  "CURATED OFFICIAL COVERAGE": "تغطية رسمية منتقاة",
+  "Source monitor": "متابعة المصادر",
+  "A selected, source-linked monitor of public updates relevant to recovery—not a real-time reconstruction-progress tracker. The check only confirms whether a linked page is reachable.": "متابعة منتقاة ومتصلة بالمصادر للتحديثات العامة ذات الصلة بالتعافي، وليست متتبّعاً لحظياً لتقدم إعادة الإعمار. يؤكد الفحص فقط ما إذا كانت الصفحة المرتبطة متاحة.",
+  "Check source availability": "تحقق من إتاحة المصادر",
+  "Curated source monitor ready. Check availability to test the selected linked pages.": "متابعة المصادر المنتقاة جاهزة. تحقق من الإتاحة لاختبار الصفحات المرتبطة المختارة.",
+  "CURATED MONITOR, NOT A NEWSWIRE": "متابعة منتقاة وليست غرفة أخبار",
+  "A reachable page confirms its availability at the last check; it does not by itself confirm project delivery, spending or implementation progress.": "تؤكد الصفحة المتاحة إتاحتها وقت آخر فحص؛ لكنها لا تؤكد بمفردها تنفيذ المشروع أو الإنفاق أو تقدم التنفيذ."
 });
 
 const originalTextNodes = new WeakMap();
@@ -636,14 +672,17 @@ const periodMapProfiles = {
 });
 
 function mapProfileForPeriod(region) {
-  if (activePeriod === "2026") return regions[region];
-  return periodMapProfiles[activePeriod]?.[region] || periodMapProfiles.All[region];
+  if (activeMapPeriod === "2026") return regions[region];
+  return periodMapProfiles[activeMapPeriod]?.[region] || periodMapProfiles.All[region];
 }
 
 const projectList = document.querySelector("#projectList");
 const projectSearch = document.querySelector("#projectSearch");
 const recordSort = document.querySelector("#recordSort");
 const recordCount = document.querySelector("#recordCount");
+const recordAreaFilter = document.querySelector("#recordAreaFilter");
+const libraryFilterStatus = document.querySelector("#libraryFilterStatus");
+const overviewFreshness = document.querySelector("#overviewFreshness");
 const sectorGrid = document.querySelector("#sectorGrid");
 const sourceList = document.querySelector("#sourceList");
 const sourceReview = document.querySelector("#sourceReview");
@@ -672,6 +711,45 @@ const requestedPeriod = new URLSearchParams(window.location.search).get("period"
 let activePeriod = Object.hasOwn(periodLabels, requestedPeriod) ? requestedPeriod : "All";
 let activeNewsFilter = "All";
 let visibleRecords = [...records];
+let activeRecordArea = "All";
+let currentReviewedAt = seedData.reviewedAt;
+
+const recordAreaLabels = Object.freeze({
+  All: "All coverage",
+  National: "Nationwide or multi-area",
+  South: "South & Nabatieh",
+  Beirut: "Beirut & Mount Lebanon",
+  Bekaa: "Bekaa & Baalbek-Hermel"
+});
+
+function localizedAreaLabel(area) {
+  const label = recordAreaLabels[area] || area;
+  return activeLocale === "ar" ? (arabicText[label] || label) : label;
+}
+
+function localizedRecordFilter(filter) {
+  return activeLocale === "ar" ? (arabicText[filter] || filter) : filter.toUpperCase();
+}
+
+function matchesRecordArea(record) {
+  if (activeRecordArea === "All") return true;
+  const value = `${record.place} ${record.marker} ${record.status}`.toLowerCase();
+  const areas = {
+    National: /nationwide|national|lebanon-wide|across lebanon|all governorates|multi-sector/,
+    South: /south lebanon|nabatieh|tyre|sour|bint jbeil|marjaayoun|hasbaya|saida|sidon|jezzine/,
+    Beirut: /beirut|mount lebanon|baabda|metn|aley|chouf|damour|keserwan|jbeil/,
+    Bekaa: /bekaa|baalbek|hermel|zahle|rachaya|west bekaa/
+  };
+  return areas[activeRecordArea]?.test(value) || false;
+}
+
+function updateFreshness(reviewedAt = currentReviewedAt) {
+  if (!overviewFreshness) return;
+  currentReviewedAt = reviewedAt;
+  overviewFreshness.textContent = activeLocale === "ar"
+    ? `سجل عام منتقى · آخر مراجعة ${reviewedAt}`
+    : `Curated public record · last reviewed ${reviewedAt}`;
+}
 
 function periodLabel(period) {
   return periodLabels[period] || period;
@@ -696,19 +774,28 @@ function renderRecords() {
   const filtered = records.filter(record => {
     const matchesFilter = activeFilter === "All" || record.filter === activeFilter;
     const matchesPeriod = activePeriod === "All" || record.period === activePeriod;
+    const matchesArea = matchesRecordArea(record);
     const searchable = [record.name, record.place, record.filter, record.period, record.status, record.funding, record.marker].join(" ").toLowerCase();
-    return matchesFilter && matchesPeriod && searchable.includes(query);
+    return matchesFilter && matchesPeriod && matchesArea && searchable.includes(query);
   });
   visibleRecords = sortRecords(filtered);
   recordCount.textContent = activeLocale === "ar"
     ? `${visibleRecords.length} من أصل ${records.length} سجل مصدر${activePeriod === "All" ? "" : ` • ${localizedPeriodLabel(activePeriod)}`}`
     : `${visibleRecords.length} of ${records.length} source records${activePeriod === "All" ? "" : ` • ${localizedPeriodLabel(activePeriod)}`}`;
+  if (libraryFilterStatus) {
+    const period = activePeriod === "All" ? (activeLocale === "ar" ? "كل فترات الاستجابة" : "all response periods") : localizedPeriodLabel(activePeriod);
+    const area = activeRecordArea === "All" ? (activeLocale === "ar" ? "كل النطاقات" : "all coverage") : localizedAreaLabel(activeRecordArea);
+    libraryFilterStatus.textContent = activeLocale === "ar"
+      ? `يعرض ${period} · ${area} · ${visibleRecords.length} سجل متاح.`
+      : `Showing ${period} · ${area} · ${visibleRecords.length} matching records.`;
+  }
   projectList.innerHTML = visibleRecords.length ? visibleRecords.map(record => {
     const external = record.href.startsWith("http");
+    const sourceLanguage = activeLocale === "ar" ? ' lang="en" dir="ltr"' : "";
     return `
-    <a class="project-row" href="${record.href}"${external ? ' target="_blank" rel="noreferrer"' : ""}>
+    <a class="project-row"${sourceLanguage} href="${record.href}"${external ? ' target="_blank" rel="noreferrer"' : ""}>
       <div class="project-title"><span class="project-icon">${record.icon}</span><div><p class="project-name">${record.name}</p><p class="project-place">${record.place}</p></div></div>
-      <p class="project-meta"><strong>${localizedPeriodLabel(record.period)} • ${record.filter.toUpperCase()}</strong>${record.status}</p>
+      <p class="project-meta"><strong>${localizedPeriodLabel(record.period)} • ${localizedRecordFilter(record.filter)}</strong>${record.status}</p>
       <p class="project-funding">${record.funding}</p>
       <p class="record-marker">${record.marker}</p>
       <span class="row-arrow" aria-label="Open primary source">↗</span>
@@ -779,16 +866,6 @@ function renderPeriodComparison() {
   const crossCutting = records.filter(record => record.period === "Cross-cutting").length;
   document.querySelector("#periodCount2024").textContent = `${count2024} tagged records`;
   document.querySelector("#periodCount2026").textContent = `${count2026} tagged records`;
-  const status = document.querySelector("#periodFilterStatus");
-  if (activeLocale === "ar" && activePeriod === "All") {
-    status.textContent = `يُعرض مسارا ما بعد الحرب معاً: ${count2024} سجلات لمسار ما بعد حرب 2024، و${count2026} لمسار ما بعد حرب 2026، إضافة إلى ${crossCutting} سجلات مشتركة.`;
-  } else if (activeLocale === "ar") {
-    status.textContent = `يُعرض مسار ${localizedPeriodLabel(activePeriod)}. تبقى السجلات المشتركة متاحة ضمن كل السجلات.`;
-  } else if (activePeriod === "All") {
-    status.textContent = `Showing both post-war tracks: ${count2024} records after the 2024 war, ${count2026} after the 2026 war, plus ${crossCutting} cross-cutting records.`;
-  } else {
-    status.textContent = `Showing the ${localizedPeriodLabel(activePeriod)} track. Cross-cutting records remain available under All records.`;
-  }
   document.querySelectorAll(".period-filter-button").forEach(button => {
     const isActive = button.dataset.period === activePeriod;
     button.classList.toggle("active", isActive);
@@ -882,7 +959,11 @@ function setPeriodFilter(period) {
   renderAftermathDetails();
   renderRegistries();
   renderRecords();
-  if (officialMapFeatures.length) renderOfficialMap(officialMapFeatures);
+  document.querySelectorAll(".period-filter-button, .library-period-button").forEach(button => {
+    const isActive = button.dataset.period === activePeriod || button.dataset.libraryPeriod === activePeriod;
+    button.classList.toggle("active", isActive);
+    button.setAttribute("aria-pressed", String(isActive));
+  });
 }
 
 function actorGroupFor(actor) {
@@ -1052,6 +1133,10 @@ function downloadRecords() {
 
 projectSearch.addEventListener("input", renderRecords);
 recordSort.addEventListener("change", renderRecords);
+recordAreaFilter?.addEventListener("change", () => {
+  activeRecordArea = recordAreaFilter.value;
+  renderRecords();
+});
 catalogSearch?.addEventListener("input", () => {
   catalogQuery = catalogSearch.value;
   renderRegistries();
@@ -1066,6 +1151,7 @@ document.querySelectorAll(".filter-chip").forEach(chip => chip.addEventListener(
   renderRecords();
 }));
 document.querySelectorAll(".period-filter-button").forEach(button => button.addEventListener("click", () => setPeriodFilter(button.dataset.period)));
+document.querySelectorAll(".library-period-button").forEach(button => button.addEventListener("click", () => setPeriodFilter(button.dataset.libraryPeriod)));
 document.querySelectorAll(".news-filter").forEach(button => button.addEventListener("click", () => {
   activeNewsFilter = button.dataset.newsFilter;
   document.querySelectorAll(".news-filter").forEach(item => item.classList.toggle("active", item === button));
@@ -1155,8 +1241,10 @@ async function loadApplicationData() {
     renderRecords();
     const snapshots = sourcesPayload.snapshotCount ? ` • ${sourcesPayload.snapshotCount} Python metadata snapshots` : "";
     if (sourceReview) sourceReview.innerHTML = `<i></i> Local API connected • ${healthPayload.recordCount} records${snapshots} • reviewed ${healthPayload.reviewedAt}`;
+    updateFreshness(healthPayload.reviewedAt);
   } catch (error) {
     if (sourceReview) sourceReview.innerHTML = "<i></i> Local fallback dataset • start server.js for live checks";
+    updateFreshness(seedData.reviewedAt);
   }
 }
 
@@ -1207,7 +1295,7 @@ const occupationLocations2024 = [
 ];
 
 function occupationLayerForPeriod() {
-  if (activePeriod === "2024") {
+  if (activeMapPeriod === "2024") {
     return {
       label: "2024 reported military activity location",
       context: "Reported 2024 ground-activity locations near the Blue Line. These are nearby-town locators and do not mark a control boundary.",
@@ -1215,7 +1303,7 @@ function occupationLayerForPeriod() {
       locations: occupationLocations2024
     };
   }
-  if (activePeriod === "2026") {
+  if (activeMapPeriod === "2026") {
     return {
       label: "2026 reported Israeli-held position",
       context: "Reported 2026 Israeli military positions north of the Blue Line. These are nearby-town locators and do not mark a control boundary.",
@@ -1314,8 +1402,10 @@ function showOccupationLocation(location) {
 const geoMap = document.querySelector("#geoMap");
 const mapStatus = document.querySelector("#mapStatus");
 const mapLegend = document.querySelector("#mapLegend");
+const mapContextStatus = document.querySelector("#mapContextStatus");
 let activeMap = "severity";
-let occupationOverlayVisible = true;
+let activeMapPeriod = activePeriod === "All" ? "2026" : activePeriod;
+let occupationOverlayVisible = false;
 let selectedRegion = "South";
 let officialMapFeatures = [];
 const regionAliases = { "Baalbek-El Hermel": "Baalbek-Hermel", "El Nabatieh": "Nabatieh", "Bekaa": "Beqaa", "El Beqaa": "Beqaa" };
@@ -1372,7 +1462,8 @@ function renderTownLayer(project) {
     const label = `${location.name} near ${location.nearby}`;
     const marker = `<path class="occupation-cross" d="M${point.x - 7} ${point.y - 7} L${point.x + 7} ${point.y + 7} M${point.x + 7} ${point.y - 7} L${point.x - 7} ${point.y + 7}" />`;
     const hitWidth = Math.max(34, label.length * 6 + 20);
-    return `<g class="${markerClass}" data-location="${location.id}" role="button" tabindex="0" aria-label="Show ${layer.label} near ${location.nearby}"><rect class="location-hit" x="${point.x - 12}" y="${point.y - 25}" width="${hitWidth}" height="32" rx="3" />${marker}<text x="${point.x + 10}" y="${point.y - 8}">${label}</text></g>`;
+    const ariaLabel = activeLocale === "ar" ? `اعرض ${layer.label} قرب ${location.nearby}` : `Show ${layer.label} near ${location.nearby}`;
+    return `<g class="${markerClass}" data-location="${location.id}" role="button" tabindex="0" aria-label="${ariaLabel}"><rect class="location-hit" x="${point.x - 12}" y="${point.y - 25}" width="${hitWidth}" height="32" rx="3" />${marker}<text x="${point.x + 10}" y="${point.y - 8}">${label}</text></g>`;
   }).join("")}</g>`;
 }
 
@@ -1420,14 +1511,20 @@ function applyMapPalette() {
 function renderOfficialMap(features) {
   const project = createMapProjection(features);
   const layer = occupationOverlayVisible ? occupationLayerForPeriod() : null;
-  const periodDescriptor = activePeriod === "All" ? "Select a post-war period to view its map." : `This is the ${activePeriod} post-war evidence track.`;
+  const periodDescriptor = activeLocale === "ar"
+    ? `تعرض الخريطة مسار أدلة ما بعد حرب ${activeMapPeriod}.`
+    : `This is the ${activeMapPeriod} post-war evidence track.`;
   const occupationDescriptor = layer ? ` ${layer.context}` : "";
-  const descriptor = `A Lebanon district-level map. Area colours represent the selected damage severity, funding status or implementation status, using documented governorate context where comparable district metrics are not published. ${periodDescriptor}${occupationDescriptor}`;
-  geoMap.innerHTML = `<title id="mapTitle">Lebanon recovery status by district, ${activePeriod === "All" ? "period not selected" : activePeriod}</title><desc id="mapDesc">${descriptor}</desc><g class="boundary-layer">${features.map(feature => {
+  const descriptor = activeLocale === "ar"
+    ? `خريطة أقضية لبنان. تمثل ألوان المناطق شدة الأضرار أو وضع التمويل أو وضع التنفيذ المختار باستخدام سياق موثق على مستوى المحافظة حين لا تنشر مقاييس قابلة للمقارنة على مستوى القضاء. ${periodDescriptor}${occupationDescriptor}`
+    : `A Lebanon district-level map. Area colours represent the selected damage severity, funding position or implementation status, using documented governorate context where comparable district metrics are not published. ${periodDescriptor}${occupationDescriptor}`;
+  const title = activeLocale === "ar" ? `خريطة أدلة التعافي بحسب القضاء، ${activeMapPeriod}` : `Lebanon district evidence map, ${activeMapPeriod}`;
+  geoMap.innerHTML = `<title id="mapTitle">${title}</title><desc id="mapDesc">${descriptor}</desc><g class="boundary-layer">${features.map(feature => {
     const districtName = feature.properties.admin2Name;
     const arabicDistrictName = feature.properties.admin2Na_1 || "";
     const governorateName = normalizedRegion(feature.properties.admin1Name);
-    return `<path class="region official-region" data-district="${districtName}" data-region="${governorateName}" d="${pathForGeometry(feature.geometry, project)}" fill-rule="evenodd" tabindex="0" role="button" aria-label="Show recovery context for ${districtName} district ${arabicDistrictName}" />`;
+    const ariaLabel = activeLocale === "ar" ? `اعرض سياق أدلة التعافي لقضاء ${arabicDistrictName || districtName}` : `Show recovery evidence context for ${districtName} district ${arabicDistrictName}`;
+    return `<path class="region official-region" data-district="${districtName}" data-region="${governorateName}" d="${pathForGeometry(feature.geometry, project)}" fill-rule="evenodd" tabindex="0" role="button" aria-label="${ariaLabel}" />`;
   }).join("")}</g>${renderTownLayer(project)}`;
   applyMapPalette();
   bindMapInteractions();
@@ -1460,6 +1557,28 @@ document.querySelectorAll(".metric-toggle").forEach(toggle => toggle.addEventLis
   if (officialMapFeatures.length) renderOfficialMap(officialMapFeatures);
 }));
 
+function updateMapPeriodControls() {
+  document.querySelectorAll(".map-period-button").forEach(button => {
+    const isActive = button.dataset.mapPeriod === activeMapPeriod;
+    button.classList.toggle("active", isActive);
+    button.setAttribute("aria-pressed", String(isActive));
+  });
+  if (mapContextStatus) {
+    mapContextStatus.textContent = activeLocale === "ar"
+      ? `تعرض الخريطة أدلة ما بعد حرب ${activeMapPeriod}. سياق الخريطة مستقل عن عوامل التصفية الأخرى.`
+      : `Showing post-${activeMapPeriod} evidence. Map context is independent from other page filters.`;
+  }
+}
+
+function setMapPeriod(period) {
+  if (!Object.hasOwn(periodLabels, period) || period === "All") return;
+  activeMapPeriod = period;
+  updateMapPeriodControls();
+  if (officialMapFeatures.length) renderOfficialMap(officialMapFeatures);
+}
+
+document.querySelectorAll(".map-period-button").forEach(button => button.addEventListener("click", () => setMapPeriod(button.dataset.mapPeriod)));
+
 const toast = document.querySelector("#toast");
 let toastTimer;
 function showToast(message) {
@@ -1483,7 +1602,7 @@ const tabNames = {
   projects: "Data library",
   funding: "Funding flows",
   leap: "LEAP dossier",
-  updates: "Live updates",
+  updates: "Source monitor",
   sources: "Sources"
 };
 
@@ -1496,7 +1615,7 @@ const tabNamesArabic = {
   projects: "مكتبة البيانات",
   funding: "مسارات التمويل",
   leap: "ملف ليب",
-  updates: "تحديثات مباشرة",
+  updates: "متابعة المصادر",
   sources: "المصادر"
 };
 
@@ -1559,6 +1678,11 @@ function applyLocale(locale, { persist = true } = {}) {
     }
   }
   updateLocaleControls();
+  updateFreshness();
+  renderRecords();
+  renderNews();
+  updateMapPeriodControls();
+  if (officialMapFeatures.length) renderOfficialMap(officialMapFeatures);
   activateTab(resolveTab(), { resetScroll: false });
   localizeTextTree();
 }

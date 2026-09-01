@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Playfair+Display:ital,wght@600;700&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="clarity.css" />
   </head>
   <body>
     <div class="app-shell">
@@ -30,7 +31,7 @@
           <a class="nav-link" href="#projects" data-tab-link="projects"><span class="nav-icon">□</span>Data library</a>
           <a class="nav-link" href="#funding" data-tab-link="funding"><span class="nav-icon">↗</span>Funding flows</a>
           <a class="nav-link" href="#leap" data-tab-link="leap"><span class="nav-icon">⊞</span>LEAP dossier</a>
-          <a class="nav-link" href="#updates" data-tab-link="updates"><span class="nav-icon">◉</span>Live updates</a>
+          <a class="nav-link" href="#updates" data-tab-link="updates"><span class="nav-icon">◉</span>Source monitor</a>
         <a class="nav-link" href="#sources" data-tab-link="sources"><span class="nav-icon">◇</span>Sources</a>
         </nav>
 
@@ -46,8 +47,12 @@
             <p class="eyebrow">LEBANON RECONSTRUCTION OBSERVATORY</p>
             <h1>Track rebuilding<br /><em>with evidence.</em></h1>
             <p class="intro">A source-backed public record connecting damage assessments, response actors, actions, financing and recovery signals, with clear boundaries on what the evidence can and cannot prove.</p>
-            <div class="hero-actions">
-              <a class="button button-primary" href="#projects">Explore data library <span>→</span></a>
+            <p id="overviewFreshness" class="overview-freshness" role="status">Curated public record · last reviewed 31 Aug 2026</p>
+            <p class="journey-kicker">START WITH A QUESTION</p>
+            <div class="hero-actions hero-journeys" aria-label="Primary ways to explore the observatory">
+              <a class="button button-primary" href="#response">Understand the picture <span>→</span></a>
+              <a class="button button-ghost" href="#geography">Explore the map</a>
+              <a class="button button-ghost" href="#projects">Search records</a>
             </div>
           </div>
           <div class="hero-art">
@@ -97,7 +102,6 @@
                 <button class="period-filter-button" type="button" data-period="2026" aria-pressed="false">After 2026 war</button>
               </div>
             </div>
-            <p id="periodFilterStatus">Showing both conflict periods and cross-cutting recovery records.</p>
           </div>
 
           <div class="response-hero-card">
@@ -295,13 +299,23 @@
           <div class="section-heading">
             <div>
               <p class="eyebrow">SOURCE-INFORMED GEOGRAPHY</p>
-              <h2>Recovery status, district by district</h2>
+              <h2>District evidence, by period</h2>
             </div>
-            <div class="map-controls" role="group" aria-label="Map metric">
-              <button class="metric-toggle active" type="button" data-map="severity">Damage severity</button>
-              <button class="metric-toggle" type="button" data-map="funding">Funding status</button>
-              <button class="metric-toggle" type="button" data-map="completion">Implementation status</button>
-              <button class="metric-toggle occupation-toggle active" type="button" data-map="occupation" aria-pressed="true">Occupation locations</button>
+            <div class="map-control-stack">
+              <div class="map-period-group" role="group" aria-label="Map evidence period">
+                <span>MAP EVIDENCE PERIOD</span>
+                <div>
+                  <button class="map-period-button" type="button" data-map-period="2024" aria-pressed="false">After 2024 war</button>
+                  <button class="map-period-button active" type="button" data-map-period="2026" aria-pressed="true">After 2026 war</button>
+                </div>
+              </div>
+              <p id="mapContextStatus" class="map-context-status" role="status">Showing post-2026 evidence. Map context is independent from other page filters.</p>
+              <div class="map-controls" role="group" aria-label="Map metric">
+                <button class="metric-toggle active" type="button" data-map="severity">Damage severity</button>
+                <button class="metric-toggle" type="button" data-map="funding">Funding status</button>
+                <button class="metric-toggle" type="button" data-map="completion">Implementation status</button>
+                <button class="metric-toggle occupation-toggle" type="button" data-map="occupation" aria-pressed="false">Occupation locations</button>
+              </div>
             </div>
           </div>
 
@@ -389,11 +403,25 @@
               <button class="filter-chip" type="button" data-filter="Assessment">Assessment</button>
               <button class="filter-chip" type="button" data-filter="Financing">Financing</button>
               <button class="filter-chip" type="button" data-filter="Local recovery">Local recovery</button>
+              <button class="filter-chip" type="button" data-filter="Evidence">Evidence</button>
+              <button class="filter-chip" type="button" data-filter="Municipal">Municipal</button>
             </div>
           </div>
 
+          <div class="library-scope-controls">
+            <div class="library-period-group" role="group" aria-label="Library response period">
+              <span>RESPONSE PERIOD</span>
+              <div>
+                <button class="library-period-button active" type="button" data-library-period="All" aria-pressed="true">All records</button>
+                <button class="library-period-button" type="button" data-library-period="2024" aria-pressed="false">After 2024 war</button>
+                <button class="library-period-button" type="button" data-library-period="2026" aria-pressed="false">After 2026 war</button>
+              </div>
+            </div>
+            <label class="library-area-label"><span>Coverage</span><select id="recordAreaFilter" aria-label="Filter records by coverage"><option value="All">All coverage</option><option value="National">Nationwide or multi-area</option><option value="South">South &amp; Nabatieh</option><option value="Beirut">Beirut &amp; Mount Lebanon</option><option value="Bekaa">Bekaa &amp; Baalbek-Hermel</option></select></label>
+          </div>
+
           <div class="library-subtoolbar">
-            <p>Each entry has an external primary-source link and a stated publication or review date.</p>
+            <div><p id="libraryFilterStatus">Showing all curated records.</p><p class="library-language-note">Arabic navigation is available; primary-record titles and publisher wording remain in their original language to match the source.</p></div>
             <label>Sort <select id="recordSort" aria-label="Sort records"><option value="latest">Latest first</option><option value="scale">Largest financial scale</option><option value="az">A–Z</option></select></label>
           </div>
 
@@ -529,8 +557,8 @@
 
         <section id="updates" class="updates-section section-anchor" data-tab-panel="updates" role="tabpanel" aria-labelledby="updatesTitle">
           <div class="section-heading">
-            <div><p class="eyebrow">MONITORED OFFICIAL COVERAGE</p><h2 id="updatesTitle">Live related updates</h2></div>
-            <p class="section-note">A concise live-status feed of the public updates most directly relevant to recovery. Each card links to the original publisher; the refresh action checks that source page directly.</p>
+            <div><p class="eyebrow">CURATED OFFICIAL COVERAGE</p><h2 id="updatesTitle">Source monitor</h2></div>
+            <p class="section-note">A selected, source-linked monitor of public updates relevant to recovery—not a real-time reconstruction-progress tracker. The check only confirms whether a linked page is reachable.</p>
           </div>
 
           <figure class="updates-visual">
@@ -549,11 +577,11 @@
               <button class="news-filter" type="button" data-news-filter="Education">Education</button>
               <button class="news-filter" type="button" data-news-filter="Financing">Financing</button>
             </div>
-            <button id="newsRefresh" class="news-refresh" type="button"><span>↻</span> Refresh source status</button>
+            <button id="newsRefresh" class="news-refresh" type="button"><span>↻</span> Check source availability</button>
           </div>
-          <p id="newsStatus" class="news-status" role="status" aria-live="polite"><i></i> Official-source monitor ready. Select Refresh source status to check the linked pages.</p>
+          <p id="newsStatus" class="news-status" role="status" aria-live="polite"><i></i> Curated source monitor ready. Check availability to test the selected linked pages.</p>
           <div id="newsList" class="news-list" aria-label="Related official news updates"></div>
-          <div class="updates-footnote"><span>LIVE STATUS, NOT A NEWSWIRE</span><p>This page monitors selected primary institutional updates related to recovery. A reachable page confirms its availability at the last check; it does not by itself confirm implementation progress.</p><a href="#sources">Review source standards <span>→</span></a></div>
+          <div class="updates-footnote"><span>CURATED MONITOR, NOT A NEWSWIRE</span><p>A reachable page confirms its availability at the last check; it does not by itself confirm project delivery, spending or implementation progress.</p><a href="#sources">Review source standards <span>→</span></a></div>
         </section>
 
     <section id="sources" class="sources-section section-anchor" data-tab-panel="sources" role="tabpanel" aria-label="Sources">
