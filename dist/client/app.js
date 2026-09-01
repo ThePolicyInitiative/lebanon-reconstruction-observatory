@@ -405,6 +405,7 @@ const arabicText = Object.freeze({
   "Search records": "ابحث في السجلات",
   "District evidence, by period": "أدلة الأقضية بحسب الفترة",
   "MAP EVIDENCE PERIOD": "فترة أدلة الخريطة",
+  "Map evidence period": "فترة أدلة الخريطة",
   "Showing post-2026 evidence. Map context is independent from other page filters.": "تعرض الخريطة أدلة ما بعد حرب 2026. سياق الخريطة مستقل عن عوامل التصفية الأخرى.",
   "Damage severity": "شدة الأضرار",
   "Funding status": "حالة التمويل",
@@ -437,7 +438,8 @@ const arabicText = Object.freeze({
   "Documented places, not district averages": "أماكن موثقة، لا متوسطات على مستوى القضاء",
   "TOWN-LEVEL LOCATORS": "محددات مواقع على مستوى البلدة",
   "Markers show only places named in the cited 2026 UNDP assessments. Unmarked places are not a no-damage designation.": "تُظهر العلامات الأماكن التي سُميت في تقييمات برنامج الأمم المتحدة الإنمائي لعام 2026 فقط. وعدم ظهور مكان لا يعني عدم وجود ضرر فيه.",
-  "Reported military positions": "مواقع عسكرية مُبلّغ عنها",
+  "Occupied areas": "المناطق المحتلة",
+  "Occupied areas (2026 data)": "المناطق المحتلة (بيانات 2026)",
   "Loading source-backed place locators": "جارٍ تحميل محددات المواقع المدعومة بالمصادر",
   "Rebuild Lebanon: Reconstruction Observatory": "إعادة إعمار لبنان: مرصد التعافي",
   "REBUILD": "إعادة الإعمار",
@@ -1519,19 +1521,6 @@ const occupationSource = {
   href: "https://digitallibrary.un.org/record/4106088/files/S_2026_160-EN.pdf"
 };
 
-const occupation2024Source = {
-  source: "Open 2024 UNIFIL statement",
-  href: "https://peacekeeping.un.org/en/news/unifil-statement-6-october-2024"
-};
-const occupation2024DhayraSource = {
-  source: "Open October 2024 UNIFIL statement",
-  href: "https://lebanon.un.org/en/282151-un-interim-force-lebanon-unifil-statement-attacks-unifil"
-};
-const occupation2024LabbounehSource = {
-  source: "Open October 2024 UN Security Council document",
-  href: "https://digitallibrary.un.org/record/4064887/files/A_79_530--S_2024_738-EN.pdf"
-};
-
 const southLebanonDamageSource = {
   source: "Open UNDP South Lebanon damage assessment",
   href: "https://www.undp.org/lebanon/press-releases/building-damage-assessment-estimates-over-usd-138-billion-across-south-lebanon-until-april-2026"
@@ -1542,9 +1531,14 @@ const beirutMountLebanonDamageSource = {
   href: "https://www.undp.org/lebanon/press-releases/rapid-damage-assessment-estimates-over-us365-million-building-damage-across-beirut-and-mount-lebanon"
 };
 
+const municipalRecovery2024Source = {
+  source: "Open UNDP municipal recovery-priorities source",
+  href: "https://www.undp.org/lebanon/press-releases/undp-and-republic-korea-increase-support-south-lebanon-communities-affected-recent-conflict"
+};
+
 // These are deliberately limited to locations the cited UNDP releases name. They are
 // nearby-town locators, not boundary polygons and not a complete damage inventory.
-const townEvidenceLocations = [
+const townEvidenceLocations2026 = [
   { id: "aaitaroun-damage", name: "Aaitaroun", nameAr: "عيترون", lon: 35.4701, lat: 33.1034, kind: "destroyed", count: 1658, labelDx: 18, labelDy: -14, source: southLebanonDamageSource, detail: "1,658 buildings completely destroyed" },
   { id: "bint-jbeil-damage", name: "Bint Jbeil", nameAr: "بنت جبيل", lon: 35.4282, lat: 33.1194, kind: "destroyed", count: 1076, labelDx: -18, labelDy: 26, source: southLebanonDamageSource, detail: "1,076 buildings completely destroyed" },
   { id: "meiss-el-jabal-damage", name: "Meiss El Jabal", nameAr: "ميس الجبل", lon: 35.5512, lat: 33.1318, kind: "destroyed", count: 969, labelDx: 18, labelDy: 18, source: southLebanonDamageSource, detail: "969 buildings completely destroyed" },
@@ -1559,7 +1553,24 @@ const townEvidenceLocations = [
   { id: "choueifat-amroussieh-hotspot", name: "Choueifat–Amroussieh", nameAr: "الشويفات–العمروسية", lon: 35.536, lat: 33.8101, kind: "hotspot", labelDx: 25, labelDy: 68, source: beirutMountLebanonDamageSource, detail: "Named UNDP damage concentration; no town-specific building count published" }
 ];
 
-const occupationLocations2026 = [
+// UNDP names these eight municipalities as the locations where post-2024 recovery
+// priorities were developed. The source does not publish town-level damage totals.
+const townEvidenceLocations2024 = [
+  { id: "abbasiyeh-recovery", name: "Abbasiyeh", nameAr: "العباسية", lon: 35.2831, lat: 33.2971, kind: "recovery", labelDx: 20, labelDy: -22, source: municipalRecovery2024Source },
+  { id: "borghliyeh-recovery", name: "Borghliyeh", nameAr: "برغلية", lon: 35.2407, lat: 33.3121, kind: "recovery", labelDx: -20, labelDy: 18, source: municipalRecovery2024Source },
+  { id: "borj-rahal-recovery", name: "Borj Rahal", nameAr: "برج رحال", lon: 35.2799, lat: 33.3109, kind: "recovery", labelDx: 22, labelDy: 20, source: municipalRecovery2024Source },
+  { id: "tayer-debba-recovery", name: "Tayer Debba", nameAr: "طير دبّا", lon: 35.2772, lat: 33.2741, kind: "recovery", labelDx: -24, labelDy: 28, source: municipalRecovery2024Source },
+  { id: "naqoura-recovery", name: "Naqoura", nameAr: "الناقورة", lon: 35.1298, lat: 33.1183, kind: "recovery", labelDx: -20, labelDy: -16, source: municipalRecovery2024Source },
+  { id: "deir-qanoun-en-nahr-recovery", name: "Deir Qanoun En Nahr", nameAr: "دير قانون النهر", lon: 35.3061, lat: 33.3031, kind: "recovery", labelDx: 25, labelDy: -34, source: municipalRecovery2024Source },
+  { id: "tebnin-recovery", name: "Tebnin", nameAr: "تبنين", lon: 35.4050, lat: 33.1930, kind: "recovery", labelDx: 22, labelDy: 12, source: municipalRecovery2024Source },
+  { id: "rcheif-recovery", name: "Rcheif", nameAr: "رشاف", lon: 35.3611, lat: 33.1442, kind: "recovery", labelDx: -22, labelDy: -18, source: municipalRecovery2024Source }
+];
+
+function townEvidenceLocationsForPeriod() {
+  return activeMapPeriod === "2024" ? townEvidenceLocations2024 : townEvidenceLocations2026;
+}
+
+const occupiedAreaLocations2026 = [
   { id: "labbouneh", name: "Labbouneh", nearby: "Alma al-Shaab", lon: 35.176, lat: 33.090 },
   { id: "jabal-blat", name: "Jabal Blat", nearby: "Ramyah", lon: 35.604, lat: 33.104 },
   { id: "jal-al-deir", name: "Jal al-Deir", nearby: "Aitaroun", lon: 35.477, lat: 33.093 },
@@ -1567,30 +1578,24 @@ const occupationLocations2026 = [
   { id: "hamames", name: "Hamames Hill", nearby: "Khiam", lon: 35.567, lat: 33.313 }
 ];
 
-const occupationLocations2024 = [
-  { id: "marun-al-ras", name: "Marun al-Ras", nearby: "Marun al-Ras", lon: 35.443, lat: 33.110, source: occupation2024Source },
-  { id: "dhayra", name: "Dhayra", nearby: "Dhayra", lon: 35.221, lat: 33.116, source: occupation2024DhayraSource },
-  { id: "labbouneh-2024", name: "Labbouneh", nearby: "Labbouneh", lon: 35.176, lat: 33.090, source: occupation2024LabbounehSource }
-];
+function occupiedAreaLayerForPeriod() {
+  if (activeMapPeriod !== "2026") return null;
+  return {
+    label: "Reported occupied-area locator",
+    labelAr: "مؤشر موقع لمنطقة محتلة مُبلّغ عنها",
+    context: "The UN report records Israeli presence in five positions and two buffer zones north of the Blue Line. This map marks the five source-locatable positions only; it does not draw unverified buffer-zone boundaries.",
+    contextAr: "يوثق تقرير الأمم المتحدة وجوداً إسرائيلياً في خمسة مواقع ومنطقتي عزل شمال الخط الأزرق. تضع هذه الخريطة علامات للمواقع الخمسة القابلة للتحديد من المصدر فقط، ولا ترسم حدود منطقتي العزل غير المنشورة.",
+    source: occupationSource,
+    locations: occupiedAreaLocations2026
+  };
+}
 
-function occupationLayerForPeriod() {
-  if (activeMapPeriod === "2024") {
-    return {
-      label: "2024 reported military activity location",
-      context: "Reported 2024 ground-activity locations near the Blue Line. These are nearby-town locators and do not mark a control boundary.",
-      source: occupation2024Source,
-      locations: occupationLocations2024
-    };
-  }
-  if (activeMapPeriod === "2026") {
-    return {
-      label: "2026 reported Israeli-held position",
-      context: "Reported 2026 Israeli military positions north of the Blue Line. These are nearby-town locators and do not mark a control boundary.",
-      source: occupationSource,
-      locations: occupationLocations2026
-    };
-  }
-  return null;
+function occupiedAreaLayerLabel(layer) {
+  return activeLocale === "ar" ? layer.labelAr : layer.label;
+}
+
+function occupiedAreaLayerContext(layer) {
+  return activeLocale === "ar" ? layer.contextAr : layer.context;
 }
 
 function updateRegionPanel({ kicker, name, topic, score, context, labels, values, source }) {
@@ -1645,36 +1650,6 @@ function showDistrict(district, governorate) {
     labels: ["District", "Governorate context", "Primary source"],
     values: [district, profile.name, data.evidence],
     source: data
-  });
-}
-
-function showOccupationOverview() {
-  const layer = occupationLayerForPeriod();
-  if (!layer) return;
-  updateRegionPanel({
-    kicker: mapTopics.occupation.label,
-    name: "South Lebanon",
-    topic: layer.label,
-    score: "REPORTED",
-    context: layer.context,
-    labels: mapStatLabels.occupation,
-    values: ["Nearby-town locators", "Point markers only", "UN public reporting"],
-    source: layer.source
-  });
-}
-
-function showOccupationLocation(location) {
-  const layer = occupationLayerForPeriod();
-  if (!layer) return;
-  updateRegionPanel({
-    kicker: "OCCUPATION LOCATION",
-    name: location.name,
-    topic: layer.label,
-    score: "REPORTED",
-    context: `A reported military location near ${location.nearby}. The marker is an approximate nearby-town locator, not a boundary of territorial control.`,
-    labels: mapStatLabels.occupation,
-    values: [`Near ${location.nearby}`, "Approximate nearby-town marker", "UN public reporting"],
-    source: location.source || layer.source
   });
 }
 
@@ -1737,12 +1712,13 @@ function markerRadius(location) {
 }
 
 function mapMarkerText(location) {
+  if (location.kind === "recovery") return activeLocale === "ar" ? "أولوية تعافٍ بلدية" : "municipal recovery priority";
   if (location.count) return activeLocale === "ar" ? `${location.count.toLocaleString("en-US")} مبانٍ مدمّرة` : `${location.count.toLocaleString("en-US")} destroyed`;
   return activeLocale === "ar" ? "تركيز ضرر موثق" : "documented damage concentration";
 }
 
 function renderEvidenceMarkers(project) {
-  return townEvidenceLocations.map(location => {
+  return townEvidenceLocationsForPeriod().map(location => {
     const point = project(location.lon, location.lat);
     const label = activeLocale === "ar" ? location.nameAr : location.name;
     const metric = mapMarkerText(location);
@@ -1751,21 +1727,24 @@ function renderEvidenceMarkers(project) {
     const textAnchor = location.labelDx < 0 ? "end" : "start";
     const marker = location.kind === "destroyed"
       ? `<circle class="town-dot town-marker-destroyed" cx="${point.x}" cy="${point.y}" r="${markerRadius(location).toFixed(1)}" />`
-      : `<rect class="town-dot town-marker-concentration" x="${point.x - 5.5}" y="${point.y - 5.5}" width="11" height="11" transform="rotate(45 ${point.x} ${point.y})" />`;
+      : location.kind === "recovery"
+        ? `<rect class="town-dot town-marker-recovery" x="${point.x - 5.5}" y="${point.y - 5.5}" width="11" height="11" rx="2" />`
+        : `<rect class="town-dot town-marker-concentration" x="${point.x - 5.5}" y="${point.y - 5.5}" width="11" height="11" transform="rotate(45 ${point.x} ${point.y})" />`;
     const markerLabel = activeLocale === "ar" ? `اعرض دليل ${label}` : `Show evidence for ${label}`;
     return `<g class="town-location town-${location.kind}" data-town-evidence="${location.id}" role="button" tabindex="0" aria-label="${markerLabel}"><rect class="location-hit" x="${point.x - 18}" y="${point.y - 18}" width="36" height="36" rx="18" />${marker}<line class="town-callout-line" x1="${point.x}" y1="${point.y}" x2="${labelX}" y2="${labelY - 5}" /><text x="${labelX}" y="${labelY}" text-anchor="${textAnchor}"><tspan>${label}</tspan><tspan class="town-marker-metric" x="${labelX}" dy="12">${metric}</tspan></text></g>`;
   }).join("");
 }
 
 function renderOccupationMarkers(project) {
-  const layer = occupationOverlayVisible ? occupationLayerForPeriod() : null;
+  const layer = occupationOverlayVisible ? occupiedAreaLayerForPeriod() : null;
   if (!layer) return "";
   return layer.locations.map(location => {
     const point = project(location.lon, location.lat);
-    const label = `${location.name} near ${location.nearby}`;
-    const marker = `<path class="occupation-cross" d="M${point.x - 7} ${point.y - 7} L${point.x + 7} ${point.y + 7} M${point.x + 7} ${point.y - 7} L${point.x - 7} ${point.y + 7}" />`;
+    const label = `${location.name} · ${location.nearby}`;
+    const marker = `<circle class="occupation-area-ring" cx="${point.x}" cy="${point.y}" r="8" /><circle class="occupation-area-dot" cx="${point.x}" cy="${point.y}" r="3" />`;
     const hitWidth = Math.max(34, label.length * 6 + 20);
-    const ariaLabel = activeLocale === "ar" ? `اعرض ${layer.label} قرب ${location.nearby}` : `Show ${layer.label} near ${location.nearby}`;
+    const layerLabel = occupiedAreaLayerLabel(layer);
+    const ariaLabel = activeLocale === "ar" ? `اعرض ${layerLabel} قرب ${location.nearby}` : `Show ${layerLabel} near ${location.nearby}`;
     return `<g class="occupation-location" data-location="${location.id}" role="button" tabindex="0" aria-label="${ariaLabel}"><rect class="location-hit" x="${point.x - 12}" y="${point.y - 25}" width="${hitWidth}" height="32" rx="3" />${marker}<text x="${point.x + 10}" y="${point.y - 8}">${label}</text></g>`;
   }).join("");
 }
@@ -1776,47 +1755,65 @@ function renderTownLayer(project) {
 
 function renderTownEvidenceSummary() {
   if (!townEvidencePanel) return;
-  const countLocations = townEvidenceLocations.filter(location => location.count).length;
-  const hotspotLocations = townEvidenceLocations.length - countLocations;
+  const locations = townEvidenceLocationsForPeriod();
+  if (activeMapPeriod === "2024") {
+    const title = activeLocale === "ar" ? "أولويات تعافٍ بلدية بعد 2024" : "Post-2024 municipal recovery priorities";
+    const summary = activeLocale === "ar"
+      ? `تظهر ${locations.length} بلديات فقط في قضاء صور، وهي البلديات التي سُميت في عملية تحديد أولويات التعافي المحلية لبرنامج الأمم المتحدة الإنمائي.`
+      : `The map shows ${locations.length} municipalities in Tyre Caza, the locations named in UNDP’s local recovery-priority process.`;
+    const boundary = activeLocale === "ar"
+      ? "هذه علامات لأولويات التعافي، وليست أعداد أضرار بالمباني. لا ينشر المصدر أرقاماً قابلة للمقارنة للأضرار على مستوى البلدة."
+      : "These are recovery-priority locators, not building-damage counts. The source does not publish comparable town-level damage figures.";
+    townEvidencePanel.innerHTML = `<p class="town-panel-kicker">${activeLocale === "ar" ? "مسار ما بعد 2024" : "POST-2024 TRACK"}</p><h3>${title}</h3><p>${summary}</p><p class="town-panel-boundary">${boundary}</p><div class="town-panel-sources"><a href="${municipalRecovery2024Source.href}" target="_blank" rel="noreferrer">${activeLocale === "ar" ? "مصدر أولويات التعافي البلدي لبرنامج الأمم المتحدة الإنمائي" : "UNDP municipal recovery-priorities source"} ↗</a></div>`;
+    return;
+  }
+  const countLocations = locations.filter(location => location.count).length;
+  const hotspotLocations = locations.length - countLocations;
   const title = activeLocale === "ar" ? "ماذا تُظهر الخريطة" : "What this map shows";
   const summary = activeLocale === "ar"
-    ? `تظهر ${townEvidenceLocations.length} محددات مواقع فقط: ${countLocations} بلدات نشر المصدر لها أعداد مبانٍ مدمّرة، و${hotspotLocations} مناطق سماها المصدر كمناطق تركز للضرر من دون أعداد قابلة للمقارنة على مستوى البلدة.`
-    : `Only ${townEvidenceLocations.length} source-named locators are shown: ${countLocations} towns with published destroyed-building counts and ${hotspotLocations} named damage concentrations without comparable town-level counts.`;
+    ? `تظهر ${locations.length} محددات مواقع فقط: ${countLocations} بلدات نشر المصدر لها أعداد مبانٍ مدمّرة، و${hotspotLocations} مناطق سماها المصدر كمناطق تركز للضرر من دون أعداد قابلة للمقارنة على مستوى البلدة.`
+    : `Only ${locations.length} source-named locators are shown: ${countLocations} towns with published destroyed-building counts and ${hotspotLocations} named damage concentrations without comparable town-level counts.`;
   const boundary = activeLocale === "ar"
     ? "عدم ظهور بلدة لا يعني عدم وجود ضرر فيها؛ بل يعني أن المصدر المستخدم هنا لا ينشر لها علامة قابلة للمقارنة على مستوى البلدة."
     : "An unmarked town is not a no-damage designation; it means the cited source does not publish a comparable town-level marker for it.";
-  townEvidencePanel.innerHTML = `<p class="town-panel-kicker">TOWN-LEVEL EVIDENCE</p><h3>${title}</h3><p>${summary}</p><p class="town-panel-boundary">${boundary}</p><div class="town-panel-sources"><a href="${southLebanonDamageSource.href}" target="_blank" rel="noreferrer">${activeLocale === "ar" ? "تقييم برنامج الأمم المتحدة الإنمائي لجنوب لبنان" : "UNDP South Lebanon assessment"} ↗</a><a href="${beirutMountLebanonDamageSource.href}" target="_blank" rel="noreferrer">${activeLocale === "ar" ? "تقييم برنامج الأمم المتحدة الإنمائي لبيروت وجبل لبنان" : "UNDP Beirut & Mount Lebanon assessment"} ↗</a></div>`;
+  townEvidencePanel.innerHTML = `<p class="town-panel-kicker">${activeLocale === "ar" ? "أدلة على مستوى البلدة" : "TOWN-LEVEL EVIDENCE"}</p><h3>${title}</h3><p>${summary}</p><p class="town-panel-boundary">${boundary}</p><div class="town-panel-sources"><a href="${southLebanonDamageSource.href}" target="_blank" rel="noreferrer">${activeLocale === "ar" ? "تقييم برنامج الأمم المتحدة الإنمائي لجنوب لبنان" : "UNDP South Lebanon assessment"} ↗</a><a href="${beirutMountLebanonDamageSource.href}" target="_blank" rel="noreferrer">${activeLocale === "ar" ? "تقييم برنامج الأمم المتحدة الإنمائي لبيروت وجبل لبنان" : "UNDP Beirut & Mount Lebanon assessment"} ↗</a></div>`;
 }
 
 function showTownEvidence(location) {
   if (!townEvidencePanel) return;
   const label = activeLocale === "ar" ? location.nameAr : location.name;
-  const markerType = location.count
+  const isRecovery = location.kind === "recovery";
+  const markerType = isRecovery
+    ? (activeLocale === "ar" ? "أولوية تعافٍ بلدية" : "Municipal recovery priority")
+    : location.count
     ? (activeLocale === "ar" ? "عدد منشور للمباني المدمّرة" : "Published destroyed-building count")
     : (activeLocale === "ar" ? "منطقة تركز ضرر مسماة" : "Named damage concentration");
-  const detail = location.count
+  const detail = isRecovery
+    ? (activeLocale === "ar" ? "سُمّيت هذه البلدية في عملية تحديد أولويات التعافي لبرنامج الأمم المتحدة الإنمائي في قضاء صور. ولا ينشر المصدر أرقام أضرار بالمباني على مستوى البلدة." : "UNDP names this municipality in its Tyre Caza recovery-priority process. The source does not publish a town-level building-damage figure.")
+    : location.count
     ? (activeLocale === "ar" ? `${location.count.toLocaleString("en-US")} مبانٍ مدمّرة بالكامل في هذا المحدد.` : `${location.count.toLocaleString("en-US")} buildings completely destroyed at this locator.`)
     : (activeLocale === "ar" ? "سمّى التقييم هذه المنطقة ضمن تركزات الضرر، لكنه لا ينشر لها عدداً منفصلاً للمباني على مستوى البلدة." : "The assessment names this area as a damage concentration but does not publish a separate town-level building count.");
   const locatorNote = activeLocale === "ar"
     ? "الموضع مؤشر تقريبي لموقع البلدة، وليس حدوداً إدارية أو تقديراً شاملاً للضرر."
     : "The point is an approximate town locator, not an administrative boundary or a complete damage inventory.";
-  townEvidencePanel.innerHTML = `<p class="town-panel-kicker">${markerType}</p><h3>${label}</h3><p class="town-panel-figure">${location.count ? location.count.toLocaleString("en-US") : "—"}</p><p>${detail}</p><p class="town-panel-boundary">${locatorNote}</p><a class="town-panel-source" href="${location.source.href}" target="_blank" rel="noreferrer">${location.source.source} <span>↗</span></a>`;
+  const figure = location.count ? `<p class="town-panel-figure">${location.count.toLocaleString("en-US")}</p>` : "";
+  townEvidencePanel.innerHTML = `<p class="town-panel-kicker">${markerType}</p><h3>${label}</h3>${figure}<p>${detail}</p><p class="town-panel-boundary">${locatorNote}</p><a class="town-panel-source" href="${location.source.href}" target="_blank" rel="noreferrer">${location.source.source} <span>↗</span></a>`;
 }
 
 function showOccupationLocation(location) {
-  const layer = occupationLayerForPeriod();
+  const layer = occupiedAreaLayerForPeriod();
   if (!layer || !townEvidencePanel) return;
-  const label = activeLocale === "ar" ? "موقع عسكري مُبلّغ عنه" : "Reported military position";
+  const label = activeLocale === "ar" ? "منطقة محتلة مُبلّغ عنها" : "Reported occupied area";
   const description = activeLocale === "ar"
-    ? `موقع مُبلّغ عنه قرب ${location.nearby}. هذه علامة موقع تقريبي قرب بلدة وليست حدوداً للسيطرة الإقليمية.`
-    : `A reported military location near ${location.nearby}. This is an approximate nearby-town locator, not a territorial-control boundary.`;
-  townEvidencePanel.innerHTML = `<p class="town-panel-kicker">${label}</p><h3>${location.name}</h3><p>${description}</p><a class="town-panel-source" href="${(location.source || layer.source).href}" target="_blank" rel="noreferrer">${(location.source || layer.source).source} <span>↗</span></a>`;
+    ? `منطقة مُبلّغ عنها قرب ${location.nearby}. هذه علامة موقع للمكان الذي يوثقه المصدر، وليست حدوداً مرسومة للسيطرة الإقليمية أو لمنطقة عزل.`
+    : `A reported occupied area near ${location.nearby}. This is a locator for the place documented in the source, not a drawn boundary of territorial control or a buffer zone.`;
+  townEvidencePanel.innerHTML = `<p class="town-panel-kicker">${label}</p><h3>${location.name}</h3><p>${description}</p><p class="town-panel-boundary">${occupiedAreaLayerContext(layer)}</p><a class="town-panel-source" href="${(location.source || layer.source).href}" target="_blank" rel="noreferrer">${(location.source || layer.source).source} <span>↗</span></a>`;
 }
 
 function bindMapInteractions() {
   document.querySelectorAll(".town-location").forEach(marker => {
     const activate = () => {
-      const location = townEvidenceLocations.find(item => item.id === marker.dataset.townEvidence);
+      const location = townEvidenceLocationsForPeriod().find(item => item.id === marker.dataset.townEvidence);
       if (location) showTownEvidence(location);
     };
     marker.addEventListener("click", activate);
@@ -1829,7 +1826,7 @@ function bindMapInteractions() {
   });
   document.querySelectorAll(".occupation-location").forEach(marker => {
     const activate = () => {
-      const location = occupationLayerForPeriod()?.locations.find(item => item.id === marker.dataset.location);
+      const location = occupiedAreaLayerForPeriod()?.locations.find(item => item.id === marker.dataset.location);
       if (location) showOccupationLocation(location);
     };
     marker.addEventListener("click", activate);
@@ -1843,23 +1840,33 @@ function bindMapInteractions() {
 }
 
 function applyMapPalette() {
-  const layer = occupationOverlayVisible ? occupationLayerForPeriod() : null;
-  const metricLegend = activeLocale === "ar"
+  const layer = occupationOverlayVisible ? occupiedAreaLayerForPeriod() : null;
+  const metricLegend = activeMapPeriod === "2024"
+    ? (activeLocale === "ar"
+      ? `<span class="legend-item"><i class="town-recovery-legend"></i>بلدية سُمّيت كأولوية للتعافي</span>`
+      : `<span class="legend-item"><i class="town-recovery-legend"></i>Municipality named for recovery priorities</span>`)
+    : activeLocale === "ar"
     ? `<span class="legend-item"><i class="town-count-legend"></i>بلدة لديها عدد منشور للمباني المدمّرة</span><span class="legend-item"><i class="town-hotspot-legend"></i>تركيز ضرر مسمى في المصدر</span>`
     : `<span class="legend-item"><i class="town-count-legend"></i>Town with published destroyed-building count</span><span class="legend-item"><i class="town-hotspot-legend"></i>Source-named damage concentration</span>`;
-  const occupationLegend = layer ? `<span class="legend-item occupation-legend"><i aria-hidden="true"></i>${layer.label}</span>` : "";
+  const occupationLegend = layer ? `<span class="legend-item occupation-legend"><i aria-hidden="true"></i>${occupiedAreaLayerLabel(layer)}</span>` : "";
   mapLegend.innerHTML = `${metricLegend}${occupationLegend}`;
   renderTownEvidenceSummary();
 }
 
 function renderOfficialMap(features) {
   const project = createMapProjection(features);
-  const layer = occupationOverlayVisible ? occupationLayerForPeriod() : null;
-  const occupationDescriptor = layer ? ` ${layer.context}` : "";
-  const descriptor = activeLocale === "ar"
-    ? `خريطة لبنان بمحددات مواقع على مستوى البلدة. تعرض فقط الأماكن التي سُميت في تقييمات برنامج الأمم المتحدة الإنمائي لعام 2026؛ لا تُلوّن الأقضية ولا تفسر المناطق غير المعلمة على أنها خالية من الضرر.${occupationDescriptor}`
-    : `A Lebanon map with town-level locators. It shows only places named in the cited 2026 UNDP assessments; districts are not shaded and unmarked places are not treated as undamaged.${occupationDescriptor}`;
-  const title = activeLocale === "ar" ? "خريطة أدلة موثقة على مستوى البلدة" : "Documented town-level evidence map";
+  const layer = occupationOverlayVisible ? occupiedAreaLayerForPeriod() : null;
+  const occupationDescriptor = layer ? ` ${occupiedAreaLayerContext(layer)}` : "";
+  const descriptor = activeMapPeriod === "2024"
+    ? (activeLocale === "ar"
+      ? `خريطة لبنان بمحددات مواقع على مستوى البلدة. تعرض فقط البلديات الثماني التي سماها برنامج الأمم المتحدة الإنمائي ضمن أولويات التعافي بعد 2024 في قضاء صور. لا تُلوّن الأقضية ولا تمثل العلامات أرقام أضرار للمباني.${occupationDescriptor}`
+      : `A Lebanon map with town-level locators. It shows only the eight Tyre Caza municipalities named by UNDP for post-2024 recovery priorities. Districts are not shaded and the markers do not represent building-damage counts.${occupationDescriptor}`)
+    : (activeLocale === "ar"
+      ? `خريطة لبنان بمحددات مواقع على مستوى البلدة. تعرض فقط الأماكن التي سُميت في تقييمات برنامج الأمم المتحدة الإنمائي لعام 2026؛ لا تُلوّن الأقضية ولا تفسر المناطق غير المعلمة على أنها خالية من الضرر.${occupationDescriptor}`
+      : `A Lebanon map with town-level locators. It shows only places named in the cited 2026 UNDP assessments; districts are not shaded and unmarked places are not treated as undamaged.${occupationDescriptor}`);
+  const title = activeMapPeriod === "2024"
+    ? (activeLocale === "ar" ? "خريطة أولويات التعافي البلدية بعد 2024" : "Post-2024 municipal recovery-priorities map")
+    : (activeLocale === "ar" ? "خريطة أدلة موثقة على مستوى البلدة" : "Documented town-level evidence map");
   geoMap.innerHTML = `<title id="mapTitle">${title}</title><desc id="mapDesc">${descriptor}</desc><g class="boundary-layer">${features.map(feature => {
     return `<path class="region official-region base-region" d="${pathForGeometry(feature.geometry, project)}" fill-rule="evenodd" aria-hidden="true" />`;
   }).join("")}</g>${renderTownLayer(project)}`;
@@ -1882,17 +1889,51 @@ async function loadOfficialMap() {
 }
 
 document.querySelectorAll(".occupation-toggle").forEach(toggle => toggle.addEventListener("click", () => {
+  if (toggle.disabled) return;
   occupationOverlayVisible = !occupationOverlayVisible;
   toggle.classList.toggle("active", occupationOverlayVisible);
   toggle.setAttribute("aria-pressed", String(occupationOverlayVisible));
   if (officialMapFeatures.length) renderOfficialMap(officialMapFeatures);
 }));
 
+document.querySelectorAll(".map-period-button").forEach(button => button.addEventListener("click", () => {
+  const period = button.dataset.mapPeriod;
+  if (period !== "2024" && period !== "2026") return;
+  activeMapPeriod = period;
+  updateMapPeriodControls();
+  if (officialMapFeatures.length) renderOfficialMap(officialMapFeatures);
+}));
+
+function updateOccupiedAreaControls() {
+  const hasOccupiedAreaLayer = activeMapPeriod === "2026";
+  if (!hasOccupiedAreaLayer) occupationOverlayVisible = false;
+  document.querySelectorAll(".occupation-toggle").forEach(toggle => {
+    const label = hasOccupiedAreaLayer
+      ? (activeLocale === "ar" ? "المناطق المحتلة" : "Occupied areas")
+      : (activeLocale === "ar" ? "المناطق المحتلة (بيانات 2026)" : "Occupied areas (2026 data)");
+    toggle.textContent = label;
+    toggle.disabled = !hasOccupiedAreaLayer;
+    toggle.classList.toggle("active", hasOccupiedAreaLayer && occupationOverlayVisible);
+    toggle.setAttribute("aria-pressed", String(hasOccupiedAreaLayer && occupationOverlayVisible));
+    toggle.setAttribute("aria-disabled", String(!hasOccupiedAreaLayer));
+  });
+}
+
 function updateMapPeriodControls() {
+  document.querySelectorAll(".map-period-button").forEach(button => {
+    const selected = button.dataset.mapPeriod === activeMapPeriod;
+    button.classList.toggle("active", selected);
+    button.setAttribute("aria-pressed", String(selected));
+  });
+  updateOccupiedAreaControls();
   if (mapContextStatus) {
-    mapContextStatus.textContent = activeLocale === "ar"
-      ? "تُظهر العلامات الأماكن التي سُميت في تقييمات برنامج الأمم المتحدة الإنمائي لعام 2026 فقط. عدم ظهور بلدة لا يعني عدم وجود ضرر فيها."
-      : "Markers show only places named in the cited 2026 UNDP assessments. Unmarked places are not a no-damage designation.";
+    mapContextStatus.textContent = activeMapPeriod === "2024"
+      ? (activeLocale === "ar"
+        ? "عرض 2024: أولويات تعافٍ بلدية بعد 2024 في قضاء صور، لا أرقام أضرار بالمباني على مستوى البلدة."
+        : "2024 view: post-2024 municipal recovery priorities in Tyre Caza, not town-level building-damage counts.")
+      : (activeLocale === "ar"
+        ? "عرض 2026: محددات بلدات ومناطق سُميت في تقييمات برنامج الأمم المتحدة الإنمائي. وعدم ظهور مكان لا يعني عدم وجود ضرر فيه."
+        : "2026 view: town and area locators named in the cited UNDP assessments. Unmarked places are not a no-damage designation.");
   }
 }
 

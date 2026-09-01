@@ -302,12 +302,16 @@
               <h2>Documented places, not district averages</h2>
             </div>
             <div class="map-control-stack">
-              <div class="map-period-group town-map-kicker">
-                <span>TOWN-LEVEL LOCATORS</span>
+              <div class="map-period-group">
+                <span>MAP EVIDENCE PERIOD</span>
+                <div role="group" aria-label="Map evidence period">
+                  <button class="map-period-button" type="button" data-map-period="2024" aria-pressed="false">2024</button>
+                  <button class="map-period-button active" type="button" data-map-period="2026" aria-pressed="true">2026</button>
+                </div>
               </div>
-              <p id="mapContextStatus" class="map-context-status" role="status">Markers show only places named in the cited 2026 UNDP assessments. Unmarked places are not a no-damage designation.</p>
+              <p id="mapContextStatus" class="map-context-status" role="status">2026 view: town and area locators named in the cited UNDP assessments. Unmarked places are not a no-damage designation.</p>
               <div class="map-controls" role="group" aria-label="Map layers">
-                <button class="metric-toggle occupation-toggle" type="button" data-map="occupation" aria-pressed="false">Reported military positions</button>
+                <button class="metric-toggle occupation-toggle" type="button" data-map="occupation" aria-pressed="false">Occupied areas</button>
               </div>
             </div>
           </div>
