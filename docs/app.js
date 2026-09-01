@@ -259,6 +259,13 @@ const arabicText = Object.freeze({
   "The RDNA estimates $3–5B of public financing and $6–8B of private financing will be required. LEAP provides a source-backed starting layer for priority public recovery.": "يقدّر تقييم الأضرار والاحتياجات أن التمويل العام المطلوب يتراوح بين 3 و5 مليارات دولار، والتمويل الخاص بين 6 و8 مليارات دولار. ويوفّر ليب طبقة انطلاق مدعومة بالمصادر لأولوية التعافي العام.",
   "Explore LEAP details": "استكشف تفاصيل ليب",
   "Funding flow visualization": "تصور مسارات التمويل",
+  "01 · NEED ESTIMATE": "01 · تقدير الاحتياج",
+  "National recovery and reconstruction need": "احتياج التعافي وإعادة الإعمار الوطني",
+  "02 · PUBLIC FINANCING REQUIREMENT": "02 · متطلب التمويل العام",
+  "Indicative public financing need, including infrastructure": "احتياج إرشادي للتمويل العام، يشمل البنية التحتية",
+  "03 · AVAILABLE STARTING FINANCE": "03 · التمويل الأولي المتاح",
+  "Initial World Bank finance within a $1B scalable framework": "تمويل أولي من البنك الدولي ضمن إطار قابل للتوسع بقيمة مليار دولار",
+  "Different stages of the financing picture — do not add them together.": "هذه مراحل مختلفة من الصورة التمويلية — لا تجمعها معاً.",
   "RDNA recovery need": "احتياج التعافي وفق التقييم الوطني",
   "$11B over recovery & reconstruction": "11 مليار دولار للتعافي وإعادة الإعمار",
   "Public financing need": "احتياج التمويل العام",
@@ -426,10 +433,227 @@ const arabicText = Object.freeze({
   "Check source availability": "تحقق من إتاحة المصادر",
   "Curated source monitor ready. Check availability to test the selected linked pages.": "متابعة المصادر المنتقاة جاهزة. تحقق من الإتاحة لاختبار الصفحات المرتبطة المختارة.",
   "CURATED MONITOR, NOT A NEWSWIRE": "متابعة منتقاة وليست غرفة أخبار",
-  "A reachable page confirms its availability at the last check; it does not by itself confirm project delivery, spending or implementation progress.": "تؤكد الصفحة المتاحة إتاحتها وقت آخر فحص؛ لكنها لا تؤكد بمفردها تنفيذ المشروع أو الإنفاق أو تقدم التنفيذ."
+  "A reachable page confirms its availability at the last check; it does not by itself confirm project delivery, spending or implementation progress.": "تؤكد الصفحة المتاحة إتاحتها وقت آخر فحص؛ لكنها لا تؤكد بمفردها تنفيذ المشروع أو الإنفاق أو تقدم التنفيذ.",
+  "Documented places, not district averages": "أماكن موثقة، لا متوسطات على مستوى القضاء",
+  "TOWN-LEVEL LOCATORS": "محددات مواقع على مستوى البلدة",
+  "Markers show only places named in the cited 2026 UNDP assessments. Unmarked places are not a no-damage designation.": "تُظهر العلامات الأماكن التي سُميت في تقييمات برنامج الأمم المتحدة الإنمائي لعام 2026 فقط. وعدم ظهور مكان لا يعني عدم وجود ضرر فيه.",
+  "Reported military positions": "مواقع عسكرية مُبلّغ عنها",
+  "Loading source-backed place locators": "جارٍ تحميل محددات المواقع المدعومة بالمصادر",
+  "Rebuild Lebanon: Reconstruction Observatory": "إعادة إعمار لبنان: مرصد التعافي",
+  "REBUILD": "إعادة الإعمار",
+  "World Bank RDNA, Mar 2025": "تقييم البنك الدولي للاحتياجات بعد الكارثة، آذار 2025",
+  "UN multi-agency estimate, Jul 2025": "تقدير مشترك لوكالات الأمم المتحدة، تموز 2025",
+  "All figures are labelled by their evidence type and publication date. A financing framework, approval, disbursement, tender and completed project each carry a different meaning.": "تُرفق بكل رقم رئيسي طبيعة الدليل وتاريخ نشره. فإطار التمويل والموافقة والصرف والمناقصة والمشروع المنجز تحمل دلالات مختلفة.",
+  "Use the source library to inspect the primary publication behind each signal.": "استخدم مكتبة المصادر للاطلاع على المنشور الأصلي وراء كل مؤشر.",
+  "0 records": "0 سجل",
+  "Nationwide recovery baseline": "خط أساس وطني للتعافي",
+  "Scope: national assessments and early recovery mechanisms following the 2023 to 2024 conflict.": "النطاق: تقييمات وطنية وآليات تعافٍ مبكر بعد نزاع 2023–2024.",
+  "recovery and reconstruction needs estimated in the national RDNA": "احتياجات التعافي وإعادة الإعمار المقدّرة في التقييم الوطني للاحتياجات بعد الكارثة",
+  "initial LEAP financing approved within a $1B scalable framework": "تمويل ليب الأولي المعتمد ضمن إطار قابل للتوسع بقيمة مليار دولار",
+  "people displaced during the conflict period in the multi-agency assessment": "أشخاص نزحوا خلال فترة النزاع بحسب التقييم المشترك بين الوكالات",
+  "Open after-2024 source base": "افتح قاعدة مصادر ما بعد 2024",
+  "Rapid recovery and response baseline": "خط أساس سريع للتعافي والاستجابة",
+  "Scope: rapid building assessments, emergency service continuity and response instruments documented after the 2026 war.": "النطاق: تقييمات سريعة للمباني واستمرارية الخدمات الطارئة وأدوات استجابة موثقة بعد حرب 2026.",
+  "direct building damage estimated in Beirut and Mount Lebanon": "أضرار مباشرة مقدّرة للمباني في بيروت وجبل لبنان",
+  "debris estimated in the rapid assessment": "ركام مقدّر في التقييم السريع",
+  "Lebanon Response Plan appeal, targeting 1.5M people": "نداء خطة الاستجابة للبنان، يستهدف 1.5 مليون شخص",
+  "Open after-2026 source base": "افتح قاعدة مصادر ما بعد 2026",
+  "Compare the aftermath, not raw totals.": "قارن آثار ما بعد الحرب، لا الأرقام المجردة.",
+  "The post-2024 record gives a nationwide, multi-sector recovery baseline. The post-2026 record starts with targeted rapid assessment and immediate response. They are different after-war phases with different geographic scopes, so their figures cannot be added or treated as a trend.": "يوفر سجل ما بعد 2024 خط أساس وطنياً متعدد القطاعات للتعافي، بينما يبدأ سجل ما بعد 2026 بتقييم سريع موجّه واستجابة فورية. وهما مرحلتان مختلفتان بعد الحرب وبنطاقين جغرافيين مختلفين، لذلك لا يمكن جمع هذه الأرقام أو التعامل معها كاتجاه زمني.",
+  "Browse the selected record set": "تصفح مجموعة السجلات المختارة",
+  "01 · HUMANITARIAN BRIDGE": "01 · الجسر الإنساني",
+  "Protect households while recovery systems are rebuilt.": "حماية الأسر ريثما يُعاد بناء نظم التعافي.",
+  "The Lebanon Response Plan connects assistance, shelter, protection, education, livelihoods and water services with resilience measures. It is a coordinated response framework, not a reconstruction completion report.": "تربط خطة الاستجابة للبنان المساعدة والمأوى والحماية والتعليم وسبل العيش وخدمات المياه بتدابير الصمود. وهي إطار استجابة منسّق، وليست تقريراً عن اكتمال إعادة الإعمار.",
+  "Open the response plan": "افتح خطة الاستجابة",
+  "02 · AREA-BASED DELIVERY": "02 · التنفيذ القائم على المكان",
+  "Match service, livelihood and local-governance actions to place.": "اربط إجراءات الخدمات وسبل العيش والحوكمة المحلية بالمكان.",
+  "UNDP’s local programming describes participatory, conflict-sensitive prioritisation with municipalities and municipal unions, linking infrastructure, basic services and local economic recovery.": "يصف برنامج الأمم المتحدة الإنمائي برامجه المحلية كأولويات تشاركية وحساسة للنزاع مع البلديات واتحاداتها، تربط البنية التحتية والخدمات الأساسية والتعافي الاقتصادي المحلي.",
+  "Open local-resilience context": "افتح سياق الصمود المحلي",
+  "03 · RECONSTRUCTION CONTROL": "03 · ضبط إعادة الإعمار",
+  "Track the chain from safety clearance to verified works.": "تتبع المسار من إخلاء الموقع للسلامة إلى الأعمال المتحقق منها.",
+  "For LEAP, site eligibility, technical designs, procurement, supervision and independent monitoring are distinct checkpoints. Progress at one stage does not prove completion at the next.": "في ليب، أهلية الموقع والتصاميم الفنية والمشتريات والإشراف والرصد المستقل نقاط تحقق منفصلة. والتقدم في مرحلة لا يثبت اكتمال المرحلة التالية.",
+  "Open implementation controls": "افتح ضوابط التنفيذ",
+  "ACTOR AND ACTION REGISTER": "سجل الجهات الفاعلة والإجراءات",
+  "Explore who is involved and what is being done through a source-linked, period-specific public record.": "استكشف الجهات المشاركة وما يُنفّذ عبر سجل عام مرتبط بالمصادر ومحدد بالفترة.",
+  "Showing all actor and action records.": "تعرض كل سجلات الجهات الفاعلة والإجراءات.",
+  "Named actors grouped by institutional type": "جهات فاعلة مسماة مجمعة حسب النوع المؤسسي",
+  "Documented activities grouped by category and subcategory": "أنشطة موثقة مجمعة حسب الفئة والفئة الفرعية",
+  "SEARCH THE CATALOGUE": "ابحث في الفهرس",
+  "Expand all": "توسيع الكل",
+  "Collapse all": "طي الكل",
+  "Showing all categories for the selected period.": "تعرض كل الفئات للفترة المختارة.",
+  "Actor groups": "مجموعات الجهات الفاعلة",
+  "Public officials and institutions, international and NGO actors, municipal authorities, and community initiatives.": "مسؤولون ومؤسسات عامة، وجهات دولية ومنظمات غير حكومية، وسلطات بلدية، ومبادرات مجتمعية.",
+  "Action categories": "فئات الإجراءات",
+  "Each action has a main category, a defined subcategory and a documented implementation stage.": "لكل إجراء فئة رئيسية وفئة فرعية محددة ومرحلة تنفيذ موثقة.",
+  "PUBLIC-SOURCE CATALOGUE": "فهرس المصادر العامة",
+  "Browse the classified registry": "تصفح السجل المصنّف",
+  "Loading actors and actions from the public-source registry.": "جارٍ تحميل الجهات الفاعلة والإجراءات من سجل المصادر العامة.",
+  "By actor group": "حسب مجموعة الجهة الفاعلة",
+  "Each group follows the observatory’s institutional structure and opens the original online source.": "تتبع كل مجموعة الهيكل المؤسسي للمرصد وتفتح المصدر الأصلي على الإنترنت.",
+  "By category and type": "حسب الفئة والنوع",
+  "Each category is divided into defined subcategories and documented stages.": "تُقسّم كل فئة إلى فئات فرعية ومراحل موثقة.",
+  "Documented town-level evidence in Lebanon": "أدلة موثقة على مستوى البلدة في لبنان",
+  "A neutral national base map with markers only for towns and areas named in the cited source assessments. Districts are not coloured as if they were measured individually.": "خريطة وطنية أساسية محايدة، تضع علامات فقط للبلدات والمناطق المسماة في تقييمات المصادر المذكورة. ولا تُلوّن الأقضية كما لو كانت مقاسة على نحو منفرد.",
+  "THE NATIONAL PICTURE": "الصورة الوطنية",
+  "What the assessments show": "ما الذي تُظهره التقييمات",
+  "Read the RDNA release": "اقرأ بيان تقييم الاحتياجات بعد الكارثة",
+  "ASSESSMENT BRIEFS": "موجزات التقييم",
+  "Three assessments, three different evidence boundaries.": "ثلاثة تقييمات، وثلاثة حدود مختلفة للأدلة.",
+  "Read the source, geography, observation window and method before comparing a figure. These assessments are complementary, but they are not one additive national total.": "اقرأ المصدر والنطاق الجغرافي وفترة الرصد والمنهج قبل مقارنة أي رقم. هذه التقييمات متكاملة، لكنها لا تشكل إجمالياً وطنياً واحداً قابلاً للجمع.",
+  "NATIONAL RDNA · MAR 2025": "تقييم الاحتياجات الوطني · آذار 2025",
+  "National recovery baseline": "خط الأساس الوطني للتعافي",
+  "recovery and reconstruction needs estimated": "احتياجات تعافٍ وإعادة إعمار مقدّرة",
+  "Scope": "النطاق",
+  "Entire country · 10 sectors · 8 Oct 2023–20 Dec 2024": "كامل البلاد · 10 قطاعات · 8 تشرين الأول 2023–20 كانون الأول 2024",
+  "What it measures": "ما الذي يقيسه",
+  "$6.8B in physical damage and $7.2B in economic losses.": "6.8 مليارات دولار أضرار مادية و7.2 مليارات دولار خسائر اقتصادية.",
+  "Read carefully": "تنبيه للقراءة",
+  "A national recovery-and-needs assessment, not a town-by-town damage count or delivery tracker.": "تقييم وطني للتعافي والاحتياجات، وليس عدّاً للأضرار بلدةً ببلدة أو متتبّعاً للتنفيذ.",
+  "Open national RDNA": "افتح التقييم الوطني للاحتياجات",
+  "SOUTH LEBANON · 19 JUN 2026": "جنوب لبنان · 19 حزيران 2026",
+  "Building-level view of South Lebanon": "نظرة على مستوى المبنى في جنوب لبنان",
+  "direct building damage estimated": "أضرار مباشرة مقدّرة للمباني",
+  "Areas south of the Litani, including Bint Jbeil, Marjaayoun, Nabatieh, Tyre and Saida.": "المناطق الواقعة جنوب الليطاني، بما فيها بنت جبيل ومرجعيون والنبطية وصور وصيدا.",
+  "11,095 buildings destroyed and about 3.1M m³ of debris, visible in the assessment imagery.": "11,095 مبنى مدمراً ونحو 3.1 مليون م³ من الركام، ظاهرة في صور التقييم.",
+  "29 Apr 2026 imagery versus a 23 Oct 2025 baseline; excludes underground structures and critical infrastructure.": "صور 29 نيسان 2026 مقارنةً بخط أساس 23 تشرين الأول 2025؛ ولا يشمل المنشآت تحت الأرض والبنية التحتية الحيوية.",
+  "Open South Lebanon assessment": "افتح تقييم جنوب لبنان",
+  "BEIRUT & MOUNT LEBANON · 9 JUN 2026": "بيروت وجبل لبنان · 9 حزيران 2026",
+  "Rapid assessment of Beirut & Mount Lebanon": "تقييم سريع لبيروت وجبل لبنان",
+  "Beirut and Mount Lebanon, with damage concentrations named in six affected areas.": "بيروت وجبل لبنان، مع تسمية تركز الأضرار في ست مناطق متضررة.",
+  "146 buildings destroyed, 264 partially damaged and 648,942 m³ of debris estimated.": "146 مبنى مدمراً، و264 متضرراً جزئياً، و648,942 م³ من الركام المقدّر.",
+  "GeoAI, satellite analysis and field verification provide an initial planning baseline, not a cumulative 2024 total.": "يوفر الذكاء الاصطناعي الجغرافي والتحليل الفضائي والتحقق الميداني خط أساس أولياً للتخطيط، وليس إجمالياً تراكمياً لعام 2024.",
+  "Open Beirut & Mount Lebanon assessment": "افتح تقييم بيروت وجبل لبنان",
+  "How to read the assessment briefs": "كيفية قراءة موجزات التقييم",
+  "METHOD BOUNDARY": "حدود المنهج",
+  "Evidence of damage is not evidence of completed recovery.": "دليل الضرر ليس دليلاً على اكتمال التعافي.",
+  "Damage estimates can establish the scale and location of visible impact. They do not, by themselves, prove that financing was committed, funds were spent, works were tendered, or reconstruction was completed.": "يمكن لتقديرات الأضرار أن تحدد حجم الأثر المرئي وموقعه. لكنها لا تثبت بمفردها أن التمويل التزم أو أن الأموال صُرفت أو أن الأعمال طُرحت للمناقصة أو أن إعادة الإعمار اكتملت.",
+  "Do not add figures with different observation periods or geographic coverage.": "لا تجمع الأرقام ذات فترات الرصد أو النطاقات الجغرافية المختلفة.",
+  "Use the named source and its caveats before drawing a place-level conclusion.": "استخدم المصدر المُسمى وتحفظاته قبل استخلاص نتيجة على مستوى المكان.",
+  "Trace a recovery claim separately through finance, procurement, delivery and independent verification.": "تتبّع أي ادعاء بالتعافي على حدة عبر التمويل والمشتريات والتنفيذ والتحقق المستقل.",
+  "AITAROUN · FEB 2025": "عيترون · شباط 2025",
+  "NABATIEH · DEC 2024": "النبطية · كانون الأول 2024",
+  "SCALE OF IMPACT": "حجم الأثر",
+  "economic cost assessed": "كلفة اقتصادية مقدّرة",
+  "Physical damage and economic losses are distinct but compounding measures in the World Bank’s 2025 assessment.": "الأضرار المادية والخسائر الاقتصادية مقياسان مختلفان لكنهما متراكمان في تقييم البنك الدولي لعام 2025.",
+  "Physical damage": "الأضرار المادية",
+  "Economic losses": "الخسائر الاقتصادية",
+  "SOURCE: WORLD BANK RDNA, MAR 2025": "المصدر: تقييم البنك الدولي للاحتياجات بعد الكارثة، آذار 2025",
+  "SECTOR PRESSURE": "ضغط القطاعات",
+  "Housing damage, the largest assessed sector impact": "أضرار الإسكان، وهي أكبر أثر قطاعي مقدّر",
+  "Commerce, industry & tourism losses": "خسائر التجارة والصناعة والسياحة",
+  "sectors assessed nationwide in the RDNA": "قطاعات جرى تقييمها وطنياً في تقييم الاحتياجات بعد الكارثة",
+  "PEOPLE & PLACES": "الناس والأماكن",
+  "people displaced during the conflict period": "أشخاص نزحوا خلال فترة النزاع",
+  "SOURCE: UNDP / ESCWA MULTI-AGENCY ASSESSMENT, JUL 2025": "المصدر: تقييم مشترك لبرنامج الأمم المتحدة الإنمائي والإسكوا ووكالات الأمم المتحدة، تموز 2025",
+  "buildings destroyed in Beirut & Mount Lebanon": "مبانٍ مدمّرة في بيروت وجبل لبنان",
+  "debris estimated": "ركام مقدّر",
+  "0 curated records": "0 سجل منتقى",
+  "Eligible areas are those damaged during the 2023–2024 conflict. Sites are ineligible until cleared by the Lebanese Army for explosive remnants of war and where unmanaged human remains are present.": "المناطق المؤهلة هي التي تضررت خلال نزاع 2023–2024. ولا تصبح المواقع مؤهلة قبل أن يعلن الجيش اللبناني خلوها من مخلفات الحرب المتفجرة، أو عند وجود رفات بشرية غير معالجة.",
+  "The Council of Ministers approved the prioritisation methodology on 27 March 2025. For service restoration, priority considers lower damage intensity for quicker recovery, winter population, and pre-conflict economic activity.": "أقر مجلس الوزراء منهجية تحديد الأولويات في 27 آذار 2025. وعند استعادة الخدمات، تراعي الأولوية شدة ضرر أقل للتعافي الأسرع، وسكان الشتاء، والنشاط الاقتصادي قبل النزاع.",
+  "LEAP starts from rubble already moved to temporary sites. It anticipates treatment at suitable existing quarry sites or other determined locations, sorting concrete and steel for recycling and reuse, and safe disposal of unusable or hazardous material with site rehabilitation.": "ينطلق ليب من ركام نُقل بالفعل إلى مواقع مؤقتة. ويتوقع معالجته في مقالع قائمة مناسبة أو مواقع أخرى محددة، مع فرز الخرسانة والصلب لإعادة التدوير والاستخدام، والتخلص الآمن من المواد غير القابلة للاستخدام أو الخطرة مع تأهيل الموقع.",
+  "Site-specific environmental and social assessments and management plans are required depending on the works, alongside environmental, occupational-health and community-safety requirements.": "تُلزم الأعمال، بحسب نوعها، بتقييمات وخطط إدارة بيئية واجتماعية خاصة بالموقع، إلى جانب متطلبات البيئة والصحة المهنية وسلامة المجتمع.",
+  "The Council for Development and Reconstruction is responsible for implementation through a dedicated project management unit. The Prime Minister, in consultation with the Finance Minister, provides strategic guidance; line ministries provide technical input for prioritised areas and service needs.": "يتولى مجلس الإنماء والإعمار التنفيذ عبر وحدة مخصصة لإدارة المشروع. ويوفر رئيس مجلس الوزراء، بالتشاور مع وزير المالية، التوجيه الاستراتيجي؛ وتقدم الوزارات المعنية مدخلات فنية للمناطق ذات الأولوية واحتياجات الخدمات.",
+  "The stated reform measures include delegated decision-making, business-process reengineering, digitised financial and procurement systems, and information disclosure.": "تشمل تدابير الإصلاح المعلنة تفويض اتخاذ القرار، وإعادة هندسة إجراءات العمل، ورقمنة الأنظمة المالية وأنظمة المشتريات، والإفصاح عن المعلومات.",
+  "LEAP uses World Bank procurement regulations and standard documents, with publication of tenders, procurement plans and awards as required. Works procurement is designed for a 12-week timeline and consulting services for 18 weeks.": "يستخدم ليب لوائح ووثائق المشتريات القياسية للبنك الدولي، مع نشر المناقصات وخطط المشتريات والإحالات وفقاً للمتطلبات. وقد صُممت مدة مشتريات الأعمال لتكون 12 أسبوعاً، والخدمات الاستشارية 18 أسبوعاً.",
+  "Controls include supervision engineers, CDR site visits and quarterly progress reports, third-party monitoring using site visits and satellite imagery, independent engineering checks, annual external audits and World Bank reviews.": "تشمل الضوابط مهندسي الإشراف، وزيارات مجلس الإنماء والإعمار للمواقع، وتقارير تقدم ربع سنوية، ورصداً من طرف ثالث بالزيارات والصور الفضائية، وتدقيقات هندسية مستقلة، وتدقيقات خارجية سنوية، ومراجعات من البنك الدولي.",
+  "Ineligible activities include those with high-risk environmental or social impacts, projects affecting international waterways or disputed territories, critical natural habitats or cultural heritage, defense or security-related facilities, and activities requiring land acquisition.": "تشمل الأنشطة غير المؤهلة ما ينطوي على آثار بيئية أو اجتماعية عالية المخاطر، أو يمس المجاري المائية الدولية أو الأراضي المتنازع عليها أو الموائل الطبيعية الحرجة أو التراث الثقافي، أو مرافق الدفاع أو الأمن، أو يتطلب استملاك الأراضي.",
+  "Environmental and social instruments include impact assessments, management plans, labor and safety procedures, waste plans, stakeholder engagement and a grievance mechanism.": "تشمل الأدوات البيئية والاجتماعية تقييمات الأثر، وخطط الإدارة، وإجراءات العمل والسلامة، وخطط النفايات، وإشراك أصحاب المصلحة، وآلية للتظلمات.",
+  "Preparation consultations involved public institutions, municipalities, civil society, academic institutions and the private sector. The stakeholder plan focuses on accessible engagement, including with women, older people, persons with disabilities, displaced people and informal waste pickers.": "شملت المشاورات التحضيرية مؤسسات عامة وبلديات ومجتمعاً مدنياً ومؤسسات أكاديمية وقطاعاً خاصاً. وتركز خطة أصحاب المصلحة على مشاركة متاحة للجميع، بمن فيهم النساء وكبار السن والأشخاص ذوو الإعاقة والنازحون وجامعو النفايات غير الرسميين.",
+  "The factsheet lists interim project grievance channels through CDR, including": "تسرد النشرة التعريفية قنوات مؤقتة للتظلمات الخاصة بالمشروع عبر مجلس الإنماء والإعمار، منها",
+  "and +961 1 980096, alongside World Bank grievance channels.": "و +961 1 980096، إلى جانب قنوات التظلمات لدى البنك الدولي.",
+  "CDR project management unit": "وحدة إدارة مشروع مجلس الإنماء والإعمار",
+  "Coordinates the project, monitoring, evaluation and fiduciary oversight.": "تنسق المشروع والمتابعة والتقييم والرقابة الائتمانية.",
+  "Prime Minister's Office": "مكتب رئيس مجلس الوزراء",
+  "Provides strategic direction in consultation with the Ministry of Finance.": "يوفر التوجيه الاستراتيجي بالتشاور مع وزارة المالية.",
+  "Line ministries and local stakeholders": "الوزارات المعنية وأصحاب المصلحة المحليون",
+  "Inform prioritised areas, service needs and inclusive recovery choices.": "يسهمون في تحديد المناطق ذات الأولوية واحتياجات الخدمات وخيارات التعافي الشامل.",
+  "World Bank and independent monitors": "البنك الدولي والجهات الرقابية المستقلة",
+  "Apply procurement review, implementation support, supervision and third-party checks.": "يطبقون مراجعة المشتريات ودعم التنفيذ والإشراف والتحقق من طرف ثالث.",
+  "Confirm safety clearance and a documented eligible scope before works are interpreted as ready.": "تحقق من إخلاء الموقع للسلامة ومن نطاق مؤهل موثق قبل اعتبار الأعمال جاهزة.",
+  "Look for execution-ready design, procurement-plan entries and issued tender documentation.": "ابحث عن تصميم جاهز للتنفيذ وبنود في خطة المشتريات ووثائق مناقصات صادرة.",
+  "Look for award notices, supervision evidence, CDR site visits and third-party monitoring.": "ابحث عن إشعارات إحالة وأدلة إشراف وزيارات للمواقع من مجلس الإنماء والإعمار ورصد من طرف ثالث.",
+  "Look for quarterly financial reporting, audited statements and an explicit works-completion record.": "ابحث عن تقارير مالية ربع سنوية وكشوف مدققة وسجل صريح لاكتمال الأعمال.",
+  "components, safeguards and accountability": "المكونات والضمانات والمساءلة",
+  "financing, governance and delivery design": "تصميم التمويل والحوكمة والتنفيذ",
+  "disclosed project procurement record": "سجل مشتريات مشروع معلن",
+  "Source: World Bank LEAP factsheet, 17 February 2026. The amounts shown describe the framework and financing status stated in that publication; they do not prove project completion or disbursement.": "المصدر: النشرة التعريفية للبنك الدولي عن ليب، 17 شباط 2026. تصف المبالغ المعروضة الإطار وحالة التمويل الواردين في ذلك المنشور؛ ولا تثبت اكتمال المشروع أو الصرف.",
+  "Review source standards": "راجع معايير المصدر",
+  "OPEN SOURCE REGISTER": "سجل المصادر المفتوحة",
+  "Trace every number": "تتبع كل رقم",
+  "Records are curated from primary institutional publications, labelled by date, and linked to the original publication. Where local detail is unavailable, the site says so.": "تُنتقى السجلات من منشورات مؤسسية أولية، وتُوسم بالتاريخ وترتبط بالمنشور الأصلي. وعندما لا تتوفر تفاصيل محلية، يذكر الموقع ذلك صراحة.",
+  "01 Primary institutional source": "01 مصدر مؤسسي أولي",
+  "02 Publication date shown": "02 تاريخ النشر ظاهر",
+  "03 No inferred allocation values": "03 لا توجد قيم تخصيص مستنتجة",
+  "2026 RAPID ASSESSMENT · BEIRUT & MOUNT LEBANON": "تقييم سريع لعام 2026 · بيروت وجبل لبنان",
+  "buildings destroyed in Beirut & Mount Lebanon": "مبانٍ مدمّرة في بيروت وجبل لبنان",
+  "SOURCE: UNDP / CNRS-L / LAF / UNDSS, 9 JUN 2026": "المصدر: برنامج الأمم المتحدة الإنمائي / المجلس الوطني للبحوث العلمية في لبنان / الجيش اللبناني / إدارة الأمم المتحدة للسلامة والأمن، 9 حزيران 2026",
+  "Jun 2025": "حزيران 2025",
+  "Agriculture & food security": "الزراعة والأمن الغذائي",
+  "Commerce, industry & tourism": "التجارة والصناعة والسياحة",
+  "Environment & debris management": "البيئة وإدارة الركام",
+  "Municipal & public services": "الخدمات البلدية والعامة",
+  "Water, wastewater & irrigation": "المياه والصرف الصحي والري",
+  "Productive systems": "الأنظمة الإنتاجية",
+  "Social services": "الخدمات الاجتماعية",
+  "Public systems": "الأنظمة العامة",
+  "Public lifelines": "الخدمات العامة الأساسية",
+  "Built environment": "البيئة المبنية",
+  "Assessed in the RDNA as a national recovery sector.": "قُيّم في تقييم الاحتياجات بعد الكارثة كقطاع وطني للتعافي.",
+  "The RDNA estimates $3.4B in economic losses for this combined sector.": "يقدّر تقييم الاحتياجات بعد الكارثة الخسائر الاقتصادية في هذا القطاع المجمع بـ3.4 مليارات دولار.",
+  "The multi-agency assessment records disruption for hundreds of thousands of students.": "يوثق التقييم المشترك بين الوكالات اضطراباً أثر في مئات آلاف الطلاب.",
+  "Recovery planning includes rehabilitation of damaged environmental ecosystems.": "يشمل تخطيط التعافي تأهيل النظم البيئية المتضررة.",
+  "Included in the estimated public infrastructure financing requirement.": "مدرج ضمن احتياج التمويل المقدّر للبنية التحتية العامة.",
+  "Assessed alongside essential services critical to community recovery.": "قُيّم إلى جانب الخدمات الأساسية الحيوية لتعافي المجتمعات.",
+  "Housing is the largest assessed damage sector in the RDNA.": "الإسكان هو أكبر قطاع أضرار مقدّر في تقييم الاحتياجات بعد الكارثة.",
+  "Livelihood and food systems": "سبل العيش والنظم الغذائية",
+  "$3.4B assessed losses": "خسائر مقدّرة بـ3.4 مليارات دولار",
+  "Learning continuity": "استمرارية التعليم",
+  "Debris & environmental recovery": "التعافي من الركام والضرر البيئي",
+  "Public lifeline": "خدمة عامة أساسية",
+  "Essential service": "خدمة أساسية",
+  "$4.6B assessed damage": "أضرار مقدّرة بـ4.6 مليارات دولار",
+  "Public officials and institutions": "المسؤولون والمؤسسات العامة",
+  "NGOs, international organizations, and UN actors": "المنظمات غير الحكومية والدولية وجهات الأمم المتحدة",
+  "Municipal and local authorities": "السلطات البلدية والمحلية",
+  "Community initiatives": "المبادرات المجتمعية",
+  "National coordination, damage assessment, financing decisions, debris management, service restoration and procurement.": "التنسيق الوطني وتقييم الأضرار وقرارات التمويل وإدارة الركام واستعادة الخدمات والمشتريات.",
+  "Humanitarian coordination, assessments, relief, shelter, healthcare, financing and technical assistance.": "التنسيق الإنساني والتقييمات والإغاثة والمأوى والرعاية الصحية والتمويل والمساعدة التقنية.",
+  "Local damage reporting, rubble clearance, and communication with national and international actors.": "الإبلاغ المحلي عن الأضرار وإزالة الركام والتواصل مع الجهات الوطنية والدولية.",
+  "Relief distribution, fundraising, shelter support, damage reporting, rubble clearance, and household recovery.": "توزيع الإغاثة وجمع التبرعات ودعم المأوى والإبلاغ عن الأضرار وإزالة الركام وتعافي الأسر.",
+  "Financial actions": "الإجراءات المالية",
+  "Damage assessment and management": "تقييم الأضرار وإدارتها",
+  "Relief and community recovery": "الإغاثة والتعافي المجتمعي",
+  "Reconstruction and implementation": "إعادة الإعمار والتنفيذ",
+  "Financing · Compensation": "التمويل · التعويض",
+  "Damage and needs assessment · Rubble clearance · Debris treatment and disposal": "تقييم الأضرار والاحتياجات · إزالة الركام · معالجة الركام والتخلص منه",
+  "Relief · Shelter · Community recovery": "الإغاثة · المأوى · التعافي المجتمعي",
+  "Reconstruction and public-service restoration · Procurement and contracting · Strategy and coordination": "إعادة الإعمار واستعادة الخدمات العامة · المشتريات والتعاقد · الاستراتيجية والتنسيق",
+  "Separates financing announcements, approvals, disbursements and financial assistance to affected households, property owners and farmers.": "يفصل بين إعلانات التمويل والموافقات والصرف والمساعدة المالية للأسر المتضررة ومالكي العقارات والمزارعين.",
+  "Covers measuring and mapping damage, opening access, and managing debris with environmental and public-health safeguards.": "يغطي قياس الأضرار ورسم خرائطها وفتح الوصول وإدارة الركام مع ضمانات بيئية وصحية عامة.",
+  "Keeps immediate assistance, shelter support, household repairs, fundraising and volunteer recovery visible.": "يبقي المساعدة الفورية ودعم المأوى وإصلاحات الأسر وجمع التبرعات والتعافي التطوعي ظاهرة.",
+  "Distinguishes reconstruction delivery from the plans, tenders and coordination needed to reach it.": "يميز تنفيذ إعادة الإعمار عن الخطط والمناقصات والتنسيق اللازم للوصول إليه.",
+  "Nationwide baseline and recovery architecture": "خط أساس وطني وهيكلية التعافي",
+  "Rapid assessment, response and recovery transition": "تقييم سريع واستجابة وانتقال إلى التعافي",
+  "AFTER 2024 WAR": "ما بعد حرب 2024",
+  "AFTER 2026 WAR": "ما بعد حرب 2026",
+  "Actors": "الجهات الفاعلة",
+  "Actions": "الإجراءات",
+  "Evidence records": "سجلات الأدلة"
 });
 
 const originalTextNodes = new WeakMap();
+const originalAttributes = new WeakMap();
+
+function translatedText(value) {
+  const compact = value.replace(/\s+/g, " ").trim();
+  if (activeLocale !== "ar" || !compact) return value;
+  return arabicText[compact] || value;
+}
+
+function uiText(english, arabic) {
+  return activeLocale === "ar" ? arabic : english;
+}
 
 function localizeTextNode(node) {
   if (!node?.nodeValue || node.parentElement?.closest("script, style")) return;
@@ -437,8 +661,22 @@ function localizeTextNode(node) {
   if (!originalTextNodes.has(node)) originalTextNodes.set(node, original);
   const trimmed = original.trim();
   if (!trimmed) return;
-  const translated = activeLocale === "ar" ? (arabicText[trimmed] || original) : original;
+  const translated = activeLocale === "ar" ? translatedText(trimmed) : original;
   node.nodeValue = original.replace(trimmed, translated);
+}
+
+function localizeAttributes(root = document.body) {
+  if (!root?.querySelectorAll) return;
+  root.querySelectorAll("[aria-label],[placeholder],[title]").forEach(element => {
+    const original = originalAttributes.get(element) || {};
+    ["aria-label", "placeholder", "title"].forEach(attribute => {
+      if (!element.hasAttribute(attribute)) return;
+      if (!(attribute in original)) original[attribute] = element.getAttribute(attribute);
+      const value = original[attribute];
+      element.setAttribute(attribute, activeLocale === "ar" ? translatedText(value) : value);
+    });
+    originalAttributes.set(element, original);
+  });
 }
 
 function localizeTextTree(root = document.body) {
@@ -450,6 +688,7 @@ function localizeTextTree(root = document.body) {
   const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
   let node;
   while ((node = walker.nextNode())) localizeTextNode(node);
+  localizeAttributes(root);
 }
 
 const mapTopics = {
@@ -746,8 +985,11 @@ function matchesRecordArea(record) {
 function updateFreshness(reviewedAt = currentReviewedAt) {
   if (!overviewFreshness) return;
   currentReviewedAt = reviewedAt;
+  const formattedReviewedAt = activeLocale === "ar"
+    ? new Intl.DateTimeFormat("ar-LB", { dateStyle: "medium" }).format(new Date(reviewedAt))
+    : reviewedAt;
   overviewFreshness.textContent = activeLocale === "ar"
-    ? `سجل عام منتقى · آخر مراجعة ${reviewedAt}`
+    ? `سجل عام منتقى · آخر مراجعة ${formattedReviewedAt}`
     : `Curated public record · last reviewed ${reviewedAt}`;
 }
 
@@ -795,12 +1037,12 @@ function renderRecords() {
     return `
     <a class="project-row"${sourceLanguage} href="${record.href}"${external ? ' target="_blank" rel="noreferrer"' : ""}>
       <div class="project-title"><span class="project-icon">${record.icon}</span><div><p class="project-name">${record.name}</p><p class="project-place">${record.place}</p></div></div>
-      <p class="project-meta"><strong>${localizedPeriodLabel(record.period)} • ${localizedRecordFilter(record.filter)}</strong>${record.status}</p>
+      <p class="project-meta"><strong>${localizedPeriodLabel(record.period)} • ${localizedRecordFilter(record.filter)}</strong>${translatedText(record.status)}</p>
       <p class="project-funding">${record.funding}</p>
       <p class="record-marker">${record.marker}</p>
-      <span class="row-arrow" aria-label="Open primary source">↗</span>
+      <span class="row-arrow" aria-label="${translatedText("Open primary source")}">↗</span>
     </a>`;
-  }).join("") : `<p class="empty-state">No source-backed records match this search.</p>`;
+  }).join("") : `<p class="empty-state">${uiText("No source-backed records match this search.", "لا توجد سجلات مدعومة بالمصادر تطابق هذا البحث.")}</p>`;
 }
 
 function renderSectors() {
@@ -808,19 +1050,19 @@ function renderSectors() {
   sectorGrid.innerHTML = sectors.map(sector => `
     <article class="sector-tile">
       <div class="tile-top"><span>${sector.code}</span><i>${sector.icon}</i></div>
-      <p class="tile-group">${sector.group}</p>
-      <h3>${sector.name}</h3>
-      <p>${sector.note}</p>
+      <p class="tile-group">${translatedText(sector.group)}</p>
+      <h3>${translatedText(sector.name)}</h3>
+      <p>${translatedText(sector.note)}</p>
       <strong>${sector.fact}</strong>
     </article>`).join("");
 }
 
 function sourceHealth(source) {
-  if (source.local) return '<small class="source-health local">Local evidence input</small>';
-  if (source.check) return source.check.state === "reachable" ? `<small class="source-health reachable">Live check: ${source.check.status}</small>` : '<small class="source-health unavailable">Live check unavailable</small>';
-  if (source.snapshot?.state === "reachable") return `<small class="source-health scraped">Python scrape: ${source.snapshot.status}</small>`;
-  if (source.snapshot) return '<small class="source-health unavailable">Python scrape unavailable</small>';
-  return '<small class="source-health pending">Not checked this session</small>';
+  if (source.local) return `<small class="source-health local">${uiText("Local evidence input", "مدخل دليل محلي")}</small>`;
+  if (source.check) return source.check.state === "reachable" ? `<small class="source-health reachable">${uiText("Live check", "فحص مباشر")}: ${source.check.status}</small>` : `<small class="source-health unavailable">${uiText("Live check unavailable", "الفحص المباشر غير متاح")}</small>`;
+  if (source.snapshot?.state === "reachable") return `<small class="source-health scraped">${uiText("Python scrape", "فحص بايثون")}: ${source.snapshot.status}</small>`;
+  if (source.snapshot) return `<small class="source-health unavailable">${uiText("Python scrape unavailable", "فحص بايثون غير متاح")}</small>`;
+  return `<small class="source-health pending">${uiText("Not checked this session", "لم يُفحص في هذه الجلسة")}</small>`;
 }
 
 function escapeHtml(value) {
@@ -829,7 +1071,7 @@ function escapeHtml(value) {
 
 function sourceSnapshotDetail(source) {
   if (!source.snapshot?.description) return "";
-  return `<small class="source-snapshot" title="Metadata collected by the local Python source monitor">${escapeHtml(source.snapshot.description)}</small>`;
+  return `<small class="source-snapshot" title="${uiText("Metadata collected by the local Python source monitor", "بيانات وصفية جمعها مراقب المصادر المحلي")}">${escapeHtml(source.snapshot.description)}</small>`;
 }
 
 function renderSources() {
@@ -841,7 +1083,7 @@ function renderSources() {
     <${tag} class="source-row${source.local ? " local-source" : ""}"${attributes}>
       <div class="source-row-index">${String(sources.indexOf(source) + 1).padStart(2, "0")}</div>
       <div><h3>${source.name}</h3><p>${source.publisher}</p>${sourceSnapshotDetail(source)}</div>
-      <div class="source-row-meta"><span>${source.type}</span><strong>${source.coverage}</strong></div>
+      <div class="source-row-meta"><span>${translatedText(source.type)}</span><strong>${translatedText(source.coverage)}</strong></div>
       <time datetime="${source.date}">${source.date}${sourceHealth(source)}</time>
       <span class="row-arrow">${source.local ? "•" : "↗"}</span>
     </${tag}>`;
@@ -852,11 +1094,11 @@ function renderFramework() {
   if (!framework || !actorGrid || !actionGrid) return;
   actorGrid.innerHTML = framework.actorGroups.map(group => `
     <article class="taxonomy-card actor-card" style="--accent:${group.color}">
-      <span>${group.code}</span><h4>${group.name}</h4><p>${group.role}</p>
+      <span>${group.code}</span><h4>${translatedText(group.name)}</h4><p>${translatedText(group.role)}</p>
     </article>`).join("");
   actionGrid.innerHTML = framework.actionGroups.map(group => `
     <article class="taxonomy-card action-card" style="--accent:${group.color}">
-      <span>${group.code}</span><h4>${group.name}</h4><strong>${group.subcategories}</strong><p>${group.note}</p>
+      <span>${group.code}</span><h4>${translatedText(group.name)}</h4><strong>${translatedText(group.subcategories)}</strong><p>${translatedText(group.note)}</p>
     </article>`).join("");
 }
 
@@ -864,8 +1106,8 @@ function renderPeriodComparison() {
   const count2024 = records.filter(record => record.period === "2024").length;
   const count2026 = records.filter(record => record.period === "2026").length;
   const crossCutting = records.filter(record => record.period === "Cross-cutting").length;
-  document.querySelector("#periodCount2024").textContent = `${count2024} tagged records`;
-  document.querySelector("#periodCount2026").textContent = `${count2026} tagged records`;
+  document.querySelector("#periodCount2024").textContent = activeLocale === "ar" ? `${count2024} سجل موسوم` : `${count2024} tagged records`;
+  document.querySelector("#periodCount2026").textContent = activeLocale === "ar" ? `${count2026} سجل موسوم` : `${count2026} tagged records`;
   document.querySelectorAll(".period-filter-button").forEach(button => {
     const isActive = button.dataset.period === activePeriod;
     button.classList.toggle("active", isActive);
@@ -897,8 +1139,8 @@ function renderAftermathBoard() {
     if (highlights) {
       highlights.innerHTML = trackRecords.slice(0, 3).map(record => `
         <a href="${record.href}"${record.href.startsWith("http") ? ' target="_blank" rel="noreferrer"' : ""}>
-          <span>${record.filter}</span><strong>${record.name}</strong><i>↗</i>
-        </a>`).join("") || '<p>No highlighted record is currently tagged to this track.</p>';
+          <span>${localizedRecordFilter(record.filter)}</span><strong>${record.name}</strong><i>↗</i>
+        </a>`).join("") || `<p>${uiText("No highlighted record is currently tagged to this track.", "لا يوجد سجل بارز موسوم بهذا المسار حالياً.")}</p>`;
     }
   });
   document.querySelectorAll("[data-aftermath-track]").forEach(board => {
@@ -926,7 +1168,7 @@ function renderAftermathDetails() {
   ];
   const mixRows = (counts, total, label) => [...counts.entries()]
     .sort((left, right) => right[1] - left[1])
-    .map(([name, count]) => `<div class="aftermath-mix-row"><span>${name}</span><div><i style="width:${total ? Math.round((count / total) * 100) : 0}%"></i></div><b>${count}</b></div>`).join("") || `<p class="aftermath-empty">No ${label.toLowerCase()} are currently tagged to this aftermath.</p>`;
+    .map(([name, count]) => `<div class="aftermath-mix-row"><span>${translatedText(name)}</span><div><i style="width:${total ? Math.round((count / total) * 100) : 0}%"></i></div><b>${count}</b></div>`).join("") || `<p class="aftermath-empty">${activeLocale === "ar" ? `لا توجد ${label === "actors" ? "جهات فاعلة" : label === "actions" ? "إجراءات" : "سجلات"} موسومة بهذا المسار.` : `No ${label.toLowerCase()} are currently tagged to this aftermath.`}</p>`;
   grid.innerHTML = tracks.map(track => {
     const trackRecords = records.filter(record => record.period === track.period);
     const trackActors = actors.filter(actor => actor.period === track.period);
@@ -935,11 +1177,11 @@ function renderAftermathDetails() {
     const actionMix = tallyBy(trackActions, action => classifyAction(action).category);
     const evidenceMix = tallyBy(trackRecords, record => record.filter);
     return `<article class="aftermath-detail-card ${track.className}" data-aftermath-detail="${track.period}">
-      <div class="aftermath-detail-top"><span>${track.title}</span><strong>${track.subtitle}</strong></div>
-      <div class="aftermath-mix-block"><h4>Actors <b>${trackActors.length}</b></h4>${mixRows(actorMix, trackActors.length, "actors")}</div>
-      <div class="aftermath-mix-block"><h4>Actions <b>${trackActions.length}</b></h4>${mixRows(actionMix, trackActions.length, "actions")}</div>
-      <div class="aftermath-mix-block"><h4>Evidence records <b>${trackRecords.length}</b></h4>${mixRows(evidenceMix, trackRecords.length, "records")}</div>
-      <a class="aftermath-detail-link" href="?period=${track.period}#projects">Open full ${track.period} record set <span>↗</span></a>
+      <div class="aftermath-detail-top"><span>${translatedText(track.title)}</span><strong>${translatedText(track.subtitle)}</strong></div>
+      <div class="aftermath-mix-block"><h4>${uiText("Actors", "الجهات الفاعلة")} <b>${trackActors.length}</b></h4>${mixRows(actorMix, trackActors.length, "actors")}</div>
+      <div class="aftermath-mix-block"><h4>${uiText("Actions", "الإجراءات")} <b>${trackActions.length}</b></h4>${mixRows(actionMix, trackActions.length, "actions")}</div>
+      <div class="aftermath-mix-block"><h4>${uiText("Evidence records", "سجلات الأدلة")} <b>${trackRecords.length}</b></h4>${mixRows(evidenceMix, trackRecords.length, "records")}</div>
+      <a class="aftermath-detail-link" href="?period=${track.period}#projects">${activeLocale === "ar" ? `افتح كامل سجل ${track.period}` : `Open full ${track.period} record set`} <span>↗</span></a>
     </article>`;
   }).join("");
   document.querySelectorAll("[data-aftermath-detail]").forEach(card => {
@@ -1024,26 +1266,26 @@ function renderRegistries() {
   const actorGroups = OBSERVATORY_DATA.framework.actorGroups;
   const actionGroups = OBSERVATORY_DATA.framework.actionGroups;
 
-  actorRegistry.innerHTML = activeActors.length ? actorGroups.map((group, index) => {
+  actorRegistry.innerHTML = activeActors.length ? actorGroups.map(group => {
     const groupedActors = activeActors.filter(actor => actorGroupFor(actor) === group.name);
-    return `<details class="catalog-group actor-catalog-group"${query || index === 0 ? " open" : ""}>
-      <summary><span class="catalog-code">${group.code}</span><span><strong>${group.name}</strong><small>${group.role}</small></span><b>${groupedActors.length}</b></summary>
-      <div class="catalog-list">${groupedActors.length ? groupedActors.map(catalogEntryForActor).join("") : '<p class="registry-empty">No actor entries are tagged to this group for the selected period.</p>'}</div>
+    return `<details class="catalog-group actor-catalog-group"${query ? " open" : ""}>
+      <summary><span class="catalog-code">${group.code}</span><span><strong>${translatedText(group.name)}</strong><small>${translatedText(group.role)}</small></span><b>${groupedActors.length}</b></summary>
+      <div class="catalog-list">${groupedActors.length ? groupedActors.map(catalogEntryForActor).join("") : `<p class="registry-empty">${uiText("No actor entries are tagged to this group for the selected period.", "لا توجد سجلات جهات فاعلة موسومة بهذه المجموعة في الفترة المختارة.")}</p>`}</div>
     </details>`;
-  }).join("") : '<p class="registry-empty">No named actor entries are tagged to this response period.</p>';
+  }).join("") : `<p class="registry-empty">${uiText("No named actor entries are tagged to this response period.", "لا توجد سجلات لجهات فاعلة مسماة موسومة بفترة الاستجابة هذه.")}</p>`;
 
-  actionRegistry.innerHTML = activeActions.length ? actionGroups.map((group, index) => {
+  actionRegistry.innerHTML = activeActions.length ? actionGroups.map(group => {
     const groupedActions = activeActions.filter(action => classifyAction(action).category === group.name);
     const subcategories = group.subcategories.split(" · ");
     const matchingSubcategories = query ? subcategories.filter(subcategory => groupedActions.some(action => classifyAction(action).subcategory === subcategory)) : subcategories;
-    return `<details class="catalog-group action-catalog-group"${query || index === 0 ? " open" : ""}>
-      <summary><span class="catalog-code">${group.code}</span><span><strong>${group.name}</strong><small>${group.note}</small></span><b>${groupedActions.length}</b></summary>
+    return `<details class="catalog-group action-catalog-group"${query ? " open" : ""}>
+      <summary><span class="catalog-code">${group.code}</span><span><strong>${translatedText(group.name)}</strong><small>${translatedText(group.note)}</small></span><b>${groupedActions.length}</b></summary>
       <div class="catalog-list action-catalog-list">${matchingSubcategories.length ? matchingSubcategories.map(subcategory => {
         const entries = groupedActions.filter(action => classifyAction(action).subcategory === subcategory);
-        return `<section class="catalog-subgroup"><div class="catalog-subgroup-head"><h5>${subcategory}</h5><span>${entries.length}</span></div>${entries.length ? entries.map(catalogEntryForAction).join("") : '<p class="registry-empty">No matching entries for the selected period.</p>'}</section>`;
-      }).join("") : '<p class="registry-empty">No action entries match this search in the selected period.</p>'}</div>
+        return `<section class="catalog-subgroup"><div class="catalog-subgroup-head"><h5>${translatedText(subcategory)}</h5><span>${entries.length}</span></div>${entries.length ? entries.map(catalogEntryForAction).join("") : `<p class="registry-empty">${uiText("No matching entries for the selected period.", "لا توجد سجلات مطابقة للفترة المختارة.")}</p>`}</section>`;
+      }).join("") : `<p class="registry-empty">${uiText("No action entries match this search in the selected period.", "لا توجد سجلات إجراءات تطابق هذا البحث في الفترة المختارة.")}</p>`}</div>
     </details>`;
-  }).join("") : '<p class="registry-empty">No documented action entries are tagged to this response period.</p>';
+  }).join("") : `<p class="registry-empty">${uiText("No documented action entries are tagged to this response period.", "لا توجد سجلات إجراءات موثقة موسومة بفترة الاستجابة هذه.")}</p>`;
 
   if (actorCatalogCount) actorCatalogCount.textContent = activeActors.length;
   if (actionCatalogCount) actionCatalogCount.textContent = activeActions.length;
@@ -1057,30 +1299,30 @@ function renderRegistries() {
       : `${activeActors.length} named actors and ${activeActions.length} documented actions in the ${localizedPeriodLabel(activePeriod)} track. Every entry opens its original online publication.`;
   }
   if (actorsPeriodStatus) {
-    actorsPeriodStatus.textContent = activePeriod === "All"
-      ? "Showing all actor and action records, including cross-cutting entries."
-      : `Showing the ${localizedPeriodLabel(activePeriod)} actor and action register.`;
+    actorsPeriodStatus.textContent = activeLocale === "ar"
+      ? (activePeriod === "All" ? "تعرض كل سجلات الجهات الفاعلة والإجراءات، بما فيها السجلات العابرة للفترات." : `تعرض سجل الجهات الفاعلة والإجراءات لمسار ${localizedPeriodLabel(activePeriod)}.`)
+      : (activePeriod === "All" ? "Showing all actor and action records, including cross-cutting entries." : `Showing the ${localizedPeriodLabel(activePeriod)} actor and action register.`);
   }
   if (catalogSearchStatus) {
-    catalogSearchStatus.textContent = query
-      ? `Showing ${activeActors.length} actors and ${activeActions.length} actions matching “${catalogQuery.trim()}”.`
-      : "Showing all categories for the selected period.";
+    catalogSearchStatus.textContent = activeLocale === "ar"
+      ? (query ? `تعرض ${activeActors.length} جهة فاعلة و${activeActions.length} إجراءً يطابقان «${catalogQuery.trim()}».` : "تعرض كل الفئات للفترة المختارة.")
+      : (query ? `Showing ${activeActors.length} actors and ${activeActions.length} actions matching “${catalogQuery.trim()}”.` : "Showing all categories for the selected period.");
   }
 }
 
 function formatNewsDate(date) {
-  return new Intl.DateTimeFormat("en-GB", { day: "2-digit", month: "short", year: "numeric" }).format(new Date(`${date}T12:00:00Z`));
+  return new Intl.DateTimeFormat(activeLocale === "ar" ? "ar-LB" : "en-GB", { day: "2-digit", month: "short", year: "numeric" }).format(new Date(`${date}T12:00:00Z`));
 }
 
 function formatCheckedAt(timestamp) {
-  return new Intl.DateTimeFormat("en-GB", { dateStyle: "medium", timeStyle: "short" }).format(new Date(timestamp));
+  return new Intl.DateTimeFormat(activeLocale === "ar" ? "ar-LB" : "en-GB", { dateStyle: "medium", timeStyle: "short" }).format(new Date(timestamp));
 }
 
 function newsCheckLabel(item) {
-  if (item.check) return item.check.state === "reachable" ? `Source checked ${formatCheckedAt(item.check.checkedAt)}` : "Live source check unavailable";
-  if (item.snapshot?.state === "reachable") return `Python scrape ${item.snapshot.status} · ${formatCheckedAt(item.snapshot.checkedAt)}`;
-  if (item.snapshot) return "Python scrape unavailable";
-  return "Ready for source check";
+  if (item.check) return item.check.state === "reachable" ? uiText(`Source checked ${formatCheckedAt(item.check.checkedAt)}`, `فُحص المصدر ${formatCheckedAt(item.check.checkedAt)}`) : uiText("Live source check unavailable", "فحص المصدر المباشر غير متاح");
+  if (item.snapshot?.state === "reachable") return uiText(`Python scrape ${item.snapshot.status} · ${formatCheckedAt(item.snapshot.checkedAt)}`, `فحص بايثون ${item.snapshot.status} · ${formatCheckedAt(item.snapshot.checkedAt)}`);
+  if (item.snapshot) return uiText("Python scrape unavailable", "فحص بايثون غير متاح");
+  return uiText("Ready for source check", "جاهز لفحص المصدر");
 }
 
 function renderNews() {
@@ -1090,11 +1332,11 @@ function renderNews() {
     .sort((left, right) => right.date.localeCompare(left.date));
   newsList.innerHTML = filteredNews.length ? filteredNews.map(item => `
     <article class="news-card" data-news-category="${item.category}">
-      <div class="news-card-top"><span>${item.category}</span><time datetime="${item.date}">${formatNewsDate(item.date)}</time></div>
+      <div class="news-card-top"><span>${translatedText(item.category)}</span><time datetime="${item.date}">${formatNewsDate(item.date)}</time></div>
       <h3>${item.title}</h3>
       <p>${item.summary}</p>
       <div class="news-card-bottom"><small><i class="${item.check && item.check.state === "reachable" ? "checked" : ""}"></i>${newsCheckLabel(item)}</small><a href="${item.href}" target="_blank" rel="noreferrer">${item.publisher} <span>↗</span></a></div>
-    </article>`).join("") : '<p class="empty-state">No monitored updates match this category.</p>';
+    </article>`).join("") : `<p class="empty-state">${uiText("No monitored updates match this category.", "لا توجد تحديثات مراقبة تطابق هذه الفئة.")}</p>`;
 }
 
 
@@ -1113,7 +1355,7 @@ function downloadRecords() {
     document.body.append(link);
     link.click();
     link.remove();
-    showToast(`Server export requested for ${visibleRecords.length} visible source records`);
+    showToast(uiText(`Server export requested for ${visibleRecords.length} visible source records`, `طُلب تصدير ${visibleRecords.length} سجل مصدر ظاهر.`));
     return;
   }
   const header = ["Record", "Response period", "Type", "Publisher / partner", "Location / coverage", "Headline measure", "Supporting detail", "Publication date", "Primary source"];
@@ -1128,7 +1370,7 @@ function downloadRecords() {
   link.click();
   link.remove();
   window.setTimeout(() => URL.revokeObjectURL(link.href), 0);
-  showToast(`Downloaded ${visibleRecords.length} visible source records as CSV`);
+  showToast(uiText(`Downloaded ${visibleRecords.length} visible source records as CSV`, `نُزّل ${visibleRecords.length} سجل مصدر ظاهر بصيغة CSV.`));
 }
 
 projectSearch.addEventListener("input", renderRecords);
@@ -1161,12 +1403,12 @@ document.querySelector("[data-download]")?.addEventListener("click", downloadRec
 
 async function refreshSources() {
   if (!apiAvailable) {
-    showToast("Start the local application server to run live source checks");
+    showToast(uiText("Start the local application server to run live source checks", "شغّل خادم التطبيق المحلي لإجراء فحوصات المصادر المباشرة."));
     return;
   }
   sourceRefresh.disabled = true;
   sourceRefresh.classList.add("checking");
-  sourceRefresh.innerHTML = "<span>↻</span> Checking…";
+  sourceRefresh.innerHTML = `<span>↻</span> ${uiText("Checking…", "جارٍ الفحص…")}`;
   try {
     const response = await fetch(apiUrl("/api/refresh"), { method: "POST" });
     if (!response.ok) throw new Error("Refresh request failed");
@@ -1175,16 +1417,18 @@ async function refreshSources() {
     renderSources();
     const remoteChecks = payload.checks.filter(check => check.state !== "local");
     const reachable = remoteChecks.filter(check => check.state === "reachable").length;
-    const timestamp = new Intl.DateTimeFormat("en-GB", { dateStyle: "medium", timeStyle: "short" }).format(new Date(payload.checkedAt));
-    if (sourceReview) sourceReview.innerHTML = `<i></i> Live check: ${reachable}/${remoteChecks.length} public sources reachable • ${timestamp}`;
-    showToast(`Live source check complete: ${reachable}/${remoteChecks.length} public sources reachable`);
+    const timestamp = formatCheckedAt(payload.checkedAt);
+    if (sourceReview) sourceReview.innerHTML = activeLocale === "ar"
+      ? `<i></i> فحص مباشر: ${reachable}/${remoteChecks.length} مصدر عام متاح • ${timestamp}`
+      : `<i></i> Live check: ${reachable}/${remoteChecks.length} public sources reachable • ${timestamp}`;
+    showToast(uiText(`Live source check complete: ${reachable}/${remoteChecks.length} public sources reachable`, `اكتمل فحص المصادر المباشر: ${reachable}/${remoteChecks.length} مصدر عام متاح.`));
   } catch (error) {
-    if (sourceReview) sourceReview.innerHTML = "<i></i> Live source check could not complete";
-    showToast("Source check failed; cached records remain available");
+    if (sourceReview) sourceReview.innerHTML = `<i></i> ${uiText("Live source check could not complete", "تعذر إكمال فحص المصدر المباشر")}`;
+    showToast(uiText("Source check failed; cached records remain available", "فشل فحص المصدر؛ تبقى السجلات المخزنة متاحة."));
   } finally {
     sourceRefresh.disabled = false;
     sourceRefresh.classList.remove("checking");
-    sourceRefresh.innerHTML = "<span>↻</span> Check sources";
+    sourceRefresh.innerHTML = `<span>↻</span> ${uiText("Check sources", "تحقق من المصادر")}`;
   }
 }
 
@@ -1192,11 +1436,11 @@ sourceRefresh?.addEventListener("click", refreshSources);
 
 async function refreshNews() {
   if (!apiAvailable) {
-    showToast("Start the local application server to check monitored updates");
+    showToast(uiText("Start the local application server to check monitored updates", "شغّل خادم التطبيق المحلي لفحص التحديثات المراقبة."));
     return;
   }
   newsRefresh.disabled = true;
-  newsRefresh.innerHTML = "<span>↻</span> Checking…";
+  newsRefresh.innerHTML = `<span>↻</span> ${uiText("Checking…", "جارٍ الفحص…")}`;
   try {
     const response = await fetch(apiUrl("/api/news/refresh"), { method: "POST" });
     if (!response.ok) throw new Error("News refresh failed");
@@ -1204,14 +1448,16 @@ async function refreshNews() {
     news = payload.news;
     renderNews();
     const reachable = payload.checks.filter(check => check.state === "reachable").length;
-    newsStatus.innerHTML = `<i></i> Last official-source check: ${reachable}/${payload.checks.length} pages reachable • ${formatCheckedAt(payload.checkedAt)}`;
-    showToast(`Checked ${reachable}/${payload.checks.length} monitored update pages`);
+    newsStatus.innerHTML = activeLocale === "ar"
+      ? `<i></i> آخر فحص للمصادر الرسمية: ${reachable}/${payload.checks.length} صفحة متاحة • ${formatCheckedAt(payload.checkedAt)}`
+      : `<i></i> Last official-source check: ${reachable}/${payload.checks.length} pages reachable • ${formatCheckedAt(payload.checkedAt)}`;
+    showToast(uiText(`Checked ${reachable}/${payload.checks.length} monitored update pages`, `فُحصت ${reachable}/${payload.checks.length} صفحة تحديث مراقبة.`));
   } catch (error) {
-    newsStatus.innerHTML = "<i></i> Live update check could not complete; curated links remain available.";
-    showToast("Live update check failed; showing cached updates");
+    newsStatus.innerHTML = `<i></i> ${uiText("Live update check could not complete; curated links remain available.", "تعذر إكمال فحص التحديثات المباشر؛ وتبقى الروابط المنتقاة متاحة.")}`;
+    showToast(uiText("Live update check failed; showing cached updates", "فشل فحص التحديثات المباشر؛ تعرض التحديثات المخزنة."));
   } finally {
     newsRefresh.disabled = false;
-    newsRefresh.innerHTML = "<span>↻</span> Refresh source status";
+    newsRefresh.innerHTML = `<span>↻</span> ${uiText("Refresh source status", "تحديث حالة المصدر")}`;
   }
 }
 
@@ -1239,11 +1485,13 @@ async function loadApplicationData() {
     renderAftermathBoard();
     renderAftermathDetails();
     renderRecords();
-    const snapshots = sourcesPayload.snapshotCount ? ` • ${sourcesPayload.snapshotCount} Python metadata snapshots` : "";
-    if (sourceReview) sourceReview.innerHTML = `<i></i> Local API connected • ${healthPayload.recordCount} records${snapshots} • reviewed ${healthPayload.reviewedAt}`;
+    const snapshots = sourcesPayload.snapshotCount ? (activeLocale === "ar" ? ` • ${sourcesPayload.snapshotCount} لقطة بيانات وصفية من بايثون` : ` • ${sourcesPayload.snapshotCount} Python metadata snapshots`) : "";
+    if (sourceReview) sourceReview.innerHTML = activeLocale === "ar"
+      ? `<i></i> واجهة التطبيق المحلية متصلة • ${healthPayload.recordCount} سجل${snapshots} • آخر مراجعة ${healthPayload.reviewedAt}`
+      : `<i></i> Local API connected • ${healthPayload.recordCount} records${snapshots} • reviewed ${healthPayload.reviewedAt}`;
     updateFreshness(healthPayload.reviewedAt);
   } catch (error) {
-    if (sourceReview) sourceReview.innerHTML = "<i></i> Local fallback dataset • start server.js for live checks";
+    if (sourceReview) sourceReview.innerHTML = `<i></i> ${uiText("Local fallback dataset • start server.js for live checks", "مجموعة بيانات محلية بديلة • شغّل server.js لإجراء الفحوصات المباشرة")}`;
     updateFreshness(seedData.reviewedAt);
   }
 }
@@ -1255,8 +1503,12 @@ async function loadNews() {
     const payload = await response.json();
     news = payload.news;
     renderNews();
-    if (payload.checkedAt) newsStatus.innerHTML = `<i></i> Last official-source check: ${formatCheckedAt(payload.checkedAt)} • refresh to check again.`;
-    else if (payload.snapshotCount) newsStatus.innerHTML = `<i></i> Python metadata monitor loaded for ${payload.snapshotCount} official pages. Refresh to run a live status check.`;
+    if (payload.checkedAt) newsStatus.innerHTML = activeLocale === "ar"
+      ? `<i></i> آخر فحص للمصادر الرسمية: ${formatCheckedAt(payload.checkedAt)} • حدّث لإعادة الفحص.`
+      : `<i></i> Last official-source check: ${formatCheckedAt(payload.checkedAt)} • refresh to check again.`;
+    else if (payload.snapshotCount) newsStatus.innerHTML = activeLocale === "ar"
+      ? `<i></i> حُمّل مراقب البيانات الوصفية من بايثون لـ ${payload.snapshotCount} صفحة رسمية. حدّث لإجراء فحص مباشر.`
+      : `<i></i> Python metadata monitor loaded for ${payload.snapshotCount} official pages. Refresh to run a live status check.`;
   } catch (error) {
     renderNews();
   }
@@ -1279,6 +1531,33 @@ const occupation2024LabbounehSource = {
   source: "Open October 2024 UN Security Council document",
   href: "https://digitallibrary.un.org/record/4064887/files/A_79_530--S_2024_738-EN.pdf"
 };
+
+const southLebanonDamageSource = {
+  source: "Open UNDP South Lebanon damage assessment",
+  href: "https://www.undp.org/lebanon/press-releases/building-damage-assessment-estimates-over-usd-138-billion-across-south-lebanon-until-april-2026"
+};
+
+const beirutMountLebanonDamageSource = {
+  source: "Open UNDP Beirut & Mount Lebanon damage assessment",
+  href: "https://www.undp.org/lebanon/press-releases/rapid-damage-assessment-estimates-over-us365-million-building-damage-across-beirut-and-mount-lebanon"
+};
+
+// These are deliberately limited to locations the cited UNDP releases name. They are
+// nearby-town locators, not boundary polygons and not a complete damage inventory.
+const townEvidenceLocations = [
+  { id: "aaitaroun-damage", name: "Aaitaroun", nameAr: "عيترون", lon: 35.4701, lat: 33.1034, kind: "destroyed", count: 1658, labelDx: 18, labelDy: -14, source: southLebanonDamageSource, detail: "1,658 buildings completely destroyed" },
+  { id: "bint-jbeil-damage", name: "Bint Jbeil", nameAr: "بنت جبيل", lon: 35.4282, lat: 33.1194, kind: "destroyed", count: 1076, labelDx: -18, labelDy: 26, source: southLebanonDamageSource, detail: "1,076 buildings completely destroyed" },
+  { id: "meiss-el-jabal-damage", name: "Meiss El Jabal", nameAr: "ميس الجبل", lon: 35.5512, lat: 33.1318, kind: "destroyed", count: 969, labelDx: 18, labelDy: 18, source: southLebanonDamageSource, detail: "969 buildings completely destroyed" },
+  { id: "taybeh-damage", name: "Taybeh", nameAr: "الطيبة", lon: 35.5364, lat: 33.2172, kind: "destroyed", count: 824, labelDx: 18, labelDy: -10, source: southLebanonDamageSource, detail: "824 buildings completely destroyed" },
+  { id: "borj-ech-chemali-damage", name: "Borj Ech Chemali", nameAr: "برج الشمالي", lon: 35.2242, lat: 33.2515, kind: "destroyed", count: 370, labelDx: 18, labelDy: 20, source: southLebanonDamageSource, detail: "370 buildings completely destroyed" },
+  { id: "borj-en-naqoura-damage", name: "Borj En-Naqoura", nameAr: "برج الناقورة", lon: 35.1575, lat: 33.1231, kind: "destroyed", count: 216, labelDx: -18, labelDy: -14, source: southLebanonDamageSource, detail: "216 buildings completely destroyed" },
+  { id: "haret-hreik-hotspot", name: "Haret Hreik", nameAr: "حارة حريك", lon: 35.533, lat: 33.8405, kind: "hotspot", labelDx: 28, labelDy: -42, source: beirutMountLebanonDamageSource, detail: "Named UNDP damage concentration; no town-specific building count published" },
+  { id: "hadath-hotspot", name: "Hadath", nameAr: "الحدث", lon: 35.5362, lat: 33.8361, kind: "hotspot", labelDx: 58, labelDy: -12, source: beirutMountLebanonDamageSource, detail: "Named UNDP damage concentration; no town-specific building count published" },
+  { id: "chiyah-hotspot", name: "Chiyah", nameAr: "الشياح", lon: 35.5239, lat: 33.8429, kind: "hotspot", labelDx: -64, labelDy: -24, source: beirutMountLebanonDamageSource, detail: "Named UNDP damage concentration; no town-specific building count published" },
+  { id: "borj-el-barajneh-hotspot", name: "Burj El Barajneh", nameAr: "برج البراجنة", lon: 35.5381, lat: 33.844, kind: "hotspot", labelDx: 76, labelDy: 26, source: beirutMountLebanonDamageSource, detail: "Named UNDP damage concentration; no town-specific building count published" },
+  { id: "laylaki-hotspot", name: "Laylaki", nameAr: "الليلكي", lon: 35.5437, lat: 33.8422, kind: "hotspot", labelDx: -70, labelDy: 45, source: beirutMountLebanonDamageSource, detail: "Named UNDP damage concentration; no town-specific building count published" },
+  { id: "choueifat-amroussieh-hotspot", name: "Choueifat–Amroussieh", nameAr: "الشويفات–العمروسية", lon: 35.536, lat: 33.8101, kind: "hotspot", labelDx: 25, labelDy: 68, source: beirutMountLebanonDamageSource, detail: "Named UNDP damage concentration; no town-specific building count published" }
+];
 
 const occupationLocations2026 = [
   { id: "labbouneh", name: "Labbouneh", nearby: "Alma al-Shaab", lon: 35.176, lat: 33.090 },
@@ -1403,8 +1682,9 @@ const geoMap = document.querySelector("#geoMap");
 const mapStatus = document.querySelector("#mapStatus");
 const mapLegend = document.querySelector("#mapLegend");
 const mapContextStatus = document.querySelector("#mapContextStatus");
+const townEvidencePanel = document.querySelector("#townEvidencePanel");
 let activeMap = "severity";
-let activeMapPeriod = activePeriod === "All" ? "2026" : activePeriod;
+let activeMapPeriod = "2026";
 let occupationOverlayVisible = false;
 let selectedRegion = "South";
 let officialMapFeatures = [];
@@ -1452,26 +1732,95 @@ function createMapProjection(features) {
   return (longitude, latitude) => ({ x: offsetX + (longitude - minLongitude) * scale, y: MAP_HEIGHT - offsetY - (latitude - minLatitude) * scale });
 }
 
-function renderTownLayer(project) {
+function markerRadius(location) {
+  return location.count ? Math.min(17, 5 + Math.log10(location.count) * 4.2) : 6;
+}
+
+function mapMarkerText(location) {
+  if (location.count) return activeLocale === "ar" ? `${location.count.toLocaleString("en-US")} مبانٍ مدمّرة` : `${location.count.toLocaleString("en-US")} destroyed`;
+  return activeLocale === "ar" ? "تركيز ضرر موثق" : "documented damage concentration";
+}
+
+function renderEvidenceMarkers(project) {
+  return townEvidenceLocations.map(location => {
+    const point = project(location.lon, location.lat);
+    const label = activeLocale === "ar" ? location.nameAr : location.name;
+    const metric = mapMarkerText(location);
+    const labelX = point.x + location.labelDx;
+    const labelY = point.y + location.labelDy;
+    const textAnchor = location.labelDx < 0 ? "end" : "start";
+    const marker = location.kind === "destroyed"
+      ? `<circle class="town-dot town-marker-destroyed" cx="${point.x}" cy="${point.y}" r="${markerRadius(location).toFixed(1)}" />`
+      : `<rect class="town-dot town-marker-concentration" x="${point.x - 5.5}" y="${point.y - 5.5}" width="11" height="11" transform="rotate(45 ${point.x} ${point.y})" />`;
+    const markerLabel = activeLocale === "ar" ? `اعرض دليل ${label}` : `Show evidence for ${label}`;
+    return `<g class="town-location town-${location.kind}" data-town-evidence="${location.id}" role="button" tabindex="0" aria-label="${markerLabel}"><rect class="location-hit" x="${point.x - 18}" y="${point.y - 18}" width="36" height="36" rx="18" />${marker}<line class="town-callout-line" x1="${point.x}" y1="${point.y}" x2="${labelX}" y2="${labelY - 5}" /><text x="${labelX}" y="${labelY}" text-anchor="${textAnchor}"><tspan>${label}</tspan><tspan class="town-marker-metric" x="${labelX}" dy="12">${metric}</tspan></text></g>`;
+  }).join("");
+}
+
+function renderOccupationMarkers(project) {
   const layer = occupationOverlayVisible ? occupationLayerForPeriod() : null;
   if (!layer) return "";
-  const locations = layer.locations;
-  const markerClass = "occupation-location";
-  return `<g class="town-layer">${locations.map(location => {
+  return layer.locations.map(location => {
     const point = project(location.lon, location.lat);
     const label = `${location.name} near ${location.nearby}`;
     const marker = `<path class="occupation-cross" d="M${point.x - 7} ${point.y - 7} L${point.x + 7} ${point.y + 7} M${point.x + 7} ${point.y - 7} L${point.x - 7} ${point.y + 7}" />`;
     const hitWidth = Math.max(34, label.length * 6 + 20);
     const ariaLabel = activeLocale === "ar" ? `اعرض ${layer.label} قرب ${location.nearby}` : `Show ${layer.label} near ${location.nearby}`;
-    return `<g class="${markerClass}" data-location="${location.id}" role="button" tabindex="0" aria-label="${ariaLabel}"><rect class="location-hit" x="${point.x - 12}" y="${point.y - 25}" width="${hitWidth}" height="32" rx="3" />${marker}<text x="${point.x + 10}" y="${point.y - 8}">${label}</text></g>`;
-  }).join("")}</g>`;
+    return `<g class="occupation-location" data-location="${location.id}" role="button" tabindex="0" aria-label="${ariaLabel}"><rect class="location-hit" x="${point.x - 12}" y="${point.y - 25}" width="${hitWidth}" height="32" rx="3" />${marker}<text x="${point.x + 10}" y="${point.y - 8}">${label}</text></g>`;
+  }).join("");
+}
+
+function renderTownLayer(project) {
+  return `<g class="town-layer">${renderEvidenceMarkers(project)}${renderOccupationMarkers(project)}</g>`;
+}
+
+function renderTownEvidenceSummary() {
+  if (!townEvidencePanel) return;
+  const countLocations = townEvidenceLocations.filter(location => location.count).length;
+  const hotspotLocations = townEvidenceLocations.length - countLocations;
+  const title = activeLocale === "ar" ? "ماذا تُظهر الخريطة" : "What this map shows";
+  const summary = activeLocale === "ar"
+    ? `تظهر ${townEvidenceLocations.length} محددات مواقع فقط: ${countLocations} بلدات نشر المصدر لها أعداد مبانٍ مدمّرة، و${hotspotLocations} مناطق سماها المصدر كمناطق تركز للضرر من دون أعداد قابلة للمقارنة على مستوى البلدة.`
+    : `Only ${townEvidenceLocations.length} source-named locators are shown: ${countLocations} towns with published destroyed-building counts and ${hotspotLocations} named damage concentrations without comparable town-level counts.`;
+  const boundary = activeLocale === "ar"
+    ? "عدم ظهور بلدة لا يعني عدم وجود ضرر فيها؛ بل يعني أن المصدر المستخدم هنا لا ينشر لها علامة قابلة للمقارنة على مستوى البلدة."
+    : "An unmarked town is not a no-damage designation; it means the cited source does not publish a comparable town-level marker for it.";
+  townEvidencePanel.innerHTML = `<p class="town-panel-kicker">TOWN-LEVEL EVIDENCE</p><h3>${title}</h3><p>${summary}</p><p class="town-panel-boundary">${boundary}</p><div class="town-panel-sources"><a href="${southLebanonDamageSource.href}" target="_blank" rel="noreferrer">${activeLocale === "ar" ? "تقييم برنامج الأمم المتحدة الإنمائي لجنوب لبنان" : "UNDP South Lebanon assessment"} ↗</a><a href="${beirutMountLebanonDamageSource.href}" target="_blank" rel="noreferrer">${activeLocale === "ar" ? "تقييم برنامج الأمم المتحدة الإنمائي لبيروت وجبل لبنان" : "UNDP Beirut & Mount Lebanon assessment"} ↗</a></div>`;
+}
+
+function showTownEvidence(location) {
+  if (!townEvidencePanel) return;
+  const label = activeLocale === "ar" ? location.nameAr : location.name;
+  const markerType = location.count
+    ? (activeLocale === "ar" ? "عدد منشور للمباني المدمّرة" : "Published destroyed-building count")
+    : (activeLocale === "ar" ? "منطقة تركز ضرر مسماة" : "Named damage concentration");
+  const detail = location.count
+    ? (activeLocale === "ar" ? `${location.count.toLocaleString("en-US")} مبانٍ مدمّرة بالكامل في هذا المحدد.` : `${location.count.toLocaleString("en-US")} buildings completely destroyed at this locator.`)
+    : (activeLocale === "ar" ? "سمّى التقييم هذه المنطقة ضمن تركزات الضرر، لكنه لا ينشر لها عدداً منفصلاً للمباني على مستوى البلدة." : "The assessment names this area as a damage concentration but does not publish a separate town-level building count.");
+  const locatorNote = activeLocale === "ar"
+    ? "الموضع مؤشر تقريبي لموقع البلدة، وليس حدوداً إدارية أو تقديراً شاملاً للضرر."
+    : "The point is an approximate town locator, not an administrative boundary or a complete damage inventory.";
+  townEvidencePanel.innerHTML = `<p class="town-panel-kicker">${markerType}</p><h3>${label}</h3><p class="town-panel-figure">${location.count ? location.count.toLocaleString("en-US") : "—"}</p><p>${detail}</p><p class="town-panel-boundary">${locatorNote}</p><a class="town-panel-source" href="${location.source.href}" target="_blank" rel="noreferrer">${location.source.source} <span>↗</span></a>`;
+}
+
+function showOccupationLocation(location) {
+  const layer = occupationLayerForPeriod();
+  if (!layer || !townEvidencePanel) return;
+  const label = activeLocale === "ar" ? "موقع عسكري مُبلّغ عنه" : "Reported military position";
+  const description = activeLocale === "ar"
+    ? `موقع مُبلّغ عنه قرب ${location.nearby}. هذه علامة موقع تقريبي قرب بلدة وليست حدوداً للسيطرة الإقليمية.`
+    : `A reported military location near ${location.nearby}. This is an approximate nearby-town locator, not a territorial-control boundary.`;
+  townEvidencePanel.innerHTML = `<p class="town-panel-kicker">${label}</p><h3>${location.name}</h3><p>${description}</p><a class="town-panel-source" href="${(location.source || layer.source).href}" target="_blank" rel="noreferrer">${(location.source || layer.source).source} <span>↗</span></a>`;
 }
 
 function bindMapInteractions() {
-  document.querySelectorAll(".region").forEach(region => {
-    const activate = () => showDistrict(region.dataset.district, region.dataset.region);
-    region.addEventListener("click", activate);
-    region.addEventListener("keydown", event => {
+  document.querySelectorAll(".town-location").forEach(marker => {
+    const activate = () => {
+      const location = townEvidenceLocations.find(item => item.id === marker.dataset.townEvidence);
+      if (location) showTownEvidence(location);
+    };
+    marker.addEventListener("click", activate);
+    marker.addEventListener("keydown", event => {
       if (event.key === "Enter" || event.key === " ") {
         event.preventDefault();
         activate();
@@ -1494,37 +1843,25 @@ function bindMapInteractions() {
 }
 
 function applyMapPalette() {
-  document.querySelectorAll(".region").forEach(region => {
-    const profile = mapProfileForPeriod(region.dataset.region);
-    const category = profile?.[activeMap];
-    const colour = mapTopics[activeMap].legend.find(item => item.key === category?.key)?.color;
-    region.style.fill = colour || "#a9a39a";
-  });
   const layer = occupationOverlayVisible ? occupationLayerForPeriod() : null;
-  const metricLegend = mapTopics[activeMap].legend.map(item => `<span class="legend-item"><i style="background:${item.color}"></i>${item.label}</span>`).join("");
+  const metricLegend = activeLocale === "ar"
+    ? `<span class="legend-item"><i class="town-count-legend"></i>بلدة لديها عدد منشور للمباني المدمّرة</span><span class="legend-item"><i class="town-hotspot-legend"></i>تركيز ضرر مسمى في المصدر</span>`
+    : `<span class="legend-item"><i class="town-count-legend"></i>Town with published destroyed-building count</span><span class="legend-item"><i class="town-hotspot-legend"></i>Source-named damage concentration</span>`;
   const occupationLegend = layer ? `<span class="legend-item occupation-legend"><i aria-hidden="true"></i>${layer.label}</span>` : "";
   mapLegend.innerHTML = `${metricLegend}${occupationLegend}`;
-  localizeTextTree(mapLegend);
-  showRegion(selectedRegion);
+  renderTownEvidenceSummary();
 }
 
 function renderOfficialMap(features) {
   const project = createMapProjection(features);
   const layer = occupationOverlayVisible ? occupationLayerForPeriod() : null;
-  const periodDescriptor = activeLocale === "ar"
-    ? `تعرض الخريطة مسار أدلة ما بعد حرب ${activeMapPeriod}.`
-    : `This is the ${activeMapPeriod} post-war evidence track.`;
   const occupationDescriptor = layer ? ` ${layer.context}` : "";
   const descriptor = activeLocale === "ar"
-    ? `خريطة أقضية لبنان. تمثل ألوان المناطق شدة الأضرار أو وضع التمويل أو وضع التنفيذ المختار باستخدام سياق موثق على مستوى المحافظة حين لا تنشر مقاييس قابلة للمقارنة على مستوى القضاء. ${periodDescriptor}${occupationDescriptor}`
-    : `A Lebanon district-level map. Area colours represent the selected damage severity, funding position or implementation status, using documented governorate context where comparable district metrics are not published. ${periodDescriptor}${occupationDescriptor}`;
-  const title = activeLocale === "ar" ? `خريطة أدلة التعافي بحسب القضاء، ${activeMapPeriod}` : `Lebanon district evidence map, ${activeMapPeriod}`;
+    ? `خريطة لبنان بمحددات مواقع على مستوى البلدة. تعرض فقط الأماكن التي سُميت في تقييمات برنامج الأمم المتحدة الإنمائي لعام 2026؛ لا تُلوّن الأقضية ولا تفسر المناطق غير المعلمة على أنها خالية من الضرر.${occupationDescriptor}`
+    : `A Lebanon map with town-level locators. It shows only places named in the cited 2026 UNDP assessments; districts are not shaded and unmarked places are not treated as undamaged.${occupationDescriptor}`;
+  const title = activeLocale === "ar" ? "خريطة أدلة موثقة على مستوى البلدة" : "Documented town-level evidence map";
   geoMap.innerHTML = `<title id="mapTitle">${title}</title><desc id="mapDesc">${descriptor}</desc><g class="boundary-layer">${features.map(feature => {
-    const districtName = feature.properties.admin2Name;
-    const arabicDistrictName = feature.properties.admin2Na_1 || "";
-    const governorateName = normalizedRegion(feature.properties.admin1Name);
-    const ariaLabel = activeLocale === "ar" ? `اعرض سياق أدلة التعافي لقضاء ${arabicDistrictName || districtName}` : `Show recovery evidence context for ${districtName} district ${arabicDistrictName}`;
-    return `<path class="region official-region" data-district="${districtName}" data-region="${governorateName}" d="${pathForGeometry(feature.geometry, project)}" fill-rule="evenodd" tabindex="0" role="button" aria-label="${ariaLabel}" />`;
+    return `<path class="region official-region base-region" d="${pathForGeometry(feature.geometry, project)}" fill-rule="evenodd" aria-hidden="true" />`;
   }).join("")}</g>${renderTownLayer(project)}`;
   applyMapPalette();
   bindMapInteractions();
@@ -1540,44 +1877,24 @@ async function loadOfficialMap() {
     mapStatus.innerHTML = "";
     mapStatus.classList.add("ready");
   } catch (error) {
-    mapStatus.innerHTML = "<span></span>District boundary service unavailable";
+    mapStatus.innerHTML = `<span></span>${uiText("Source-backed place map unavailable", "خريطة المواقع المدعومة بالمصادر غير متاحة")}`;
   }
 }
 
-document.querySelectorAll(".metric-toggle").forEach(toggle => toggle.addEventListener("click", () => {
-  if (toggle.dataset.map === "occupation") {
-    occupationOverlayVisible = !occupationOverlayVisible;
-    toggle.classList.toggle("active", occupationOverlayVisible);
-    toggle.setAttribute("aria-pressed", String(occupationOverlayVisible));
-    if (officialMapFeatures.length) renderOfficialMap(officialMapFeatures);
-    return;
-  }
-  activeMap = toggle.dataset.map;
-  document.querySelectorAll(".metric-toggle:not(.occupation-toggle)").forEach(item => item.classList.toggle("active", item === toggle));
+document.querySelectorAll(".occupation-toggle").forEach(toggle => toggle.addEventListener("click", () => {
+  occupationOverlayVisible = !occupationOverlayVisible;
+  toggle.classList.toggle("active", occupationOverlayVisible);
+  toggle.setAttribute("aria-pressed", String(occupationOverlayVisible));
   if (officialMapFeatures.length) renderOfficialMap(officialMapFeatures);
 }));
 
 function updateMapPeriodControls() {
-  document.querySelectorAll(".map-period-button").forEach(button => {
-    const isActive = button.dataset.mapPeriod === activeMapPeriod;
-    button.classList.toggle("active", isActive);
-    button.setAttribute("aria-pressed", String(isActive));
-  });
   if (mapContextStatus) {
     mapContextStatus.textContent = activeLocale === "ar"
-      ? `تعرض الخريطة أدلة ما بعد حرب ${activeMapPeriod}. سياق الخريطة مستقل عن عوامل التصفية الأخرى.`
-      : `Showing post-${activeMapPeriod} evidence. Map context is independent from other page filters.`;
+      ? "تُظهر العلامات الأماكن التي سُميت في تقييمات برنامج الأمم المتحدة الإنمائي لعام 2026 فقط. عدم ظهور بلدة لا يعني عدم وجود ضرر فيها."
+      : "Markers show only places named in the cited 2026 UNDP assessments. Unmarked places are not a no-damage designation.";
   }
 }
-
-function setMapPeriod(period) {
-  if (!Object.hasOwn(periodLabels, period) || period === "All") return;
-  activeMapPeriod = period;
-  updateMapPeriodControls();
-  if (officialMapFeatures.length) renderOfficialMap(officialMapFeatures);
-}
-
-document.querySelectorAll(".map-period-button").forEach(button => button.addEventListener("click", () => setMapPeriod(button.dataset.mapPeriod)));
 
 const toast = document.querySelector("#toast");
 let toastTimer;
@@ -1634,7 +1951,7 @@ function activateTab(view, { resetScroll = true } = {}) {
     if (link.classList.contains("nav-link")) link.toggleAttribute("aria-current", isActive);
   });
   const currentView = document.querySelector("[data-current-view]");
-  if (currentView) currentView.textContent = tabNames[activeView].toUpperCase();
+  if (currentView) currentView.textContent = activeLocale === "ar" ? tabNamesArabic[activeView] : tabNames[activeView].toUpperCase();
   const pageName = activeLocale === "ar" ? tabNamesArabic[activeView] : tabNames[activeView];
   const siteName = activeLocale === "ar" ? "مرصد إعادة إعمار لبنان" : "Rebuild Lebanon";
   document.title = `${pageName} | ${siteName}`;
@@ -1679,6 +1996,13 @@ function applyLocale(locale, { persist = true } = {}) {
   }
   updateLocaleControls();
   updateFreshness();
+  renderSectors();
+  renderSources();
+  renderFramework();
+  renderPeriodComparison();
+  renderAftermathBoard();
+  renderAftermathDetails();
+  renderRegistries();
   renderRecords();
   renderNews();
   updateMapPeriodControls();

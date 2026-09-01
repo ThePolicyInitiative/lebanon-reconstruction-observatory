@@ -299,37 +299,31 @@
           <div class="section-heading">
             <div>
               <p class="eyebrow">SOURCE-INFORMED GEOGRAPHY</p>
-              <h2>District evidence, by period</h2>
+              <h2>Documented places, not district averages</h2>
             </div>
             <div class="map-control-stack">
-              <div class="map-period-group" role="group" aria-label="Map evidence period">
-                <span>MAP EVIDENCE PERIOD</span>
-                <div>
-                  <button class="map-period-button" type="button" data-map-period="2024" aria-pressed="false">After 2024 war</button>
-                  <button class="map-period-button active" type="button" data-map-period="2026" aria-pressed="true">After 2026 war</button>
-                </div>
+              <div class="map-period-group town-map-kicker">
+                <span>TOWN-LEVEL LOCATORS</span>
               </div>
-              <p id="mapContextStatus" class="map-context-status" role="status">Showing post-2026 evidence. Map context is independent from other page filters.</p>
-              <div class="map-controls" role="group" aria-label="Map metric">
-                <button class="metric-toggle active" type="button" data-map="severity">Damage severity</button>
-                <button class="metric-toggle" type="button" data-map="funding">Funding status</button>
-                <button class="metric-toggle" type="button" data-map="completion">Implementation status</button>
-                <button class="metric-toggle occupation-toggle" type="button" data-map="occupation" aria-pressed="false">Occupation locations</button>
+              <p id="mapContextStatus" class="map-context-status" role="status">Markers show only places named in the cited 2026 UNDP assessments. Unmarked places are not a no-damage designation.</p>
+              <div class="map-controls" role="group" aria-label="Map layers">
+                <button class="metric-toggle occupation-toggle" type="button" data-map="occupation" aria-pressed="false">Reported military positions</button>
               </div>
             </div>
           </div>
 
           <div class="map-layout">
-            <div class="lebanon-map" id="lebanonMap" aria-label="Lebanon recovery map by district">
+            <div class="lebanon-map" id="lebanonMap" aria-label="Lebanon town-level evidence map">
               <div class="map-grid"></div>
               <svg id="geoMap" viewBox="0 0 640 660" role="img" aria-labelledby="mapTitle mapDesc">
-                <title id="mapTitle">Lebanon recovery status by district</title>
-                <desc id="mapDesc">A district-level map whose colours represent the selected assessed severity, funding position or implementation status. Where a comparable district metric is not published, the map shows documented governorate context.</desc>
+                <title id="mapTitle">Documented town-level evidence in Lebanon</title>
+                <desc id="mapDesc">A neutral national base map with markers only for towns and areas named in the cited source assessments. Districts are not coloured as if they were measured individually.</desc>
                 <g class="boundary-layer"></g>
               </svg>
-              <p id="mapStatus" class="map-status"><span></span>Loading district boundaries</p>
+              <p id="mapStatus" class="map-status"><span></span>Loading source-backed place locators</p>
               <div id="mapLegend" class="map-legend" aria-label="Map colour legend"></div>
             </div>
+            <aside id="townEvidencePanel" class="town-evidence-panel" aria-live="polite"></aside>
           </div>
         </section>
 
@@ -379,12 +373,70 @@
               <p class="card-source">SOURCE: UNDP / ESCWA MULTI-AGENCY ASSESSMENT, JUL 2025</p>
             </article>
             <article class="evidence-card rapid-card">
-              <div class="card-kicker"><span class="index-number">04</span> 2026 RAPID ASSESSMENT</div>
+              <div class="card-kicker"><span class="index-number">04</span> 2026 RAPID ASSESSMENT · BEIRUT &amp; MOUNT LEBANON</div>
               <div class="rapid-figure"><strong>$365M<span>+</span></strong><p>direct building damage estimated in Beirut and Mount Lebanon</p></div>
-              <div class="rapid-stat-row"><span>146 <small>buildings destroyed</small></span><span>648,942 m³ <small>debris estimated</small></span></div>
-              <p class="card-source">SOURCE: UNDP / CNRS-L / LAF, JUN 2026</p>
+              <div class="rapid-stat-row"><span>146 <small>buildings destroyed in Beirut &amp; Mount Lebanon</small></span><span>648,942 m³ <small>debris estimated</small></span></div>
+              <p class="card-source">SOURCE: UNDP / CNRS-L / LAF / UNDSS, 9 JUN 2026</p>
             </article>
           </div>
+
+          <section class="evidence-briefs" aria-labelledby="evidenceBriefsTitle">
+            <div class="evidence-briefs-heading">
+              <div>
+                <p class="eyebrow">ASSESSMENT BRIEFS</p>
+                <h3 id="evidenceBriefsTitle">Three assessments, three different evidence boundaries.</h3>
+              </div>
+              <p>Read the source, geography, observation window and method before comparing a figure. These assessments are complementary, but they are not one additive national total.</p>
+            </div>
+
+            <div class="evidence-brief-grid">
+              <article class="evidence-brief evidence-brief-national">
+                <div class="evidence-brief-top"><span>01</span><small>NATIONAL RDNA · MAR 2025</small></div>
+                <h4>National recovery baseline</h4>
+                <div class="evidence-brief-stat"><strong>$11B</strong><span>recovery and reconstruction needs estimated</span></div>
+                <dl>
+                  <div><dt>Scope</dt><dd>Entire country · 10 sectors · 8 Oct 2023–20 Dec 2024</dd></div>
+                  <div><dt>What it measures</dt><dd>$6.8B in physical damage and $7.2B in economic losses.</dd></div>
+                  <div><dt>Read carefully</dt><dd>A national recovery-and-needs assessment, not a town-by-town damage count or delivery tracker.</dd></div>
+                </dl>
+                <a href="https://www.worldbank.org/en/news/press-release/2025/03/07/lebanon-s-recovery-and-reconstruction-needs-estimated-at-us-11-billion" target="_blank" rel="noreferrer">Open national RDNA <span>↗</span></a>
+              </article>
+
+              <article class="evidence-brief evidence-brief-south">
+                <div class="evidence-brief-top"><span>02</span><small>SOUTH LEBANON · 19 JUN 2026</small></div>
+                <h4>Building-level view of South Lebanon</h4>
+                <div class="evidence-brief-stat"><strong>$1.38B</strong><span>direct building damage estimated</span></div>
+                <dl>
+                  <div><dt>Scope</dt><dd>Areas south of the Litani, including Bint Jbeil, Marjaayoun, Nabatieh, Tyre and Saida.</dd></div>
+                  <div><dt>What it measures</dt><dd>11,095 buildings destroyed and about 3.1M m³ of debris, visible in the assessment imagery.</dd></div>
+                  <div><dt>Read carefully</dt><dd>29 Apr 2026 imagery versus a 23 Oct 2025 baseline; excludes underground structures and critical infrastructure.</dd></div>
+                </dl>
+                <a href="https://www.undp.org/lebanon/press-releases/building-damage-assessment-estimates-over-usd-138-billion-across-south-lebanon-until-april-2026" target="_blank" rel="noreferrer">Open South Lebanon assessment <span>↗</span></a>
+              </article>
+
+              <article class="evidence-brief evidence-brief-beirut">
+                <div class="evidence-brief-top"><span>03</span><small>BEIRUT &amp; MOUNT LEBANON · 9 JUN 2026</small></div>
+                <h4>Rapid assessment of Beirut &amp; Mount Lebanon</h4>
+                <div class="evidence-brief-stat"><strong>$365M+</strong><span>direct building damage estimated</span></div>
+                <dl>
+                  <div><dt>Scope</dt><dd>Beirut and Mount Lebanon, with damage concentrations named in six affected areas.</dd></div>
+                  <div><dt>What it measures</dt><dd>146 buildings destroyed, 264 partially damaged and 648,942 m³ of debris estimated.</dd></div>
+                  <div><dt>Read carefully</dt><dd>GeoAI, satellite analysis and field verification provide an initial planning baseline, not a cumulative 2024 total.</dd></div>
+                </dl>
+                <a href="https://www.undp.org/lebanon/press-releases/rapid-damage-assessment-estimates-over-us365-million-building-damage-across-beirut-and-mount-lebanon" target="_blank" rel="noreferrer">Open Beirut &amp; Mount Lebanon assessment <span>↗</span></a>
+              </article>
+            </div>
+
+            <aside class="evidence-reading-note" aria-label="How to read the assessment briefs">
+              <div><span>METHOD BOUNDARY</span><h4>Evidence of damage is not evidence of completed recovery.</h4></div>
+              <p>Damage estimates can establish the scale and location of visible impact. They do not, by themselves, prove that financing was committed, funds were spent, works were tendered, or reconstruction was completed.</p>
+              <ul>
+                <li>Do not add figures with different observation periods or geographic coverage.</li>
+                <li>Use the named source and its caveats before drawing a place-level conclusion.</li>
+                <li>Trace a recovery claim separately through finance, procurement, delivery and independent verification.</li>
+              </ul>
+            </aside>
+          </section>
         </section>
 
         <section id="projects" class="projects-section section-anchor" data-tab-panel="projects" role="tabpanel" aria-label="Data library">
@@ -437,11 +489,10 @@
               <a class="button button-light" href="https://documents1.worldbank.org/curated/en/099061125095016009/pdf/BOSIB-92339148-e75a-4dca-8bc2-580a6104a46a.pdf" target="_blank" rel="noreferrer">Explore LEAP details <span>↗</span></a>
             </div>
             <div class="funding-viz" aria-label="Funding flow visualization">
-              <div class="flow-node donors"><span>01</span><strong>RDNA recovery need</strong><small>$11B over recovery &amp; reconstruction</small></div>
-              <div class="flow-line line-one"><i></i></div><div class="flow-line line-two"><i></i></div>
-              <div class="flow-node channels"><span>02</span><strong>Public financing need</strong><small>$3–5B, including public infrastructure</small></div>
-              <div class="flow-line line-three"><i></i></div><div class="flow-line line-four"><i></i></div>
-              <div class="flow-node communities"><span>03</span><strong>LEAP starting layer</strong><small>$250M of a $1B scalable framework</small></div>
+              <div class="flow-node donors"><span>01 · NEED ESTIMATE</span><strong>$11B</strong><small>National recovery and reconstruction need</small></div>
+              <div class="flow-node channels"><span>02 · PUBLIC FINANCING REQUIREMENT</span><strong>$3–5B</strong><small>Indicative public financing need, including infrastructure</small></div>
+              <div class="flow-node communities"><span>03 · AVAILABLE STARTING FINANCE</span><strong>$250M</strong><small>Initial World Bank finance within a $1B scalable framework</small></div>
+              <p class="funding-viz-note">Different stages of the financing picture — do not add them together.</p>
             </div>
           </div>
 
