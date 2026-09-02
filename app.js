@@ -391,6 +391,7 @@ const arabicText = Object.freeze({
   "Public services": "الخدمات العامة",
   "Livelihoods": "سبل العيش",
   "Education": "التعليم",
+  "Health & protection": "الصحة والحماية",
   "Refresh source status": "تحديث حالة المصدر",
   "EVIDENCE BRIEFS": "موجزات الأدلة",
   "OUR DATA STANDARD": "معيار البيانات لدينا",

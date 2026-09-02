@@ -1856,6 +1856,56 @@ const OBSERVATORY_DATA = {
       title: "Agrifood recovery initiative supports rural livelihoods in the South",
       summary: "The launched initiative supports crop and livestock production, rural incomes and local agrifood resilience in conflict-affected southern communities.",
       href: "https://www.fao.org/lebanon/news/detail/ministry-of-agriculture-and-fao-launch-japan-funded-project-to-enhance-recovery-and-resilience-of-agrifood-systems-and-rural-livelihoods-in-conflict-affected-areas-of-south-lebanon/en"
+    },
+    {
+      id: "mosa-shelter-capacity-2026",
+      category: "Coordination",
+      date: "2026-08-11",
+      publisher: "Ministry of Social Affairs / European Union / UNDP",
+      period: "2026",
+      title: "Shelter-coordination programme records training and preparedness support",
+      summary: "The Ministry of Social Affairs, the European Union and UNDP reported training 120 coordinators and volunteers who managed collective shelters during the 2026 escalation.",
+      href: "https://www.undp.org/lebanon/press-releases/lebanon-recognizes-120-ministry-social-affairs-coordinators-and-volunteers-supporting-displaced-families-during-conflict"
+    },
+    {
+      id: "wfp-response-scale-up-2026",
+      category: "Livelihoods",
+      date: "2026-06-01",
+      publisher: "World Food Programme",
+      period: "2026",
+      title: "WFP reports on food, cash and humanitarian logistics response",
+      summary: "WFP’s update documents emergency food and cash assistance, logistics support and access constraints; it should be read as an operational response update, not a reconstruction-delivery record.",
+      href: "https://www.wfp.org/news/wfp-scales-response-lebanon-displacement-crisis-enters-third-month-and-rising-costs-push-food"
+    },
+    {
+      id: "icrc-medical-services-2026",
+      category: "Health & protection",
+      date: "2026-03-13",
+      publisher: "ICRC / Ministry of Public Health / Lebanese Red Cross",
+      period: "2026",
+      title: "Medical-service continuity update for conflict-affected areas",
+      summary: "The ICRC describes hospital, primary-care, medical-equipment and rehabilitation support for people affected by hostilities across several governorates.",
+      href: "https://www.icrc.org/en/article/lebanon-icrc-supporting-life-saving-medical-services-during-hostilities"
+    },
+    {
+      id: "unfpa-protection-health-june-2026",
+      category: "Health & protection",
+      date: "2026-06-22",
+      publisher: "UNFPA Lebanon / Ministry of Public Health / Ministry of Social Affairs",
+      period: "2026",
+      title: "Protection and reproductive-health situation report",
+      summary: "The situation report covers mobile health services, safe spaces, shelter support, case management and referral pathways during the 2026 emergency response.",
+      href: "https://www.unfpa.org/resources/situation-report-crisis-lebanon-9-22-june-2026"
+    },
+    {
+      id: "leap-procurement-plan-revision-2025",
+      category: "Financing",
+      date: "2025-09-23",
+      publisher: "Council for Development and Reconstruction / World Bank",
+      period: "2024",
+      title: "LEAP procurement plan provides a traceable planning baseline",
+      summary: "The published procurement plan identifies the first 18 months of planned procurement for the Lebanon Emergency Assistance Project. A plan is a pre-award checkpoint, not evidence of a completed contract or works.",
+      href: "https://documents1.worldbank.org/curated/en/099092325113021010/pdf/P509428-0fd29ca4-40c0-4950-83a7-5d5a4a805e23.pdf"
     }
   ],
   sources: [
