@@ -1,5 +1,5 @@
 const DISTRICTS_URL = "https://services7.arcgis.com/75E2CRDA8iMPOf2z/ArcGIS/rest/services/Lebanon_dministrative_boundaries/FeatureServer/2/query?where=1%3D1&outFields=admin2Name%2Cadmin2Na_1%2Cadmin2Pcod%2Cadmin1Name%2Cadmin1Na_1%2Cadmin1Pcod&f=geojson";
-const MUNICIPALITIES_URL = "https://services7.arcgis.com/75E2CRDA8iMPOf2z/ArcGIS/rest/services/Lebanon_dministrative_boundaries/FeatureServer/3/query?where=1%3D1&outFields=admin3Name%2Cadmin3Na_1%2Cadmin3Pcod%2Cadmin2Name%2Cadmin1Name&f=geojson";
+const MUNICIPALITIES_URL = "https://services7.arcgis.com/75E2CRDA8iMPOf2z/ArcGIS/rest/services/Lebanon_dministrative_boundaries/FeatureServer/3/query?where=1%3D1&outFields=admin3Name%2Cadmin3Na_1%2Cadmin3Pcod%2Cadmin2Name%2Cadmin1Name&maxAllowableOffset=0.0002&geometryPrecision=5&f=geojson";
 
 let dataCache = null;
 let snapshotCache = null;
