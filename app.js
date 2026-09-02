@@ -1545,7 +1545,7 @@ const townEvidenceLocations2026 = [
   { id: "taybeh-damage", name: "Taybeh", nameAr: "الطيبة", lon: 35.5364, lat: 33.2172, area: "south", kind: "destroyed", count: 824, labelDx: 18, labelDy: -10, source: southLebanonDamageSource, detail: "824 buildings completely destroyed" },
   { id: "borj-ech-chemali-damage", name: "Borj Ech Chemali", nameAr: "برج الشمالي", lon: 35.2242, lat: 33.2515, area: "south", kind: "destroyed", count: 370, labelDx: 18, labelDy: 20, source: southLebanonDamageSource, detail: "370 buildings completely destroyed" },
   { id: "borj-en-naqoura-damage", name: "Borj En-Naqoura", nameAr: "برج الناقورة", lon: 35.1575, lat: 33.1231, area: "south", kind: "destroyed", count: 216, labelDx: -18, labelDy: -14, source: southLebanonDamageSource, detail: "216 buildings completely destroyed" },
-  { id: "haret-hreik-hotspot", name: "Haret Hreik", nameAr: "حارة حريك", lon: 35.533, lat: 33.8405, area: "metro", kind: "hotspot", labelDx: 28, labelDy: -42, source: beirutMountLebanonDamageSource, detail: "Named UNDP damage concentration; no town-specific building count published" },
+  { id: "haret-hreik-hotspot", name: "Haret Hreik", nameAr: "حارة حريك", lon: 35.533, lat: 33.8405, area: "metro", kind: "hotspot", labelDx: 18, labelDy: 24, source: beirutMountLebanonDamageSource, detail: "Named UNDP damage concentration; no town-specific building count published" },
   { id: "hadath-hotspot", name: "Hadath", nameAr: "الحدث", lon: 35.5362, lat: 33.8361, area: "metro", kind: "hotspot", labelDx: 58, labelDy: -12, source: beirutMountLebanonDamageSource, detail: "Named UNDP damage concentration; no town-specific building count published" },
   { id: "chiyah-hotspot", name: "Chiyah", nameAr: "الشياح", lon: 35.5239, lat: 33.8429, area: "metro", kind: "hotspot", labelDx: -64, labelDy: -24, source: beirutMountLebanonDamageSource, detail: "Named UNDP damage concentration; no town-specific building count published" },
   { id: "borj-el-barajneh-hotspot", name: "Burj El Barajneh", nameAr: "برج البراجنة", lon: 35.5381, lat: 33.844, area: "metro", kind: "hotspot", labelDx: 76, labelDy: 26, source: beirutMountLebanonDamageSource, detail: "Named UNDP damage concentration; no town-specific building count published" },
@@ -1716,13 +1716,13 @@ function createMapProjection(features) {
   const latitudes = points.map(point => point[1]);
   const longitudeSpan = Math.max(...longitudes) - Math.min(...longitudes);
   const latitudeSpan = Math.max(...latitudes) - Math.min(...latitudes);
-  const longitudePad = Math.max(longitudeSpan * 0.18, 0.025);
-  const latitudePad = Math.max(latitudeSpan * 0.18, 0.018);
+  const longitudePad = Math.max(longitudeSpan * 0.045, 0.008);
+  const latitudePad = Math.max(latitudeSpan * 0.045, 0.006);
   const minLongitude = Math.min(...longitudes) - longitudePad;
   const maxLongitude = Math.max(...longitudes) + longitudePad;
   const minLatitude = Math.min(...latitudes) - latitudePad;
   const maxLatitude = Math.max(...latitudes) + latitudePad;
-  const padding = 42;
+  const padding = 18;
   const scale = Math.min((MAP_WIDTH - padding * 2) / (maxLongitude - minLongitude), (MAP_HEIGHT - padding * 2) / (maxLatitude - minLatitude));
   const offsetX = (MAP_WIDTH - (maxLongitude - minLongitude) * scale) / 2;
   const offsetY = (MAP_HEIGHT - (maxLatitude - minLatitude) * scale) / 2;
@@ -1747,7 +1747,7 @@ function renderEvidenceMarkers(project) {
     const label = isMetroCluster && location.id === "haret-hreik-hotspot"
       ? (activeLocale === "ar" ? "ضاحية بيروت الجنوبية · 6 مناطق" : "Beirut southern suburbs · 6 named areas")
       : (activeLocale === "ar" ? location.nameAr : location.name);
-    const metric = showLabel ? mapMarkerText(location) : "";
+    const metric = showLabel && !isMetroCluster ? mapMarkerText(location) : "";
     const labelX = point.x + location.labelDx;
     const labelY = point.y + location.labelDy;
     const textAnchor = location.labelDx < 0 ? "end" : "start";
