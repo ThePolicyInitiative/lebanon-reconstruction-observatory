@@ -1,8 +1,10 @@
 const DISTRICTS_URL = "https://services7.arcgis.com/75E2CRDA8iMPOf2z/ArcGIS/rest/services/Lebanon_dministrative_boundaries/FeatureServer/2/query?where=1%3D1&outFields=admin2Name%2Cadmin2Na_1%2Cadmin2Pcod%2Cadmin1Name%2Cadmin1Na_1%2Cadmin1Pcod&f=geojson";
+const MUNICIPALITIES_URL = "https://services7.arcgis.com/75E2CRDA8iMPOf2z/ArcGIS/rest/services/Lebanon_dministrative_boundaries/FeatureServer/3/query?where=1%3D1&outFields=admin3Name%2Cadmin3Na_1%2Cadmin3Pcod%2Cadmin2Name%2Cadmin1Name&f=geojson";
 
 let dataCache = null;
 let snapshotCache = null;
 let districtCache = null;
+let municipalityCache = null;
 const sourceChecks = new Map();
 const newsChecks = new Map();
 
@@ -131,6 +133,25 @@ async function districts() {
   }
 }
 
+async function municipalities() {
+  if (municipalityCache) return municipalityCache;
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 30000);
+  try {
+    const result = await fetch(MUNICIPALITIES_URL, {
+      signal: controller.signal,
+      headers: { Accept: "application/geo+json,application/json" }
+    });
+    if (!result.ok) throw new Error("Municipality boundary service returned an error");
+    const data = await result.json();
+    if (!Array.isArray(data.features) || data.features.length < 1000) throw new Error("Municipality boundary service returned incomplete data");
+    municipalityCache = { data, fetchedAt: new Date().toISOString(), source: "Lebanon Administrative Boundaries: ArcGIS FeatureServer (Municipalities ADM3)" };
+    return municipalityCache;
+  } finally {
+    clearTimeout(timeout);
+  }
+}
+
 function currentSources(sources, snapshots) {
   return sources.map(source => ({ ...source, check: sourceChecks.get(source.id) || null, snapshot: snapshots.get(source.href) || null }));
 }
@@ -155,6 +176,7 @@ async function api(request, env, url) {
     return json({ news: currentNews(news, snapshots), checkedAt, reviewedAt, snapshotCount: snapshots.size });
   }
   if (request.method === "GET" && url.pathname === "/api/map/districts") return json(await districts());
+  if (request.method === "GET" && url.pathname === "/api/map/municipalities") return json(await municipalities());
   if (request.method === "POST" && url.pathname === "/api/refresh") {
     await Promise.all(sources.map(checkSource));
     return json({ checkedAt: new Date().toISOString(), checks: [...sourceChecks.values()], sources: currentSources(sources, snapshots) });

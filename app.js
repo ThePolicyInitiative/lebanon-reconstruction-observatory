@@ -1539,43 +1539,47 @@ const municipalRecovery2024Source = {
 // These are deliberately limited to locations the cited UNDP releases name. They are
 // nearby-town locators, not boundary polygons and not a complete damage inventory.
 const townEvidenceLocations2026 = [
-  { id: "aaitaroun-damage", name: "Aaitaroun", nameAr: "عيترون", lon: 35.4701, lat: 33.1034, kind: "destroyed", count: 1658, labelDx: 18, labelDy: -14, source: southLebanonDamageSource, detail: "1,658 buildings completely destroyed" },
-  { id: "bint-jbeil-damage", name: "Bint Jbeil", nameAr: "بنت جبيل", lon: 35.4282, lat: 33.1194, kind: "destroyed", count: 1076, labelDx: -18, labelDy: 26, source: southLebanonDamageSource, detail: "1,076 buildings completely destroyed" },
-  { id: "meiss-el-jabal-damage", name: "Meiss El Jabal", nameAr: "ميس الجبل", lon: 35.5512, lat: 33.1318, kind: "destroyed", count: 969, labelDx: 18, labelDy: 18, source: southLebanonDamageSource, detail: "969 buildings completely destroyed" },
-  { id: "taybeh-damage", name: "Taybeh", nameAr: "الطيبة", lon: 35.5364, lat: 33.2172, kind: "destroyed", count: 824, labelDx: 18, labelDy: -10, source: southLebanonDamageSource, detail: "824 buildings completely destroyed" },
-  { id: "borj-ech-chemali-damage", name: "Borj Ech Chemali", nameAr: "برج الشمالي", lon: 35.2242, lat: 33.2515, kind: "destroyed", count: 370, labelDx: 18, labelDy: 20, source: southLebanonDamageSource, detail: "370 buildings completely destroyed" },
-  { id: "borj-en-naqoura-damage", name: "Borj En-Naqoura", nameAr: "برج الناقورة", lon: 35.1575, lat: 33.1231, kind: "destroyed", count: 216, labelDx: -18, labelDy: -14, source: southLebanonDamageSource, detail: "216 buildings completely destroyed" },
-  { id: "haret-hreik-hotspot", name: "Haret Hreik", nameAr: "حارة حريك", lon: 35.533, lat: 33.8405, kind: "hotspot", labelDx: 28, labelDy: -42, source: beirutMountLebanonDamageSource, detail: "Named UNDP damage concentration; no town-specific building count published" },
-  { id: "hadath-hotspot", name: "Hadath", nameAr: "الحدث", lon: 35.5362, lat: 33.8361, kind: "hotspot", labelDx: 58, labelDy: -12, source: beirutMountLebanonDamageSource, detail: "Named UNDP damage concentration; no town-specific building count published" },
-  { id: "chiyah-hotspot", name: "Chiyah", nameAr: "الشياح", lon: 35.5239, lat: 33.8429, kind: "hotspot", labelDx: -64, labelDy: -24, source: beirutMountLebanonDamageSource, detail: "Named UNDP damage concentration; no town-specific building count published" },
-  { id: "borj-el-barajneh-hotspot", name: "Burj El Barajneh", nameAr: "برج البراجنة", lon: 35.5381, lat: 33.844, kind: "hotspot", labelDx: 76, labelDy: 26, source: beirutMountLebanonDamageSource, detail: "Named UNDP damage concentration; no town-specific building count published" },
-  { id: "laylaki-hotspot", name: "Laylaki", nameAr: "الليلكي", lon: 35.5437, lat: 33.8422, kind: "hotspot", labelDx: -70, labelDy: 45, source: beirutMountLebanonDamageSource, detail: "Named UNDP damage concentration; no town-specific building count published" },
-  { id: "choueifat-amroussieh-hotspot", name: "Choueifat–Amroussieh", nameAr: "الشويفات–العمروسية", lon: 35.536, lat: 33.8101, kind: "hotspot", labelDx: 25, labelDy: 68, source: beirutMountLebanonDamageSource, detail: "Named UNDP damage concentration; no town-specific building count published" }
+  { id: "aaitaroun-damage", name: "Aaitaroun", nameAr: "عيترون", lon: 35.4701, lat: 33.1034, area: "south", kind: "destroyed", count: 1658, labelDx: 18, labelDy: -14, source: southLebanonDamageSource, detail: "1,658 buildings completely destroyed" },
+  { id: "bint-jbeil-damage", name: "Bint Jbeil", nameAr: "بنت جبيل", lon: 35.4282, lat: 33.1194, area: "south", kind: "destroyed", count: 1076, labelDx: -18, labelDy: 26, source: southLebanonDamageSource, detail: "1,076 buildings completely destroyed" },
+  { id: "meiss-el-jabal-damage", name: "Meiss El Jabal", nameAr: "ميس الجبل", lon: 35.5512, lat: 33.1318, area: "south", kind: "destroyed", count: 969, labelDx: 18, labelDy: 18, source: southLebanonDamageSource, detail: "969 buildings completely destroyed" },
+  { id: "taybeh-damage", name: "Taybeh", nameAr: "الطيبة", lon: 35.5364, lat: 33.2172, area: "south", kind: "destroyed", count: 824, labelDx: 18, labelDy: -10, source: southLebanonDamageSource, detail: "824 buildings completely destroyed" },
+  { id: "borj-ech-chemali-damage", name: "Borj Ech Chemali", nameAr: "برج الشمالي", lon: 35.2242, lat: 33.2515, area: "south", kind: "destroyed", count: 370, labelDx: 18, labelDy: 20, source: southLebanonDamageSource, detail: "370 buildings completely destroyed" },
+  { id: "borj-en-naqoura-damage", name: "Borj En-Naqoura", nameAr: "برج الناقورة", lon: 35.1575, lat: 33.1231, area: "south", kind: "destroyed", count: 216, labelDx: -18, labelDy: -14, source: southLebanonDamageSource, detail: "216 buildings completely destroyed" },
+  { id: "haret-hreik-hotspot", name: "Haret Hreik", nameAr: "حارة حريك", lon: 35.533, lat: 33.8405, area: "metro", kind: "hotspot", labelDx: 28, labelDy: -42, source: beirutMountLebanonDamageSource, detail: "Named UNDP damage concentration; no town-specific building count published" },
+  { id: "hadath-hotspot", name: "Hadath", nameAr: "الحدث", lon: 35.5362, lat: 33.8361, area: "metro", kind: "hotspot", labelDx: 58, labelDy: -12, source: beirutMountLebanonDamageSource, detail: "Named UNDP damage concentration; no town-specific building count published" },
+  { id: "chiyah-hotspot", name: "Chiyah", nameAr: "الشياح", lon: 35.5239, lat: 33.8429, area: "metro", kind: "hotspot", labelDx: -64, labelDy: -24, source: beirutMountLebanonDamageSource, detail: "Named UNDP damage concentration; no town-specific building count published" },
+  { id: "borj-el-barajneh-hotspot", name: "Burj El Barajneh", nameAr: "برج البراجنة", lon: 35.5381, lat: 33.844, area: "metro", kind: "hotspot", labelDx: 76, labelDy: 26, source: beirutMountLebanonDamageSource, detail: "Named UNDP damage concentration; no town-specific building count published" },
+  { id: "laylaki-hotspot", name: "Laylaki", nameAr: "الليلكي", lon: 35.5437, lat: 33.8422, area: "metro", kind: "hotspot", labelDx: -70, labelDy: 45, source: beirutMountLebanonDamageSource, detail: "Named UNDP damage concentration; no town-specific building count published" },
+  { id: "choueifat-amroussieh-hotspot", name: "Choueifat–Amroussieh", nameAr: "الشويفات–العمروسية", lon: 35.536, lat: 33.8101, area: "metro", kind: "hotspot", labelDx: 25, labelDy: 68, source: beirutMountLebanonDamageSource, detail: "Named UNDP damage concentration; no town-specific building count published" }
 ];
 
 // UNDP names these eight municipalities as the locations where post-2024 recovery
 // priorities were developed. The source does not publish town-level damage totals.
 const townEvidenceLocations2024 = [
-  { id: "abbasiyeh-recovery", name: "Abbasiyeh", nameAr: "العباسية", lon: 35.2831, lat: 33.2971, kind: "recovery", labelDx: 20, labelDy: -22, source: municipalRecovery2024Source },
-  { id: "borghliyeh-recovery", name: "Borghliyeh", nameAr: "برغلية", lon: 35.2407, lat: 33.3121, kind: "recovery", labelDx: -20, labelDy: 18, source: municipalRecovery2024Source },
-  { id: "borj-rahal-recovery", name: "Borj Rahal", nameAr: "برج رحال", lon: 35.2799, lat: 33.3109, kind: "recovery", labelDx: 22, labelDy: 20, source: municipalRecovery2024Source },
-  { id: "tayer-debba-recovery", name: "Tayer Debba", nameAr: "طير دبّا", lon: 35.2772, lat: 33.2741, kind: "recovery", labelDx: -24, labelDy: 28, source: municipalRecovery2024Source },
-  { id: "naqoura-recovery", name: "Naqoura", nameAr: "الناقورة", lon: 35.1298, lat: 33.1183, kind: "recovery", labelDx: -20, labelDy: -16, source: municipalRecovery2024Source },
-  { id: "deir-qanoun-en-nahr-recovery", name: "Deir Qanoun En Nahr", nameAr: "دير قانون النهر", lon: 35.3061, lat: 33.3031, kind: "recovery", labelDx: 25, labelDy: -34, source: municipalRecovery2024Source },
-  { id: "tebnin-recovery", name: "Tebnin", nameAr: "تبنين", lon: 35.4050, lat: 33.1930, kind: "recovery", labelDx: 22, labelDy: 12, source: municipalRecovery2024Source },
-  { id: "rcheif-recovery", name: "Rcheif", nameAr: "رشاف", lon: 35.3611, lat: 33.1442, kind: "recovery", labelDx: -22, labelDy: -18, source: municipalRecovery2024Source }
+  { id: "abbasiyeh-recovery", name: "Abbasiyeh", nameAr: "العباسية", lon: 35.2831, lat: 33.2971, area: "tyre", kind: "recovery", labelDx: 20, labelDy: -22, source: municipalRecovery2024Source },
+  { id: "borghliyeh-recovery", name: "Borghliyeh", nameAr: "برغلية", lon: 35.2407, lat: 33.3121, area: "tyre", kind: "recovery", labelDx: -20, labelDy: 18, source: municipalRecovery2024Source },
+  { id: "borj-rahal-recovery", name: "Borj Rahal", nameAr: "برج رحال", lon: 35.2799, lat: 33.3109, area: "tyre", kind: "recovery", labelDx: 22, labelDy: 20, source: municipalRecovery2024Source },
+  { id: "tayer-debba-recovery", name: "Tayer Debba", nameAr: "طير دبّا", lon: 35.2772, lat: 33.2741, area: "tyre", kind: "recovery", labelDx: -24, labelDy: 28, source: municipalRecovery2024Source },
+  { id: "naqoura-recovery", name: "Naqoura", nameAr: "الناقورة", lon: 35.1298, lat: 33.1183, area: "tyre", kind: "recovery", labelDx: -20, labelDy: -16, source: municipalRecovery2024Source },
+  { id: "deir-qanoun-en-nahr-recovery", name: "Deir Qanoun En Nahr", nameAr: "دير قانون النهر", lon: 35.3061, lat: 33.3031, area: "tyre", kind: "recovery", labelDx: 25, labelDy: -34, source: municipalRecovery2024Source },
+  { id: "tebnin-recovery", name: "Tebnin", nameAr: "تبنين", lon: 35.4050, lat: 33.1930, area: "tyre", kind: "recovery", labelDx: 22, labelDy: 12, source: municipalRecovery2024Source },
+  { id: "rcheif-recovery", name: "Rcheif", nameAr: "رشاف", lon: 35.3611, lat: 33.1442, area: "tyre", kind: "recovery", labelDx: -22, labelDy: -18, source: municipalRecovery2024Source }
 ];
 
 function townEvidenceLocationsForPeriod() {
   return activeMapPeriod === "2024" ? townEvidenceLocations2024 : townEvidenceLocations2026;
 }
 
+function townEvidenceLocationsForFocus() {
+  return townEvidenceLocationsForPeriod();
+}
+
 const occupiedAreaLocations2026 = [
-  { id: "labbouneh", name: "Labbouneh", nearby: "Alma al-Shaab", lon: 35.176, lat: 33.090 },
-  { id: "jabal-blat", name: "Jabal Blat", nearby: "Ramyah", lon: 35.604, lat: 33.104 },
-  { id: "jal-al-deir", name: "Jal al-Deir", nearby: "Aitaroun", lon: 35.477, lat: 33.093 },
-  { id: "markaba-houla", name: "Markaba-Houla road", nearby: "Markaba and Houla", lon: 35.535, lat: 33.242 },
-  { id: "hamames", name: "Hamames Hill", nearby: "Khiam", lon: 35.567, lat: 33.313 }
+  { id: "labbouneh", name: "Labbouneh", nearby: "Alma al-Shaab", lon: 35.176, lat: 33.090, area: "south" },
+  { id: "jabal-blat", name: "Jabal Blat", nearby: "Ramyah", lon: 35.604, lat: 33.104, area: "south" },
+  { id: "jal-al-deir", name: "Jal al-Deir", nearby: "Aitaroun", lon: 35.477, lat: 33.093, area: "south" },
+  { id: "markaba-houla", name: "Markaba-Houla road", nearby: "Markaba and Houla", lon: 35.535, lat: 33.242, area: "south" },
+  { id: "hamames", name: "Hamames Hill", nearby: "Khiam", lon: 35.567, lat: 33.313, area: "south" }
 ];
 
 function occupiedAreaLayerForPeriod() {
@@ -1596,6 +1600,10 @@ function occupiedAreaLayerLabel(layer) {
 
 function occupiedAreaLayerContext(layer) {
   return activeLocale === "ar" ? layer.contextAr : layer.context;
+}
+
+function occupiedAreaLocationsForFocus(layer) {
+  return layer?.locations || [];
 }
 
 function updateRegionPanel({ kicker, name, topic, score, context, labels, values, source }) {
@@ -1663,9 +1671,19 @@ let activeMapPeriod = "2026";
 let occupationOverlayVisible = false;
 let selectedRegion = "South";
 let officialMapFeatures = [];
+let officialDistrictFeatures = [];
+let municipalBoundariesAvailable = true;
 const regionAliases = { "Baalbek-El Hermel": "Baalbek-Hermel", "El Nabatieh": "Nabatieh", "Bekaa": "Beqaa", "El Beqaa": "Beqaa" };
 const MAP_WIDTH = 640;
 const MAP_HEIGHT = 660;
+
+const nationalReferenceLocations = [
+  { name: "Beirut", nameAr: "بيروت", lon: 35.5018, lat: 33.8938, labelDx: 10, labelDy: -8 },
+  { name: "Baalbek", nameAr: "بعلبك", lon: 36.2181, lat: 34.0058, labelDx: 10, labelDy: -8 },
+  { name: "Saida", nameAr: "صيدا", lon: 35.3711, lat: 33.5617, labelDx: -10, labelDy: -8 },
+  { name: "Nabatieh", nameAr: "النبطية", lon: 35.4839, lat: 33.377, labelDx: 10, labelDy: -8 },
+  { name: "Sour", nameAr: "صور", lon: 35.2012, lat: 33.2700, labelDx: -10, labelDy: -8 }
+];
 
 function normalizedRegion(name) {
   return regionAliases[name] || name;
@@ -1696,10 +1714,14 @@ function createMapProjection(features) {
   const points = features.flatMap(feature => mapCoordinates(feature.geometry));
   const longitudes = points.map(point => point[0]);
   const latitudes = points.map(point => point[1]);
-  const minLongitude = Math.min(...longitudes);
-  const maxLongitude = Math.max(...longitudes);
-  const minLatitude = Math.min(...latitudes);
-  const maxLatitude = Math.max(...latitudes);
+  const longitudeSpan = Math.max(...longitudes) - Math.min(...longitudes);
+  const latitudeSpan = Math.max(...latitudes) - Math.min(...latitudes);
+  const longitudePad = Math.max(longitudeSpan * 0.18, 0.025);
+  const latitudePad = Math.max(latitudeSpan * 0.18, 0.018);
+  const minLongitude = Math.min(...longitudes) - longitudePad;
+  const maxLongitude = Math.max(...longitudes) + longitudePad;
+  const minLatitude = Math.min(...latitudes) - latitudePad;
+  const maxLatitude = Math.max(...latitudes) + latitudePad;
   const padding = 42;
   const scale = Math.min((MAP_WIDTH - padding * 2) / (maxLongitude - minLongitude), (MAP_HEIGHT - padding * 2) / (maxLatitude - minLatitude));
   const offsetX = (MAP_WIDTH - (maxLongitude - minLongitude) * scale) / 2;
@@ -1718,10 +1740,14 @@ function mapMarkerText(location) {
 }
 
 function renderEvidenceMarkers(project) {
-  return townEvidenceLocationsForPeriod().map(location => {
+  return townEvidenceLocationsForFocus().map(location => {
     const point = project(location.lon, location.lat);
-    const label = activeLocale === "ar" ? location.nameAr : location.name;
-    const metric = mapMarkerText(location);
+    const isMetroCluster = activeMapPeriod === "2026" && location.kind === "hotspot";
+    const showLabel = !isMetroCluster || location.id === "haret-hreik-hotspot";
+    const label = isMetroCluster && location.id === "haret-hreik-hotspot"
+      ? (activeLocale === "ar" ? "ضاحية بيروت الجنوبية · 6 مناطق" : "Beirut southern suburbs · 6 named areas")
+      : (activeLocale === "ar" ? location.nameAr : location.name);
+    const metric = showLabel ? mapMarkerText(location) : "";
     const labelX = point.x + location.labelDx;
     const labelY = point.y + location.labelDy;
     const textAnchor = location.labelDx < 0 ? "end" : "start";
@@ -1731,14 +1757,25 @@ function renderEvidenceMarkers(project) {
         ? `<rect class="town-dot town-marker-recovery" x="${point.x - 5.5}" y="${point.y - 5.5}" width="11" height="11" rx="2" />`
         : `<rect class="town-dot town-marker-concentration" x="${point.x - 5.5}" y="${point.y - 5.5}" width="11" height="11" transform="rotate(45 ${point.x} ${point.y})" />`;
     const markerLabel = activeLocale === "ar" ? `اعرض دليل ${label}` : `Show evidence for ${label}`;
-    return `<g class="town-location town-${location.kind}" data-town-evidence="${location.id}" role="button" tabindex="0" aria-label="${markerLabel}"><rect class="location-hit" x="${point.x - 18}" y="${point.y - 18}" width="36" height="36" rx="18" />${marker}<line class="town-callout-line" x1="${point.x}" y1="${point.y}" x2="${labelX}" y2="${labelY - 5}" /><text x="${labelX}" y="${labelY}" text-anchor="${textAnchor}"><tspan>${label}</tspan><tspan class="town-marker-metric" x="${labelX}" dy="12">${metric}</tspan></text></g>`;
+    const callout = showLabel ? `<line class="town-callout-line" x1="${point.x}" y1="${point.y}" x2="${labelX}" y2="${labelY - 5}" />` : "";
+    const text = showLabel ? `<text x="${labelX}" y="${labelY}" text-anchor="${textAnchor}"><tspan>${label}</tspan><tspan class="town-marker-metric" x="${labelX}" dy="12">${metric}</tspan></text>` : "";
+    return `<g class="town-location town-${location.kind}" data-town-evidence="${location.id}" role="button" tabindex="0" aria-label="${markerLabel}"><rect class="location-hit" x="${point.x - 18}" y="${point.y - 18}" width="36" height="36" rx="18" />${marker}${callout}${text}</g>`;
   }).join("");
+}
+
+function renderNationalReferenceLabels(project) {
+  return `<g class="national-reference-layer">${nationalReferenceLocations.map(location => {
+    const point = project(location.lon, location.lat);
+    const label = activeLocale === "ar" ? location.nameAr : location.name;
+    const textAnchor = location.labelDx < 0 ? "end" : "start";
+    return `<g class="national-reference"><circle class="national-reference-dot" cx="${point.x}" cy="${point.y}" r="3.2" /><text x="${point.x + location.labelDx}" y="${point.y + location.labelDy}" text-anchor="${textAnchor}">${label}</text></g>`;
+  }).join("")}</g>`;
 }
 
 function renderOccupationMarkers(project) {
   const layer = occupationOverlayVisible ? occupiedAreaLayerForPeriod() : null;
   if (!layer) return "";
-  return layer.locations.map(location => {
+  return occupiedAreaLocationsForFocus(layer).map(location => {
     const point = project(location.lon, location.lat);
     const label = `${location.name} · ${location.nearby}`;
     const marker = `<circle class="occupation-area-ring" cx="${point.x}" cy="${point.y}" r="8" /><circle class="occupation-area-dot" cx="${point.x}" cy="${point.y}" r="3" />`;
@@ -1755,7 +1792,7 @@ function renderTownLayer(project) {
 
 function renderTownEvidenceSummary() {
   if (!townEvidencePanel) return;
-  const locations = townEvidenceLocationsForPeriod();
+  const locations = townEvidenceLocationsForFocus();
   if (activeMapPeriod === "2024") {
     const title = activeLocale === "ar" ? "أولويات تعافٍ بلدية بعد 2024" : "Post-2024 municipal recovery priorities";
     const summary = activeLocale === "ar"
@@ -1771,12 +1808,14 @@ function renderTownEvidenceSummary() {
   const hotspotLocations = locations.length - countLocations;
   const title = activeLocale === "ar" ? "ماذا تُظهر الخريطة" : "What this map shows";
   const summary = activeLocale === "ar"
-    ? `تظهر ${locations.length} محددات مواقع فقط: ${countLocations} بلدات نشر المصدر لها أعداد مبانٍ مدمّرة، و${hotspotLocations} مناطق سماها المصدر كمناطق تركز للضرر من دون أعداد قابلة للمقارنة على مستوى البلدة.`
-    : `Only ${locations.length} source-named locators are shown: ${countLocations} towns with published destroyed-building counts and ${hotspotLocations} named damage concentrations without comparable town-level counts.`;
+    ? `تعرض الخريطة الوطنية ${locations.length} محددات مواقع فقط: ${countLocations} بلدات نشر المصدر لها أعداد مبانٍ مدمّرة، و${hotspotLocations} مناطق سماها المصدر كمناطق تركز للضرر من دون أعداد قابلة للمقارنة على مستوى البلدة.`
+    : `This national map shows ${locations.length} source-named locators: ${countLocations} towns with published destroyed-building counts and ${hotspotLocations} named damage concentrations without comparable town-level counts.`;
   const boundary = activeLocale === "ar"
     ? "عدم ظهور بلدة لا يعني عدم وجود ضرر فيها؛ بل يعني أن المصدر المستخدم هنا لا ينشر لها علامة قابلة للمقارنة على مستوى البلدة."
     : "An unmarked town is not a no-damage designation; it means the cited source does not publish a comparable town-level marker for it.";
-  townEvidencePanel.innerHTML = `<p class="town-panel-kicker">${activeLocale === "ar" ? "أدلة على مستوى البلدة" : "TOWN-LEVEL EVIDENCE"}</p><h3>${title}</h3><p>${summary}</p><p class="town-panel-boundary">${boundary}</p><div class="town-panel-sources"><a href="${southLebanonDamageSource.href}" target="_blank" rel="noreferrer">${activeLocale === "ar" ? "تقييم برنامج الأمم المتحدة الإنمائي لجنوب لبنان" : "UNDP South Lebanon assessment"} ↗</a><a href="${beirutMountLebanonDamageSource.href}" target="_blank" rel="noreferrer">${activeLocale === "ar" ? "تقييم برنامج الأمم المتحدة الإنمائي لبيروت وجبل لبنان" : "UNDP Beirut & Mount Lebanon assessment"} ↗</a></div>`;
+  const southLabel = activeLocale === "ar" ? "تقييم برنامج الأمم المتحدة الإنمائي لجنوب لبنان" : "UNDP South Lebanon assessment";
+  const metroLabel = activeLocale === "ar" ? "تقييم برنامج الأمم المتحدة الإنمائي لبيروت وجبل لبنان" : "UNDP Beirut & Mount Lebanon assessment";
+  townEvidencePanel.innerHTML = `<p class="town-panel-kicker">${activeLocale === "ar" ? "أدلة على مستوى البلدة" : "TOWN-LEVEL EVIDENCE"}</p><h3>${title}</h3><p>${summary}</p><p class="town-panel-boundary">${boundary}</p><div class="town-panel-sources"><a href="${southLebanonDamageSource.href}" target="_blank" rel="noreferrer">${southLabel} ↗</a><a href="${beirutMountLebanonDamageSource.href}" target="_blank" rel="noreferrer">${metroLabel} ↗</a></div>`;
 }
 
 function showTownEvidence(location) {
@@ -1813,7 +1852,7 @@ function showOccupationLocation(location) {
 function bindMapInteractions() {
   document.querySelectorAll(".town-location").forEach(marker => {
     const activate = () => {
-      const location = townEvidenceLocationsForPeriod().find(item => item.id === marker.dataset.townEvidence);
+      const location = townEvidenceLocationsForFocus().find(item => item.id === marker.dataset.townEvidence);
       if (location) showTownEvidence(location);
     };
     marker.addEventListener("click", activate);
@@ -1826,7 +1865,7 @@ function bindMapInteractions() {
   });
   document.querySelectorAll(".occupation-location").forEach(marker => {
     const activate = () => {
-      const location = occupiedAreaLayerForPeriod()?.locations.find(item => item.id === marker.dataset.location);
+      const location = occupiedAreaLocationsForFocus(occupiedAreaLayerForPeriod()).find(item => item.id === marker.dataset.location);
       if (location) showOccupationLocation(location);
     };
     marker.addEventListener("click", activate);
@@ -1840,7 +1879,8 @@ function bindMapInteractions() {
 }
 
 function applyMapPalette() {
-  const layer = occupationOverlayVisible ? occupiedAreaLayerForPeriod() : null;
+  const candidateLayer = occupationOverlayVisible ? occupiedAreaLayerForPeriod() : null;
+  const layer = occupiedAreaLocationsForFocus(candidateLayer).length ? candidateLayer : null;
   const metricLegend = activeMapPeriod === "2024"
     ? (activeLocale === "ar"
       ? `<span class="legend-item"><i class="town-recovery-legend"></i>بلدية سُمّيت كأولوية للتعافي</span>`
@@ -1853,34 +1893,51 @@ function applyMapPalette() {
   renderTownEvidenceSummary();
 }
 
-function renderOfficialMap(features) {
+function renderOfficialMap(features, districtFeatures = officialDistrictFeatures) {
+  const candidateLayer = occupationOverlayVisible ? occupiedAreaLayerForPeriod() : null;
+  const occupiedLocations = occupiedAreaLocationsForFocus(candidateLayer);
   const project = createMapProjection(features);
-  const layer = occupationOverlayVisible ? occupiedAreaLayerForPeriod() : null;
+  const layer = occupiedLocations.length ? candidateLayer : null;
   const occupationDescriptor = layer ? ` ${occupiedAreaLayerContext(layer)}` : "";
+  const boundaryDescription = municipalBoundariesAvailable
+    ? (activeLocale === "ar" ? "بحدود بلدية محلية" : "with local municipal boundaries")
+    : (activeLocale === "ar" ? "بحدود إدارية وطنية" : "with national administrative boundaries");
   const descriptor = activeMapPeriod === "2024"
     ? (activeLocale === "ar"
-      ? `خريطة لبنان بمحددات مواقع على مستوى البلدة. تعرض فقط البلديات الثماني التي سماها برنامج الأمم المتحدة الإنمائي ضمن أولويات التعافي بعد 2024 في قضاء صور. لا تُلوّن الأقضية ولا تمثل العلامات أرقام أضرار للمباني.${occupationDescriptor}`
-      : `A Lebanon map with town-level locators. It shows only the eight Tyre Caza municipalities named by UNDP for post-2024 recovery priorities. Districts are not shaded and the markers do not represent building-damage counts.${occupationDescriptor}`)
+      ? `خريطة وطنية ${boundaryDescription}. تعرض فقط البلديات الثماني التي سماها برنامج الأمم المتحدة الإنمائي ضمن أولويات التعافي بعد 2024. لا تُلوّن الأقضية ولا تمثل العلامات أرقام أضرار للمباني.${occupationDescriptor}`
+      : `A national map ${boundaryDescription}. It shows only the eight municipalities named by UNDP for post-2024 recovery priorities. Districts are not shaded and the markers do not represent building-damage counts.${occupationDescriptor}`)
     : (activeLocale === "ar"
-      ? `خريطة لبنان بمحددات مواقع على مستوى البلدة. تعرض فقط الأماكن التي سُميت في تقييمات برنامج الأمم المتحدة الإنمائي لعام 2026؛ لا تُلوّن الأقضية ولا تفسر المناطق غير المعلمة على أنها خالية من الضرر.${occupationDescriptor}`
-      : `A Lebanon map with town-level locators. It shows only places named in the cited 2026 UNDP assessments; districts are not shaded and unmarked places are not treated as undamaged.${occupationDescriptor}`);
+      ? `خريطة وطنية ${boundaryDescription}. تعرض فقط الأماكن التي سُميت في تقييمات برنامج الأمم المتحدة الإنمائي لعام 2026؛ لا تُلوّن الأقضية ولا تفسر المناطق غير المعلمة على أنها خالية من الضرر.${occupationDescriptor}`
+      : `A national map ${boundaryDescription}. It shows only places named in the cited 2026 UNDP assessments; districts are not shaded and unmarked places are not treated as undamaged.${occupationDescriptor}`);
   const title = activeMapPeriod === "2024"
     ? (activeLocale === "ar" ? "خريطة أولويات التعافي البلدية بعد 2024" : "Post-2024 municipal recovery-priorities map")
     : (activeLocale === "ar" ? "خريطة أدلة موثقة على مستوى البلدة" : "Documented town-level evidence map");
   geoMap.innerHTML = `<title id="mapTitle">${title}</title><desc id="mapDesc">${descriptor}</desc><g class="boundary-layer">${features.map(feature => {
     return `<path class="region official-region base-region" d="${pathForGeometry(feature.geometry, project)}" fill-rule="evenodd" aria-hidden="true" />`;
-  }).join("")}</g>${renderTownLayer(project)}`;
+  }).join("")}</g><g class="district-boundary-layer">${districtFeatures.map(feature => `<path class="district-outline" d="${pathForGeometry(feature.geometry, project)}" fill-rule="evenodd" aria-hidden="true" />`).join("")}</g>${renderNationalReferenceLabels(project)}${renderTownLayer(project)}`;
   applyMapPalette();
   bindMapInteractions();
 }
 
 async function loadOfficialMap() {
   try {
-    const response = await fetch(apiUrl("/api/map/districts"));
-    if (!response.ok) throw new Error("Boundary data unavailable");
-    const payload = await response.json();
-    officialMapFeatures = payload.data.features;
-    renderOfficialMap(officialMapFeatures);
+    const districtResponse = await fetch(apiUrl("/api/map/districts"));
+    if (!districtResponse.ok) throw new Error("Boundary data unavailable");
+    const districts = await districtResponse.json();
+    officialDistrictFeatures = districts.data.features;
+    try {
+      const municipalityResponse = await fetch(apiUrl("/api/map/municipalities"));
+      if (!municipalityResponse.ok) throw new Error("Municipality boundary data unavailable");
+      const municipalities = await municipalityResponse.json();
+      if (!Array.isArray(municipalities.data?.features) || municipalities.data.features.length < 1000) throw new Error("Municipality boundary data incomplete");
+      officialMapFeatures = municipalities.data.features;
+      municipalBoundariesAvailable = true;
+    } catch (municipalityError) {
+      officialMapFeatures = officialDistrictFeatures;
+      officialDistrictFeatures = [];
+      municipalBoundariesAvailable = false;
+    }
+    renderOfficialMap(officialMapFeatures, officialDistrictFeatures);
     mapStatus.innerHTML = "";
     mapStatus.classList.add("ready");
   } catch (error) {

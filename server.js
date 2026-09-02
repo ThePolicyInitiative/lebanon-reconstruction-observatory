@@ -10,7 +10,9 @@ const sourceChecks = new Map();
 const newsChecks = new Map();
 const SCRAPE_SNAPSHOT_PATH = path.join(ROOT, "data", "source-snapshots.json");
 const DISTRICTS_URL = "https://services7.arcgis.com/75E2CRDA8iMPOf2z/ArcGIS/rest/services/Lebanon_dministrative_boundaries/FeatureServer/2/query?where=1%3D1&outFields=admin2Name%2Cadmin2Na_1%2Cadmin2Pcod%2Cadmin1Name%2Cadmin1Na_1%2Cadmin1Pcod&f=geojson";
+const MUNICIPALITIES_URL = "https://services7.arcgis.com/75E2CRDA8iMPOf2z/ArcGIS/rest/services/Lebanon_dministrative_boundaries/FeatureServer/3/query?where=1%3D1&outFields=admin3Name%2Cadmin3Na_1%2Cadmin3Pcod%2Cadmin2Name%2Cadmin1Name&f=geojson";
 let districtCache = null;
+let municipalityCache = null;
 
 const mimeTypes = {
   ".html": "text/html; charset=utf-8",
@@ -144,6 +146,25 @@ async function districts() {
   }
 }
 
+async function municipalities() {
+  if (municipalityCache) return municipalityCache;
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 30000);
+  try {
+    const result = await fetch(MUNICIPALITIES_URL, {
+      signal: controller.signal,
+      headers: { "User-Agent": "Lebanon-Reconstruction-Observatory/1.0 (+local-map-service)", "Accept": "application/geo+json,application/json" }
+    });
+    if (!result.ok) throw new Error("Municipality boundary service returned an error");
+    const data = await result.json();
+    if (!Array.isArray(data.features) || data.features.length < 1000) throw new Error("Municipality boundary service returned incomplete data");
+    municipalityCache = { data, fetchedAt: new Date().toISOString(), source: "Lebanon Administrative Boundaries: ArcGIS FeatureServer (Municipalities ADM3)" };
+    return municipalityCache;
+  } finally {
+    clearTimeout(timeout);
+  }
+}
+
 async function sourceSnapshotsByUrl() {
   try {
     const raw = await fs.readFile(SCRAPE_SNAPSHOT_PATH, "utf8");
@@ -202,6 +223,10 @@ const server = http.createServer(async (request, response) => {
     }
     if (request.method === "GET" && url.pathname === "/api/map/districts") {
       const boundaryData = await districts();
+      return sendJson(response, 200, boundaryData);
+    }
+    if (request.method === "GET" && url.pathname === "/api/map/municipalities") {
+      const boundaryData = await municipalities();
       return sendJson(response, 200, boundaryData);
     }
     if (request.method === "POST" && url.pathname === "/api/refresh") {
