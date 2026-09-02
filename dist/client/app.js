@@ -2017,7 +2017,6 @@ const tabNames = {
   overview: "Overview",
   response: "Response tracker",
   actors: "Actors & actions",
-  geography: "Impact map",
   evidence: "Evidence briefs",
   projects: "Data library",
   funding: "Funding flows",
@@ -2030,7 +2029,6 @@ const tabNamesArabic = {
   overview: "نظرة عامة",
   response: "متابعة الاستجابة",
   actors: "الجهات الفاعلة والإجراءات",
-  geography: "خريطة الأثر",
   evidence: "موجزات الأدلة",
   projects: "مكتبة البيانات",
   funding: "مسارات التمويل",
@@ -2108,8 +2106,10 @@ function applyLocale(locale, { persist = true } = {}) {
   renderRegistries();
   renderRecords();
   renderNews();
-  updateMapPeriodControls();
-  if (officialMapFeatures.length) renderOfficialMap(officialMapFeatures);
+  if (geoMap) {
+    updateMapPeriodControls();
+    if (officialMapFeatures.length) renderOfficialMap(officialMapFeatures);
+  }
   activateTab(resolveTab(), { resetScroll: false });
   localizeTextTree();
 }
@@ -2137,5 +2137,5 @@ renderRegistries();
 renderNews();
 loadApplicationData();
 loadNews();
-loadOfficialMap();
+if (geoMap && mapStatus && mapLegend) loadOfficialMap();
 applyLocale(activeLocale, { persist: false });

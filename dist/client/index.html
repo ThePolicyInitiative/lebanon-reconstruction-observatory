@@ -26,7 +26,6 @@
           <a class="nav-link active" href="#overview" data-tab-link="overview"><span class="nav-icon">▦</span>Overview</a>
           <a class="nav-link" href="#response" data-tab-link="response"><span class="nav-icon">◫</span>Response tracker</a>
           <a class="nav-link" href="#actors" data-tab-link="actors"><span class="nav-icon">◎</span>Actors &amp; actions</a>
-          <a class="nav-link" href="#geography" data-tab-link="geography"><span class="nav-icon">◈</span>Impact map</a>
           <a class="nav-link" href="#evidence" data-tab-link="evidence"><span class="nav-icon">◌</span>Evidence briefs</a>
           <a class="nav-link" href="#projects" data-tab-link="projects"><span class="nav-icon">□</span>Data library</a>
           <a class="nav-link" href="#funding" data-tab-link="funding"><span class="nav-icon">↗</span>Funding flows</a>
@@ -51,7 +50,7 @@
             <p class="journey-kicker">START WITH A QUESTION</p>
             <div class="hero-actions hero-journeys" aria-label="Primary ways to explore the observatory">
               <a class="button button-primary" href="#response">Understand the picture <span>→</span></a>
-              <a class="button button-ghost" href="#geography">Explore the map</a>
+              <a class="button button-ghost" href="#evidence">Explore evidence</a>
               <a class="button button-ghost" href="#projects">Search records</a>
             </div>
           </div>
@@ -292,43 +291,6 @@
               <div class="registry-panel-head"><span>ACTIONS</span><h4 id="actionRegistryTitle">By category and type</h4><p>Each category is divided into defined subcategories and documented stages.</p></div>
               <div id="actionRegistry" class="classified-catalog" aria-live="polite"></div>
             </section>
-          </div>
-        </section>
-
-        <section id="geography" class="map-section section-anchor" data-tab-panel="geography" role="tabpanel" aria-label="Impact map">
-          <div class="section-heading">
-            <div>
-              <p class="eyebrow">SOURCE-INFORMED GEOGRAPHY</p>
-              <h2>Documented places, not district averages</h2>
-            </div>
-            <div class="map-control-stack">
-              <div class="map-period-group">
-                <span>MAP EVIDENCE PERIOD</span>
-                <div role="group" aria-label="Map evidence period">
-                  <button class="map-period-button" type="button" data-map-period="2024" aria-pressed="false">2024</button>
-                  <button class="map-period-button active" type="button" data-map-period="2026" aria-pressed="true">2026</button>
-                </div>
-              </div>
-              <p id="mapContextStatus" class="map-context-status" role="status">2026 view: town and area locators named in the cited UNDP assessments. Unmarked places are not a no-damage designation.</p>
-              <div class="map-controls" role="group" aria-label="Map layers">
-                <button class="metric-toggle occupation-toggle" type="button" data-map="occupation" aria-pressed="false">Occupied areas</button>
-              </div>
-            </div>
-          </div>
-
-          <div class="map-layout">
-            <div class="lebanon-map" id="lebanonMap" aria-label="Lebanon municipal-boundary evidence map">
-              <div class="map-grid"></div>
-              <svg id="geoMap" viewBox="0 0 640 660" role="img" aria-labelledby="mapTitle mapDesc">
-                <title id="mapTitle">Documented town-level evidence in Lebanon</title>
-                <desc id="mapDesc">A neutral national map with municipal boundaries and markers only for towns and areas named in the cited source assessments. Districts are not coloured as if they were measured individually.</desc>
-                <g class="boundary-layer"></g>
-              </svg>
-              <div class="map-scale" aria-hidden="true"><i></i><span>25 km</span></div>
-              <p id="mapStatus" class="map-status"><span></span>Loading source-backed place locators</p>
-              <div id="mapLegend" class="map-legend" aria-label="Map colour legend"></div>
-            </div>
-            <aside id="townEvidencePanel" class="town-evidence-panel" aria-live="polite"></aside>
           </div>
         </section>
 
