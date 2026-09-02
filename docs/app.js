@@ -1924,22 +1924,27 @@ async function loadOfficialMap() {
     const districtResponse = await fetch(apiUrl("/api/map/districts"));
     if (!districtResponse.ok) throw new Error("Boundary data unavailable");
     const districts = await districtResponse.json();
-    officialDistrictFeatures = districts.data.features;
+    officialDistrictFeatures = (districts.data?.features || []).filter(feature => feature?.geometry && ["Polygon", "MultiPolygon"].includes(feature.geometry.type));
+    if (!officialDistrictFeatures.length) throw new Error("District boundary data incomplete");
+    officialMapFeatures = officialDistrictFeatures;
+    municipalBoundariesAvailable = false;
+    renderOfficialMap(officialMapFeatures, officialDistrictFeatures);
+    mapStatus.innerHTML = "";
+    mapStatus.classList.add("ready");
     try {
       const municipalityResponse = await fetch(apiUrl("/api/map/municipalities"));
       if (!municipalityResponse.ok) throw new Error("Municipality boundary data unavailable");
       const municipalities = await municipalityResponse.json();
-      if (!Array.isArray(municipalities.data?.features) || municipalities.data.features.length < 1000) throw new Error("Municipality boundary data incomplete");
-      officialMapFeatures = municipalities.data.features;
+      const municipalityFeatures = (municipalities.data?.features || []).filter(feature => feature?.geometry && ["Polygon", "MultiPolygon"].includes(feature.geometry.type));
+      if (municipalityFeatures.length < 1000) throw new Error("Municipality boundary data incomplete");
+      officialMapFeatures = municipalityFeatures;
       municipalBoundariesAvailable = true;
+      renderOfficialMap(officialMapFeatures, officialDistrictFeatures);
     } catch (municipalityError) {
       officialMapFeatures = officialDistrictFeatures;
-      officialDistrictFeatures = [];
       municipalBoundariesAvailable = false;
+      renderOfficialMap(officialMapFeatures, officialDistrictFeatures);
     }
-    renderOfficialMap(officialMapFeatures, officialDistrictFeatures);
-    mapStatus.innerHTML = "";
-    mapStatus.classList.add("ready");
   } catch (error) {
     mapStatus.innerHTML = `<span></span>${uiText("Source-backed place map unavailable", "خريطة المواقع المدعومة بالمصادر غير متاحة")}`;
   }
