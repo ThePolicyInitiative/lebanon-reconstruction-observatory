@@ -59,6 +59,7 @@ const OBSERVATORY_DATA = {
     { name: "Ministry of Interior and Municipalities", short: "MoIM", period: "2026", category: "Local response governance", role: "Participates in the national operations room and is named in the Lebanon Response Plan as a key institution for Civil Defense, local-administration and municipal crisis-response capacity.", source: "UNDP crisis-coordination update / Lebanon Response Plan", href: "https://www.undp.org/lebanon/stories/inside-lebanons-crisis-coordination-room" },
     { name: "National Emergency Operations Room", short: "NEOR", period: "2026", category: "Operational coordination", role: "Activated under the national Disaster Risk Management system to connect ministries, responders, local authorities and partners around live information, shelter management and response priorities.", source: "UNDP crisis-coordination update", href: "https://www.undp.org/lebanon/stories/inside-lebanons-crisis-coordination-room" },
     { name: "Lebanese Red Cross", short: "LRC", period: "2026", category: "Emergency response coordination", role: "Participates in the National Emergency Operations Room with ministries and partners, supporting a coordinated response for displaced people and affected communities.", source: "UNDP crisis-coordination update", href: "https://www.undp.org/lebanon/stories/inside-lebanons-crisis-coordination-room" },
+    { name: "Government of Norway", short: "NOR", period: "2026", category: "Public-safety and safe-return financing", role: "Announced additional support through UNDP for the Lebanese Armed Forces, including support that helps sustain explosive-ordnance clearance as a condition for safer return to homes and fields.", source: "UNDP Norway and LAF support announcement", href: "https://www.undp.org/lebanon/press-releases/norway-announces-15-million-additional-support-lebanese-armed-forces-through-undp" },
     { name: "Lebanon Mine Action Center", short: "LMAC", period: "2026", category: "Safe-access and risk management", role: "Is identified in the Lebanon Response Plan for support to disaster and crisis management capacities, helping address explosive-hazard risks that can constrain safer recovery and access.", source: "Lebanon Response Plan 2026", href: "https://lebanon.un.org/sites/default/files/2026-02/Lebanon%20Response%20Plan%202026.pdf" },
     { name: "General Directorate of Local Administrations and Councils", short: "DGLAC", period: "2026", category: "Local-administration capacity", role: "Sits within the Ministry of Interior and Municipalities response architecture identified for training and crisis-management capacity alongside local authorities.", source: "Lebanon Response Plan 2026", href: "https://lebanon.un.org/sites/default/files/2026-02/Lebanon%20Response%20Plan%202026.pdf" },
     { name: "Fire Brigades", short: "FIRE", period: "2026", category: "Frontline emergency response", role: "Are identified alongside Civil Defense and municipal response rooms for operational support, staffing, equipment and continuity of local emergency services.", source: "Lebanon Response Plan 2026", href: "https://lebanon.un.org/sites/default/files/2026-02/Lebanon%20Response%20Plan%202026.pdf" },
@@ -571,6 +572,7 @@ const OBSERVATORY_DATA = {
     ,{ name: "Operate community feedback, social listening and rumour tracking", period: "2026", stage: "Accountability to affected people", description: "UNICEF activated public messaging, community feedback, social listening and rumour tracking to improve crisis communication and adjust response activity.", actor: "UNICEF community engagement / school and community networks / response partners", href: "https://www.unicef.org/lebanon/children-caught-escalating-violence-lebanon" }
     ,{ name: "Run POWER4Girls sessions and shelter girls groups", period: "2026", stage: "Girls protection and participation", description: "UNICEF scaled emergency sessions and girls groups in shelters and community facilities to give displaced girls practical information, skills and protective support.", actor: "POWER4Girls / UNICEF / shelter and protection partners", href: "https://www.unicef.org/lebanon/children-caught-escalating-violence-lebanon" }
     ,{ name: "Conduct gender-based violence safety audits in collective shelters", period: "2026", stage: "Gender-based violence risk mitigation", description: "Trained facilitators conducted shelter safety-audit work alongside awareness and referral support to strengthen protection for women and girls.", actor: "GBV Safety Audit Facilitators / UNICEF / Ministry of Social Affairs / protection partners", href: "https://www.unicef.org/lebanon/children-caught-escalating-violence-lebanon" }
+    ,{ name: "Provide additional support for Lebanese Armed Forces readiness and safe return", period: "2026", stage: "Public-safety financing", description: "Norway announced an additional contribution through UNDP to support the Lebanese Armed Forces. The announcement links longer-term support to explosive-ordnance clearance, which is a prerequisite for safer return; it should be read as a funding commitment, not a completed recovery-work record.", actor: "Government of Norway / Lebanese Armed Forces / UNDP", href: "https://www.undp.org/lebanon/press-releases/norway-announces-15-million-additional-support-lebanese-armed-forces-through-undp" }
   ],
   records: [
     {
@@ -628,6 +630,20 @@ const OBSERVATORY_DATA = {
       scale: 1,
       sourceId: "leap-procurement-plan-2026",
       href: "https://documents.worldbank.org/en/publication/documents-reports/documentdetail/099081426042514118"
+    },
+    {
+      name: "Norway Additional Support for the Lebanese Armed Forces",
+      place: "Saida • Announced 26 Aug 2026",
+      filter: "Financing",
+      period: "2026",
+      icon: "▤",
+      status: "Government of Norway / UNDP / Lebanese Armed Forces",
+      funding: "US$1.5M announced",
+      marker: "Institutional readiness and safe-return support; not a completed works register",
+      date: "2026-08-26",
+      scale: 1500000,
+      sourceId: "norway-laf-support-2026",
+      href: "https://www.undp.org/lebanon/press-releases/norway-announces-15-million-additional-support-lebanese-armed-forces-through-undp"
     },
     {
       name: "Stabilization in Southern Lebanon",
@@ -1768,6 +1784,16 @@ const OBSERVATORY_DATA = {
   ],
   news: [
     {
+      id: "norway-laf-support-2026",
+      category: "Funding",
+      date: "2026-08-26",
+      publisher: "Government of Norway / UNDP / Lebanese Armed Forces",
+      period: "2026",
+      title: "Norway announces additional LAF support through UNDP",
+      summary: "The announced contribution supports Lebanese Armed Forces readiness and links continued support for explosive-ordnance clearance with safer return to homes and fields. It is recorded as an announced funding commitment.",
+      href: "https://www.undp.org/lebanon/press-releases/norway-announces-15-million-additional-support-lebanese-armed-forces-through-undp"
+    },
+    {
       id: "economic-monitor-2026",
       category: "Economy",
       date: "2026-08-21",
@@ -1909,6 +1935,7 @@ const OBSERVATORY_DATA = {
     }
   ],
   sources: [
+    { id: "norway-laf-support-2026", name: "Norway additional support to the Lebanese Armed Forces", publisher: "Government of Norway / UNDP / Lebanese Armed Forces", date: "26 Aug 2026", type: "Public-safety funding announcement", coverage: "Institutional readiness and explosive-ordnance-clearance support for safe return", href: "https://www.undp.org/lebanon/press-releases/norway-announces-15-million-additional-support-lebanese-armed-forces-through-undp" },
     { id: "rdna", name: "Lebanon Rapid Damage and Needs Assessment", publisher: "World Bank", date: "7 Mar 2025", type: "National assessment", coverage: "10 sectors • nationwide", href: "https://www.worldbank.org/en/news/press-release/2025/03/07/lebanon-s-recovery-and-reconstruction-needs-estimated-at-us-11-billion" },
     { id: "leap", name: "Lebanon Emergency Assistance Project", publisher: "World Bank", date: "17 Feb 2026", type: "Financing framework", coverage: "$250M initial financing • $1B framework", href: "https://www.worldbank.org/en/news/factsheet/2026/02/17/lebanon-emergency-assistance-project-frequently-asked-questions" },
     { id: "leap-project-document", name: "LEAP project design document", publisher: "World Bank", date: "Jun 2025", type: "Project design and safeguards", coverage: "Components, financing, governance, procurement and environmental and social measures", href: "https://documents1.worldbank.org/curated/en/099061125095016009/pdf/BOSIB-92339148-e75a-4dca-8bc2-580a6104a46a.pdf" },
