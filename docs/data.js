@@ -573,6 +573,8 @@ const OBSERVATORY_DATA = {
     ,{ name: "Run POWER4Girls sessions and shelter girls groups", period: "2026", stage: "Girls protection and participation", description: "UNICEF scaled emergency sessions and girls groups in shelters and community facilities to give displaced girls practical information, skills and protective support.", actor: "POWER4Girls / UNICEF / shelter and protection partners", href: "https://www.unicef.org/lebanon/children-caught-escalating-violence-lebanon" }
     ,{ name: "Conduct gender-based violence safety audits in collective shelters", period: "2026", stage: "Gender-based violence risk mitigation", description: "Trained facilitators conducted shelter safety-audit work alongside awareness and referral support to strengthen protection for women and girls.", actor: "GBV Safety Audit Facilitators / UNICEF / Ministry of Social Affairs / protection partners", href: "https://www.unicef.org/lebanon/children-caught-escalating-violence-lebanon" }
     ,{ name: "Provide additional support for Lebanese Armed Forces readiness and safe return", period: "2026", stage: "Public-safety financing", description: "Norway announced an additional contribution through UNDP to support the Lebanese Armed Forces. The announcement links longer-term support to explosive-ordnance clearance, which is a prerequisite for safer return; it should be read as a funding commitment, not a completed recovery-work record.", actor: "Government of Norway / Lebanese Armed Forces / UNDP", href: "https://www.undp.org/lebanon/press-releases/norway-announces-15-million-additional-support-lebanese-armed-forces-through-undp" }
+    ,{ name: "Open a framework procurement for damaged public-building assessment and rehabilitation supervision", period: "2024", stage: "Procurement notice", description: "The CDR published a request for expressions of interest under LEAP for design, structural assessment, rehabilitation and construction-supervision services for slightly and partially damaged public buildings. The notice is a pre-award procurement step: it does not document a selected consultant, contract award, completed supervision or finished works.", actor: "Council for Development and Reconstruction / World Bank / LEAP Project Management Unit", href: "https://www.cdr.gov.lb/en-US/Procurment/ProcurementDetail.aspx?aliaspath=%2FProcurment%2FProcurementDetail&id=1261&lot=0" }
+    ,{ name: "Open a framework procurement for LEAP environmental and social assessment services", period: "2024", stage: "Procurement notice", description: "The CDR published a request for expressions of interest under LEAP for environmental and social impact assessments, management plans and audits. The notice is a pre-award procurement step and should not be read as an approved assessment, contract award or completed safeguard activity.", actor: "Council for Development and Reconstruction / World Bank / LEAP Project Management Unit", href: "https://www.cdr.gov.lb/en-US/Procurment.aspx?sortId=DESC" }
   ],
   records: [
     {
@@ -630,6 +632,34 @@ const OBSERVATORY_DATA = {
       scale: 1,
       sourceId: "leap-procurement-plan-2026",
       href: "https://documents.worldbank.org/en/publication/documents-reports/documentdetail/099081426042514118"
+    },
+    {
+      name: "LEAP Public-Building Framework Procurement",
+      place: "National framework • Posted 4 Sep 2026",
+      filter: "Financing",
+      period: "2024",
+      icon: "▧",
+      status: "Council for Development and Reconstruction / World Bank",
+      funding: "World Bank-financed procurement notice",
+      marker: "Expression of interest only; no award or completed works reported",
+      date: "2026-09-04",
+      scale: 1,
+      sourceId: "cdr-leap-public-buildings-procurement-2026",
+      href: "https://www.cdr.gov.lb/en-US/Procurment/ProcurementDetail.aspx?aliaspath=%2FProcurment%2FProcurementDetail&id=1261&lot=0"
+    },
+    {
+      name: "LEAP Environmental and Social Services Framework Procurement",
+      place: "National framework • Posted 4 Sep 2026",
+      filter: "Financing",
+      period: "2024",
+      icon: "≡",
+      status: "Council for Development and Reconstruction / World Bank",
+      funding: "World Bank-financed procurement notice",
+      marker: "Expression of interest only; no award or completed safeguard work reported",
+      date: "2026-09-04",
+      scale: 1,
+      sourceId: "cdr-leap-esia-procurement-2026",
+      href: "https://www.cdr.gov.lb/en-US/Procurment.aspx?sortId=DESC"
     },
     {
       name: "Norway Additional Support for the Lebanese Armed Forces",
@@ -1784,6 +1814,16 @@ const OBSERVATORY_DATA = {
   ],
   news: [
     {
+      id: "cdr-leap-framework-procurements-2026",
+      category: "Public implementation",
+      date: "2026-09-04",
+      publisher: "Council for Development and Reconstruction / World Bank",
+      period: "2024",
+      title: "CDR posts two pre-award LEAP framework procurements",
+      summary: "The public notices seek technical services for damaged public buildings and for environmental and social assessment work. They are recorded as pre-award procurement steps, not as awarded contracts or completed reconstruction.",
+      href: "https://www.cdr.gov.lb/en-US/Procurment.aspx?sortId=DESC"
+    },
+    {
       id: "norway-laf-support-2026",
       category: "Funding",
       date: "2026-08-26",
@@ -1935,6 +1975,8 @@ const OBSERVATORY_DATA = {
     }
   ],
   sources: [
+    { id: "cdr-leap-public-buildings-procurement-2026", name: "LEAP public-building framework procurement", publisher: "Council for Development and Reconstruction / World Bank", date: "4 Sep 2026", type: "Official pre-award procurement notice", coverage: "Design, structural assessment, rehabilitation and construction-supervision services for slightly and partially damaged public buildings", href: "https://www.cdr.gov.lb/en-US/Procurment/ProcurementDetail.aspx?aliaspath=%2FProcurment%2FProcurementDetail&id=1261&lot=0" },
+    { id: "cdr-leap-esia-procurement-2026", name: "LEAP environmental and social services framework procurement", publisher: "Council for Development and Reconstruction / World Bank", date: "4 Sep 2026", type: "Official pre-award procurement notice", coverage: "Environmental and social impact assessments, management plans and audits under LEAP", href: "https://www.cdr.gov.lb/en-US/Procurment.aspx?sortId=DESC" },
     { id: "norway-laf-support-2026", name: "Norway additional support to the Lebanese Armed Forces", publisher: "Government of Norway / UNDP / Lebanese Armed Forces", date: "26 Aug 2026", type: "Public-safety funding announcement", coverage: "Institutional readiness and explosive-ordnance-clearance support for safe return", href: "https://www.undp.org/lebanon/press-releases/norway-announces-15-million-additional-support-lebanese-armed-forces-through-undp" },
     { id: "rdna", name: "Lebanon Rapid Damage and Needs Assessment", publisher: "World Bank", date: "7 Mar 2025", type: "National assessment", coverage: "10 sectors • nationwide", href: "https://www.worldbank.org/en/news/press-release/2025/03/07/lebanon-s-recovery-and-reconstruction-needs-estimated-at-us-11-billion" },
     { id: "leap", name: "Lebanon Emergency Assistance Project", publisher: "World Bank", date: "17 Feb 2026", type: "Financing framework", coverage: "$250M initial financing • $1B framework", href: "https://www.worldbank.org/en/news/factsheet/2026/02/17/lebanon-emergency-assistance-project-frequently-asked-questions" },
