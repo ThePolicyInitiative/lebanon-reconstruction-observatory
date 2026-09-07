@@ -179,14 +179,14 @@ async function api(request, env, url) {
   if (request.method === "GET" && url.pathname === "/api/map/municipalities") return json(await municipalities());
   if (request.method === "POST" && url.pathname === "/api/refresh") {
     await Promise.all(sources.map(checkSource));
-    return json({ checkedAt: new Date().toISOString(), checks: [...sourceChecks.values()], sources: currentSources(sources, snapshots) });
+    return json({ reviewedAt, checkedAt: new Date().toISOString(), checks: [...sourceChecks.values()], sources: currentSources(sources, snapshots) });
   }
   if (request.method === "POST" && url.pathname === "/api/news/refresh") {
     await Promise.all(news.map(async item => {
       const check = await checkSource({ id: `news:${item.id}`, href: item.href });
       newsChecks.set(item.id, check);
     }));
-    return json({ checkedAt: new Date().toISOString(), checks: [...newsChecks.values()], news: currentNews(news, snapshots) });
+    return json({ reviewedAt, checkedAt: new Date().toISOString(), checks: [...newsChecks.values()], news: currentNews(news, snapshots) });
   }
   if (request.method === "GET" && url.pathname === "/api/export.csv") {
     const selected = selectRecords(records, url.searchParams);

@@ -232,12 +232,12 @@ const server = http.createServer(async (request, response) => {
     if (request.method === "POST" && url.pathname === "/api/refresh") {
       const checks = await refreshSources();
       const snapshotByUrl = await sourceSnapshotsByUrl();
-      return sendJson(response, 200, { checkedAt: new Date().toISOString(), checks, sources: currentSources(snapshotByUrl) });
+      return sendJson(response, 200, { reviewedAt, checkedAt: new Date().toISOString(), checks, sources: currentSources(snapshotByUrl) });
     }
     if (request.method === "POST" && url.pathname === "/api/news/refresh") {
       const checks = await refreshNews();
       const snapshotByUrl = await sourceSnapshotsByUrl();
-      return sendJson(response, 200, { checkedAt: new Date().toISOString(), checks, news: currentNews(snapshotByUrl) });
+      return sendJson(response, 200, { reviewedAt, checkedAt: new Date().toISOString(), checks, news: currentNews(snapshotByUrl) });
     }
     if (request.method === "GET" && url.pathname === "/api/export.csv") {
       const selected = selectRecords(url.searchParams);

@@ -7,9 +7,9 @@
     <title>Rebuild Lebanon: Reconstruction Observatory</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Playfair+Display:ital,wght@600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css?v=ar-records-20260907" />
-    <link rel="stylesheet" href="clarity.css?v=ar-records-20260907" />
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css?v=validated-20260907" />
+    <link rel="stylesheet" href="clarity.css?v=validated-20260907" />
   </head>
   <body>
     <div class="app-shell">
@@ -35,11 +35,11 @@
         </nav>
 
         <div class="sidebar-bottom">
-          <button id="languageToggle" class="language-toggle sidebar-language-toggle" type="button" aria-label="Switch website language to Arabic">العربية</button>
+          <button id="languageToggle" class="language-toggle sidebar-language-toggle" type="button" data-locale-control aria-label="Switch website language to Arabic">العربية</button>
         </div>
       </aside>
 
-      <button class="menu-button nav-fab" type="button" aria-label="Open navigation">☰</button>
+      <button class="menu-button nav-fab" type="button" data-locale-control aria-label="Open navigation">☰</button>
       <main id="top" class="main-content">
         <section id="overview" class="hero section-anchor" data-tab-panel="overview" role="tabpanel" aria-label="Overview">
           <div class="hero-copy">
@@ -404,7 +404,7 @@
           </div>
 
           <div class="project-toolbar">
-            <label class="search-box"><span>⌕</span><input id="projectSearch" type="search" placeholder="Search records, programs, or sources" /></label>
+            <label class="search-box"><span aria-hidden="true">⌕</span><input id="projectSearch" type="search" data-locale-control aria-label="Search records, programs, or sources" placeholder="Search records, programs, or sources" /></label>
             <div class="filter-row" role="group" aria-label="Project filters">
               <button class="filter-chip active" type="button" data-filter="All">All records</button>
               <button class="filter-chip" type="button" data-filter="Assessment">Assessment</button>
@@ -429,7 +429,7 @@
 
           <div class="library-subtoolbar">
             <div><p id="libraryFilterStatus">Showing all curated records.</p><p class="library-language-note">Arabic navigation is available; primary-record titles and publisher wording remain in their original language to match the source.</p></div>
-            <label>Sort <select id="recordSort" aria-label="Sort records"><option value="latest">Latest first</option><option value="scale">Largest financial scale</option><option value="az">A–Z</option></select></label>
+            <label>Sort <select id="recordSort" data-locale-control aria-label="Sort records"><option value="latest">Latest first</option><option value="scale">Largest financial scale</option><option value="az">A–Z</option></select></label>
           </div>
 
           <div id="projectList" class="project-list" aria-live="polite"></div>
@@ -598,7 +598,7 @@
             </div>
             <button id="newsRefresh" class="news-refresh" type="button"><span>↻</span> Check source availability</button>
           </div>
-          <p id="newsStatus" class="news-status" role="status" aria-live="polite"><i></i> Curated source monitor ready. Check availability to test the selected linked pages.</p>
+          <p id="newsStatus" class="news-status" data-locale-control role="status" aria-live="polite"><i></i> Curated source monitor ready. Check availability to test the selected linked pages.</p>
           <div id="newsList" class="news-list" aria-label="Related official news updates"></div>
           <div class="updates-footnote"><span>CURATED MONITOR, NOT A NEWSWIRE</span><p>A reachable page confirms its availability at the last check; it does not by itself confirm project delivery, spending or implementation progress.</p><a href="#sources">Review source standards <span>→</span></a></div>
         </section>
@@ -617,7 +617,7 @@
       </main>
     </div>
     <div id="toast" class="toast" role="status" aria-live="polite"></div>
-    <script src="data.js"></script>
-    <script src="app.js?v=ar-records-20260907"></script>
+    <script src="data.js?v=validated-20260907"></script>
+    <script src="app.js?v=validated-20260907"></script>
   </body>
 </html>

@@ -249,6 +249,20 @@ const arabicText = Object.freeze({
   "No verified completion data": "لا توجد بيانات إنجاز متحققة",
   "DATA LIBRARY": "مكتبة البيانات",
   "Search records, programs, or sources": "ابحث في السجلات أو البرامج أو المصادر",
+  "Search an actor, action, location, stage or source": "ابحث عن جهة فاعلة أو إجراء أو موقع أو مرحلة أو مصدر",
+  "HOW TO READ THE MONITOR": "كيف تقرأ متابعة المصادر",
+  "Availability is not proof of delivery.": "إتاحة المصدر ليست دليلاً على التنفيذ.",
+  "Read each update for its evidence type: an assessment measures impact; a financing or procurement record signals a commitment or planning stage; implementation evidence needs a separate public trail.": "اقرأ كل تحديث بحسب نوع الدليل: فالتقييم يقيس الأثر، وسجل التمويل أو المشتريات يشير إلى التزام أو مرحلة تخطيط، أما إثبات التنفيذ فيحتاج إلى توثيق عام مستقل.",
+  "How to interpret monitored sources": "كيفية تفسير المصادر المتابَعة",
+  "01 · MEASURE": "01 · قياس",
+  "Assessment and needs evidence": "أدلة تقييم الأضرار والاحتياجات",
+  "Use these sources to understand the stated scope, geography, method and date of a damage or needs estimate.": "استخدم هذه المصادر لفهم النطاق والمناطق والمنهجية والتاريخ المعلَن لتقدير الأضرار أو الاحتياجات.",
+  "02 · COMMIT": "02 · التزام",
+  "Funding, plans and coordination": "التمويل والخطط والتنسيق",
+  "These are public signals of priorities, financing or institutional arrangements—not proof that money has been spent or works completed.": "هذه مؤشرات عامة على الأولويات أو التمويل أو الترتيبات المؤسسية، وليست دليلاً على إنفاق الأموال أو إنجاز الأعمال.",
+  "03 · VERIFY": "03 · تحقق",
+  "Delivery and service continuity": "التنفيذ واستمرارية الخدمات",
+  "Look for named sites, procurement awards, operational reporting and independent checks before treating an intervention as delivered.": "ابحث عن مواقع محددة وقرارات إرساء العقود وتقارير التشغيل والتحقق المستقل قبل اعتبار أي تدخل منفَّذاً.",
   "All records": "كل السجلات",
   "Assessment": "تقييم",
   "Local recovery": "تعافٍ محلي",
@@ -670,7 +684,7 @@ function uiText(english, arabic) {
 }
 
 function localizeTextNode(node) {
-  if (!node?.nodeValue || node.parentElement?.closest("script, style")) return;
+  if (!node?.nodeValue || node.parentElement?.closest("script, style, [data-locale-control]")) return;
   const original = originalTextNodes.get(node) ?? node.nodeValue;
   if (!originalTextNodes.has(node)) originalTextNodes.set(node, original);
   const trimmed = original.trim();
@@ -682,6 +696,8 @@ function localizeTextNode(node) {
 function localizeAttributes(root = document.body) {
   if (!root?.querySelectorAll) return;
   root.querySelectorAll("[aria-label],[placeholder],[title]").forEach(element => {
+    // These controls are rendered from locale state, not from the text cache.
+    if (element.closest("[data-locale-control]")) return;
     const original = originalAttributes.get(element) || {};
     ["aria-label", "placeholder", "title"].forEach(attribute => {
       if (!element.hasAttribute(attribute)) return;
@@ -966,6 +982,14 @@ let activeNewsFilter = "All";
 let visibleRecords = [...records];
 let activeRecordArea = "All";
 let currentReviewedAt = seedData.reviewedAt;
+let latestNewsPayload = null;
+let newsStatusKind = "ready";
+
+function isCurrentDataset(payload, baseline = seedData.reviewedAt) {
+  const reviewed = Date.parse(payload?.reviewedAt);
+  const minimum = Date.parse(baseline);
+  return Number.isFinite(reviewed) && Number.isFinite(minimum) && reviewed >= minimum;
+}
 
 const recordAreaLabels = Object.freeze({
   All: "All coverage",
@@ -1338,6 +1362,23 @@ function newsCheckLabel(item) {
   return uiText("Ready for source check", "جاهز لفحص المصدر");
 }
 
+function renderNewsStatus() {
+  if (!newsStatus) return;
+  const payload = latestNewsPayload;
+  let message = uiText("Curated source monitor ready. Check availability to test the selected linked pages.", "متابعة المصادر المنتقاة جاهزة. تحقّق من الإتاحة لاختبار الصفحات المرتبطة المختارة.");
+  if (newsStatusKind === "stale") {
+    message = uiText("Showing the newer published updates; the source-check service is awaiting a data update.", "تُعرض أحدث التحديثات المنشورة؛ خدمة فحص المصادر بانتظار تحديث بياناتها.");
+  } else if (newsStatusKind === "failed") {
+    message = uiText("Live update check could not complete; curated links remain available.", "تعذر إكمال فحص التحديثات المباشر؛ وتبقى الروابط المنتقاة متاحة.");
+  } else if (payload?.checkedAt) {
+    const checked = payload.checks ? `${payload.checks.filter(check => check.state === "reachable").length}/${payload.checks.length} · ` : "";
+    message = uiText(`Last official-source check: ${checked}${formatCheckedAt(payload.checkedAt)}`, `آخر فحص للمصادر الرسمية: ${checked}${formatCheckedAt(payload.checkedAt)}`);
+  } else if (payload?.snapshotCount) {
+    message = uiText(`Metadata snapshots loaded for ${payload.snapshotCount} official pages. Check availability to run a live check.`, `حُمّلت لقطات البيانات الوصفية لـ ${payload.snapshotCount} صفحة رسمية. تحقّق من الإتاحة لإجراء فحص مباشر.`);
+  }
+  newsStatus.innerHTML = `<i></i> ${message}`;
+}
+
 function renderNews() {
   if (!newsList) return;
   const filteredNews = [...news]
@@ -1426,6 +1467,7 @@ async function refreshSources() {
     const response = await fetch(apiUrl("/api/refresh"), { method: "POST" });
     if (!response.ok) throw new Error("Refresh request failed");
     const payload = await response.json();
+    if (!isCurrentDataset(payload, currentReviewedAt)) throw new Error("Source dataset is older than the published data");
     sources = payload.sources;
     renderSources();
     const remoteChecks = payload.checks.filter(check => check.state !== "local");
@@ -1458,15 +1500,17 @@ async function refreshNews() {
     const response = await fetch(apiUrl("/api/news/refresh"), { method: "POST" });
     if (!response.ok) throw new Error("News refresh failed");
     const payload = await response.json();
+    if (!isCurrentDataset(payload, latestNewsPayload?.reviewedAt || seedData.reviewedAt)) throw new Error("News dataset is older than the published data");
     news = payload.news;
+    latestNewsPayload = payload;
+    newsStatusKind = "checked";
     renderNews();
     const reachable = payload.checks.filter(check => check.state === "reachable").length;
-    newsStatus.innerHTML = activeLocale === "ar"
-      ? `<i></i> آخر فحص للمصادر الرسمية: ${reachable}/${payload.checks.length} صفحة متاحة • ${formatCheckedAt(payload.checkedAt)}`
-      : `<i></i> Last official-source check: ${reachable}/${payload.checks.length} pages reachable • ${formatCheckedAt(payload.checkedAt)}`;
+    renderNewsStatus();
     showToast(uiText(`Checked ${reachable}/${payload.checks.length} monitored update pages`, `فُحصت ${reachable}/${payload.checks.length} صفحة تحديث مراقبة.`));
   } catch (error) {
-    newsStatus.innerHTML = `<i></i> ${uiText("Live update check could not complete; curated links remain available.", "تعذر إكمال فحص التحديثات المباشر؛ وتبقى الروابط المنتقاة متاحة.")}`;
+    newsStatusKind = "failed";
+    renderNewsStatus();
     showToast(uiText("Live update check failed; showing cached updates", "فشل فحص التحديثات المباشر؛ تعرض التحديثات المخزنة."));
   } finally {
     newsRefresh.disabled = false;
@@ -1488,6 +1532,9 @@ async function loadApplicationData() {
     const [recordsPayload, sectorsPayload, sourcesPayload, healthPayload] = await Promise.all([
       recordsResponse.json(), sectorsResponse.json(), sourcesResponse.json(), healthResponse.json()
     ]);
+    if (![recordsPayload, sectorsPayload, sourcesPayload, healthPayload].every(payload => isCurrentDataset(payload, currentReviewedAt))) {
+      throw new Error("API dataset is older than the published data");
+    }
     records = recordsPayload.records;
     sectors = sectorsPayload.sectors;
     sources = sourcesPayload.sources;
@@ -1514,14 +1561,16 @@ async function loadNews() {
     const response = await fetch(apiUrl("/api/news"));
     if (!response.ok) throw new Error("News API unavailable");
     const payload = await response.json();
+    if (!isCurrentDataset(payload, latestNewsPayload?.reviewedAt || seedData.reviewedAt)) {
+      newsStatusKind = "stale";
+      renderNewsStatus();
+      return;
+    }
     news = payload.news;
+    latestNewsPayload = payload;
+    newsStatusKind = "loaded";
     renderNews();
-    if (payload.checkedAt) newsStatus.innerHTML = activeLocale === "ar"
-      ? `<i></i> آخر فحص للمصادر الرسمية: ${formatCheckedAt(payload.checkedAt)} • حدّث لإعادة الفحص.`
-      : `<i></i> Last official-source check: ${formatCheckedAt(payload.checkedAt)} • refresh to check again.`;
-    else if (payload.snapshotCount) newsStatus.innerHTML = activeLocale === "ar"
-      ? `<i></i> حُمّل مراقب البيانات الوصفية من بايثون لـ ${payload.snapshotCount} صفحة رسمية. حدّث لإجراء فحص مباشر.`
-      : `<i></i> Python metadata monitor loaded for ${payload.snapshotCount} official pages. Refresh to run a live status check.`;
+    renderNewsStatus();
   } catch (error) {
     renderNews();
   }
@@ -2089,8 +2138,10 @@ function updateLocaleControls() {
   document.documentElement.dir = isArabic ? "rtl" : "ltr";
   document.body.classList.toggle("is-arabic", isArabic);
   languageToggle.textContent = isArabic ? "English" : "العربية";
-  languageToggle.setAttribute("aria-label", isArabic ? "Switch website language to English" : "Switch website language to Arabic");
+  languageToggle.setAttribute("aria-label", isArabic ? "التبديل إلى الإنجليزية" : "Switch website language to Arabic");
   projectSearch.placeholder = isArabic ? "ابحث في السجلات أو البرامج أو المصادر" : "Search records, programs, or sources";
+  projectSearch.setAttribute("aria-label", projectSearch.placeholder);
+  recordSort.setAttribute("aria-label", isArabic ? "ترتيب السجلات" : "Sort records");
   recordSort.options[0].textContent = isArabic ? "الأحدث أولاً" : "Latest first";
   recordSort.options[1].textContent = isArabic ? "أكبر قيمة مالية" : "Largest financial scale";
   recordSort.options[2].textContent = isArabic ? "أبجدياً" : "A–Z";
@@ -2117,6 +2168,7 @@ function applyLocale(locale, { persist = true } = {}) {
   renderRegistries();
   renderRecords();
   renderNews();
+  renderNewsStatus();
   if (geoMap) {
     updateMapPeriodControls();
     if (officialMapFeatures.length) renderOfficialMap(officialMapFeatures);
