@@ -402,6 +402,7 @@ const arabicText = Object.freeze({
   "Curated public record · last reviewed 31 Aug 2026": "سجل عام منتقى · آخر مراجعة 31 أغسطس 2026",
   "START WITH A QUESTION": "ابدأ بسؤال",
   "Understand the picture": "افهم الصورة العامة",
+  "Explore evidence": "استكشف الأدلة",
   "Explore the map": "استكشف الخريطة",
   "Search records": "ابحث في السجلات",
   "District evidence, by period": "أدلة الأقضية بحسب الفترة",

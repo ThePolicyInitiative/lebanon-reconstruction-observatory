@@ -1,6 +1,15 @@
 :root { --ink:#17221e; --ink-soft:#52615a; --forest:#123b2c; --moss:#1d5840; --lime:#c3d799; --lime-pale:#e8f0d5; --cream:#f6f4ec; --paper:#fbfaf6; --line:#dfe2d8; --orange:#dc704c; --yellow:#f3c96c; --white:#fffefa; }
 * { box-sizing:border-box; }
 
+/* Arabic UI typography: a complete, readable RTL family for labels, body copy and headings. */
+html[dir="rtl"] body,
+html[dir="rtl"] body :is(a, button, input, select, textarea, label, p, h1, h2, h3, h4, h5, h6, small, strong, span, time, summary, li) {
+  font-family:"Noto Sans Arabic",Tahoma,Arial,sans-serif !important;
+  letter-spacing:0;
+}
+html[dir="rtl"] body { line-height:1.65; }
+html[dir="rtl"] :is(.hero h1, .section-heading h2, .funding-copy h2) { line-height:1.15; }
+
 .source-check-button{color:#246b72!important;font-weight:600}.source-check-button.checking{opacity:.65;cursor:wait}.source-check-button:disabled{cursor:wait}.source-health{display:block;margin-top:4px;font:500 8px "DM Mono",monospace;letter-spacing:.15px}.source-health.reachable{color:#28745a}.source-health.pending{color:#89978e}.source-health.unreachable,.source-health.timeout,.source-health.response-error{color:#b26046}.topbar-actions .source-check-button{display:inline-flex;align-items:center}
 @media(max-width:780px){.topbar-actions .source-check-button{display:inline-flex;font-size:0}.topbar-actions .source-check-button span{margin:0;font-size:17px}.topbar-actions{gap:10px}}
 
