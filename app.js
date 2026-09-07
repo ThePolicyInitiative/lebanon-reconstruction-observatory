@@ -386,6 +386,7 @@ const arabicText = Object.freeze({
   "A concise live-status feed of the public updates most directly relevant to recovery. Each card links to the original publisher; the refresh action checks that source page directly.": "موجز مباشر ومختصر للتحديثات العامة الأكثر صلة بالتعافي. ترتبط كل بطاقة بالناشر الأصلي، ويتحقق زر التحديث من صفحة المصدر مباشرة.",
   "Economy": "الاقتصاد",
   "Coordination": "التنسيق",
+  "Procurement": "المشتريات",
   "Municipal work": "العمل البلدي",
   "Public services": "الخدمات العامة",
   "Livelihoods": "سبل العيش",

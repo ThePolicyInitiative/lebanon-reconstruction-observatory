@@ -1,5 +1,5 @@
 const OBSERVATORY_DATA = {
-  reviewedAt: "31 Aug 2026",
+  reviewedAt: "7 Sep 2026",
   framework: {
     actorGroups: [
       { code: "A1", name: "Public officials and institutions", role: "National coordination, damage assessment, financing decisions, debris management, service restoration and procurement.", color: "#1d6670" },
@@ -1814,8 +1814,28 @@ const OBSERVATORY_DATA = {
   ],
   news: [
     {
+      id: "cdr-leap-nabatieh-roads-tender-2026",
+      category: "Procurement",
+      date: "2026-09-03",
+      publisher: "Council for Development and Reconstruction / World Bank",
+      period: "2024",
+      title: "LEAP Nabatieh road-restoration tender reaches bid deadline",
+      summary: "CDR's open request for bids concerns clearing and restoring damaged roads in Nabatieh Caza, financed under LEAP by the World Bank. The deadline was extended to 3 September. This is an open procurement step only; no award, contract, disbursement or completed works are reported.",
+      href: "https://www.cdr.gov.lb/en-US/Procurment/ProcurementDetail.aspx?aliaspath=%2FProcurment%2FProcurementDetail&id=1250&lot=0"
+    },
+    {
+      id: "pmo-return-recovery-coordination-2026",
+      category: "Coordination",
+      date: "2026-09-03",
+      publisher: "Prime Minister's Office",
+      period: "2026",
+      title: "Government convenes return and recovery coordination meeting",
+      summary: "The meeting brought senior agencies together to coordinate and accelerate steps needed for return and recovery. It is a governance record and does not report a budget allocation, financing agreement, procurement award or completed works.",
+      href: "https://www.pcm.gov.lb/arabic/subpg.aspx?pageid=27476"
+    },
+    {
       id: "cdr-leap-framework-procurements-2026",
-      category: "Public implementation",
+      category: "Procurement",
       date: "2026-09-04",
       publisher: "Council for Development and Reconstruction / World Bank",
       period: "2024",
@@ -1825,7 +1845,7 @@ const OBSERVATORY_DATA = {
     },
     {
       id: "norway-laf-support-2026",
-      category: "Funding",
+      category: "Financing",
       date: "2026-08-26",
       publisher: "Government of Norway / UNDP / Lebanese Armed Forces",
       period: "2026",
@@ -1975,6 +1995,8 @@ const OBSERVATORY_DATA = {
     }
   ],
   sources: [
+    { id: "cdr-leap-nabatieh-roads-tender-2026", name: "LEAP Nabatieh damaged-road clearing and restoration tender", publisher: "Council for Development and Reconstruction / World Bank", date: "18 Aug 2026; deadline extended to 3 Sep 2026", type: "Official open procurement notice", coverage: "Damaged-road clearing and restoration in Nabatieh Caza • LEAP / World Bank financing • no award published", href: "https://www.cdr.gov.lb/en-US/Procurment/ProcurementDetail.aspx?aliaspath=%2FProcurment%2FProcurementDetail&id=1250&lot=0" },
+    { id: "pmo-return-recovery-coordination-2026", name: "Return and recovery coordination meeting", publisher: "Prime Minister's Office", date: "3 Sep 2026", type: "Official coordination record", coverage: "Government coordination to accelerate return and recovery steps • no budget, financing or works record", href: "https://www.pcm.gov.lb/arabic/subpg.aspx?pageid=27476" },
     { id: "cdr-leap-public-buildings-procurement-2026", name: "LEAP public-building framework procurement", publisher: "Council for Development and Reconstruction / World Bank", date: "4 Sep 2026", type: "Official pre-award procurement notice", coverage: "Design, structural assessment, rehabilitation and construction-supervision services for slightly and partially damaged public buildings", href: "https://www.cdr.gov.lb/en-US/Procurment/ProcurementDetail.aspx?aliaspath=%2FProcurment%2FProcurementDetail&id=1261&lot=0" },
     { id: "cdr-leap-esia-procurement-2026", name: "LEAP environmental and social services framework procurement", publisher: "Council for Development and Reconstruction / World Bank", date: "4 Sep 2026", type: "Official pre-award procurement notice", coverage: "Environmental and social impact assessments, management plans and audits under LEAP", href: "https://www.cdr.gov.lb/en-US/Procurment.aspx?sortId=DESC" },
     { id: "norway-laf-support-2026", name: "Norway additional support to the Lebanese Armed Forces", publisher: "Government of Norway / UNDP / Lebanese Armed Forces", date: "26 Aug 2026", type: "Public-safety funding announcement", coverage: "Institutional readiness and explosive-ordnance-clearance support for safe return", href: "https://www.undp.org/lebanon/press-releases/norway-announces-15-million-additional-support-lebanese-armed-forces-through-undp" },
