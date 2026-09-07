@@ -34,6 +34,17 @@ html[dir="rtl"] #projects .project-row::before { right:0; left:auto; }
   html[dir="rtl"] #projects .project-meta { padding-inline-start:39px; }
 }
 
+/* Numeric values retain English digit/unit order without reversing Arabic labels. */
+html[dir="rtl"] :is(.metric-value, .period-fact > strong, .evidence-brief-stat > strong,
+  .impact-breakdown strong, .sector-stat > strong, .people-figure > strong,
+  .rapid-figure > strong, .flow-node > strong, .funding-status > strong,
+  .leap-metrics strong, .leap-component-row > [role="cell"], .town-panel-figure,
+  .aftermath-mix-row > b, .source-row-index) {
+  direction:ltr;
+  unicode-bidi:isolate;
+  font-variant-numeric:lining-nums tabular-nums;
+}
+
 /* Publisher links must fit their cards in both reading directions. */
 .news-card, .news-card-bottom { min-width:0; }
 .news-card-bottom { flex-wrap:wrap; align-items:flex-start; }

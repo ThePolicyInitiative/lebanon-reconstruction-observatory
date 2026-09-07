@@ -20,7 +20,7 @@ test("font request uses valid Playfair weight axes and versioned assets", () => 
   assert.match(html, /Playfair\+Display:wght@600;700/);
   assert.doesNotMatch(html, /Playfair\+Display:ital,wght@600;700/);
   for (const asset of ["app.js", "data.js", "styles.css", "clarity.css"]) {
-    assert.ok(html.includes(`${asset}?v=validated-20260907`));
+    assert.ok(html.includes(`${asset}?v=numbers-20260907`));
   }
 });
 
@@ -66,6 +66,58 @@ test("attribute translation preserves canonical placeholders and skips locale co
   attrs.placeholder = "Managed by locale state";
   vm.runInContext('activeLocale="ar"; localizeAttributes(root)', context);
   assert.equal(attrs.placeholder, "Managed by locale state");
+});
+
+test("Arabic quantities keep English digits, separators, units and LTR order", () => {
+  const context = vm.createContext({ activeLocale: "ar" });
+  vm.runInContext(localeCode, context);
+  const cases = [
+    ["$250M", "$250M"], ["$3–5B", "$3–5B"], ["$365M+", "$365M+"],
+    ["64K+", "64K+"], ["٦٤٬٠٠٠+", "64,000+"], ["۲۵٫۵٪", "25.5%"],
+    ["3.1M m³", "3.1M\u00a0m³"], ["648,942 m³", "648,942\u00a0m³"],
+    ["US$ millions", "US$\u00a0millions"], ["18–24", "18–24"],
+    ["2023–2024", "2023–2024"], ["14:05", "14:05"], ["18/18", "18/18"]
+  ];
+  for (const [input, expected] of cases) {
+    context.input = input;
+    const result = vm.runInContext("formatArabicNumbers(input)", context);
+    assert.equal(result, `\u2066${expected}\u2069`, input);
+    context.input = result;
+    assert.equal(vm.runInContext("formatArabicNumbers(input)", context), result, "Formatting is idempotent");
+  }
+});
+
+test("Arabic financial translations preserve every English currency amount", () => {
+  const context = vm.createContext({ activeLocale: "ar" });
+  vm.runInContext(localeCode, context);
+  const entries = vm.runInContext("Object.entries(arabicText)", context);
+  for (const [english, arabic] of entries) {
+    const amounts = english.match(/\$\d+(?:[.,]\d+)*(?:–\d+)?[KMB]?/g) || [];
+    for (const amount of amounts) assert.ok(arabic.includes(amount), `${amount} missing from: ${arabic}`);
+  }
+});
+
+test("numeric text returns to its exact English source after repeated language changes", () => {
+  const context = vm.createContext({ activeLocale: "ar" });
+  vm.runInContext(localeCode, context);
+  const original = "  $6.8B in physical damage and $7.2B in economic losses.  ";
+  context.node = { nodeValue: original, parentElement: { closest: () => null } };
+  for (let pass = 0; pass < 3; pass += 1) {
+    vm.runInContext('activeLocale="ar"; localizeTextNode(node)', context);
+    assert.ok(context.node.nodeValue.includes("\u2066$6.8B\u2069"));
+    vm.runInContext('activeLocale="en"; localizeTextNode(node)', context);
+    assert.equal(context.node.nodeValue, original);
+  }
+});
+
+test("Arabic dates and availability-check times use Latin digits", () => {
+  const context = vm.createContext({ activeLocale: "ar" });
+  vm.runInContext(["formatNewsDate", "formatCheckedAt"].map(functionCode).join("\n"), context);
+  for (const expression of ['formatNewsDate("2026-09-07")', 'formatCheckedAt("2026-09-07T14:05:00Z")']) {
+    const result = vm.runInContext(expression, context);
+    assert.doesNotMatch(result, /[٠-٩۰-۹]/);
+    assert.match(result, /2026/);
+  }
 });
 
 function dataContext(date) {

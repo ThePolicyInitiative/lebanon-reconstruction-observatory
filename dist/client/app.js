@@ -61,7 +61,7 @@ const arabicText = Object.freeze({
   "Initial LEAP financing": "تمويل ليب الأولي",
   "Buildings damaged or destroyed": "المباني المتضررة أو المدمرة",
   "Across 10 assessed sectors": "عبر 10 قطاعات جرى تقييمها",
-  "of a $1B scalable framework": "ضمن إطار قابل للتوسع بقيمة مليار دولار",
+  "of a $1B scalable framework": "ضمن إطار قابل للتوسع بقيمة $1B",
   "RESPONSE ARCHITECTURE": "هيكل الاستجابة",
   "From evidence to delivery": "من الأدلة إلى التنفيذ",
   "The observatory separates assessments, financing, relief and implementation so planned activity is never presented as completed reconstruction.": "يفصل المرصد بين التقييمات والتمويل والإغاثة والتنفيذ حتى لا يتم عرض النشاط المخطط على أنه إعادة إعمار مكتملة.",
@@ -272,7 +272,7 @@ const arabicText = Object.freeze({
   "FOLLOW THE MONEY": "تتبع التمويل",
   "A staged financing": "صورة تمويلية",
   "picture.": "متدرجة.",
-  "The RDNA estimates $3–5B of public financing and $6–8B of private financing will be required. LEAP provides a source-backed starting layer for priority public recovery.": "يقدّر تقييم الأضرار والاحتياجات أن التمويل العام المطلوب يتراوح بين 3 و5 مليارات دولار، والتمويل الخاص بين 6 و8 مليارات دولار. ويوفّر ليب طبقة انطلاق مدعومة بالمصادر لأولوية التعافي العام.",
+  "The RDNA estimates $3–5B of public financing and $6–8B of private financing will be required. LEAP provides a source-backed starting layer for priority public recovery.": "يقدّر تقييم الأضرار والاحتياجات أن التمويل العام المطلوب يتراوح بين $3–5B، والتمويل الخاص بين $6–8B. ويوفّر ليب طبقة انطلاق مدعومة بالمصادر لأولوية التعافي العام.",
   "Explore LEAP details": "استكشف تفاصيل ليب",
   "Funding flow visualization": "تصور مسارات التمويل",
   "01 · NEED ESTIMATE": "01 · تقدير الاحتياج",
@@ -280,14 +280,14 @@ const arabicText = Object.freeze({
   "02 · PUBLIC FINANCING REQUIREMENT": "02 · متطلب التمويل العام",
   "Indicative public financing need, including infrastructure": "احتياج إرشادي للتمويل العام، يشمل البنية التحتية",
   "03 · AVAILABLE STARTING FINANCE": "03 · التمويل الأولي المتاح",
-  "Initial World Bank finance within a $1B scalable framework": "تمويل أولي من البنك الدولي ضمن إطار قابل للتوسع بقيمة مليار دولار",
+  "Initial World Bank finance within a $1B scalable framework": "تمويل أولي من البنك الدولي ضمن إطار قابل للتوسع بقيمة $1B",
   "Different stages of the financing picture — do not add them together.": "هذه مراحل مختلفة من الصورة التمويلية — لا تجمعها معاً.",
   "RDNA recovery need": "احتياج التعافي وفق التقييم الوطني",
-  "$11B over recovery & reconstruction": "11 مليار دولار للتعافي وإعادة الإعمار",
+  "$11B over recovery & reconstruction": "$11B للتعافي وإعادة الإعمار",
   "Public financing need": "احتياج التمويل العام",
-  "$3–5B, including public infrastructure": "3 إلى 5 مليارات دولار، تشمل البنية التحتية العامة",
+  "$3–5B, including public infrastructure": "$3–5B، تشمل البنية التحتية العامة",
   "LEAP starting layer": "طبقة انطلاق ليب",
-  "$250M of a $1B scalable framework": "250 مليون دولار ضمن إطار قابل للتوسع بقيمة مليار دولار",
+  "$250M of a $1B scalable framework": "$250M ضمن إطار قابل للتوسع بقيمة $1B",
   "FINANCING INTERPRETATION": "تفسير التمويل",
   "Read the funding picture without double counting.": "اقرأ صورة التمويل من دون احتساب مزدوج.",
   "Needs estimates, framework ceilings, approved finance and verified spending are different stages. They should not be added together.": "تقديرات الاحتياجات وسقوف الإطار والتمويل المعتمد والإنفاق المتحقق هي مراحل مختلفة ولا ينبغي جمعها معاً.",
@@ -306,7 +306,7 @@ const arabicText = Object.freeze({
   "The RDNA estimates what recovery could require. It is not a pool of committed funds.": "يقدّر التقييم ما قد يتطلبه التعافي. ولا يمثل رصيداً من الأموال الملتزم بها.",
   "This includes infrastructure and public-service recovery that needs public financing to be mobilised.": "يشمل ذلك البنية التحتية وتعافي الخدمات العامة التي تتطلب حشد تمويل عام.",
   "This relates principally to housing, commerce, industry and tourism. It is separate from LEAP's public framework.": "يتصل ذلك أساساً بالإسكان والتجارة والصناعة والسياحة، وهو منفصل عن الإطار العام لليب.",
-  "Available financing inside a $1B scalable public-recovery framework. The remaining framework gap is not financed.": "تمويل متاح ضمن إطار قابل للتوسع للتعافي العام بقيمة مليار دولار. أما الفجوة المتبقية في الإطار فليست ممولة.",
+  "Available financing inside a $1B scalable public-recovery framework. The remaining framework gap is not financed.": "تمويل متاح ضمن إطار قابل للتوسع للتعافي العام بقيمة $1B. أما الفجوة المتبقية في الإطار فليست ممولة.",
   "MONEY TO DELIVERY": "من التمويل إلى التنفيذ",
   "What moves a financing announcement into a verifiable public result": "ما الذي يحول إعلان التمويل إلى نتيجة عامة يمكن التحقق منها",
   "Need and eligibility": "الاحتياج والأهلية",
@@ -326,7 +326,7 @@ const arabicText = Object.freeze({
   "MEDIA CONTEXT": "سياق إعلامي",
   "REUTERS INTERVIEW · 28 FEB 2025": "مقابلة رويترز · 28 فبراير 2025",
   "Finance Minister's reconstruction-fund perspective": "رؤية وزير المالية لصندوق إعادة الإعمار",
-  "Reuters reported that Finance Minister Yassine Jaber described an anticipated $1B reconstruction framework, with $250M in World Bank seed financing and an expected $750M from donors. This is a ministerial statement at that date, not evidence that the full framework gap was committed, disbursed or spent.": "أفادت رويترز بأن وزير المالية ياسين جابر وصف إطاراً متوقعاً لإعادة الإعمار بقيمة مليار دولار، مع 250 مليون دولار كتمويل تأسيسي من البنك الدولي و750 مليون دولار متوقعة من المانحين. وهذا تصريح وزاري في ذلك التاريخ، وليس دليلاً على أن فجوة الإطار كاملة قد التُزم بها أو صُرفت أو أُنفقت.",
+  "Reuters reported that Finance Minister Yassine Jaber described an anticipated $1B reconstruction framework, with $250M in World Bank seed financing and an expected $750M from donors. This is a ministerial statement at that date, not evidence that the full framework gap was committed, disbursed or spent.": "أفادت رويترز بأن وزير المالية ياسين جابر وصف إطاراً متوقعاً لإعادة الإعمار بقيمة $1B، مع $250M كتمويل تأسيسي من البنك الدولي و$750M متوقعة من المانحين. وهذا تصريح وزاري في ذلك التاريخ، وليس دليلاً على أن فجوة الإطار كاملة قد التُزم بها أو صُرفت أو أُنفقت.",
   "Read Reuters coverage": "اقرأ تغطية رويترز",
   "Reuters story republished by Yahoo": "قصة رويترز معاد نشرها عبر ياهو",
   "WORLD BANK / GOVERNMENT OF LEBANON": "البنك الدولي / حكومة لبنان",
@@ -346,8 +346,8 @@ const arabicText = Object.freeze({
   "additional grants or loans to be mobilized": "منح أو قروض إضافية ينبغي حشدها",
   "months of priority investment needs": "أشهر من احتياجات الاستثمار ذات الأولوية",
   "COMPONENT ENVELOPE": "مظروف المكونات",
-  "What the $1B framework is designed to fund": "ما الذي صُمم إطار المليار دولار لتمويله",
-  "Available financing is separate from the remaining framework gap. Amounts in US$ millions.": "التمويل المتاح منفصل عن فجوة الإطار المتبقية. المبالغ بملايين الدولارات الأمريكية.",
+  "What the $1B framework is designed to fund": "ما الذي صُمم إطار $1B لتمويله",
+  "Available financing is separate from the remaining framework gap. Amounts in US$ millions.": "التمويل المتاح منفصل عن فجوة الإطار المتبقية. المبالغ بوحدة US$ millions.",
   "Component": "المكوّن",
   "Available": "المتاح",
   "Gap": "الفجوة",
@@ -470,14 +470,14 @@ const arabicText = Object.freeze({
   "Nationwide recovery baseline": "خط أساس وطني للتعافي",
   "Scope: national assessments and early recovery mechanisms following the 2023 to 2024 conflict.": "النطاق: تقييمات وطنية وآليات تعافٍ مبكر بعد نزاع 2023–2024.",
   "recovery and reconstruction needs estimated in the national RDNA": "احتياجات التعافي وإعادة الإعمار المقدّرة في التقييم الوطني للاحتياجات بعد الكارثة",
-  "initial LEAP financing approved within a $1B scalable framework": "تمويل ليب الأولي المعتمد ضمن إطار قابل للتوسع بقيمة مليار دولار",
+  "initial LEAP financing approved within a $1B scalable framework": "تمويل ليب الأولي المعتمد ضمن إطار قابل للتوسع بقيمة $1B",
   "people displaced during the conflict period in the multi-agency assessment": "أشخاص نزحوا خلال فترة النزاع بحسب التقييم المشترك بين الوكالات",
   "Open after-2024 source base": "افتح قاعدة مصادر ما بعد 2024",
   "Rapid recovery and response baseline": "خط أساس سريع للتعافي والاستجابة",
   "Scope: rapid building assessments, emergency service continuity and response instruments documented after the 2026 war.": "النطاق: تقييمات سريعة للمباني واستمرارية الخدمات الطارئة وأدوات استجابة موثقة بعد حرب 2026.",
   "direct building damage estimated in Beirut and Mount Lebanon": "أضرار مباشرة مقدّرة للمباني في بيروت وجبل لبنان",
   "debris estimated in the rapid assessment": "ركام مقدّر في التقييم السريع",
-  "Lebanon Response Plan appeal, targeting 1.5M people": "نداء خطة الاستجابة للبنان، يستهدف 1.5 مليون شخص",
+  "Lebanon Response Plan appeal, targeting 1.5M people": "نداء خطة الاستجابة للبنان، يستهدف 1.5M شخص",
   "Open after-2026 source base": "افتح قاعدة مصادر ما بعد 2026",
   "Compare the aftermath, not raw totals.": "قارن آثار ما بعد الحرب، لا الأرقام المجردة.",
   "The post-2024 record gives a nationwide, multi-sector recovery baseline. The post-2026 record starts with targeted rapid assessment and immediate response. They are different after-war phases with different geographic scopes, so their figures cannot be added or treated as a trend.": "يوفر سجل ما بعد 2024 خط أساس وطنياً متعدد القطاعات للتعافي، بينما يبدأ سجل ما بعد 2026 بتقييم سريع موجّه واستجابة فورية. وهما مرحلتان مختلفتان بعد الحرب وبنطاقين جغرافيين مختلفين، لذلك لا يمكن جمع هذه الأرقام أو التعامل معها كاتجاه زمني.",
@@ -528,7 +528,7 @@ const arabicText = Object.freeze({
   "Scope": "النطاق",
   "Entire country · 10 sectors · 8 Oct 2023–20 Dec 2024": "كامل البلاد · 10 قطاعات · 8 تشرين الأول 2023–20 كانون الأول 2024",
   "What it measures": "ما الذي يقيسه",
-  "$6.8B in physical damage and $7.2B in economic losses.": "6.8 مليارات دولار أضرار مادية و7.2 مليارات دولار خسائر اقتصادية.",
+  "$6.8B in physical damage and $7.2B in economic losses.": "$6.8B أضرار مادية و$7.2B خسائر اقتصادية.",
   "Read carefully": "تنبيه للقراءة",
   "A national recovery-and-needs assessment, not a town-by-town damage count or delivery tracker.": "تقييم وطني للتعافي والاحتياجات، وليس عدّاً للأضرار بلدةً ببلدة أو متتبّعاً للتنفيذ.",
   "Open national RDNA": "افتح التقييم الوطني للاحتياجات",
@@ -536,13 +536,13 @@ const arabicText = Object.freeze({
   "Building-level view of South Lebanon": "نظرة على مستوى المبنى في جنوب لبنان",
   "direct building damage estimated": "أضرار مباشرة مقدّرة للمباني",
   "Areas south of the Litani, including Bint Jbeil, Marjaayoun, Nabatieh, Tyre and Saida.": "المناطق الواقعة جنوب الليطاني، بما فيها بنت جبيل ومرجعيون والنبطية وصور وصيدا.",
-  "11,095 buildings destroyed and about 3.1M m³ of debris, visible in the assessment imagery.": "11,095 مبنى مدمراً ونحو 3.1 مليون م³ من الركام، ظاهرة في صور التقييم.",
+  "11,095 buildings destroyed and about 3.1M m³ of debris, visible in the assessment imagery.": "11,095 مبنى مدمراً ونحو 3.1M m³ من الركام، ظاهرة في صور التقييم.",
   "29 Apr 2026 imagery versus a 23 Oct 2025 baseline; excludes underground structures and critical infrastructure.": "صور 29 نيسان 2026 مقارنةً بخط أساس 23 تشرين الأول 2025؛ ولا يشمل المنشآت تحت الأرض والبنية التحتية الحيوية.",
   "Open South Lebanon assessment": "افتح تقييم جنوب لبنان",
   "BEIRUT & MOUNT LEBANON · 9 JUN 2026": "بيروت وجبل لبنان · 9 حزيران 2026",
   "Rapid assessment of Beirut & Mount Lebanon": "تقييم سريع لبيروت وجبل لبنان",
   "Beirut and Mount Lebanon, with damage concentrations named in six affected areas.": "بيروت وجبل لبنان، مع تسمية تركز الأضرار في ست مناطق متضررة.",
-  "146 buildings destroyed, 264 partially damaged and 648,942 m³ of debris estimated.": "146 مبنى مدمراً، و264 متضرراً جزئياً، و648,942 م³ من الركام المقدّر.",
+  "146 buildings destroyed, 264 partially damaged and 648,942 m³ of debris estimated.": "146 مبنى مدمراً، و264 متضرراً جزئياً، و648,942 m³ من الركام المقدّر.",
   "GeoAI, satellite analysis and field verification provide an initial planning baseline, not a cumulative 2024 total.": "يوفر الذكاء الاصطناعي الجغرافي والتحليل الفضائي والتحقق الميداني خط أساس أولياً للتخطيط، وليس إجمالياً تراكمياً لعام 2024.",
   "Open Beirut & Mount Lebanon assessment": "افتح تقييم بيروت وجبل لبنان",
   "AITAROUN · FEB 2025": "عيترون · شباط 2025",
@@ -614,19 +614,19 @@ const arabicText = Object.freeze({
   "Public lifelines": "الخدمات العامة الأساسية",
   "Built environment": "البيئة المبنية",
   "Assessed in the RDNA as a national recovery sector.": "قُيّم في تقييم الاحتياجات بعد الكارثة كقطاع وطني للتعافي.",
-  "The RDNA estimates $3.4B in economic losses for this combined sector.": "يقدّر تقييم الاحتياجات بعد الكارثة الخسائر الاقتصادية في هذا القطاع المجمع بـ3.4 مليارات دولار.",
+  "The RDNA estimates $3.4B in economic losses for this combined sector.": "يقدّر تقييم الاحتياجات بعد الكارثة الخسائر الاقتصادية في هذا القطاع المجمع بـ$3.4B.",
   "The multi-agency assessment records disruption for hundreds of thousands of students.": "يوثق التقييم المشترك بين الوكالات اضطراباً أثر في مئات آلاف الطلاب.",
   "Recovery planning includes rehabilitation of damaged environmental ecosystems.": "يشمل تخطيط التعافي تأهيل النظم البيئية المتضررة.",
   "Included in the estimated public infrastructure financing requirement.": "مدرج ضمن احتياج التمويل المقدّر للبنية التحتية العامة.",
   "Assessed alongside essential services critical to community recovery.": "قُيّم إلى جانب الخدمات الأساسية الحيوية لتعافي المجتمعات.",
   "Housing is the largest assessed damage sector in the RDNA.": "الإسكان هو أكبر قطاع أضرار مقدّر في تقييم الاحتياجات بعد الكارثة.",
   "Livelihood and food systems": "سبل العيش والنظم الغذائية",
-  "$3.4B assessed losses": "خسائر مقدّرة بـ3.4 مليارات دولار",
+  "$3.4B assessed losses": "خسائر مقدّرة بـ$3.4B",
   "Learning continuity": "استمرارية التعليم",
   "Debris & environmental recovery": "التعافي من الركام والضرر البيئي",
   "Public lifeline": "خدمة عامة أساسية",
   "Essential service": "خدمة أساسية",
-  "$4.6B assessed damage": "أضرار مقدّرة بـ4.6 مليارات دولار",
+  "$4.6B assessed damage": "أضرار مقدّرة بـ$4.6B",
   "Public officials and institutions": "المسؤولون والمؤسسات العامة",
   "NGOs, international organizations, and UN actors": "المنظمات غير الحكومية والدولية وجهات الأمم المتحدة",
   "Municipal and local authorities": "السلطات البلدية والمحلية",
@@ -683,13 +683,23 @@ function uiText(english, arabic) {
   return activeLocale === "ar" ? arabic : english;
 }
 
+function formatArabicNumbers(value) {
+  // Keep quantities as a single LTR run inside Arabic, without changing values.
+  // Remove only our own isolates first so repeated locale passes are idempotent.
+  const normalized = value.replace(/\u2066([^\u2069]*)\u2069/g, "$1")
+    .replace(/[٠-٩۰-۹]/g, digit => String(digit.charCodeAt(0) - (digit >= "۰" ? 0x06f0 : 0x0660)))
+    .replace(/٫/g, ".").replace(/٬/g, ",").replace(/٪/g, "%");
+  const quantity = /(?:US\$|USD)\s+(?:millions|billions|thousands)|(?:(?:US\$|USD|EUR|GBP|[$€£])\s*)?[+−-]?\d+(?:[,.]\d+)*(?::\d{2})?(?:\s*[–—\-/]\s*\d+(?:[,.]\d+)*)*(?:\s*(?:billion|million|thousand|[KMB])(?![A-Za-z]))?(?:\s*(?:m[²³]|km[²³]?|kg|MW|kW|ha|tonnes|tons|months|years|days)(?![A-Za-z]))?(?:[%+])?/g;
+  return normalized.replace(quantity, match => `\u2066${match.replace(/\s+/g, "\u00a0")}\u2069`);
+}
+
 function localizeTextNode(node) {
   if (!node?.nodeValue || node.parentElement?.closest("script, style, [data-locale-control]")) return;
   const original = originalTextNodes.get(node) ?? node.nodeValue;
   if (!originalTextNodes.has(node)) originalTextNodes.set(node, original);
   const trimmed = original.trim();
   if (!trimmed) return;
-  const translated = activeLocale === "ar" ? translatedText(trimmed) : original;
+  const translated = activeLocale === "ar" ? formatArabicNumbers(translatedText(trimmed)) : trimmed;
   node.nodeValue = original.replace(trimmed, translated);
 }
 
@@ -703,7 +713,7 @@ function localizeAttributes(root = document.body) {
       if (!element.hasAttribute(attribute)) return;
       if (!(attribute in original)) original[attribute] = element.getAttribute(attribute);
       const value = original[attribute];
-      element.setAttribute(attribute, activeLocale === "ar" ? translatedText(value) : value);
+      element.setAttribute(attribute, activeLocale === "ar" ? formatArabicNumbers(translatedText(value)) : value);
     });
     originalAttributes.set(element, original);
   });
@@ -1024,7 +1034,7 @@ function updateFreshness(reviewedAt = currentReviewedAt) {
   if (!overviewFreshness) return;
   currentReviewedAt = reviewedAt;
   const formattedReviewedAt = activeLocale === "ar"
-    ? new Intl.DateTimeFormat("ar-LB", { dateStyle: "medium" }).format(new Date(reviewedAt))
+    ? new Intl.DateTimeFormat("ar-LB", { dateStyle: "medium", numberingSystem: "latn" }).format(new Date(reviewedAt))
     : reviewedAt;
   overviewFreshness.textContent = activeLocale === "ar"
     ? `سجل عام منتقى · آخر مراجعة ${formattedReviewedAt}`
@@ -1348,11 +1358,11 @@ function renderRegistries() {
 }
 
 function formatNewsDate(date) {
-  return new Intl.DateTimeFormat(activeLocale === "ar" ? "ar-LB" : "en-GB", { day: "2-digit", month: "short", year: "numeric" }).format(new Date(`${date}T12:00:00Z`));
+  return new Intl.DateTimeFormat(activeLocale === "ar" ? "ar-LB" : "en-GB", { day: "2-digit", month: "short", year: "numeric", numberingSystem: "latn" }).format(new Date(`${date}T12:00:00Z`));
 }
 
 function formatCheckedAt(timestamp) {
-  return new Intl.DateTimeFormat(activeLocale === "ar" ? "ar-LB" : "en-GB", { dateStyle: "medium", timeStyle: "short" }).format(new Date(timestamp));
+  return new Intl.DateTimeFormat(activeLocale === "ar" ? "ar-LB" : "en-GB", { dateStyle: "medium", timeStyle: "short", numberingSystem: "latn", hourCycle: "h23" }).format(new Date(timestamp));
 }
 
 function newsCheckLabel(item) {
@@ -1376,7 +1386,7 @@ function renderNewsStatus() {
   } else if (payload?.snapshotCount) {
     message = uiText(`Metadata snapshots loaded for ${payload.snapshotCount} official pages. Check availability to run a live check.`, `حُمّلت لقطات البيانات الوصفية لـ ${payload.snapshotCount} صفحة رسمية. تحقّق من الإتاحة لإجراء فحص مباشر.`);
   }
-  newsStatus.innerHTML = `<i></i> ${message}`;
+  newsStatus.innerHTML = `<i></i> ${activeLocale === "ar" ? formatArabicNumbers(message) : message}`;
 }
 
 function renderNews() {
