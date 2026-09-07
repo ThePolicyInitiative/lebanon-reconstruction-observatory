@@ -10,11 +10,14 @@ let apiAvailable = false;
 const GITHUB_PAGES_ORIGIN = "https://thepolicyinitiative.github.io";
 const LIVE_API_ORIGIN = "https://rebuild-lebanon.tpichatgpt.chatgpt.site";
 const apiUrl = pathname => window.location.origin === GITHUB_PAGES_ORIGIN ? `${LIVE_API_ORIGIN}${pathname}` : pathname;
-let activeLocale = "en";
+// Arabic is the public default.  The versioned key intentionally supersedes
+// the site's former English-by-default preference for returning visitors.
+const localeStorageKey = "observatory-language-v2";
+let activeLocale = "ar";
 try {
-  activeLocale = window.localStorage.getItem("observatory-language") === "ar" ? "ar" : "en";
+  activeLocale = window.localStorage.getItem(localeStorageKey) === "en" ? "en" : "ar";
 } catch (error) {
-  activeLocale = "en";
+  activeLocale = "ar";
 }
 
 const arabicText = Object.freeze({
@@ -2085,7 +2088,7 @@ function applyLocale(locale, { persist = true } = {}) {
   activeLocale = locale === "ar" ? "ar" : "en";
   if (persist) {
     try {
-      window.localStorage.setItem("observatory-language", activeLocale);
+      window.localStorage.setItem(localeStorageKey, activeLocale);
     } catch (error) {
       // Continue without storage when the browser blocks local persistence.
     }
