@@ -4,7 +4,7 @@
 /* Arabic UI typography: a complete, readable RTL family for labels, body copy and headings. */
 html[dir="rtl"] body,
 html[dir="rtl"] body :is(a, button, input, select, textarea, label, p, h1, h2, h3, h4, h5, h6, small, strong, span, time, summary, li) {
-  font-family:"Noto Sans Arabic",Tahoma,Arial,sans-serif !important;
+  font-family:"Cairo",Tahoma,Arial,sans-serif !important;
   letter-spacing:0;
 }
 html[dir="rtl"] body { line-height:1.65; }
@@ -142,6 +142,12 @@ html[dir="rtl"] body{font-family:Tahoma,Arial,sans-serif;text-align:right}html[d
 @media(max-width:1050px){html[dir="rtl"] .main-content{margin-right:218px;margin-left:0}}
 @media(max-width:780px){.language-toggle{min-height:30px;padding:0 8px;font-size:9px}html[dir="rtl"] .sidebar{right:0;left:auto;transform:translateX(100%)}html[dir="rtl"] .sidebar.open{transform:translateX(0)}html[dir="rtl"] .main-content{margin-right:0;margin-left:0}html[dir="rtl"] .metric-card{border-left:1px solid var(--line)}html[dir="rtl"] .metric-card:nth-child(2){border-left:0}html[dir="rtl"] .funding-path li{padding-right:20px;padding-left:0;border-right:1px solid #d8cec0;border-left:0}html[dir="rtl"] .funding-path li:before{right:-4px;left:auto}html[dir="rtl"] .toast{right:18px;left:18px}}
 html[dir="rtl"] .leap-component-row b{right:0;left:auto}
+
+/* Arabic directional arrows are mirrored as glyphs in app.js; never flip their containers. */
+html[dir="rtl"] .text-link span,
+html[dir="rtl"] .funding-path-note a i,
+html[dir="rtl"] .leap-document-strip a i,
+html[dir="rtl"] .funding-media-note>a span { transform:none; }
 
 #geoMap .location-hit{fill:transparent;pointer-events:all}
 

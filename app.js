@@ -644,11 +644,25 @@ const arabicText = Object.freeze({
 
 const originalTextNodes = new WeakMap();
 const originalAttributes = new WeakMap();
+const arabicDirectionalArrows = Object.freeze({
+  "→": "←",
+  "←": "→",
+  "↗": "↖",
+  "↖": "↗",
+  "↘": "↙",
+  "↙": "↘",
+  "⇄": "⇆",
+  "⇆": "⇄"
+});
+
+function mirrorArabicDirections(value) {
+  return value.replace(/[→←↗↖↘↙⇄⇆]/g, arrow => arabicDirectionalArrows[arrow]);
+}
 
 function translatedText(value) {
   const compact = value.replace(/\s+/g, " ").trim();
   if (activeLocale !== "ar" || !compact) return value;
-  return arabicText[compact] || value;
+  return mirrorArabicDirections(arabicText[compact] || value);
 }
 
 function uiText(english, arabic) {
