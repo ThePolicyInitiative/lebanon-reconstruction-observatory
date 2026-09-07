@@ -1047,13 +1047,12 @@ function renderRecords() {
   }
   projectList.innerHTML = visibleRecords.length ? visibleRecords.map(record => {
     const external = record.href.startsWith("http");
-    const sourceLanguage = activeLocale === "ar" ? ' lang="en" dir="ltr"' : "";
     return `
-    <a class="project-row"${sourceLanguage} href="${record.href}"${external ? ' target="_blank" rel="noreferrer"' : ""}>
-      <div class="project-title"><span class="project-icon">${record.icon}</span><div><p class="project-name">${record.name}</p><p class="project-place">${record.place}</p></div></div>
-      <p class="project-meta"><strong>${localizedPeriodLabel(record.period)} • ${localizedRecordFilter(record.filter)}</strong>${translatedText(record.status)}</p>
-      <p class="project-funding">${record.funding}</p>
-      <p class="record-marker">${record.marker}</p>
+    <a class="project-row" href="${record.href}"${external ? ' target="_blank" rel="noreferrer"' : ""}>
+      <div class="project-title"><span class="project-icon">${record.icon}</span><div><p class="project-name" dir="auto">${record.name}</p><p class="project-place" dir="auto">${record.place}</p></div></div>
+      <p class="project-meta"><strong>${localizedPeriodLabel(record.period)} • ${localizedRecordFilter(record.filter)}</strong><span class="record-status" dir="auto">${translatedText(record.status)}</span></p>
+      <p class="project-funding" dir="auto">${record.funding}</p>
+      <p class="record-marker" dir="auto">${record.marker}</p>
       <span class="row-arrow" aria-label="${translatedText("Open primary source")}">↗</span>
     </a>`;
   }).join("") : `<p class="empty-state">${uiText("No source-backed records match this search.", "لا توجد سجلات مدعومة بالمصادر تطابق هذا البحث.")}</p>`;
