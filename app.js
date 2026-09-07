@@ -116,7 +116,6 @@ const arabicText = Object.freeze({
   "Open full 2024 record set": "افتح كامل سجل ما بعد حرب 2024",
   "Open full 2026 record set": "افتح كامل سجل ما بعد حرب 2026",
   "EVIDENCE DISCIPLINE": "انضباط الأدلة",
-  "do not equate an announcement or a framework with financed delivery": "لا تساوِ بين الإعلان أو الإطار وبين تنفيذ ممول",
   "RECOVERY PATHWAY": "مسار التعافي",
   "Evidence-led view": "عرض قائم على الأدلة",
   "Assess": "التقييم",
