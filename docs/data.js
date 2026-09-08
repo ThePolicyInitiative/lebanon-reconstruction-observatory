@@ -575,6 +575,7 @@ const OBSERVATORY_DATA = {
     ,{ name: "Provide additional support for Lebanese Armed Forces readiness and safe return", period: "2026", stage: "Public-safety financing", description: "Norway announced an additional contribution through UNDP to support the Lebanese Armed Forces. The announcement links longer-term support to explosive-ordnance clearance, which is a prerequisite for safer return; it should be read as a funding commitment, not a completed recovery-work record.", actor: "Government of Norway / Lebanese Armed Forces / UNDP", href: "https://www.undp.org/lebanon/press-releases/norway-announces-15-million-additional-support-lebanese-armed-forces-through-undp" }
     ,{ name: "Open a framework procurement for damaged public-building assessment and rehabilitation supervision", period: "2024", stage: "Procurement notice", description: "The CDR published a request for expressions of interest under LEAP for design, structural assessment, rehabilitation and construction-supervision services for slightly and partially damaged public buildings. The notice is a pre-award procurement step: it does not document a selected consultant, contract award, completed supervision or finished works.", actor: "Council for Development and Reconstruction / World Bank / LEAP Project Management Unit", href: "https://www.cdr.gov.lb/en-US/Procurment/ProcurementDetail.aspx?aliaspath=%2FProcurment%2FProcurementDetail&id=1261&lot=0" }
     ,{ name: "Open a framework procurement for LEAP environmental and social assessment services", period: "2024", stage: "Procurement notice", description: "The CDR published a request for expressions of interest under LEAP for environmental and social impact assessments, management plans and audits. The notice is a pre-award procurement step and should not be read as an approved assessment, contract award or completed safeguard activity.", actor: "Council for Development and Reconstruction / World Bank / LEAP Project Management Unit", href: "https://www.cdr.gov.lb/en-US/Procurment.aspx?sortId=DESC" }
+    ,{ name: "Open a framework procurement for water-infrastructure repair design and supervision", period: "2024", stage: "Procurement notice", description: "The CDR published a request for expressions of interest under LEAP for framework design and supervision services for water-infrastructure repair. The notice is a pre-award procurement step: it does not establish a selected consultant, contract award, completed design or completed repair works.", actor: "Council for Development and Reconstruction / World Bank / LEAP Project Management Unit", href: "https://cdr.gov.lb/Procurment/ProcurementDetail.aspx?id=1259&lot=0" }
   ],
   records: [
     {
@@ -660,6 +661,20 @@ const OBSERVATORY_DATA = {
       scale: 1,
       sourceId: "cdr-leap-esia-procurement-2026",
       href: "https://www.cdr.gov.lb/en-US/Procurment.aspx?sortId=DESC"
+    },
+    {
+      name: "LEAP Water-Infrastructure Repair Framework Procurement",
+      place: "National framework • Posted 8 Sep 2026",
+      filter: "Financing",
+      period: "2024",
+      icon: "≈",
+      status: "Council for Development and Reconstruction / World Bank",
+      funding: "World Bank-financed procurement notice",
+      marker: "Expression of interest only; no award, design or repair works reported",
+      date: "2026-09-08",
+      scale: 1,
+      sourceId: "cdr-leap-water-infrastructure-procurement-2026",
+      href: "https://cdr.gov.lb/Procurment/ProcurementDetail.aspx?id=1259&lot=0"
     },
     {
       name: "Norway Additional Support for the Lebanese Armed Forces",
@@ -1814,6 +1829,16 @@ const OBSERVATORY_DATA = {
   ],
   news: [
     {
+      id: "cdr-leap-water-infrastructure-procurement-2026",
+      category: "Procurement",
+      date: "2026-09-08",
+      publisher: "Council for Development and Reconstruction / World Bank",
+      period: "2024",
+      title: "CDR posts a LEAP water-infrastructure services procurement",
+      summary: "The notice seeks framework design and supervision services for water-infrastructure repair under LEAP. It is recorded as a pre-award procurement step, not an awarded contract or completed repair work.",
+      href: "https://cdr.gov.lb/Procurment/ProcurementDetail.aspx?id=1259&lot=0"
+    },
+    {
       id: "cdr-leap-nabatieh-roads-tender-2026",
       category: "Procurement",
       date: "2026-09-03",
@@ -1995,6 +2020,7 @@ const OBSERVATORY_DATA = {
     }
   ],
   sources: [
+    { id: "cdr-leap-water-infrastructure-procurement-2026", name: "LEAP water-infrastructure repair framework procurement", publisher: "Council for Development and Reconstruction / World Bank", date: "8 Sep 2026", type: "Official pre-award procurement notice", coverage: "Framework design and supervision services for water-infrastructure repair under LEAP", href: "https://cdr.gov.lb/Procurment/ProcurementDetail.aspx?id=1259&lot=0" },
     { id: "cdr-leap-nabatieh-roads-tender-2026", name: "LEAP Nabatieh damaged-road clearing and restoration tender", publisher: "Council for Development and Reconstruction / World Bank", date: "18 Aug 2026; deadline extended to 3 Sep 2026", type: "Official open procurement notice", coverage: "Damaged-road clearing and restoration in Nabatieh Caza • LEAP / World Bank financing • no award published", href: "https://www.cdr.gov.lb/en-US/Procurment/ProcurementDetail.aspx?aliaspath=%2FProcurment%2FProcurementDetail&id=1250&lot=0" },
     { id: "pmo-return-recovery-coordination-2026", name: "Return and recovery coordination meeting", publisher: "Prime Minister's Office", date: "3 Sep 2026", type: "Official coordination record", coverage: "Government coordination to accelerate return and recovery steps • no budget, financing or works record", href: "https://www.pcm.gov.lb/arabic/subpg.aspx?pageid=27476" },
     { id: "cdr-leap-public-buildings-procurement-2026", name: "LEAP public-building framework procurement", publisher: "Council for Development and Reconstruction / World Bank", date: "4 Sep 2026", type: "Official pre-award procurement notice", coverage: "Design, structural assessment, rehabilitation and construction-supervision services for slightly and partially damaged public buildings", href: "https://www.cdr.gov.lb/en-US/Procurment/ProcurementDetail.aspx?aliaspath=%2FProcurment%2FProcurementDetail&id=1261&lot=0" },
