@@ -22,9 +22,13 @@ test("font request uses valid Playfair weight axes and versioned assets", () => 
   for (const asset of ["data.js", "styles.css", "clarity.css"]) {
     assert.ok(html.includes(`${asset}?v=numbers-20260907`));
   }
-  for (const asset of ["app.js", "record-guide.js", "observatory.css"]) {
-    assert.ok(html.includes(`${asset}?v=readable-20260908`));
+  for (const asset of ["observatory.css", "programme-data.js"]) {
+    assert.ok(html.includes(`${asset}?v=share-history-20260908`));
   }
+  for (const asset of ["classification-reviews.js", "app.js", "record-guide.js", "library-tools.js"]) {
+    assert.ok(html.includes(`${asset}?v=classified-20260908`));
+  }
+  assert.ok(html.indexOf('src="classification-reviews.js') < html.indexOf('src="record-guide.js'));
   assert.ok(html.indexOf('src="record-guide.js') < html.indexOf('src="app.js'));
 });
 
@@ -168,22 +172,119 @@ test("current API data loads; absent and invalid review dates are rejected", asy
 });
 
 const guide = require("../record-guide.js");
+const classificationReviews = require("../classification-reviews.js");
+const recordById = id => seed.records.find(record => guide.get(record).id === id);
+
+test("154 remaining records have explicit source-review outcomes, including inaccessible evidence", () => {
+  assert.equal(Object.keys(classificationReviews.records).length, 154);
+  assert.equal(Object.keys(classificationReviews.sources).length, 101);
+  assert.equal(classificationReviews.checkedAt, "2026-09-08");
+  assert.equal(seed.reviewedAt, "7 Sep 2026", "Classification review does not redate the dataset");
+  const counts = {};
+  for (const [id, entry] of Object.entries(classificationReviews.records)) {
+    const record = recordById(id);
+    assert.ok(record, id);
+    const meta = guide.get(record);
+    const evidence = classificationReviews.sources[entry.source];
+    counts[meta.review.status] = (counts[meta.review.status] || 0) + 1;
+    assert.deepEqual(entry.snapshot, Object.fromEntries(Object.keys(entry.snapshot).map(key => [key, record[key]])));
+    assert.equal(evidence.originalUrl, record.href);
+    assert.equal(meta.review.checkedAt, "2026-09-08");
+    assert.equal(new URL(meta.review.sourceUrl).protocol, "https:");
+    assert.ok(["direct", "indexed", "unavailable"].includes(meta.review.access));
+    assert.match(meta.note[1], /[\u0600-\u06ff]/);
+    assert.ok(Object.isFrozen(entry.snapshot));
+    if (meta.review.status === "reviewed") {
+      assert.notEqual(meta.finance, "unknown", id);
+      assert.notEqual(meta.delivery, "unknown", id);
+      assert.equal(meta.basis.field, "source_review");
+      assert.ok(meta.review.locator[0]);
+      assert.match(meta.review.locator[1], /[\u0600-\u06ff]/);
+    } else {
+      assert.equal(meta.review.status, "unavailable");
+      assert.equal(meta.finance, "unknown");
+      assert.equal(meta.delivery, "unknown");
+      assert.equal(meta.basis, null);
+      assert.equal(meta.review.locator, null);
+      assert.ok(evidence.accessError);
+    }
+  }
+  assert.deepEqual(counts, {reviewed:152, unavailable:2});
+  assert.equal(seed.records.filter(record => guide.get(record).review.status === "record_only").length, 15);
+});
+
+test("source reviews fail closed on changed evidence, dates, URLs or scope, never by title keywords", () => {
+  for (const [id, entry] of Object.entries(classificationReviews.records)) {
+    const record = recordById(id);
+    for (const field of Object.keys(entry.snapshot)) {
+      const meta = guide.get({ ...record, [field]:"Changed after review" });
+      assert.equal(meta.finance, "unknown", `${id}: ${field}`);
+      assert.equal(meta.delivery, "unknown", `${id}: ${field}`);
+      assert.equal(meta.basis, null);
+      assert.notEqual(meta.review.status, "reviewed");
+    }
+  }
+  const clone = guide.get({ ...recordById("rec-0011"), name:"New grant, completed delivery" });
+  assert.equal(clone.finance, "unknown");
+  assert.equal(clone.delivery, "unknown");
+});
+
+test("review judgments distinguish actual payments, signed commitments, planned work and evidence products", () => {
+  const expected = {
+    "rec-0011":["disbursed", "in_progress"],
+    "rec-0021":["announced", "planning"],
+    "rec-0022":["committed", "planning"],
+    "rec-0016":["damage", "not_applicable"],
+    "rec-0018":["not_applicable", "not_applicable"],
+    "rec-0050":["not_stated", "in_progress"],
+    "rec-0073":["disbursed", "in_progress"],
+    "rec-0072":["not_stated", "planning"],
+    "rec-0074":["announced", "planning"],
+    "rec-0075":["not_stated", "reported_complete"],
+    "rec-0094":["committed", "planning"],
+    "rec-0112":["not_stated", "planning"],
+    "rec-0129":["announced", "planning"],
+    "rec-0138":["disbursed", "in_progress"],
+    "rec-0139":["not_stated", "in_progress"],
+    "rec-0145":["not_applicable", "not_applicable"],
+    "rec-0063":["unknown", "unknown"],
+    "rec-0064":["unknown", "unknown"]
+  };
+  for (const [id, stages] of Object.entries(expected)) {
+    const meta = guide.get(recordById(id));
+    assert.deepEqual([meta.finance, meta.delivery], stages, id);
+  }
+});
+
+test("browser and CommonJS classification modules agree and missing review assets stay conservative", () => {
+  const browser = vm.createContext({});
+  vm.runInContext(fs.readFileSync(path.join(root, "classification-reviews.js"), "utf8"), browser);
+  vm.runInContext(fs.readFileSync(path.join(root, "record-guide.js"), "utf8"), browser);
+  for (const record of seed.records) assert.equal(JSON.stringify(browser.ObservatoryRecordGuide.get(record)), JSON.stringify(guide.get(record)));
+  const missing = vm.createContext({});
+  vm.runInContext(fs.readFileSync(path.join(root, "record-guide.js"), "utf8"), missing);
+  assert.equal(missing.ObservatoryRecordGuide.get(recordById("rec-0011")).finance, "unknown");
+});
+const libraryTools = require("../library-tools.js");
+const programmeData = require("../programme-data.js");
 
 function recordContext(locale = "ar") {
   const context = vm.createContext({
-    activeLocale:locale, recordGuide:guide, records:seed.records,
+    activeLocale:locale, recordGuide:guide, records:seed.records, seedData:seed, programmeData, libraryTools,
     activeFilter:"All", activePeriod:"All", activeRecordArea:"All",
-    activeRecordFinance:"All", activeRecordDelivery:"All", visibleRecords:[],
+    activeRecordFinance:"All", activeRecordDelivery:"All", activeRecordId:"", visibleRecords:[],
+    document:{ querySelector:() => null, querySelectorAll:() => [] },
+    window:{ location:{ href:"https://thepolicyinitiative.github.io/lebanon-reconstruction-observatory/?v=01b8bf9#projects", search:"?v=01b8bf9" } },
     periodLabels:{ All:"All records", "2024":"After 2024 war", "2026":"After 2026 war" },
     recordAreaLabels:{ All:"All coverage", South:"South & Nabatieh", Beirut:"Beirut & Mount Lebanon", Bekaa:"Bekaa & Baalbek-Hermel", National:"Nationwide or multi-area" },
     projectSearch:{value:""}, recordSort:{value:"latest"}, recordCount:{textContent:""},
-    libraryFilterStatus:{textContent:""}, projectList:{innerHTML:""},
+    libraryFilterStatus:{textContent:""}, projectList:{innerHTML:""}, recordAreaFilter:{value:"All"},
     recordFinanceFilter:{innerHTML:"",value:"All",setAttribute() {}},
     recordDeliveryFilter:{innerHTML:"",value:"All",setAttribute() {}}
   });
   vm.runInContext(localeCode, context);
-  const functions = ["escapeHtml", "recordTitle", "recordStageLabel", "localizedMarkup", "normalizeRecordSearch", "matchesRecordSearch", "renderRecordCard", "localizedRecordFilter", "localizedPeriodLabel", "periodLabel", "formatNewsDate", "sortRecords", "matchesRecordArea", "localizedAreaLabel", "renderRecords", "renderRecordStageControls", "recentUpdates"];
-  vm.runInContext(functions.map(functionCode).join("\n"), context);
+  const functions = ["escapeHtml", "recordTitle", "recordStageLabel", "localizedMarkup", "normalizeRecordSearch", "matchesRecordSearch", "renderRecordCard", "localizedRecordFilter", "localizedPeriodLabel", "periodLabel", "formatNewsDate", "sortRecords", "matchesRecordArea", "localizedAreaLabel", "renderRecords", "renderRecordStageControls", "recentUpdates", "renderLibraryLinkNotice", "currentLibraryState", "syncLibraryUrl", "syncLibraryControls", "restoreLibraryLocation", "clearLibraryFilters", "libraryControlChanged", "copyShareLink", "formatHistoryDate", "renderLeapHistory", "downloadRecords"];
+  vm.runInContext([...functions, "recordReviewLabel"].map(functionCode).join("\n"), context);
   return context;
 }
 
@@ -231,8 +332,8 @@ test("needs, appeals, frameworks, announcements and approvals cannot become spen
     assert.equal(metadata.delivery, delivery);
   }
   const completed = seed.records.filter(record => guide.get(record).delivery === "reported_complete");
-  assert.equal(completed.length, 2);
-  for (const record of completed) assert.match(guide.get(record).note[0], /not independent|not completion of the entire/);
+  assert.deepEqual(completed.map(record => guide.get(record).id).sort(), ["rec-0015", "rec-0023", "rec-0028", "rec-0075", "rec-0088", "rec-0108", "rec-0163"]);
+  for (const record of completed) assert.match(guide.get(record).note[0], /not independent|not completion of the entire|not all recovery|not completion of post-war|not completion of shelter|not the wider protection/);
 });
 
 test("readable cards preserve source titles, quantities, URLs and original evidence in both languages", () => {
@@ -325,4 +426,287 @@ test("record source markup is escaped, not interpreted as HTML", () => {
   const card = vm.runInContext("renderRecordCard(record)", context);
   assert.doesNotMatch(card, /<img|<script|<svg/);
   assert.match(card, /&lt;img/);
+});
+
+test("source-review provenance is bilingual, preserves Latin numbers and distinguishes unavailable or stale sources", () => {
+  const context = recordContext();
+  for (const locale of ["ar", "en"]) {
+    context.activeLocale = locale;
+    vm.runInContext("renderRecords()", context);
+    const output = context.projectList.innerHTML;
+    assert.equal((output.match(/data-review="reviewed"/g) || []).length, 152);
+    assert.equal((output.match(/data-review="unavailable"/g) || []).length, 2);
+    assert.equal((output.match(/data-review="record_only"/g) || []).length, 15);
+    assert.equal((output.match(/datetime="2026-09-08"/g) || []).length, 154);
+    assert.doesNotMatch(output, /[\u0660-\u0669\u06f0-\u06f9]/);
+    context.record = recordById("rec-0018");
+    const alternative = vm.runInContext("renderRecordCard(record)", context);
+    assert.ok(alternative.includes(guide.get(context.record).review.sourceUrl));
+    assert.ok(alternative.includes(context.record.href), "Original link is retained");
+    assert.ok(alternative.includes(locale === "ar" ? "رابط رسمي بديل" : "alternative official link"));
+    assert.ok(alternative.includes(locale === "ar" ? "عبر فهرس البحث" : "through the search index"));
+    assert.ok(alternative.includes(locale === "ar" ? "تقييم أضرار المدارس" : "school damage assessment"));
+    assert.ok(!alternative.includes(locale === "ar" ? "الصياغة الأصلية" : "Basis for stage label — original wording"), "Paraphrase is never labelled a quotation");
+    context.record = recordById("rec-0063");
+    const unavailable = vm.runInContext("renderRecordCard(record)", context);
+    assert.ok(unavailable.includes(locale === "ar" ? "المصدر غير متاح" : "Source unavailable"));
+    assert.doesNotMatch(unavailable, /data-review="reviewed"/);
+    context.record = {...recordById("rec-0011"), funding:"Updated amount"};
+    const stale = vm.runInContext("renderRecordCard(record)", context);
+    assert.match(stale, /data-review="stale"/);
+    assert.doesNotMatch(stale, /data-stage="disbursed"|datetime="2026-09-08"/);
+  }
+});
+
+test("all financing and delivery options round-trip in URLs and work as bilingual filters", () => {
+  const context = recordContext();
+  for (const axis of ["finance", "delivery"]) {
+    assert.deepEqual(libraryTools.choices[axis], ["All", ...Object.keys(guide.stages[axis])]);
+    for (const stage of Object.keys(guide.stages[axis])) {
+      const state = {...libraryTools.defaults, [axis]:stage, lang:"ar"};
+      assert.equal(libraryTools.readState(new URL(libraryTools.viewUrl("https://example.org/", state)).search)[axis], stage);
+      context.activeRecordFinance = axis === "finance" ? stage : "All";
+      context.activeRecordDelivery = axis === "delivery" ? stage : "All";
+      for (const locale of ["en", "ar"]) {
+        context.activeLocale = locale;
+        vm.runInContext("renderRecords(); renderRecordStageControls()", context);
+        assert.deepEqual(Array.from(context.visibleRecords, r => guide.get(r).id).sort(), seed.records.filter(r => guide.get(r)[axis] === stage).map(r => guide.get(r).id).sort());
+      }
+    }
+  }
+});
+
+test("all current records have unique permanent IDs, independent of display order", () => {
+  const ids = seed.records.map(record => guide.get(record).id);
+  assert.equal(new Set(ids).size, 169);
+  for (const id of ids) assert.match(id, /^rec-\d{4}$/);
+  const reversed = [...seed.records].reverse().map(record => guide.get(record).id).reverse();
+  assert.deepEqual(reversed, ids);
+  assert.equal(guide.get(seed.records.find(record => record.name === "Lebanon Emergency Assistance Project (LEAP)")).id, "rec-0002");
+  for (const name of ["constructor", "toString", "__proto__"]) {
+    const unknown = guide.get({name});
+    assert.equal(unknown.id, null);
+    assert.equal(unknown.titleAr, null);
+    assert.equal(unknown.basis, null);
+  }
+});
+
+test("share links round-trip every filter, Arabic text, sort and language on GitHub Pages", () => {
+  const state = { q:"تأهيل المدارس & $250M", type:"Financing", period:"2024", area:"South", finance:"approved", delivery:"procurement", sort:"scale", lang:"ar", record:"" };
+  const url = new URL(libraryTools.viewUrl("https://example.org/repo/?v=test&tracking=private#overview", state, "#projects"));
+  assert.equal(url.pathname, "/repo/");
+  assert.equal(url.hash, "#projects");
+  assert.equal(url.searchParams.get("v"), "test");
+  assert.equal(url.searchParams.has("tracking"), false);
+  assert.deepEqual(libraryTools.readState(url.search), state);
+  assert.equal(libraryTools.viewUrl(url.href, state, "#projects"), url.href);
+});
+
+test("invalid filter values are rejected; broken record links cannot silently show all records", () => {
+  const state = libraryTools.readState("?period=2000&type=MadeUp&sort=bad&lang=xx&record=%3Cscript%3E");
+  assert.equal(state.type, "All");
+  assert.equal(state.period, "All");
+  assert.equal(state.sort, "latest");
+  assert.equal(state.lang, null);
+  assert.equal(state.record, "invalid-record");
+  const context = recordContext();
+  const notice = {hidden:true,innerHTML:""};
+  context.document.querySelector = selector => selector === "#libraryLinkNotice" ? notice : null;
+  context.activeRecordId = state.record;
+  vm.runInContext("renderRecords()", context);
+  assert.equal(context.visibleRecords.length, 0);
+  assert.equal(notice.hidden, false);
+  assert.match(notice.innerHTML, /غير موجود/);
+});
+
+test("record permalinks clear unrelated filters and resolve to exactly one source record", () => {
+  const link = new URL(libraryTools.recordUrl("https://example.org/repo/?q=unrelated&finance=spent&lang=en#leap-history", "rec-0002", "ar"));
+  assert.equal(link.hash, "#projects");
+  const state = libraryTools.readState(link.search);
+  assert.equal(state.q, "");
+  assert.equal(state.finance, "All");
+  assert.equal(state.lang, "ar");
+  const context = recordContext();
+  context.activeRecordId = state.record;
+  vm.runInContext("renderRecords()", context);
+  assert.equal(context.visibleRecords.length, 1);
+  assert.equal(context.visibleRecords[0].sourceId, "leap");
+});
+
+test("location restoration updates state and controls; clear filters removes record scope", () => {
+  const context = recordContext("en");
+  const calls = [];
+  context.window.history = {};
+  for (const method of ["pushState", "replaceState"]) context.window.history[method] = (_state, _unused, href) => {
+    calls.push(method);
+    context.window.location.href = href;
+    context.window.location.search = new URL(href).search;
+  };
+  context.applyLocale = locale => {
+    context.activeLocale = locale;
+    vm.runInContext("syncLibraryControls(); renderRecords()", context);
+  };
+  context.window.location.href = "https://example.org/repo/?q=public-building&type=Financing&period=2024&delivery=procurement&sort=az&lang=ar#projects";
+  context.window.location.search = new URL(context.window.location.href).search;
+  vm.runInContext("restoreLibraryLocation()", context);
+  assert.equal(context.activeLocale, "ar");
+  assert.equal(context.projectSearch.value, "public-building");
+  assert.equal(context.recordSort.value, "az");
+  assert.equal(context.recordDeliveryFilter.value, "procurement");
+  assert.equal(context.visibleRecords.length, 1);
+  context.activeRecordId = "rec-0005";
+  vm.runInContext("clearLibraryFilters()", context);
+  assert.equal(context.activeRecordId, "");
+  assert.equal(context.visibleRecords.length, 169);
+  assert.equal(context.projectSearch.value, "");
+  assert.equal(context.recordDeliveryFilter.value, "All");
+  assert.equal(new URL(context.window.location.href).search, "?lang=ar");
+  assert.equal(calls.at(-1), "pushState");
+});
+
+function parseCsv(csv) {
+  const rows = [];
+  let row = [], cell = "", quoted = false;
+  for (let i = csv.charCodeAt(0) === 0xFEFF ? 1 : 0; i < csv.length; i++) {
+    const c = csv[i];
+    if (c === '"') {
+      if (quoted && csv[i + 1] === '"') { cell += '"'; i++; }
+      else quoted = !quoted;
+    } else if (!quoted && c === ",") { row.push(cell); cell = ""; }
+    else if (!quoted && c === "\r" && csv[i + 1] === "\n") { row.push(cell); rows.push(row); row = []; cell = ""; i++; }
+    else cell += c;
+  }
+  assert.equal(quoted, false);
+  return rows;
+}
+
+test("CSV exports the exact filtered/sorted rows with original numbers, Arabic titles and stable links", () => {
+  const context = recordContext();
+  context.activeRecordDelivery = "procurement";
+  context.projectSearch.value = "بيئية";
+  vm.runInContext("renderRecords()", context);
+  assert.equal(context.visibleRecords.length, 1);
+  const csv = libraryTools.recordsCsv(context.visibleRecords, guide, "https://example.org/repo/?delivery=procurement#projects", seed.reviewedAt);
+  assert.equal(csv.charCodeAt(0), 0xFEFF);
+  const rows = parseCsv(csv);
+  assert.equal(rows.length, 2);
+  assert.equal(rows[1][0], "rec-0006");
+  assert.equal(rows[1][1], context.visibleRecords[0].name);
+  assert.equal(rows[1][2], guide.get(context.visibleRecords[0]).titleAr);
+  assert.equal(rows[1][7], context.visibleRecords[0].funding);
+  assert.equal(rows[1][11], "Pre-award procurement");
+  assert.equal(rows[1][15], context.visibleRecords[0].href);
+  assert.equal(new URL(rows[1][16]).searchParams.get("record"), "rec-0006");
+  assert.equal(new URL(rows[1][16]).searchParams.has("delivery"), false);
+  const all = parseCsv(libraryTools.recordsCsv(seed.records, guide, "https://example.org/", seed.reviewedAt));
+  assert.equal(all.length, 170);
+  assert.ok(all.some(row => row[7] === "$250M approved"));
+  assert.equal(parseCsv(libraryTools.recordsCsv([], guide, "https://example.org/", seed.reviewedAt)).length, 1);
+});
+
+test("CSV preserves quotes/newlines and neutralises spreadsheet formula prefixes", () => {
+  for (const value of ["=1+1", " +SUM(A1)", "\t@command", "\r\n-1+2"]) {
+    assert.equal(parseCsv(libraryTools.csvCell(value) + "\r\n")[0][0], "'" + value);
+  }
+  const value = 'A "quoted", Arabic عنوان\nsecond line';
+  assert.equal(parseCsv(libraryTools.csvCell(value) + "\r\n")[0][0], value);
+  assert.equal(parseCsv(libraryTools.csvCell("$250M") + "\r\n")[0][0], "$250M");
+});
+
+test("CSV retains source-review provenance, access limits and Arabic rationales for every record", () => {
+  const rows = parseCsv(libraryTools.recordsCsv(seed.records, guide, "https://example.org/", seed.reviewedAt));
+  assert.equal(rows[0].length, 23);
+  for (const [index, record] of seed.records.entries()) {
+    const row = rows[index + 1], meta = guide.get(record);
+    assert.equal(row.length, 23);
+    assert.equal(row[7], record.funding);
+    assert.equal(row[14], seed.reviewedAt);
+    assert.equal(row[15], record.href);
+    assert.equal(row[17], meta.review.status);
+    assert.equal(row[18], meta.review.checkedAt || "");
+    assert.equal(row[19], meta.review.sourceUrl || "");
+    assert.equal(row[20], meta.review.locator?.[0] || "");
+    assert.equal(row[21], meta.review.access || "");
+    assert.equal(row[22], meta.note?.[1] || "");
+  }
+  const stale = {...recordById("rec-0011"), href:"https://example.org/new-source"};
+  const row = parseCsv(libraryTools.recordsCsv([stale], guide, "https://example.org/", seed.reviewedAt))[1];
+  assert.equal(row[17], "stale");
+  assert.equal(row[18], "");
+  assert.equal(row[19], "");
+});
+
+test("download always uses the displayed selection, regardless of API availability", async () => {
+  for (const connected of [false, true]) {
+    const context = recordContext();
+    context.apiAvailable = connected;
+    context.currentReviewedAt = seed.reviewedAt;
+    context.activeRecordFinance = "approved";
+    vm.runInContext("renderRecords()", context);
+    let blob, clicked = false, revoked = false;
+    context.Blob = Blob;
+    context.URL = { createObjectURL:value => { blob = value; return "blob:test"; }, revokeObjectURL:() => { revoked = true; } };
+    context.window.setTimeout = fn => fn();
+    context.document.createElement = () => ({ style:{}, click:() => { clicked = true; }, remove() {} });
+    context.document.body = { append() {} };
+    context.showToast = () => {};
+    context.fetch = () => { throw new Error("Downloads must not query an independently filtered API"); };
+    vm.runInContext("downloadRecords()", context);
+    assert.equal(clicked, true);
+    assert.equal(revoked, true);
+    const rows = parseCsv(await blob.text());
+    assert.equal(rows.length, context.visibleRecords.length + 1);
+    assert.equal(rows[1][0], "rec-0002");
+  }
+});
+
+test("clipboard success and denied permission give truthful, usable feedback", async () => {
+  for (const allowed of [true, false]) {
+    const context = recordContext();
+    let toast = "", copied = "", selected = false;
+    const fallback = {hidden:true};
+    const field = {value:"",focus() {},select:() => { selected = true; }};
+    context.document.querySelector = selector => selector === "#copyLinkFallback" ? fallback : field;
+    context.navigator = { clipboard:{ writeText:async url => { if (!allowed) throw new Error("Denied"); copied = url; } } };
+    context.showToast = message => { toast = message; };
+    const success = await vm.runInContext('copyShareLink("https://example.org/?lang=ar#projects")', context);
+    assert.equal(success, allowed);
+    if (allowed) { assert.match(toast, /تم نسخ/); assert.equal(copied, "https://example.org/?lang=ar#projects"); }
+    else { assert.equal(fallback.hidden, false); assert.equal(selected, true); assert.match(toast, /تعذر/); assert.match(field.value, /^https:/); }
+  }
+});
+
+test("LEAP history resolves seven chronological entries to existing evidence, not new projects", () => {
+  const events = programmeData.resolveEvents(seed, guide);
+  assert.equal(events.length, 7);
+  assert.equal(events.filter(event => event.record).length, 5);
+  assert.equal(events.filter(event => event.source).length, 2);
+  assert.equal(new Set(events.map(event => event.id)).size, 7);
+  assert.equal(events[0].date, "2025-06");
+  assert.equal(events.at(-1).date, "2026-09-04");
+  for (const event of events) {
+    assert.ok(event.href?.startsWith("https://"));
+    if (event.record) assert.notEqual(guide.get(event.record).delivery, "reported_complete");
+  }
+  assert.equal(seed.records.length, 169);
+  assert.match(html, /data-tab-panel="leap-history"/);
+  assert.match(source, /"leap-history": "LEAP programme history"/);
+});
+
+test("LEAP history renders both languages, source citations, month precision and the correct review date", () => {
+  for (const locale of ["ar", "en"]) {
+    const context = recordContext(locale);
+    const list = {innerHTML:""}, scope = {textContent:""};
+    context.document.querySelector = selector => selector === "#leapHistoryList" ? list : selector === "#programmeHistoryScope" ? scope : null;
+    vm.runInContext("renderLeapHistory()", context);
+    assert.equal((list.innerHTML.match(/<li id=/g) || []).length, 7);
+    assert.equal((list.innerHTML.match(/target="_blank"/g) || []).length, 7);
+    assert.ok(list.innerHTML.includes("$250M"));
+    assert.ok(list.innerHTML.includes("$1B"));
+    assert.ok(list.innerHTML.includes("record=rec-0002"));
+    assert.match(list.innerHTML, /datetime="2025-06"/);
+    assert.match(scope.textContent, /2026/);
+    if (locale === "ar") { assert.ok(list.innerHTML.includes("↖")); assert.ok(list.innerHTML.includes("السجل الأصلي")); }
+    assert.doesNotMatch(vm.runInContext('formatHistoryDate("2025-06")', context), /\b01\b/);
+  }
 });

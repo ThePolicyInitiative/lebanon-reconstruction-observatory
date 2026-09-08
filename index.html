@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css?v=numbers-20260907" />
     <link rel="stylesheet" href="clarity.css?v=numbers-20260907" />
-    <link rel="stylesheet" href="observatory.css?v=readable-20260908" />
+    <link rel="stylesheet" href="observatory.css?v=share-history-20260908" />
   </head>
   <body>
     <div class="app-shell">
@@ -442,7 +442,17 @@
             <label>Sort <select id="recordSort" data-locale-control aria-label="Sort records"><option value="latest">Latest first</option><option value="scale">Largest financial scale</option><option value="az">A–Z</option></select></label>
           </div>
 
-          <details class="record-method"><summary>How to read the evidence stages</summary><p>Financing and delivery are classified separately from the record category. Labels describe this record at its publication date, not the current status of the whole programme. “Not documented in this index” means no stage has been assigned here; it does not mean no activity occurred. Reported completion is a source claim, not independent verification.</p></details>
+          <div class="library-share-controls" aria-label="Share and export records">
+            <button type="button" id="copyLibraryView">Copy this view</button>
+            <button type="button" data-download>Download these results</button>
+            <button type="button" id="resetLibraryFilters">Clear all filters</button>
+          </div>
+          <div id="libraryLinkNotice" class="library-link-notice" data-locale-control hidden></div>
+          <div id="copyLinkFallback" class="copy-link-fallback" hidden>
+            <label for="copyLinkField">Copy this link manually</label><input id="copyLinkField" type="url" readonly dir="ltr" />
+          </div>
+
+          <details class="record-method"><summary>How to read the evidence stages</summary><p>Financing and delivery are separate judgments about the cited material, not live programme status. “Source does not state stage” means the source was reviewed but is silent on that axis. “Evidence / information only” covers research and monitoring, not works. Unavailable sources stay unclassified. Budgets, appeals and signed commitments are not payments; payments are not expenditure. Implementation may mean services or training, not construction. Completion applies only to the reported output and is not independently verified. Open each record’s details for its review date, passage and source.</p></details>
           <div id="projectList" class="project-list" aria-live="polite"></div>
         </section>
 
@@ -493,7 +503,18 @@
           </aside>
         </section>
 
+        <section id="leap-history" class="programme-history section-anchor" data-tab-panel="leap-history" role="tabpanel" aria-labelledby="leapHistoryTitle">
+          <div class="programme-history-heading"><div><p class="eyebrow">PROGRAMME HISTORY</p><h2 id="leapHistoryTitle">LEAP: the source record over time</h2></div><a class="text-link" href="#leap">Open the full LEAP dossier <span>→</span></a></div>
+          <p class="programme-history-intro">One programme, several source records. This history connects documentation, financing and procurement without presenting them as separate reconstruction projects.</p>
+          <div class="programme-history-controls"><button type="button" id="copyLeapHistory">Copy programme link</button><a class="text-link" href="#projects">Browse all records <span>→</span></a></div>
+          <div id="programmeLinkFallback" class="copy-link-fallback" hidden><label for="programmeLinkField">Copy this link manually</label><input id="programmeLinkField" type="url" readonly dir="ltr" /></div>
+          <p id="programmeHistoryScope" class="programme-history-scope" data-locale-control></p>
+          <ol id="leapHistoryList" class="programme-timeline" data-locale-control></ol>
+          <aside class="programme-evidence-boundary"><h3>What this history does not establish</h3><p>These selected records do not establish total disbursements, verified spending or completion of the programme. Missing stages are not proof that no activity occurred. A source may have changed since the dataset review.</p></aside>
+        </section>
+
         <section id="leap" class="leap-section section-anchor" data-tab-panel="leap" role="tabpanel" aria-labelledby="leapTitle">
+          <a class="programme-history-entry" href="#leap-history">Follow LEAP’s source history <span>→</span></a>
           <div class="section-heading">
             <div><p class="eyebrow">WORLD BANK / GOVERNMENT OF LEBANON</p><h2 id="leapTitle">LEAP: the implementation dossier</h2></div>
             <a class="text-link" href="https://www.worldbank.org/en/news/factsheet/2026/02/17/lebanon-emergency-assistance-project-frequently-asked-questions" target="_blank" rel="noreferrer">Read the World Bank factsheet <span>↗</span></a>
@@ -629,7 +650,10 @@
     </div>
     <div id="toast" class="toast" role="status" aria-live="polite"></div>
     <script src="data.js?v=numbers-20260907"></script>
-    <script src="record-guide.js?v=readable-20260908"></script>
-    <script src="app.js?v=readable-20260908"></script>
+    <script src="classification-reviews.js?v=classified-20260908"></script>
+    <script src="record-guide.js?v=classified-20260908"></script>
+    <script src="library-tools.js?v=classified-20260908"></script>
+    <script src="programme-data.js?v=share-history-20260908"></script>
+    <script src="app.js?v=classified-20260908"></script>
   </body>
 </html>

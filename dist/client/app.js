@@ -1,5 +1,8 @@
 const seedData = window.OBSERVATORY_DATA;
 const recordGuide = window.ObservatoryRecordGuide;
+const libraryTools = window.ObservatoryLibrary;
+const programmeData = window.ObservatoryProgrammes;
+const initialLibraryState = libraryTools.readState(window.location.search);
 let records = [...seedData.records];
 let sectors = [...seedData.sectors];
 let sources = [...seedData.sources];
@@ -20,8 +23,23 @@ try {
 } catch (error) {
   activeLocale = "ar";
 }
+if (initialLibraryState.lang) activeLocale = initialLibraryState.lang;
 
 const arabicText = Object.freeze({
+  "Share and export records": "مشاركة السجلات وتصديرها",
+  "Copy this view": "انسخ رابط هذا العرض",
+  "Download these results": "نزّل هذه النتائج",
+  "Clear all filters": "امسح كل المرشحات",
+  "Copy this link manually": "انسخ هذا الرابط يدوياً",
+  "PROGRAMME HISTORY": "السجل الزمني للبرنامج",
+  "LEAP: the source record over time": "ليب: السجل الزمني للمصادر",
+  "Open the full LEAP dossier": "افتح ملف ليب الكامل",
+  "One programme, several source records. This history connects documentation, financing and procurement without presenting them as separate reconstruction projects.": "برنامج واحد وسجلات مصادر متعددة. يربط هذا التسلسل بين الوثائق والتمويل والمشتريات دون عرضها كمشاريع إعادة إعمار منفصلة.",
+  "Copy programme link": "انسخ رابط البرنامج",
+  "Browse all records": "تصفّح كل السجلات",
+  "What this history does not establish": "ما لا يثبته هذا السجل الزمني",
+  "These selected records do not establish total disbursements, verified spending or completion of the programme. Missing stages are not proof that no activity occurred. A source may have changed since the dataset review.": "لا تثبت هذه السجلات المختارة إجمالي الأموال المصروفة أو الإنفاق المتحقّق منه أو اكتمال البرنامج. غياب مراحل من السجل لا يعني عدم حدوث نشاط. وقد يتغيّر المصدر بعد مراجعة مجموعة البيانات.",
+  "Follow LEAP’s source history": "تابع السجل الزمني لمصادر ليب",
   "What is needed, what is financed, and what is documented on the ground.": "ما هي الاحتياجات، وما الذي مُوّل، وما الذي توثّقه الأدلة على الأرض.",
   "Initial LEAP financing approved": "التمويل الأولي المُوافَق عليه لليب",
   "Approval is not evidence of spending.": "الموافقة ليست دليلاً على الإنفاق.",
@@ -35,7 +53,7 @@ const arabicText = Object.freeze({
   "Delivery stage": "مرحلة التنفيذ",
   "Arabic reading titles accompany the original record titles. Source wording remains available in each record.": "ترافق عناوين عربية توضيحية عناوين السجلات الأصلية. تبقى صياغة المصدر متاحة داخل كل سجل.",
   "How to read the evidence stages": "كيف تقرأ مراحل الدليل",
-  "Financing and delivery are classified separately from the record category. Labels describe this record at its publication date, not the current status of the whole programme. “Not documented in this index” means no stage has been assigned here; it does not mean no activity occurred. Reported completion is a source claim, not independent verification.": "يُصنّف التمويل والتنفيذ بشكل منفصل عن فئة السجل. تصف التصنيفات هذا السجل بتاريخ نشره، وليس الوضع الحالي للبرنامج بأكمله. تعني عبارة «غير موثّق في هذا الفهرس» أنه لم تُحدّد مرحلة هنا؛ ولا تعني عدم حدوث نشاط. الإنجاز المُبلّغ عنه إفادة من المصدر وليس تحققاً مستقلاً.",
+  "Financing and delivery are separate judgments about the cited material, not live programme status. “Source does not state stage” means the source was reviewed but is silent on that axis. “Evidence / information only” covers research and monitoring, not works. Unavailable sources stay unclassified. Budgets, appeals and signed commitments are not payments; payments are not expenditure. Implementation may mean services or training, not construction. Completion applies only to the reported output and is not independently verified. Open each record’s details for its review date, passage and source.": "التمويل والتنفيذ تصنيفان منفصلان للمادة المستشهد بها، لا للوضع الآني للبرنامج. تعني «لا يحدد المصدر المرحلة» أن المصدر روجع لكنه لا يحدد هذا الجانب. وتشمل «أدلة / معلومات فقط» البحوث والرصد، لا الأعمال. تبقى المصادر غير المتاحة دون تصنيف. الموازنات والنداءات والالتزامات الموقّعة ليست دفعات، والدفعات ليست إنفاقاً. قد يشمل التنفيذ خدمات أو تدريباً، لا بناءً. يخص الإنجاز النتيجة المُبلّغ عنها فقط ولا يمثل تحققاً مستقلاً. افتح تفاصيل كل سجل للاطلاع على تاريخ مراجعته والمقطع والمصدر.",
   "CDR posts two pre-award LEAP framework procurements": "مجلس الإنماء والإعمار ينشر طلبَي خدمات ضمن ليب قبل إرساء العقود",
   "LEAP Nabatieh road-restoration tender reaches bid deadline": "مناقصة ترميم طرق النبطية ضمن ليب تبلغ موعد تقديم العروض",
   "Government convenes return and recovery coordination meeting": "الحكومة تعقد اجتماعاً لتنسيق العودة والتعافي",
@@ -1003,19 +1021,22 @@ let catalogQuery = "";
 const newsList = document.querySelector("#newsList");
 const newsStatus = document.querySelector("#newsStatus");
 const newsRefresh = document.querySelector("#newsRefresh");
-let activeFilter = "All";
+let activeFilter = initialLibraryState.type;
 const periodLabels = Object.freeze({
   All: "All records",
   "2024": "After 2024 war",
   "2026": "After 2026 war"
 });
-const requestedPeriod = new URLSearchParams(window.location.search).get("period");
-let activePeriod = Object.hasOwn(periodLabels, requestedPeriod) ? requestedPeriod : "All";
+let activePeriod = initialLibraryState.period;
 let activeNewsFilter = "All";
 let visibleRecords = [...records];
-let activeRecordArea = "All";
-let activeRecordFinance = "All";
-let activeRecordDelivery = "All";
+let activeRecordArea = initialLibraryState.area;
+let activeRecordFinance = initialLibraryState.finance;
+let activeRecordDelivery = initialLibraryState.delivery;
+let activeRecordId = initialLibraryState.record;
+projectSearch.value = initialLibraryState.q;
+recordSort.value = initialLibraryState.sort;
+recordAreaFilter.value = activeRecordArea;
 let currentReviewedAt = seedData.reviewedAt;
 let latestNewsPayload = null;
 let newsStatusKind = "ready";
@@ -1093,6 +1114,17 @@ function recordStageLabel(axis, stage) {
   return labels[activeLocale === "ar" ? 1 : 0];
 }
 
+function recordReviewLabel(status) {
+  const labels = {
+    reviewed:["Source reviewed", "تمت مراجعة المصدر"],
+    unavailable:["Source unavailable — review pending", "المصدر غير متاح — المراجعة معلّقة"],
+    stale:["Record changed — re-review needed", "تغيّر السجل — تلزم إعادة المراجعة"],
+    record_only:["Based on record wording", "استناداً إلى صياغة السجل"],
+    not_reviewed:["Source review pending", "مراجعة المصدر معلّقة"]
+  };
+  return (labels[status] || labels.not_reviewed)[activeLocale === "ar" ? 1 : 0];
+}
+
 // These components own their locale state, including number isolation, and are
 // excluded from the static-text observer so repeated language switches are safe.
 function localizedMarkup(value) {
@@ -1130,15 +1162,26 @@ function renderRecordCard(record) {
     [uiText("Location / coverage — source wording", "الموقع / النطاق — صياغة المصدر"), record.place],
     [uiText("Supporting detail — source wording", "التفصيل الداعم — صياغة المصدر"), record.marker]
   ];
-  if (guide.basis) detailFields.push([uiText("Basis for stage label — original wording", "أساس تصنيف المرحلة — الصياغة الأصلية"), guide.basis.text]);
-  return `<article class="evidence-record" data-locale-control>
+  if (guide.basis && guide.basis.field !== "source_review") detailFields.push([uiText("Basis for stage label — original wording", "أساس تصنيف المرحلة — الصياغة الأصلية"), guide.basis.text]);
+  if (guide.review?.locator) detailFields.push([uiText("Reviewed passage / page", "المقطع / الصفحة التي تمت مراجعتها"), guide.review.locator[activeLocale === "ar" ? 1 : 0]]);
+  if (guide.review?.status === "reviewed") detailFields.push([uiText("Source access", "طريقة الوصول إلى المصدر"), guide.review.access === "indexed"
+    ? uiText("Official source text read through the search index; this does not verify current link availability.", "قُرئ نص المصدر الرسمي عبر فهرس البحث؛ لا يثبت ذلك إتاحة الرابط حالياً.")
+    : uiText("Official source text retrieved directly.", "استُرجع نص المصدر الرسمي مباشرةً.")]);
+  const reviewStatus = guide.review ? `<p class="record-stage-note" data-review="${escapeHtml(guide.review.status)}">${localizedMarkup(recordReviewLabel(guide.review.status))}${guide.review.checkedAt ? ` · ${uiText("Checked", "فُحص في")} <time datetime="${escapeHtml(guide.review.checkedAt)}">${localizedMarkup(formatNewsDate(guide.review.checkedAt))}</time>` : ""}</p>` : "";
+  const classificationSource = guide.review?.sourceUrl && guide.review.sourceUrl !== record.href
+    ? `<p><a href="${escapeHtml(guide.review.sourceUrl)}" target="_blank" rel="noreferrer">${uiText("Open classification source (alternative official link)", "افتح مصدر التصنيف — رابط رسمي بديل")} <span aria-hidden="true">${uiText("↗", "↖")}</span></a></p>` : "";
+  const recordLink = guide.id ? `<button type="button" class="record-copy-link" data-copy-record="${guide.id}" aria-label="${localizedMarkup(uiText("Copy record link: ", "انسخ رابط السجل: ") + recordTitle(record))}">${uiText("Copy record link", "انسخ رابط السجل")}</button>` : "";
+  const programmeLink = programmeData.leap.events.some(event => event.recordId && event.recordId === guide.id) ? `<a class="record-programme-link" href="#leap-history">${uiText("LEAP programme history", "السجل الزمني لبرنامج ليب")} <span aria-hidden="true">${uiText("→", "←")}</span></a>` : "";
+  return `<article class="evidence-record"${guide.id ? ` id="${guide.id}"` : ""} data-locale-control>
     <div class="record-heading-meta"><span>${localizedMarkup(localizedRecordFilter(record.filter))}</span><span>${localizedMarkup(localizedPeriodLabel(record.period))}</span><time datetime="${escapeHtml(record.date)}">${uiText("Published", "نُشر")} ${localizedMarkup(formatNewsDate(record.date))}</time></div>
     <h3 dir="auto">${localizedMarkup(recordTitle(record))}</h3>
     ${originalTitle}
+    ${programmeLink}
     <p class="record-measure"><span>${uiText("Source figure / scope", "رقم المصدر / نطاقه")}</span><bdi dir="auto">${localizedMarkup(record.funding)}</bdi></p>
     <dl class="record-stages"><div><dt>${uiText("Financing stage", "مرحلة التمويل")}</dt><dd data-stage="${guide.finance}">${localizedMarkup(recordStageLabel("finance", guide.finance))}</dd></div><div><dt>${uiText("Delivery stage", "مرحلة التنفيذ")}</dt><dd data-stage="${guide.delivery}">${localizedMarkup(recordStageLabel("delivery", guide.delivery))}</dd></div></dl>
+    ${reviewStatus}
     ${guide.note ? `<p class="record-stage-note">${localizedMarkup(guide.note[activeLocale === "ar" ? 1 : 0])}</p>` : ""}
-    <div class="record-footer"><details class="record-detail"><summary>${uiText("Source details & classification basis", "تفاصيل المصدر وأساس التصنيف")}</summary><dl class="record-source-fields">${detailFields.map(([label, value]) => `<div><dt>${label}</dt><dd><bdi dir="auto">${localizedMarkup(value || uiText("Not stated", "غير مذكور"))}</bdi></dd></div>`).join("")}</dl>${!guide.basis ? `<p class="record-stage-note">${uiText("No financing or delivery stage has been assigned in this index. Consult the original source; this is not a finding that no activity occurred.", "لم تُحدّد مرحلة تمويل أو تنفيذ في هذا الفهرس. راجع المصدر الأصلي؛ فهذا لا يعني عدم حدوث نشاط.")}</p>` : ""}</details><a href="${escapeHtml(record.href)}"${record.href.startsWith("http") ? ' target="_blank" rel="noreferrer"' : ""}>${uiText("Open primary source", "افتح المصدر الأساسي")} <span aria-hidden="true">${uiText("↗", "↖")}</span></a></div>
+    <div class="record-footer"><details class="record-detail"><summary>${uiText("Source details & classification basis", "تفاصيل المصدر وأساس التصنيف")}</summary><dl class="record-source-fields">${detailFields.map(([label, value]) => `<div><dt>${label}</dt><dd><bdi dir="auto">${localizedMarkup(value || uiText("Not stated", "غير مذكور"))}</bdi></dd></div>`).join("")}</dl>${classificationSource}${!guide.basis && !guide.note ? `<p class="record-stage-note">${uiText("No financing or delivery stage has been assigned in this index. Consult the original source; this is not a finding that no activity occurred.", "لم تُحدّد مرحلة تمويل أو تنفيذ في هذا الفهرس. راجع المصدر الأصلي؛ فهذا لا يعني عدم حدوث نشاط.")}</p>` : ""}</details><a href="${escapeHtml(record.href)}"${record.href.startsWith("http") ? ' target="_blank" rel="noreferrer"' : ""}>${uiText("Open primary source", "افتح المصدر الأساسي")} <span aria-hidden="true">${uiText("↗", "↖")}</span></a>${recordLink}</div>
   </article>`;
 }
 
@@ -1150,7 +1193,7 @@ function renderRecords() {
     const matchesArea = matchesRecordArea(record);
     const guide = recordGuide.get(record);
     const matchesStages = (activeRecordFinance === "All" || guide.finance === activeRecordFinance) && (activeRecordDelivery === "All" || guide.delivery === activeRecordDelivery);
-    return matchesFilter && matchesPeriod && matchesArea && matchesStages && matchesRecordSearch(record, query);
+    return (!activeRecordId || guide.id === activeRecordId) && matchesFilter && matchesPeriod && matchesArea && matchesStages && matchesRecordSearch(record, query);
   });
   visibleRecords = sortRecords(filtered);
   recordCount.textContent = activeLocale === "ar"
@@ -1165,6 +1208,113 @@ function renderRecords() {
       : `Showing ${period} · ${area} · ${visibleRecords.length} matching records.`) + (stages.length ? ` · ${stages.join(" · ")}` : "");
   }
   projectList.innerHTML = visibleRecords.length ? visibleRecords.map(renderRecordCard).join("") : `<p class="empty-state" data-locale-control>${uiText("No source-backed records match this search. Try changing the category, period, coverage or stage filters.", "لا توجد سجلات تطابق هذا البحث. جرّب تغيير مرشحات الفئة أو الفترة أو النطاق أو المرحلة.")}</p>`;
+  renderLibraryLinkNotice();
+}
+
+function currentLibraryState() {
+  return { q:projectSearch.value.trim(), type:activeFilter, period:activePeriod, area:activeRecordArea, finance:activeRecordFinance, delivery:activeRecordDelivery, sort:recordSort.value, lang:activeLocale, record:activeRecordId };
+}
+
+function syncLibraryUrl({ push = false } = {}) {
+  const url = libraryTools.viewUrl(window.location.href, currentLibraryState());
+  if (url !== window.location.href) window.history[push ? "pushState" : "replaceState"](null, "", url);
+}
+
+function syncLibraryControls() {
+  recordAreaFilter.value = activeRecordArea;
+  renderRecordStageControls();
+  document.querySelectorAll(".filter-chip").forEach(button => {
+    const selected = button.dataset.filter === activeFilter;
+    button.classList.toggle("active", selected);
+    button.setAttribute("aria-pressed", String(selected));
+  });
+  document.querySelectorAll(".period-filter-button, .library-period-button").forEach(button => {
+    const selected = (button.dataset.period || button.dataset.libraryPeriod) === activePeriod;
+    button.classList.toggle("active", selected);
+    button.setAttribute("aria-pressed", String(selected));
+  });
+  if (activePeriod !== "All" || activeRecordArea !== "All" || activeRecordFinance !== "All" || activeRecordDelivery !== "All") {
+    const moreFilters = document.querySelector(".library-more-filters");
+    if (moreFilters) moreFilters.open = true;
+  }
+}
+
+function restoreLibraryLocation() {
+  const state = libraryTools.readState(window.location.search);
+  projectSearch.value = state.q;
+  recordSort.value = state.sort;
+  activeFilter = state.type;
+  activePeriod = state.period;
+  activeRecordArea = state.area;
+  activeRecordFinance = state.finance;
+  activeRecordDelivery = state.delivery;
+  activeRecordId = state.record;
+  applyLocale(state.lang || activeLocale, { persist:false });
+}
+
+function renderLibraryLinkNotice() {
+  const notice = document.querySelector("#libraryLinkNotice");
+  if (!notice) return;
+  notice.hidden = !activeRecordId;
+  if (!activeRecordId) { notice.textContent = ""; return; }
+  const exists = records.some(record => recordGuide.get(record).id === activeRecordId);
+  const message = exists ? uiText("Viewing a permanently linked record.", "تُعرض نتيجة مرتبطة برابط دائم لسجل.") : uiText("This record link is not in the current dataset. It may have been withdrawn or the link may be incorrect.", "رابط السجل غير موجود في مجموعة البيانات الحالية. ربما سُحب السجل أو كان الرابط غير صحيح.");
+  notice.innerHTML = `<p>${message}</p><button type="button" data-clear-record>${uiText("Return to all records", "العودة إلى كل السجلات")}</button>`;
+}
+
+function clearLibraryFilters() {
+  activeFilter = activePeriod = activeRecordArea = activeRecordFinance = activeRecordDelivery = "All";
+  activeRecordId = "";
+  projectSearch.value = "";
+  recordSort.value = "latest";
+  syncLibraryUrl({ push:true });
+  applyLocale(activeLocale, { persist:false });
+}
+
+function libraryControlChanged({ push = true } = {}) {
+  activeRecordId = "";
+  syncLibraryControls();
+  renderRecords();
+  syncLibraryUrl({ push });
+}
+
+async function copyShareLink(url, programme = false) {
+  const fallback = document.querySelector(programme ? "#programmeLinkFallback" : "#copyLinkFallback");
+  const field = document.querySelector(programme ? "#programmeLinkField" : "#copyLinkField");
+  try {
+    if (!navigator.clipboard?.writeText) throw new Error("Clipboard not available");
+    await navigator.clipboard.writeText(url);
+    if (fallback) fallback.hidden = true;
+    showToast(uiText("Link copied", "تم نسخ الرابط"));
+    return true;
+  } catch (error) {
+    if (fallback && field) { fallback.hidden = false; field.value = url; field.focus(); field.select(); }
+    showToast(uiText("Automatic copying was unavailable. Select and copy the link shown.", "تعذر النسخ التلقائي. حدّد الرابط الظاهر وانسخه."));
+    return false;
+  }
+}
+
+function formatHistoryDate(date) {
+  const monthOnly = /^\d{4}-\d{2}$/.test(date);
+  return new Intl.DateTimeFormat(activeLocale === "ar" ? "ar-LB" : "en-GB", { year:"numeric", month:"long", ...(monthOnly ? {} : { day:"numeric" }), numberingSystem:"latn", timeZone:"UTC" }).format(new Date(`${date}${monthOnly ? "-01" : ""}T12:00:00Z`));
+}
+
+function renderLeapHistory() {
+  const list = document.querySelector("#leapHistoryList");
+  const scope = document.querySelector("#programmeHistoryScope");
+  if (!list || !scope) return;
+  const language = activeLocale === "ar" ? 1 : 0;
+  const events = programmeData.resolveEvents(seedData, recordGuide);
+  const reviewed = new Intl.DateTimeFormat(activeLocale === "ar" ? "ar-LB" : "en-GB", { dateStyle:"medium", numberingSystem:"latn" }).format(new Date(seedData.reviewedAt));
+  scope.textContent = uiText(`Selected sources from the dataset reviewed ${reviewed}. Dates below are publication dates; a month-only date stays at month precision.`, `مصادر مختارة من مجموعة البيانات المراجَعة في ${reviewed}. التواريخ أدناه للنشر؛ ويُحفظ التاريخ المحدد بالشهر فقط دون إضافة يوم.`);
+  list.innerHTML = events.map(event => {
+    const meta = event.record ? recordGuide.get(event.record) : null;
+    const title = event.title?.[language] || (event.record ? recordTitle(event.record) : uiText("Source unavailable in this dataset", "المصدر غير متاح في مجموعة البيانات هذه"));
+    const originalTitle = event.record?.name || event.source?.name || "";
+    const notes = [meta?.note?.[language], event.note?.[language]].filter(Boolean);
+    const recordLink = meta?.id ? libraryTools.recordUrl(window.location.href, meta.id, activeLocale) : null;
+    return `<li id="${event.id}"><div class="programme-event-date"><time datetime="${event.date}">${localizedMarkup(formatHistoryDate(event.date))}</time><span>${localizedMarkup(event.kind[language])}</span></div><article class="programme-event"><h3>${localizedMarkup(title)}</h3>${activeLocale === "ar" && originalTitle ? `<p class="record-original">عنوان السجل الأصلي<bdi dir="auto" lang="en">${escapeHtml(originalTitle)}</bdi></p>` : ""}${notes.map(note => `<p>${localizedMarkup(note)}</p>`).join("")}${meta ? `<dl class="record-stages"><div><dt>${uiText("Financing stage", "مرحلة التمويل")}</dt><dd>${localizedMarkup(recordStageLabel("finance", meta.finance))}</dd></div><div><dt>${uiText("Delivery stage", "مرحلة التنفيذ")}</dt><dd>${localizedMarkup(recordStageLabel("delivery", meta.delivery))}</dd></div></dl>` : ""}<div class="programme-event-links">${event.href ? `<a href="${escapeHtml(event.href)}" target="_blank" rel="noreferrer">${uiText("Open primary source", "افتح المصدر الأساسي")} <span aria-hidden="true">${uiText("↗", "↖")}</span></a>` : `<p>${uiText("The linked source is missing from this dataset.", "المصدر المرتبط غير موجود في مجموعة البيانات هذه.")}</p>`}${recordLink ? `<a href="${escapeHtml(recordLink)}">${uiText("Open this record", "افتح هذا السجل")} <span aria-hidden="true">${uiText("→", "←")}</span></a>` : ""}</div></article></li>`;
+  }).join("");
 }
 
 function renderSectors() {
@@ -1314,10 +1464,8 @@ function renderAftermathDetails() {
 
 function setPeriodFilter(period) {
   activePeriod = period;
-  const url = new URL(window.location.href);
-  if (period === "All") url.searchParams.delete("period");
-  else url.searchParams.set("period", period);
-  window.history.replaceState({}, "", url);
+  activeRecordId = "";
+  syncLibraryUrl({ push:true });
   renderPeriodComparison();
   renderAftermathBoard();
   renderAftermathDetails();
@@ -1490,26 +1638,11 @@ function renderOverviewUpdates() {
 }
 
 function escapeCsv(value) {
-  const safe = String(value).replace(/^([=+\-@])/, "'$1");
-  return `"${safe.replaceAll("\"", "\"\"")}"`;
+  return libraryTools.csvCell(value);
 }
 
 function downloadRecords() {
-  if (apiAvailable) {
-    const params = new URLSearchParams({ filter: activeFilter, period: activePeriod, q: projectSearch.value.trim(), sort: recordSort.value });
-    const link = document.createElement("a");
-    link.href = apiUrl(`/api/export.csv?${params.toString()}`);
-    link.download = "lebanon-reconstruction-observatory-records.csv";
-    link.style.display = "none";
-    document.body.append(link);
-    link.click();
-    link.remove();
-    showToast(uiText(`Server export requested for ${visibleRecords.length} visible source records`, `طُلب تصدير ${visibleRecords.length} سجل مصدر ظاهر.`));
-    return;
-  }
-  const header = ["Record", "Response period", "Type", "Publisher / partner", "Location / coverage", "Headline measure", "Supporting detail", "Publication date", "Primary source"];
-  const rows = visibleRecords.map(record => [record.name, record.period, record.filter, record.status, record.place, record.funding, record.marker, record.date, record.href]);
-  const csv = [header, ...rows].map(row => row.map(escapeCsv).join(",")).join("\n");
+  const csv = libraryTools.recordsCsv(visibleRecords, recordGuide, window.location.href, currentReviewedAt);
   const blob = new Blob([csv], { type: "text/csv;charset=utf-8" });
   const link = document.createElement("a");
   link.href = URL.createObjectURL(blob);
@@ -1522,19 +1655,19 @@ function downloadRecords() {
   showToast(uiText(`Downloaded ${visibleRecords.length} visible source records as CSV`, `نُزّل ${visibleRecords.length} سجل مصدر ظاهر بصيغة CSV.`));
 }
 
-projectSearch.addEventListener("input", renderRecords);
-recordSort.addEventListener("change", renderRecords);
+projectSearch.addEventListener("input", () => libraryControlChanged({ push:false }));
+recordSort.addEventListener("change", () => libraryControlChanged());
 recordAreaFilter?.addEventListener("change", () => {
   activeRecordArea = recordAreaFilter.value;
-  renderRecords();
+  libraryControlChanged();
 });
 recordFinanceFilter?.addEventListener("change", () => {
   activeRecordFinance = recordFinanceFilter.value;
-  renderRecords();
+  libraryControlChanged();
 });
 recordDeliveryFilter?.addEventListener("change", () => {
   activeRecordDelivery = recordDeliveryFilter.value;
-  renderRecords();
+  libraryControlChanged();
 });
 catalogSearch?.addEventListener("input", () => {
   catalogQuery = catalogSearch.value;
@@ -1546,8 +1679,7 @@ document.querySelectorAll("[data-catalog-details]").forEach(button => button.add
 }));
 document.querySelectorAll(".filter-chip").forEach(chip => chip.addEventListener("click", () => {
   activeFilter = chip.dataset.filter;
-  document.querySelectorAll(".filter-chip").forEach(item => item.classList.toggle("active", item === chip));
-  renderRecords();
+  libraryControlChanged();
 }));
 document.querySelectorAll(".period-filter-button").forEach(button => button.addEventListener("click", () => setPeriodFilter(button.dataset.period)));
 document.querySelectorAll(".library-period-button").forEach(button => button.addEventListener("click", () => setPeriodFilter(button.dataset.libraryPeriod)));
@@ -1557,6 +1689,14 @@ document.querySelectorAll(".news-filter").forEach(button => button.addEventListe
   renderNews();
 }));
 document.querySelector("[data-download]")?.addEventListener("click", downloadRecords);
+document.querySelector("#copyLibraryView")?.addEventListener("click", () => copyShareLink(libraryTools.viewUrl(window.location.href, currentLibraryState(), "#projects")));
+document.querySelector("#resetLibraryFilters")?.addEventListener("click", clearLibraryFilters);
+document.querySelector("#libraryLinkNotice")?.addEventListener("click", event => { if (event.target.closest("[data-clear-record]")) clearLibraryFilters(); });
+projectList.addEventListener("click", event => {
+  const button = event.target.closest("[data-copy-record]");
+  if (button) copyShareLink(libraryTools.recordUrl(window.location.href, button.dataset.copyRecord, activeLocale));
+});
+document.querySelector("#copyLeapHistory")?.addEventListener("click", () => copyShareLink(libraryTools.viewUrl(window.location.href, { ...libraryTools.defaults, lang:activeLocale }, "#leap-history"), true));
 
 async function refreshSources() {
   if (!apiAvailable) {
@@ -2184,6 +2324,7 @@ const tabNames = {
   projects: "Data library",
   funding: "Funding flows",
   leap: "LEAP dossier",
+  "leap-history": "LEAP programme history",
   updates: "Source monitor",
   sources: "Sources"
 };
@@ -2196,6 +2337,7 @@ const tabNamesArabic = {
   projects: "مكتبة البيانات",
   funding: "مسارات التمويل",
   leap: "ملف ليب",
+  "leap-history": "السجل الزمني لبرنامج ليب",
   updates: "متابعة المصادر",
   sources: "المصادر"
 };
@@ -2209,7 +2351,7 @@ function activateTab(view, { resetScroll = true } = {}) {
   const activeView = resolveTab(`#${view}`);
   tabPanels.forEach(panel => { panel.hidden = panel.dataset.tabPanel !== activeView; });
   tabLinks.forEach(link => {
-    const isActive = link.dataset.tabLink === activeView;
+    const isActive = link.dataset.tabLink === activeView || (activeView === "leap-history" && link.dataset.tabLink === "leap");
     link.classList.toggle("active", isActive);
     link.setAttribute("aria-selected", String(isActive));
     if (link.classList.contains("nav-link")) link.toggleAttribute("aria-current", isActive);
@@ -2232,6 +2374,7 @@ tabLinks.forEach(link => link.addEventListener("click", event => {
 }));
 
 window.addEventListener("hashchange", () => activateTab(resolveTab()));
+window.addEventListener("popstate", restoreLibraryLocation);
 
 const languageToggle = document.querySelector("#languageToggle");
 
@@ -2249,7 +2392,7 @@ function updateLocaleControls() {
   recordSort.options[1].textContent = isArabic ? "أكبر قيمة مالية" : "Largest financial scale";
   recordSort.options[2].textContent = isArabic ? "أبجدياً" : "A–Z";
   document.querySelector(".menu-button")?.setAttribute("aria-label", isArabic ? "فتح التنقل" : "Open navigation");
-  renderRecordStageControls();
+  syncLibraryControls();
 }
 
 function applyLocale(locale, { persist = true } = {}) {
@@ -2273,12 +2416,14 @@ function applyLocale(locale, { persist = true } = {}) {
   renderRecords();
   renderNews();
   renderNewsStatus();
+  renderLeapHistory();
   if (geoMap) {
     updateMapPeriodControls();
     if (officialMapFeatures.length) renderOfficialMap(officialMapFeatures);
   }
   activateTab(resolveTab(), { resetScroll: false });
   localizeTextTree();
+  if (persist) syncLibraryUrl();
 }
 
 const localeObserver = new MutationObserver(mutations => {
@@ -2306,3 +2451,4 @@ loadApplicationData();
 loadNews();
 if (geoMap && mapStatus && mapLegend) loadOfficialMap();
 applyLocale(activeLocale, { persist: false });
+syncLibraryUrl();
