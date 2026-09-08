@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css?v=numbers-20260907" />
     <link rel="stylesheet" href="clarity.css?v=numbers-20260907" />
+    <link rel="stylesheet" href="observatory.css?v=readable-20260908" />
   </head>
   <body>
     <div class="app-shell">
@@ -45,12 +46,11 @@
           <div class="hero-copy">
             <p class="eyebrow">LEBANON RECONSTRUCTION OBSERVATORY</p>
             <h1>Track rebuilding<br /><em>with evidence.</em></h1>
-            <p class="intro">A source-backed public record connecting damage assessments, response actors, actions, financing and recovery signals, with clear boundaries on what the evidence can and cannot prove.</p>
-            <p class="journey-kicker">START WITH A QUESTION</p>
+            <p class="intro">What is needed, what is financed, and what is documented on the ground.</p>
+            <p id="overviewFreshness" class="overview-freshness" data-locale-control></p>
             <div class="hero-actions hero-journeys" aria-label="Primary ways to explore the observatory">
-              <a class="button button-primary" href="#response">Understand the picture <span>→</span></a>
+              <a class="button button-primary" href="#projects">Search records <span>→</span></a>
               <a class="button button-ghost" href="#evidence">Explore evidence</a>
-              <a class="button button-ghost" href="#projects">Search records</a>
             </div>
           </div>
           <div class="hero-art">
@@ -71,16 +71,22 @@
             <p class="metric-note">Across 10 assessed sectors</p>
           </article>
           <article class="metric-card">
-            <p class="metric-label">Initial LEAP financing</p>
+            <p class="metric-label">Initial LEAP financing approved</p>
             <p class="metric-value">$250M</p>
-            <div class="mini-progress"><span style="width:25%"></span></div>
-            <p class="metric-note">of a $1B scalable framework</p>
+            <p class="metric-note">Approval is not evidence of spending.</p>
           </article>
           <article class="metric-card metric-highlight">
             <p class="metric-label">Buildings damaged or destroyed</p>
             <p class="metric-value">64K<span>+</span></p>
             <p class="metric-note">UN multi-agency estimate, Jul 2025</p>
           </article>
+        </section>
+
+        <section class="overview-briefing" data-tab-panel="overview" aria-labelledby="recentUpdatesTitle">
+          <div class="briefing-heading"><div><p class="eyebrow">LATEST IN THE RECORD</p><h2 id="recentUpdatesTitle">Recent source updates</h2></div><a class="text-link" href="#updates">All source updates <span>→</span></a></div>
+          <p class="briefing-boundary">Publication dates below. These updates are evidence of the stated step, not proof of completed reconstruction.</p>
+          <div id="overviewUpdates" class="overview-updates" data-locale-control></div>
+          <div class="overview-reading-note"><p>Needs, approved finance and damage estimates have different scopes. Do not add these figures together.</p><a href="#response">Understand the picture <span>→</span></a></div>
         </section>
 
         <section id="response" class="response-section section-anchor" data-tab-panel="response" role="tabpanel" aria-labelledby="responseTitle">
@@ -415,6 +421,7 @@
             </div>
           </div>
 
+          <details class="library-more-filters"><summary>Period, coverage &amp; evidence stage</summary>
           <div class="library-scope-controls">
             <div class="library-period-group" role="group" aria-label="Library response period">
               <span>RESPONSE PERIOD</span>
@@ -425,13 +432,17 @@
               </div>
             </div>
             <label class="library-area-label"><span>Coverage</span><select id="recordAreaFilter" aria-label="Filter records by coverage"><option value="All">All coverage</option><option value="National">Nationwide or multi-area</option><option value="South">South &amp; Nabatieh</option><option value="Beirut">Beirut &amp; Mount Lebanon</option><option value="Bekaa">Bekaa &amp; Baalbek-Hermel</option></select></label>
+            <label class="library-area-label"><span>Financing stage</span><select id="recordFinanceFilter" data-locale-control></select></label>
+            <label class="library-area-label"><span>Delivery stage</span><select id="recordDeliveryFilter" data-locale-control></select></label>
           </div>
+          </details>
 
           <div class="library-subtoolbar">
-            <div><p id="libraryFilterStatus">Showing all curated records.</p><p class="library-language-note">Arabic navigation is available; primary-record titles and publisher wording remain in their original language to match the source.</p></div>
+            <div><p id="libraryFilterStatus" data-locale-control>Showing all curated records.</p><p class="library-language-note">Arabic reading titles accompany the original record titles. Source wording remains available in each record.</p></div>
             <label>Sort <select id="recordSort" data-locale-control aria-label="Sort records"><option value="latest">Latest first</option><option value="scale">Largest financial scale</option><option value="az">A–Z</option></select></label>
           </div>
 
+          <details class="record-method"><summary>How to read the evidence stages</summary><p>Financing and delivery are classified separately from the record category. Labels describe this record at its publication date, not the current status of the whole programme. “Not documented in this index” means no stage has been assigned here; it does not mean no activity occurred. Reported completion is a source claim, not independent verification.</p></details>
           <div id="projectList" class="project-list" aria-live="polite"></div>
         </section>
 
@@ -618,6 +629,7 @@
     </div>
     <div id="toast" class="toast" role="status" aria-live="polite"></div>
     <script src="data.js?v=numbers-20260907"></script>
-    <script src="app.js?v=numbers-20260907"></script>
+    <script src="record-guide.js?v=readable-20260908"></script>
+    <script src="app.js?v=readable-20260908"></script>
   </body>
 </html>

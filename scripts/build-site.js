@@ -20,6 +20,8 @@ async function build() {
     copy("data.js", "data.js"),
     copy("styles.css", "styles.css"),
     copy("clarity.css", "clarity.css"),
+    copy("observatory.css", "observatory.css"),
+    copy("record-guide.js", "record-guide.js"),
     copy("assets", "assets"),
     copy("data", "data")
   ]);

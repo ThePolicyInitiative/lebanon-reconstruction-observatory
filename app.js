@@ -1,4 +1,5 @@
 const seedData = window.OBSERVATORY_DATA;
+const recordGuide = window.ObservatoryRecordGuide;
 let records = [...seedData.records];
 let sectors = [...seedData.sectors];
 let sources = [...seedData.sources];
@@ -21,6 +22,26 @@ try {
 }
 
 const arabicText = Object.freeze({
+  "What is needed, what is financed, and what is documented on the ground.": "ما هي الاحتياجات، وما الذي مُوّل، وما الذي توثّقه الأدلة على الأرض.",
+  "Initial LEAP financing approved": "التمويل الأولي المُوافَق عليه لليب",
+  "Approval is not evidence of spending.": "الموافقة ليست دليلاً على الإنفاق.",
+  "LATEST IN THE RECORD": "الأحدث في السجل",
+  "Recent source updates": "أحدث ما نشرته المصادر",
+  "All source updates": "كل تحديثات المصادر",
+  "Publication dates below. These updates are evidence of the stated step, not proof of completed reconstruction.": "التواريخ أدناه هي تواريخ النشر. توثّق هذه التحديثات الخطوة المذكورة، ولا تثبت اكتمال إعادة الإعمار.",
+  "Needs, approved finance and damage estimates have different scopes. Do not add these figures together.": "تختلف نطاقات الاحتياجات والتمويل المُوافَق عليه وتقديرات الأضرار. لا تُجمع هذه الأرقام معاً.",
+  "Period, coverage & evidence stage": "الفترة والنطاق ومرحلة الدليل",
+  "Financing stage": "مرحلة التمويل",
+  "Delivery stage": "مرحلة التنفيذ",
+  "Arabic reading titles accompany the original record titles. Source wording remains available in each record.": "ترافق عناوين عربية توضيحية عناوين السجلات الأصلية. تبقى صياغة المصدر متاحة داخل كل سجل.",
+  "How to read the evidence stages": "كيف تقرأ مراحل الدليل",
+  "Financing and delivery are classified separately from the record category. Labels describe this record at its publication date, not the current status of the whole programme. “Not documented in this index” means no stage has been assigned here; it does not mean no activity occurred. Reported completion is a source claim, not independent verification.": "يُصنّف التمويل والتنفيذ بشكل منفصل عن فئة السجل. تصف التصنيفات هذا السجل بتاريخ نشره، وليس الوضع الحالي للبرنامج بأكمله. تعني عبارة «غير موثّق في هذا الفهرس» أنه لم تُحدّد مرحلة هنا؛ ولا تعني عدم حدوث نشاط. الإنجاز المُبلّغ عنه إفادة من المصدر وليس تحققاً مستقلاً.",
+  "CDR posts two pre-award LEAP framework procurements": "مجلس الإنماء والإعمار ينشر طلبَي خدمات ضمن ليب قبل إرساء العقود",
+  "LEAP Nabatieh road-restoration tender reaches bid deadline": "مناقصة ترميم طرق النبطية ضمن ليب تبلغ موعد تقديم العروض",
+  "Government convenes return and recovery coordination meeting": "الحكومة تعقد اجتماعاً لتنسيق العودة والتعافي",
+  "The public notices seek technical services for damaged public buildings and for environmental and social assessment work. They are recorded as pre-award procurement steps, not as awarded contracts or completed reconstruction.": "تطلب الإعلانات العامة خدمات فنية للمباني العامة المتضررة ولأعمال التقييم البيئي والاجتماعي. تُسجّل كخطوات مشتريات قبل الإرساء، وليس كعقود مُرسَاة أو إعادة إعمار منجزة.",
+  "CDR's open request for bids concerns clearing and restoring damaged roads in Nabatieh Caza, financed under LEAP by the World Bank. The deadline was extended to 3 September. This is an open procurement step only; no award, contract, disbursement or completed works are reported.": "يتعلق طلب العروض المفتوح لدى مجلس الإنماء والإعمار بتنظيف الطرق المتضررة وترميمها في قضاء النبطية، بتمويل من البنك الدولي ضمن ليب. مُدّدت المهلة إلى 3 سبتمبر. هذه خطوة مشتريات مفتوحة فقط؛ لا يتضمن السجل إبلاغاً عن إرساء أو عقد أو صرف أموال أو أعمال منجزة.",
+  "The meeting brought senior agencies together to coordinate and accelerate steps needed for return and recovery. It is a governance record and does not report a budget allocation, financing agreement, procurement award or completed works.": "جمع الاجتماع الجهات المعنية لتنسيق الخطوات اللازمة للعودة والتعافي وتسريعها. هذا سجل تنسيقي لا يتضمن إبلاغاً عن تخصيص موازنة أو اتفاق تمويل أو إرساء عقد أو أعمال منجزة.",
   "Overview": "نظرة عامة",
   "Response": "الاستجابة",
   "Response tracker": "متابعة الاستجابة",
@@ -960,6 +981,8 @@ const projectSearch = document.querySelector("#projectSearch");
 const recordSort = document.querySelector("#recordSort");
 const recordCount = document.querySelector("#recordCount");
 const recordAreaFilter = document.querySelector("#recordAreaFilter");
+const recordFinanceFilter = document.querySelector("#recordFinanceFilter");
+const recordDeliveryFilter = document.querySelector("#recordDeliveryFilter");
 const libraryFilterStatus = document.querySelector("#libraryFilterStatus");
 const overviewFreshness = document.querySelector("#overviewFreshness");
 const sectorGrid = document.querySelector("#sectorGrid");
@@ -991,6 +1014,8 @@ let activePeriod = Object.hasOwn(periodLabels, requestedPeriod) ? requestedPerio
 let activeNewsFilter = "All";
 let visibleRecords = [...records];
 let activeRecordArea = "All";
+let activeRecordFinance = "All";
+let activeRecordDelivery = "All";
 let currentReviewedAt = seedData.reviewedAt;
 let latestNewsPayload = null;
 let newsStatusKind = "ready";
@@ -1031,8 +1056,8 @@ function matchesRecordArea(record) {
 }
 
 function updateFreshness(reviewedAt = currentReviewedAt) {
-  if (!overviewFreshness) return;
   currentReviewedAt = reviewedAt;
+  if (!overviewFreshness) return;
   const formattedReviewedAt = activeLocale === "ar"
     ? new Intl.DateTimeFormat("ar-LB", { dateStyle: "medium", numberingSystem: "latn" }).format(new Date(reviewedAt))
     : reviewedAt;
@@ -1054,9 +1079,67 @@ function sortRecords(items) {
   const direction = recordSort.value;
   return [...items].sort((a, b) => {
     if (direction === "scale") return b.scale - a.scale;
-    if (direction === "az") return a.name.localeCompare(b.name);
+    if (direction === "az") return recordTitle(a).localeCompare(recordTitle(b), activeLocale);
     return b.date.localeCompare(a.date);
   });
+}
+
+function recordTitle(record) {
+  return activeLocale === "ar" ? (recordGuide.get(record).titleAr || record.name) : record.name;
+}
+
+function recordStageLabel(axis, stage) {
+  const labels = recordGuide.stages[axis][stage] || recordGuide.stages[axis].unknown;
+  return labels[activeLocale === "ar" ? 1 : 0];
+}
+
+// These components own their locale state, including number isolation, and are
+// excluded from the static-text observer so repeated language switches are safe.
+function localizedMarkup(value) {
+  return escapeHtml(activeLocale === "ar" ? formatArabicNumbers(value) : value);
+}
+
+function normalizeRecordSearch(value) {
+  return String(value).normalize("NFKC").toLowerCase().replace(/[\u064b-\u065f\u0670\u0640]/g, "").replace(/[أإآٱ]/g, "ا");
+}
+
+function matchesRecordSearch(record, query) {
+  const guide = recordGuide.get(record);
+  const searchable = [record.name, guide.titleAr, record.place, record.filter,
+    arabicText[record.filter], record.period, record.status, arabicText[record.status],
+    record.funding, record.marker, ...(guide.note || []),
+    ...recordGuide.stages.finance[guide.finance], ...recordGuide.stages.delivery[guide.delivery]];
+  return normalizeRecordSearch(searchable.join(" ")).includes(normalizeRecordSearch(query.trim()));
+}
+
+function renderRecordStageControls() {
+  for (const [axis, control, active] of [["finance", recordFinanceFilter, activeRecordFinance], ["delivery", recordDeliveryFilter, activeRecordDelivery]]) {
+    if (!control) continue;
+    control.setAttribute("aria-label", axis === "finance" ? uiText("Filter by financing stage", "التصفية حسب مرحلة التمويل") : uiText("Filter by delivery stage", "التصفية حسب مرحلة التنفيذ"));
+    control.innerHTML = `<option value="All">${uiText("All stages", "كل المراحل")}</option>` + Object.keys(recordGuide.stages[axis]).map(stage => `<option value="${stage}">${localizedMarkup(recordStageLabel(axis, stage))}</option>`).join("");
+    control.value = active;
+  }
+}
+
+function renderRecordCard(record) {
+  const guide = recordGuide.get(record);
+  const originalTitle = activeLocale === "ar" && guide.titleAr
+    ? `<p class="record-original">${uiText("Original record title", "عنوان السجل الأصلي")}<bdi lang="en" dir="auto">${escapeHtml(record.name)}</bdi></p>` : "";
+  const detailFields = [
+    [uiText("Publisher / partner", "الجهة الناشرة / الشريكة"), record.status],
+    [uiText("Location / coverage — source wording", "الموقع / النطاق — صياغة المصدر"), record.place],
+    [uiText("Supporting detail — source wording", "التفصيل الداعم — صياغة المصدر"), record.marker]
+  ];
+  if (guide.basis) detailFields.push([uiText("Basis for stage label — original wording", "أساس تصنيف المرحلة — الصياغة الأصلية"), guide.basis.text]);
+  return `<article class="evidence-record" data-locale-control>
+    <div class="record-heading-meta"><span>${localizedMarkup(localizedRecordFilter(record.filter))}</span><span>${localizedMarkup(localizedPeriodLabel(record.period))}</span><time datetime="${escapeHtml(record.date)}">${uiText("Published", "نُشر")} ${localizedMarkup(formatNewsDate(record.date))}</time></div>
+    <h3 dir="auto">${localizedMarkup(recordTitle(record))}</h3>
+    ${originalTitle}
+    <p class="record-measure"><span>${uiText("Source figure / scope", "رقم المصدر / نطاقه")}</span><bdi dir="auto">${localizedMarkup(record.funding)}</bdi></p>
+    <dl class="record-stages"><div><dt>${uiText("Financing stage", "مرحلة التمويل")}</dt><dd data-stage="${guide.finance}">${localizedMarkup(recordStageLabel("finance", guide.finance))}</dd></div><div><dt>${uiText("Delivery stage", "مرحلة التنفيذ")}</dt><dd data-stage="${guide.delivery}">${localizedMarkup(recordStageLabel("delivery", guide.delivery))}</dd></div></dl>
+    ${guide.note ? `<p class="record-stage-note">${localizedMarkup(guide.note[activeLocale === "ar" ? 1 : 0])}</p>` : ""}
+    <div class="record-footer"><details class="record-detail"><summary>${uiText("Source details & classification basis", "تفاصيل المصدر وأساس التصنيف")}</summary><dl class="record-source-fields">${detailFields.map(([label, value]) => `<div><dt>${label}</dt><dd><bdi dir="auto">${localizedMarkup(value || uiText("Not stated", "غير مذكور"))}</bdi></dd></div>`).join("")}</dl>${!guide.basis ? `<p class="record-stage-note">${uiText("No financing or delivery stage has been assigned in this index. Consult the original source; this is not a finding that no activity occurred.", "لم تُحدّد مرحلة تمويل أو تنفيذ في هذا الفهرس. راجع المصدر الأصلي؛ فهذا لا يعني عدم حدوث نشاط.")}</p>` : ""}</details><a href="${escapeHtml(record.href)}"${record.href.startsWith("http") ? ' target="_blank" rel="noreferrer"' : ""}>${uiText("Open primary source", "افتح المصدر الأساسي")} <span aria-hidden="true">${uiText("↗", "↖")}</span></a></div>
+  </article>`;
 }
 
 function renderRecords() {
@@ -1065,8 +1148,9 @@ function renderRecords() {
     const matchesFilter = activeFilter === "All" || record.filter === activeFilter;
     const matchesPeriod = activePeriod === "All" || record.period === activePeriod;
     const matchesArea = matchesRecordArea(record);
-    const searchable = [record.name, record.place, record.filter, record.period, record.status, record.funding, record.marker].join(" ").toLowerCase();
-    return matchesFilter && matchesPeriod && matchesArea && searchable.includes(query);
+    const guide = recordGuide.get(record);
+    const matchesStages = (activeRecordFinance === "All" || guide.finance === activeRecordFinance) && (activeRecordDelivery === "All" || guide.delivery === activeRecordDelivery);
+    return matchesFilter && matchesPeriod && matchesArea && matchesStages && matchesRecordSearch(record, query);
   });
   visibleRecords = sortRecords(filtered);
   recordCount.textContent = activeLocale === "ar"
@@ -1075,21 +1159,12 @@ function renderRecords() {
   if (libraryFilterStatus) {
     const period = activePeriod === "All" ? (activeLocale === "ar" ? "كل فترات الاستجابة" : "all response periods") : localizedPeriodLabel(activePeriod);
     const area = activeRecordArea === "All" ? (activeLocale === "ar" ? "كل النطاقات" : "all coverage") : localizedAreaLabel(activeRecordArea);
-    libraryFilterStatus.textContent = activeLocale === "ar"
+    const stages = [activeRecordFinance !== "All" ? `${uiText("Finance", "التمويل")}: ${recordStageLabel("finance", activeRecordFinance)}` : "", activeRecordDelivery !== "All" ? `${uiText("Delivery", "التنفيذ")}: ${recordStageLabel("delivery", activeRecordDelivery)}` : ""].filter(Boolean);
+    libraryFilterStatus.textContent = (activeLocale === "ar"
       ? `يعرض ${period} · ${area} · ${visibleRecords.length} سجل متاح.`
-      : `Showing ${period} · ${area} · ${visibleRecords.length} matching records.`;
+      : `Showing ${period} · ${area} · ${visibleRecords.length} matching records.`) + (stages.length ? ` · ${stages.join(" · ")}` : "");
   }
-  projectList.innerHTML = visibleRecords.length ? visibleRecords.map(record => {
-    const external = record.href.startsWith("http");
-    return `
-    <a class="project-row" href="${record.href}"${external ? ' target="_blank" rel="noreferrer"' : ""}>
-      <div class="project-title"><span class="project-icon">${record.icon}</span><div><p class="project-name" dir="auto">${record.name}</p><p class="project-place" dir="auto">${record.place}</p></div></div>
-      <p class="project-meta"><strong>${localizedPeriodLabel(record.period)} • ${localizedRecordFilter(record.filter)}</strong><span class="record-status" dir="auto">${translatedText(record.status)}</span></p>
-      <p class="project-funding" dir="auto">${record.funding}</p>
-      <p class="record-marker" dir="auto">${record.marker}</p>
-      <span class="row-arrow" aria-label="${translatedText("Open primary source")}">↗</span>
-    </a>`;
-  }).join("") : `<p class="empty-state">${uiText("No source-backed records match this search.", "لا توجد سجلات مدعومة بالمصادر تطابق هذا البحث.")}</p>`;
+  projectList.innerHTML = visibleRecords.length ? visibleRecords.map(renderRecordCard).join("") : `<p class="empty-state" data-locale-control>${uiText("No source-backed records match this search. Try changing the category, period, coverage or stage filters.", "لا توجد سجلات تطابق هذا البحث. جرّب تغيير مرشحات الفئة أو الفترة أو النطاق أو المرحلة.")}</p>`;
 }
 
 function renderSectors() {
@@ -1390,6 +1465,7 @@ function renderNewsStatus() {
 }
 
 function renderNews() {
+  renderOverviewUpdates();
   if (!newsList) return;
   const filteredNews = [...news]
     .filter(item => activeNewsFilter === "All" || item.category === activeNewsFilter)
@@ -1403,6 +1479,15 @@ function renderNews() {
     </article>`).join("") : `<p class="empty-state">${uiText("No monitored updates match this category.", "لا توجد تحديثات مراقبة تطابق هذه الفئة.")}</p>`;
 }
 
+function recentUpdates(items) {
+  return [...items].sort((left, right) => right.date.localeCompare(left.date) || left.id.localeCompare(right.id)).slice(0, 3);
+}
+
+function renderOverviewUpdates() {
+  const container = document.querySelector("#overviewUpdates");
+  if (!container) return;
+  container.innerHTML = recentUpdates(news).map(item => `<article class="overview-update"><div class="overview-update-meta"><span>${localizedMarkup(translatedText(item.category))}</span><time datetime="${escapeHtml(item.date)}">${localizedMarkup(formatNewsDate(item.date))}</time></div><h3 dir="auto">${localizedMarkup(translatedText(item.title))}</h3><p dir="auto">${localizedMarkup(translatedText(item.summary))}</p><a href="${escapeHtml(item.href)}" target="_blank" rel="noreferrer" aria-label="${localizedMarkup(uiText("Read source: ", "اقرأ المصدر: ") + translatedText(item.title))}">${uiText("Read source", "اقرأ المصدر")} <span aria-hidden="true">${uiText("↗", "↖")}</span></a></article>`).join("");
+}
 
 function escapeCsv(value) {
   const safe = String(value).replace(/^([=+\-@])/, "'$1");
@@ -1441,6 +1526,14 @@ projectSearch.addEventListener("input", renderRecords);
 recordSort.addEventListener("change", renderRecords);
 recordAreaFilter?.addEventListener("change", () => {
   activeRecordArea = recordAreaFilter.value;
+  renderRecords();
+});
+recordFinanceFilter?.addEventListener("change", () => {
+  activeRecordFinance = recordFinanceFilter.value;
+  renderRecords();
+});
+recordDeliveryFilter?.addEventListener("change", () => {
+  activeRecordDelivery = recordDeliveryFilter.value;
   renderRecords();
 });
 catalogSearch?.addEventListener("input", () => {
@@ -2156,6 +2249,7 @@ function updateLocaleControls() {
   recordSort.options[1].textContent = isArabic ? "أكبر قيمة مالية" : "Largest financial scale";
   recordSort.options[2].textContent = isArabic ? "أبجدياً" : "A–Z";
   document.querySelector(".menu-button")?.setAttribute("aria-label", isArabic ? "فتح التنقل" : "Open navigation");
+  renderRecordStageControls();
 }
 
 function applyLocale(locale, { persist = true } = {}) {

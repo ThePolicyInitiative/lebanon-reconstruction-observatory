@@ -19,9 +19,13 @@ function functionCode(name) {
 test("font request uses valid Playfair weight axes and versioned assets", () => {
   assert.match(html, /Playfair\+Display:wght@600;700/);
   assert.doesNotMatch(html, /Playfair\+Display:ital,wght@600;700/);
-  for (const asset of ["app.js", "data.js", "styles.css", "clarity.css"]) {
+  for (const asset of ["data.js", "styles.css", "clarity.css"]) {
     assert.ok(html.includes(`${asset}?v=numbers-20260907`));
   }
+  for (const asset of ["app.js", "record-guide.js", "observatory.css"]) {
+    assert.ok(html.includes(`${asset}?v=readable-20260908`));
+  }
+  assert.ok(html.indexOf('src="record-guide.js') < html.indexOf('src="app.js'));
 });
 
 test("static translations and arrows round-trip without corrupting state-driven controls", () => {
@@ -161,4 +165,164 @@ test("current API data loads; absent and invalid review dates are rejected", asy
   assert.equal(vm.runInContext("isCurrentDataset({})", context), false);
   assert.equal(vm.runInContext('isCurrentDataset({reviewedAt:"unknown"})', context), false);
   assert.equal(vm.runInContext('isCurrentDataset({reviewedAt:"8 Sep 2026"})', context), true);
+});
+
+const guide = require("../record-guide.js");
+
+function recordContext(locale = "ar") {
+  const context = vm.createContext({
+    activeLocale:locale, recordGuide:guide, records:seed.records,
+    activeFilter:"All", activePeriod:"All", activeRecordArea:"All",
+    activeRecordFinance:"All", activeRecordDelivery:"All", visibleRecords:[],
+    periodLabels:{ All:"All records", "2024":"After 2024 war", "2026":"After 2026 war" },
+    recordAreaLabels:{ All:"All coverage", South:"South & Nabatieh", Beirut:"Beirut & Mount Lebanon", Bekaa:"Bekaa & Baalbek-Hermel", National:"Nationwide or multi-area" },
+    projectSearch:{value:""}, recordSort:{value:"latest"}, recordCount:{textContent:""},
+    libraryFilterStatus:{textContent:""}, projectList:{innerHTML:""},
+    recordFinanceFilter:{innerHTML:"",value:"All",setAttribute() {}},
+    recordDeliveryFilter:{innerHTML:"",value:"All",setAttribute() {}}
+  });
+  vm.runInContext(localeCode, context);
+  const functions = ["escapeHtml", "recordTitle", "recordStageLabel", "localizedMarkup", "normalizeRecordSearch", "matchesRecordSearch", "renderRecordCard", "localizedRecordFilter", "localizedPeriodLabel", "periodLabel", "formatNewsDate", "sortRecords", "matchesRecordArea", "localizedAreaLabel", "renderRecords", "renderRecordStageControls", "recentUpdates"];
+  vm.runInContext(functions.map(functionCode).join("\n"), context);
+  return context;
+}
+
+test("all 169 source records have Arabic reading titles without altering original data", () => {
+  const before = JSON.stringify(seed);
+  assert.equal(Object.keys(guide.titles).length, seed.records.length);
+  for (const record of seed.records) {
+    const metadata = guide.get(record);
+    assert.match(metadata.titleAr, /[\u0600-\u06ff]/, record.name);
+    assert.ok(guide.stages.finance[metadata.finance]);
+    assert.ok(guide.stages.delivery[metadata.delivery]);
+  }
+  assert.equal(JSON.stringify(seed), before);
+});
+
+test("stage annotations require exact recorded evidence; sector and publisher are never delivery stages", () => {
+  for (const [name, annotation] of Object.entries(guide.annotations)) {
+    const record = seed.records.find(item => item.name === name);
+    assert.ok(record, name);
+    assert.equal(record[annotation.field], annotation.evidence, name);
+    assert.equal(guide.get(record).basis.text, annotation.evidence);
+    const changed = guide.get({ ...record, [annotation.field]:"The evidence changed" });
+    assert.equal(changed.finance, "unknown");
+    assert.equal(changed.delivery, "unknown");
+    assert.equal(changed.basis, null);
+  }
+  const synthetic = guide.get({ name:"Completed projects announced", filter:"Financing", status:"World Bank", funding:"$250M approved", marker:"planned completion; not completed" });
+  assert.equal(synthetic.finance, "unknown");
+  assert.equal(synthetic.delivery, "unknown");
+});
+
+test("needs, appeals, frameworks, announcements and approvals cannot become spent funds or completed delivery", () => {
+  const expected = [
+    ["Lebanon Rapid Damage & Needs Assessment (RDNA)", "needs", "unknown"],
+    ["Lebanon Emergency Assistance Project (LEAP)", "approved", "unknown"],
+    ["Lebanon Response Plan 2026", "appeal", "unknown"],
+    ["Norway Additional Support for the Lebanese Armed Forces", "announced", "unknown"],
+    ["LEAP Project Design and Safeguards", "framework", "planning"],
+    ["LEAP Public-Building Framework Procurement", "unknown", "procurement"],
+    ["LEAP Environmental and Social Services Framework Procurement", "unknown", "procurement"]
+  ];
+  for (const [name, finance, delivery] of expected) {
+    const metadata = guide.get(seed.records.find(record => record.name === name));
+    assert.equal(metadata.finance, finance);
+    assert.equal(metadata.delivery, delivery);
+  }
+  const completed = seed.records.filter(record => guide.get(record).delivery === "reported_complete");
+  assert.equal(completed.length, 2);
+  for (const record of completed) assert.match(guide.get(record).note[0], /not independent|not completion of the entire/);
+});
+
+test("readable cards preserve source titles, quantities, URLs and original evidence in both languages", () => {
+  const context = recordContext();
+  const snapshots = {};
+  for (const locale of ["ar", "en", "ar", "en"]) {
+    context.activeLocale = locale;
+    vm.runInContext("renderRecords()", context);
+    const output = context.projectList.innerHTML;
+    assert.equal((output.match(/class="evidence-record"/g) || []).length, seed.records.length);
+    assert.equal((output.match(/class="record-detail"/g) || []).length, seed.records.length);
+    assert.ok(output.includes("$250M"));
+    assert.ok(output.includes("$1B"));
+    assert.ok(output.includes("648,942"));
+    for (const record of seed.records) {
+      context.record = record;
+      const card = vm.runInContext("renderRecordCard(record)", context);
+      context.value = record.name;
+      assert.ok(card.includes(vm.runInContext("escapeHtml(value)", context)), record.name);
+      context.value = record.href;
+      assert.ok(card.includes(vm.runInContext("escapeHtml(value)", context)), record.href);
+    }
+    assert.ok(output.includes(locale === "ar" ? "↖" : "↗"));
+    if (snapshots[locale]) assert.equal(output, snapshots[locale], "Language round trip is exact");
+    snapshots[locale] = output;
+  }
+});
+
+test("Arabic search tolerates diacritics and searches Arabic titles even in English mode", () => {
+  const context = recordContext("en");
+  context.projectSearch.value = "تَأْهِيل المَدارِس";
+  vm.runInContext("renderRecords()", context);
+  assert.ok(context.visibleRecords.length >= 1);
+  assert.ok(context.visibleRecords.some(record => record.name === "School Rehabilitation & Shelter Decommissioning"));
+  context.projectSearch.value = "Public-Building Framework";
+  vm.runInContext("renderRecords()", context);
+  assert.equal(context.visibleRecords.length, 1);
+});
+
+test("stage filters combine with category, period, coverage and text without changing labels on locale switch", () => {
+  const context = recordContext();
+  context.activeRecordDelivery = "procurement";
+  vm.runInContext("renderRecords(); renderRecordStageControls()", context);
+  assert.equal(context.visibleRecords.length, 2);
+  assert.equal(context.recordDeliveryFilter.value, "procurement");
+  assert.match(context.libraryFilterStatus.textContent, /مشتريات قبل الإرساء/);
+  context.activePeriod = "2026";
+  vm.runInContext("renderRecords()", context);
+  assert.equal(context.visibleRecords.length, 0);
+  context.activePeriod = "2024";
+  context.activeLocale = "en";
+  context.projectSearch.value = "public-building";
+  context.activeFilter = "Financing";
+  vm.runInContext("renderRecords(); renderRecordStageControls()", context);
+  assert.equal(context.visibleRecords.length, 1);
+  assert.equal(context.recordDeliveryFilter.value, "procurement");
+  assert.match(context.libraryFilterStatus.textContent, /Pre-award procurement/);
+  context.activeRecordFinance = "spent";
+  vm.runInContext("renderRecords()", context);
+  assert.equal(context.visibleRecords.length, 0);
+  assert.match(context.projectList.innerHTML, /Try changing/);
+});
+
+test("overview uses the newest three dated publications, without mutating or conflating monitor filters", () => {
+  const context = recordContext();
+  const before = JSON.stringify(seed.news);
+  context.items = seed.news;
+  const latest = vm.runInContext("recentUpdates(items)", context);
+  assert.equal(latest.length, 3);
+  assert.equal(latest[0].id, "cdr-leap-framework-procurements-2026");
+  assert.equal(latest[0].date, "2026-09-04");
+  assert.equal(latest[1].date, "2026-09-03");
+  assert.equal(latest[2].date, "2026-09-03");
+  for (const item of latest) {
+    context.title = item.title;
+    context.summary = item.summary;
+    assert.match(vm.runInContext("translatedText(title)", context), /[\u0600-\u06ff]/);
+    assert.match(vm.runInContext("translatedText(summary)", context), /[\u0600-\u06ff]/);
+  }
+  assert.equal(JSON.stringify(seed.news), before);
+  assert.match(html, /id="overviewFreshness"[^>]*data-locale-control/);
+  const overview = html.slice(html.indexOf('id="overview"'), html.indexOf('id="response"'));
+  assert.doesNotMatch(overview, /mini-progress/);
+  assert.match(overview, /Approval is not evidence of spending/);
+});
+
+test("record source markup is escaped, not interpreted as HTML", () => {
+  const context = recordContext("en");
+  context.record = { ...seed.records[0], name:'<img src=x onerror="bad()">', funding:"<script>bad()</script>", marker:"<svg onload=bad()>" };
+  const card = vm.runInContext("renderRecordCard(record)", context);
+  assert.doesNotMatch(card, /<img|<script|<svg/);
+  assert.match(card, /&lt;img/);
 });
