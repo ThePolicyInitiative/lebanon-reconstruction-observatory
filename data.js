@@ -257,6 +257,8 @@ const OBSERVATORY_DATA = {
     ,{ name: "UNICEF Community Engagement and Social Listening 2026", short: "CESL26", period: "2026", category: "Accountability and public information", role: "Coordinated public messaging, community feedback, social listening and rumour tracking to inform response adjustments and safe communication.", source: "UNICEF escalation response update", href: "https://www.unicef.org/lebanon/children-caught-escalating-violence-lebanon" }
     ,{ name: "POWER4Girls Emergency Initiative 2026", short: "P4G26", period: "2026", category: "Girls protection and participation", role: "Ran emergency sessions and girls groups in shelters and community facilities to provide displaced girls with information, practical skills and protective support.", source: "UNICEF escalation response update", href: "https://www.unicef.org/lebanon/children-caught-escalating-violence-lebanon" }
     ,{ name: "GBV Shelter Safety Audit Facilitators 2026", short: "GBVA26", period: "2026", category: "Gender-based violence risk mitigation", role: "Conducted safety-audit work in shelters to strengthen gender-based violence risk mitigation for displaced women and girls.", source: "UNICEF escalation response update", href: "https://www.unicef.org/lebanon/children-caught-escalating-violence-lebanon" }
+    ,{ name: "South Lebanon Municipal and Union Waste-Service Partners", short: "WASTE26", period: "2026", category: "Municipal waste-service delivery", role: "Received EU-funded collection trucks through UNDP and the Ministry of Environment to help sustain collection services in 15 municipalities and Unions of Municipalities in South Lebanon.", source: "UNDP municipal waste-service delivery update", href: "https://www.undp.org/arab-states/press-releases/bekaa-and-south-lebanon-receive-more-20-machines-and-trucks-support-waste-services" }
+    ,{ name: "Bekaa Waste-Management Facilities", short: "BEK-WASTE", period: "2026", category: "Municipal waste-service delivery", role: "Facilities serving Zahle, Baalbek and Joub Jannine received EU-funded machinery through UNDP and the Ministry of Environment to strengthen local waste-service operations.", source: "UNDP municipal waste-service delivery update", href: "https://www.undp.org/arab-states/press-releases/bekaa-and-south-lebanon-receive-more-20-machines-and-trucks-support-waste-services" }
   ],
   actions: [
     { name: "Measure national damage and recovery needs", period: "2024", stage: "Assessment", description: "The national RDNA establishes the damage, loss and recovery-needs baseline across ten sectors.", actor: "World Bank / Government partners", href: "https://www.worldbank.org/en/news/press-release/2025/03/07/lebanon-s-recovery-and-reconstruction-needs-estimated-at-us-11-billion" },
@@ -576,8 +578,23 @@ const OBSERVATORY_DATA = {
     ,{ name: "Open a framework procurement for damaged public-building assessment and rehabilitation supervision", period: "2024", stage: "Procurement notice", description: "The CDR published a request for expressions of interest under LEAP for design, structural assessment, rehabilitation and construction-supervision services for slightly and partially damaged public buildings. The notice is a pre-award procurement step: it does not document a selected consultant, contract award, completed supervision or finished works.", actor: "Council for Development and Reconstruction / World Bank / LEAP Project Management Unit", href: "https://www.cdr.gov.lb/en-US/Procurment/ProcurementDetail.aspx?aliaspath=%2FProcurment%2FProcurementDetail&id=1261&lot=0" }
     ,{ name: "Open a framework procurement for LEAP environmental and social assessment services", period: "2024", stage: "Procurement notice", description: "The CDR published a request for expressions of interest under LEAP for environmental and social impact assessments, management plans and audits. The notice is a pre-award procurement step and should not be read as an approved assessment, contract award or completed safeguard activity.", actor: "Council for Development and Reconstruction / World Bank / LEAP Project Management Unit", href: "https://www.cdr.gov.lb/en-US/Procurment.aspx?sortId=DESC" }
     ,{ name: "Open a framework procurement for water-infrastructure repair design and supervision", period: "2024", stage: "Procurement notice", description: "The CDR published a request for expressions of interest under LEAP for framework design and supervision services for water-infrastructure repair. The notice is a pre-award procurement step: it does not establish a selected consultant, contract award, completed design or completed repair works.", actor: "Council for Development and Reconstruction / World Bank / LEAP Project Management Unit", href: "https://cdr.gov.lb/Procurment/ProcurementDetail.aspx?id=1259&lot=0" }
+    ,{ name: "Deliver municipal waste-service equipment in Bekaa and South Lebanon", period: "2026", stage: "Municipal service delivery", description: "EU-funded UNDP deliveries, in partnership with the Ministry of Environment, included nine machinery units for three waste-management facilities in the Bekaa and 17 collection trucks for 15 municipal and union partners in South Lebanon. The source confirms delivered equipment, not a wider reconstruction financing commitment or completed municipal works programme.", actor: "European Union / UNDP / Ministry of Environment / municipal and union partners", href: "https://www.undp.org/arab-states/press-releases/bekaa-and-south-lebanon-receive-more-20-machines-and-trucks-support-waste-services" }
   ],
   records: [
+    {
+      name: "EU and UNDP Municipal Waste-Service Equipment Delivery",
+      place: "Bekaa and South Lebanon • Delivered 9 Sep 2026",
+      filter: "Municipal",
+      period: "2026",
+      icon: "♲",
+      status: "European Union / UNDP / Ministry of Environment / municipal and union partners",
+      funding: "EU-funded equipment delivery",
+      marker: "Delivered machinery and collection trucks to help sustain municipal waste services",
+      date: "2026-09-09",
+      scale: 2,
+      sourceId: "undp-municipal-waste-equipment-2026",
+      href: "https://www.undp.org/arab-states/press-releases/bekaa-and-south-lebanon-receive-more-20-machines-and-trucks-support-waste-services"
+    },
     {
       name: "Lebanon Rapid Damage & Needs Assessment (RDNA)",
       place: "National assessment • Published 7 Mar 2025",
@@ -1829,6 +1846,16 @@ const OBSERVATORY_DATA = {
   ],
   news: [
     {
+      id: "undp-municipal-waste-equipment-2026",
+      category: "Service delivery",
+      date: "2026-09-09",
+      publisher: "European Union / UNDP / Ministry of Environment",
+      period: "2026",
+      title: "EU and UNDP deliver municipal waste-service equipment in Bekaa and South Lebanon",
+      summary: "EU-funded deliveries provided machinery to three Bekaa waste-management facilities and collection trucks to 15 municipal and union partners in South Lebanon. This is a reported equipment delivery, not a new reconstruction financing commitment or a completed works programme.",
+      href: "https://www.undp.org/arab-states/press-releases/bekaa-and-south-lebanon-receive-more-20-machines-and-trucks-support-waste-services"
+    },
+    {
       id: "cdr-leap-water-infrastructure-procurement-2026",
       category: "Procurement",
       date: "2026-09-08",
@@ -2020,6 +2047,7 @@ const OBSERVATORY_DATA = {
     }
   ],
   sources: [
+    { id: "undp-municipal-waste-equipment-2026", name: "Municipal waste-service equipment delivery", publisher: "European Union / UNDP / Ministry of Environment", date: "9 Sep 2026", type: "Official municipal service-delivery update", coverage: "Nine machinery units for three Bekaa waste-management facilities and 17 collection trucks for 15 municipal and union partners in South Lebanon", href: "https://www.undp.org/arab-states/press-releases/bekaa-and-south-lebanon-receive-more-20-machines-and-trucks-support-waste-services" },
     { id: "cdr-leap-water-infrastructure-procurement-2026", name: "LEAP water-infrastructure repair framework procurement", publisher: "Council for Development and Reconstruction / World Bank", date: "8 Sep 2026", type: "Official pre-award procurement notice", coverage: "Framework design and supervision services for water-infrastructure repair under LEAP", href: "https://cdr.gov.lb/Procurment/ProcurementDetail.aspx?id=1259&lot=0" },
     { id: "cdr-leap-nabatieh-roads-tender-2026", name: "LEAP Nabatieh damaged-road clearing and restoration tender", publisher: "Council for Development and Reconstruction / World Bank", date: "18 Aug 2026; deadline extended to 3 Sep 2026", type: "Official open procurement notice", coverage: "Damaged-road clearing and restoration in Nabatieh Caza • LEAP / World Bank financing • no award published", href: "https://www.cdr.gov.lb/en-US/Procurment/ProcurementDetail.aspx?aliaspath=%2FProcurment%2FProcurementDetail&id=1250&lot=0" },
     { id: "pmo-return-recovery-coordination-2026", name: "Return and recovery coordination meeting", publisher: "Prime Minister's Office", date: "3 Sep 2026", type: "Official coordination record", coverage: "Government coordination to accelerate return and recovery steps • no budget, financing or works record", href: "https://www.pcm.gov.lb/arabic/subpg.aspx?pageid=27476" },

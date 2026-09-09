@@ -177,7 +177,8 @@
     "Community Feedback, Social Listening and Rumour Tracking": ["rec-0167", "الملاحظات المجتمعية والرصد الاجتماعي وتتبع الشائعات"],
     "POWER4Girls Shelter Protection Sessions": ["rec-0168", "جلسات الحماية ضمن باور فور غيرلز في مراكز الإيواء"],
     "Gender-Based Violence Shelter Safety Audits": ["rec-0169", "تقييم سلامة مراكز الإيواء من مخاطر العنف القائم على النوع الاجتماعي"],
-    "LEAP Water-Infrastructure Repair Framework Procurement": ["rec-0170", "طلب إبداء اهتمام لخدمات تصميم إصلاح البنية التحتية للمياه والإشراف عليها ضمن ليب"]
+    "LEAP Water-Infrastructure Repair Framework Procurement": ["rec-0170", "طلب إبداء اهتمام لخدمات تصميم إصلاح البنية التحتية للمياه والإشراف عليها ضمن ليب"],
+    "EU and UNDP Municipal Waste-Service Equipment Delivery": ["rec-0171", "تسليم معدات لخدمات النفايات البلدية بدعم الاتحاد الأوروبي وبرنامج الأمم المتحدة الإنمائي"]
   });
   const titles = Object.freeze(Object.fromEntries(Object.entries(readingRecords).map(([name, entry]) => [name, entry[1]])));
   const identities = Object.freeze(Object.fromEntries(Object.entries(readingRecords).map(([name, entry]) => [name, entry[0]])));

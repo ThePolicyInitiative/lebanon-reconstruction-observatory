@@ -21,6 +21,21 @@
         "يطلب إعلان 8 أيلول خدمات التصميم والإشراف لإصلاح البنية التحتية للمياه ضمن ليب، ويحدد البنك الدولي للإنشاء والتعمير مصدراً للتمويل. لا يحدد معاملة تمويل ولا يثبت إرساء عقد أو إنجاز التصميم أو أعمال الإصلاح."
       ]
     },
+    "src-103": {
+      "originalUrl": "https://www.undp.org/arab-states/press-releases/bekaa-and-south-lebanon-receive-more-20-machines-and-trucks-support-waste-services",
+      "url": "https://www.undp.org/arab-states/press-releases/bekaa-and-south-lebanon-receive-more-20-machines-and-trucks-support-waste-services",
+      "checkedAt": "2026-09-09",
+      "status": "reviewed",
+      "access": "direct",
+      "locator": [
+        "UNDP release, 9 September 2026: delivery details and named municipal beneficiaries",
+        "بيان برنامج الأمم المتحدة الإنمائي، 9 أيلول 2026: تفاصيل التسليم والجهات البلدية المستفيدة"
+      ],
+      "note": [
+        "The 9 September release reports equipment delivered: nine machinery units to three waste-management facilities in Bekaa and 17 collection trucks to 15 municipal and union partners in South Lebanon. It identifies EU funding and UNDP implementation with Ministry of Environment partnership. It does not state a financial transfer amount or establish completion of a wider municipal works programme.",
+        "يفيد بيان 9 أيلول بتسليم معدات: تسع وحدات آلية لثلاثة مرافق لإدارة النفايات في البقاع و17 شاحنة جمع لـ15 شريكاً من البلديات والاتحادات في جنوب لبنان. ويحدد تمويل الاتحاد الأوروبي وتنفيذ برنامج الأمم المتحدة الإنمائي بالشراكة مع وزارة البيئة. ولا يحدد مبلغ تحويل مالي أو يثبت إنجاز برنامج أوسع للأعمال البلدية."
+      ]
+    },
     "src-001": {
       "originalUrl": "https://www.undp.org/lebanon/press-releases/un-calls-urgent-recovery-prevent-prolonged-crisis-lebanon",
       "url": "https://www.undp.org/lebanon/press-releases/un-calls-urgent-recovery-prevent-prolonged-crisis-lebanon",
@@ -1435,6 +1450,23 @@
     }
   },
   "records": {
+    "rec-0171": {
+      "source": "src-103",
+      "snapshot": {
+        "name": "EU and UNDP Municipal Waste-Service Equipment Delivery",
+        "place": "Bekaa and South Lebanon • Delivered 9 Sep 2026",
+        "filter": "Municipal",
+        "period": "2026",
+        "status": "European Union / UNDP / Ministry of Environment / municipal and union partners",
+        "funding": "EU-funded equipment delivery",
+        "marker": "Delivered machinery and collection trucks to help sustain municipal waste services",
+        "date": "2026-09-09",
+        "sourceId": "undp-municipal-waste-equipment-2026",
+        "href": "https://www.undp.org/arab-states/press-releases/bekaa-and-south-lebanon-receive-more-20-machines-and-trucks-support-waste-services"
+      },
+      "finance": "not_stated",
+      "delivery": "reported_complete"
+    },
     "rec-0170": {
       "source": "src-102",
       "snapshot": {
