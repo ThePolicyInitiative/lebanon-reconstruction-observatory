@@ -168,7 +168,7 @@ test("font request uses valid Playfair weight axes and versioned assets", () => 
     assert.ok(html.includes(`${asset}?v=numbers-20260907`));
   }
   for (const asset of ["data.js", "programme-data.js", "classification-reviews.js", "record-guide.js", "library-tools.js", "app.js", "observatory.css"]) {
-    assert.ok(html.includes(`${asset}?v=validated-20260909`));
+    assert.ok(html.includes(`${asset}?v=current-20260909`));
   }
   assert.ok(html.indexOf('src="classification-reviews.js') < html.indexOf('src="record-guide.js'));
   assert.ok(html.indexOf('src="record-guide.js') < html.indexOf('src="app.js'));
@@ -284,7 +284,7 @@ function dataContext(date) {
     latestNewsPayload: null, newsStatusKind: "ready", sourceReview: null,
     fetch: async url => ({ ok: true, json: async () => payloads[url] }), apiUrl: url => url,
     renderSectors() {}, renderSources() {}, renderPeriodComparison() {}, renderAftermathBoard() {},
-    renderAftermathDetails() {}, renderRecords() {}, renderNews() {}, renderNewsStatus() {}, updateFreshness() {}
+    renderAftermathDetails() {}, renderRecords() {}, renderNews() {}, renderNewsStatus() {}
   });
   vm.runInContext(["isCurrentDataset", "loadApplicationData", "loadNews"].map(functionCode).join("\n"), context);
   return context;
@@ -582,7 +582,8 @@ test("overview uses the newest three dated publications, without mutating or con
     assert.match(vm.runInContext("translatedText(summary)", context), /[\u0600-\u06ff]/);
   }
   assert.equal(JSON.stringify(seed.news), before);
-  assert.match(html, /id="overviewFreshness"[^>]*data-locale-control/);
+  assert.doesNotMatch(html, /overviewFreshness/);
+  assert.doesNotMatch(source, /Curated public record · last reviewed|سجل عام منتقى · آخر مراجعة|updateFreshness/);
   const overview = html.slice(html.indexOf('id="overview"'), html.indexOf('id="response"'));
   assert.doesNotMatch(overview, /mini-progress/);
   assert.match(overview, /Approval is not evidence of spending/);

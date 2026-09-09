@@ -505,7 +505,6 @@ const arabicText = Object.freeze({
   "Data sources": "مصادر البيانات",
   "Back to top": "العودة إلى الأعلى",
   "© 2026 Rebuild Lebanon Observatory": "© 2026 مرصد إعادة إعمار لبنان",
-  "Curated public record · last reviewed 31 Aug 2026": "سجل عام منتقى · آخر مراجعة 31 أغسطس 2026",
   "START WITH A QUESTION": "ابدأ بسؤال",
   "Understand the picture": "افهم الصورة العامة",
   "Explore evidence": "استكشف الأدلة",
@@ -1050,7 +1049,6 @@ const recordCount = document.querySelector("#recordCount");
 const recordAreaFilter = document.querySelector("#recordAreaFilter");
 const recordFinanceFilter = document.querySelector("#recordFinanceFilter");
 const recordDeliveryFilter = document.querySelector("#recordDeliveryFilter");
-const overviewFreshness = document.querySelector("#overviewFreshness");
 const sectorGrid = document.querySelector("#sectorGrid");
 const sourceList = document.querySelector("#sourceList");
 const sourceReview = document.querySelector("#sourceReview");
@@ -1133,17 +1131,6 @@ function matchesRecordArea(record) {
     Bekaa: /bekaa|baalbek|hermel|zahle|rachaya|west bekaa/
   };
   return areas[activeRecordArea]?.test(value) || false;
-}
-
-function updateFreshness(reviewedAt = currentReviewedAt) {
-  currentReviewedAt = reviewedAt;
-  if (!overviewFreshness) return;
-  const formattedReviewedAt = activeLocale === "ar"
-    ? new Intl.DateTimeFormat("ar-LB", { dateStyle: "medium", numberingSystem: "latn" }).format(new Date(reviewedAt))
-    : reviewedAt;
-  overviewFreshness.textContent = activeLocale === "ar"
-    ? `سجل عام منتقى · آخر مراجعة ${formattedReviewedAt}`
-    : `Curated public record · last reviewed ${reviewedAt}`;
 }
 
 function periodLabel(period) {
@@ -1841,10 +1828,9 @@ async function loadApplicationData() {
     if (sourceReview) sourceReview.innerHTML = activeLocale === "ar"
       ? `<i></i> واجهة التطبيق المحلية متصلة • ${healthPayload.recordCount} سجل${snapshots} • آخر مراجعة ${healthPayload.reviewedAt}`
       : `<i></i> Local API connected • ${healthPayload.recordCount} records${snapshots} • reviewed ${healthPayload.reviewedAt}`;
-    updateFreshness(healthPayload.reviewedAt);
+    currentReviewedAt = healthPayload.reviewedAt;
   } catch (error) {
     if (sourceReview) sourceReview.innerHTML = `<i></i> ${uiText("Published dataset retained • live data unavailable or out of sync", "تم الاحتفاظ بالبيانات المنشورة • البيانات المباشرة غير متاحة أو غير متزامنة")}`;
-    updateFreshness(seedData.reviewedAt);
   }
 }
 
@@ -2468,7 +2454,6 @@ function applyLocale(locale, { persist = true } = {}) {
     }
   }
   updateLocaleControls();
-  updateFreshness();
   renderSectors();
   renderSources();
   renderFramework();
