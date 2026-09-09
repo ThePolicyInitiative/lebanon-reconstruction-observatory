@@ -10,11 +10,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css?v=numbers-20260907" />
     <link rel="stylesheet" href="clarity.css?v=numbers-20260907" />
-    <link rel="stylesheet" href="observatory.css?v=share-history-20260908" />
+    <link rel="stylesheet" href="observatory.css?v=validated-20260909" />
   </head>
   <body>
     <div class="app-shell">
-      <aside class="sidebar">
+      <aside id="siteNavigation" class="sidebar">
         <a class="brand" href="#overview" aria-label="Rebuild Lebanon home">
           <svg class="brand-cedar" viewBox="0 0 32 40" aria-hidden="true">
             <path class="cedar-crown" d="M16 1 10.3 10.2h3.9L8.3 18h4.1L4.8 28h8.3V38h5.8v-10h8.3L19.6 18h4.1l-5.9-7.8h3.9L16 1Z" />
@@ -40,7 +40,7 @@
         </div>
       </aside>
 
-      <button class="menu-button nav-fab" type="button" data-locale-control aria-label="Open navigation">☰</button>
+      <button class="menu-button nav-fab" type="button" data-locale-control aria-controls="siteNavigation" aria-expanded="false" aria-label="Open navigation">☰</button>
       <main id="top" class="main-content">
         <section id="overview" class="hero section-anchor" data-tab-panel="overview" role="tabpanel" aria-label="Overview">
           <div class="hero-copy">
@@ -437,16 +437,6 @@
           </div>
           </details>
 
-          <div class="library-subtoolbar">
-            <div><p id="libraryFilterStatus" data-locale-control>Showing all curated records.</p><p class="library-language-note">Arabic reading titles accompany the original record titles. Source wording remains available in each record.</p></div>
-            <label>Sort <select id="recordSort" data-locale-control aria-label="Sort records"><option value="latest">Latest first</option><option value="scale">Largest financial scale</option><option value="az">A–Z</option></select></label>
-          </div>
-
-          <div class="library-share-controls" aria-label="Share and export records">
-            <button type="button" id="copyLibraryView">Copy this view</button>
-            <button type="button" data-download>Download these results</button>
-            <button type="button" id="resetLibraryFilters">Clear all filters</button>
-          </div>
           <div id="libraryLinkNotice" class="library-link-notice" data-locale-control hidden></div>
           <div id="copyLinkFallback" class="copy-link-fallback" hidden>
             <label for="copyLinkField">Copy this link manually</label><input id="copyLinkField" type="url" readonly dir="ltr" />
@@ -467,7 +457,7 @@
             <div class="funding-viz" aria-label="Funding flow visualization">
               <div class="flow-node donors"><span>01 · NEED ESTIMATE</span><strong>$11B</strong><small>National recovery and reconstruction need</small></div>
               <div class="flow-node channels"><span>02 · PUBLIC FINANCING REQUIREMENT</span><strong>$3–5B</strong><small>Indicative public financing need, including infrastructure</small></div>
-              <div class="flow-node communities"><span>03 · AVAILABLE STARTING FINANCE</span><strong>$250M</strong><small>Initial World Bank finance within a $1B scalable framework</small></div>
+              <div class="flow-node communities"><span>03 · APPROVED INITIAL FINANCE</span><strong>$250M</strong><small>Initial World Bank approval within a $1B scalable framework</small></div>
               <p class="funding-viz-note">Different stages of the financing picture — do not add them together.</p>
             </div>
           </div>
@@ -481,7 +471,7 @@
               <article class="funding-status need"><span>01 · NEED ESTIMATE</span><strong>$11B</strong><h4>Recovery and reconstruction need</h4><p>The RDNA estimates what recovery could require. It is not a pool of committed funds.</p></article>
               <article class="funding-status public"><span>02 · PUBLIC FINANCING NEED</span><strong>$3–5B</strong><h4>Public-sector requirement</h4><p>This includes infrastructure and public-service recovery that needs public financing to be mobilised.</p></article>
               <article class="funding-status private"><span>03 · PRIVATE FINANCING NEED</span><strong>$6–8B</strong><h4>Private-sector requirement</h4><p>This relates principally to housing, commerce, industry and tourism. It is separate from LEAP's public framework.</p></article>
-              <article class="funding-status available"><span>04 · LEAP FINANCE AVAILABLE</span><strong>$250M</strong><h4>Initial World Bank financing</h4><p>Available financing inside a $1B scalable public-recovery framework. The remaining framework gap is not financed.</p></article>
+              <article class="funding-status available"><span>04 · LEAP FINANCE APPROVED</span><strong>$250M</strong><h4>Initial World Bank financing</h4><p>Approved financing within a $1B scalable framework. This approval does not establish disbursement, spending or financing of the remaining framework.</p></article>
             </div>
           </div>
 
@@ -489,7 +479,7 @@
             <div class="funding-path-heading"><p class="eyebrow">MONEY TO DELIVERY</p><h3 id="fundingPathTitle">What moves a financing announcement into a verifiable public result</h3></div>
             <ol class="funding-path">
               <li><b>01</b><strong>Need and eligibility</strong><p>Damage, safety and local-service evidence establish what can be prioritised.</p></li>
-              <li><b>02</b><strong>Finance approved</strong><p>A loan, grant or budget commitment identifies funds available for a defined purpose.</p></li>
+              <li><b>02</b><strong>Finance approved</strong><p>Approval authorises financing for a defined purpose; it does not establish a signed agreement, payment or expenditure.</p></li>
               <li><b>03</b><strong>Scope and tender</strong><p>Technical designs, procurement plans and tender notices make proposed work traceable.</p></li>
               <li><b>04</b><strong>Contract and delivery</strong><p>Award notices, supervision and site evidence distinguish contracted work from completed work.</p></li>
               <li><b>05</b><strong>Reporting and assurance</strong><p>Financial reports, audits and independent monitoring help verify use of funds and delivery claims.</p></li>
@@ -529,14 +519,14 @@
             </article>
             <div class="leap-metrics" aria-label="LEAP financing status">
               <article><span>FRAMEWORK SIZE</span><strong>$1B</strong><p>scalable total project envelope</p></article>
-              <article><span>FINANCING AVAILABLE</span><strong>$250M</strong><p>initial World Bank financing</p></article>
+              <article><span>FINANCING APPROVED</span><strong>$250M</strong><p>initial World Bank financing</p></article>
               <article class="gap"><span>FINANCING GAP</span><strong>$750M</strong><p>additional grants or loans to be mobilized</p></article>
               <article><span>INITIAL HORIZON</span><strong>18–24</strong><p>months of priority investment needs</p></article>
             </div>
           </div>
 
           <div class="leap-finance-panel">
-            <div class="leap-panel-heading"><div><p class="eyebrow">COMPONENT ENVELOPE</p><h3>What the $1B framework is designed to fund</h3></div><p>Available financing is separate from the remaining framework gap. Amounts in US$ millions.</p></div>
+            <div class="leap-panel-heading"><div><p class="eyebrow">COMPONENT ENVELOPE</p><h3>What the $1B framework is designed to fund</h3></div><p>Approved financing is separate from the wider framework envelope. Amounts in US$ millions; not disbursements or spending.</p></div>
             <div class="leap-component-table" role="table" aria-label="LEAP financing by component">
               <div class="leap-component-head" role="row"><span role="columnheader">Component</span><span role="columnheader">Available</span><span role="columnheader">Gap</span><span role="columnheader">Framework total</span></div>
               <div class="leap-component-row" role="row"><div><b>01</b><strong>Immediate response</strong><small>Rubble management, unsafe buildings, heritage assessment, road access</small></div><span role="cell">$50M</span><span role="cell">$30M</span><span role="cell"><i style="width:18%"></i>$80M</span></div>
@@ -649,11 +639,11 @@
       </main>
     </div>
     <div id="toast" class="toast" role="status" aria-live="polite"></div>
-    <script src="data.js?v=numbers-20260907"></script>
-    <script src="classification-reviews.js?v=classified-20260908"></script>
-    <script src="record-guide.js?v=classified-20260908"></script>
-    <script src="library-tools.js?v=classified-20260908"></script>
-    <script src="programme-data.js?v=share-history-20260908"></script>
-    <script src="app.js?v=classified-20260908"></script>
+    <script src="data.js?v=validated-20260909"></script>
+    <script src="classification-reviews.js?v=validated-20260909"></script>
+    <script src="record-guide.js?v=validated-20260909"></script>
+    <script src="library-tools.js?v=validated-20260909"></script>
+    <script src="programme-data.js?v=validated-20260909"></script>
+    <script src="app.js?v=validated-20260909"></script>
   </body>
 </html>

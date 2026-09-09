@@ -19,6 +19,11 @@ const mimeTypes = {
   ".js": "text/javascript; charset=utf-8",
   ".css": "text/css; charset=utf-8",
   ".png": "image/png",
+  ".jpg": "image/jpeg",
+  ".jpeg": "image/jpeg",
+  ".webp": "image/webp",
+  ".svg": "image/svg+xml",
+  ".ico": "image/x-icon",
   ".md": "text/markdown; charset=utf-8",
   ".json": "application/json; charset=utf-8"
 };
@@ -34,7 +39,7 @@ function sendText(response, status, body, type = "text/plain; charset=utf-8") {
 }
 
 function csvValue(value) {
-  const safeValue = String(value).replace(/^([=+\-@])/, "'$1");
+  const safeValue = String(value ?? "").replace(/^([\s\u0000-\u001f\u007f]*[=+\-@])/, "'$1");
   return `"${safeValue.replaceAll("\"", "\"\"")}"`;
 }
 
@@ -50,7 +55,6 @@ function selectRecords(searchParams) {
     return hasFilter && hasPeriod && searchable.includes(query);
   });
   return matching.sort((left, right) => {
-    if (sort === "scale") return right.scale - left.scale;
     if (sort === "az") return left.name.localeCompare(right.name);
     return right.date.localeCompare(left.date);
   });
@@ -189,14 +193,29 @@ async function serveStatic(response, pathname) {
   const normalized = path.normalize(requested).replace(/^([/\\])+/, "");
   const filePath = path.resolve(ROOT, normalized);
   if (!filePath.startsWith(`${ROOT}${path.sep}`)) return sendText(response, 403, "Forbidden");
+  // Preview only the public site, never workspace notes, research or Git files.
+  const publicFiles = new Set(["index.html", "app.js", "data.js", "styles.css", "clarity.css", "observatory.css", "record-guide.js", "classification-reviews.js", "library-tools.js", "programme-data.js"]);
+  const relative = path.relative(ROOT, filePath).split(path.sep).join("/");
+  if (!publicFiles.has(relative) && !relative.startsWith("assets/") && relative !== "data/source-snapshots.json") {
+    return sendText(response, 404, "Not found");
+  }
   try {
     const file = await fs.readFile(filePath);
     const extension = path.extname(filePath).toLowerCase();
-    response.writeHead(200, { "Content-Type": mimeTypes[extension] || "application/octet-stream", "Cache-Control": "no-cache" });
+    response.writeHead(200, { "Content-Type": mimeTypes[extension] || "application/octet-stream", "Cache-Control": "no-cache", "X-Content-Type-Options": "nosniff" });
     response.end(file);
   } catch (error) {
     if (error.code === "ENOENT") return sendText(response, 404, "Not found");
     return sendText(response, 500, "Unable to read file");
+  }
+}
+
+async function sendBoundaryData(response, loader) {
+  try {
+    return sendJson(response, 200, await loader());
+  } catch (error) {
+    // An unavailable external boundary service is not valid empty geography.
+    return sendJson(response, 503, { error: "Geographic boundary source unavailable", sourceUnavailable: true });
   }
 }
 
@@ -222,12 +241,10 @@ const server = http.createServer(async (request, response) => {
       return sendJson(response, 200, { news: currentNews(snapshotByUrl), checkedAt, reviewedAt, snapshotCount: snapshotByUrl.size });
     }
     if (request.method === "GET" && url.pathname === "/api/map/districts") {
-      const boundaryData = await districts();
-      return sendJson(response, 200, boundaryData);
+      return sendBoundaryData(response, districts);
     }
     if (request.method === "GET" && url.pathname === "/api/map/municipalities") {
-      const boundaryData = await municipalities();
-      return sendJson(response, 200, boundaryData);
+      return sendBoundaryData(response, municipalities);
     }
     if (request.method === "POST" && url.pathname === "/api/refresh") {
       const checks = await refreshSources();

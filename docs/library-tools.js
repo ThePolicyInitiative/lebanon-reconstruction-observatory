@@ -6,7 +6,9 @@
     period:["All", "2024", "2026"], area:["All", "National", "South", "Beirut", "Bekaa"],
     finance:["All", "unknown", "not_stated", "not_applicable", "damage", "needs", "framework", "appeal", "announced", "budgeted", "approved", "committed", "disbursed", "spent"],
     delivery:["All", "unknown", "not_stated", "not_applicable", "planning", "procurement", "contracted", "in_progress", "reported_complete"],
-    sort:["latest", "scale", "az"], lang:["ar", "en"]
+    // Old sort=scale links fall back to latest: headline measures mix money,
+    // people and other units, so ranking them numerically is not meaningful.
+    sort:["latest", "az"], lang:["ar", "en"]
   });
   function readState(search) {
     const params = new URLSearchParams(search);

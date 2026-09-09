@@ -26,6 +26,56 @@ try {
 if (initialLibraryState.lang) activeLocale = initialLibraryState.lang;
 
 const arabicText = Object.freeze({
+  "Norway announces additional LAF support through UNDP": "النرويج تعلن دعماً إضافياً للجيش اللبناني عبر برنامج الأمم المتحدة الإنمائي",
+  "The announced contribution supports Lebanese Armed Forces readiness and links continued support for explosive-ordnance clearance with safer return to homes and fields. It is recorded as an announced funding commitment.": "تدعم المساهمة المُعلَنة جهوزية الجيش اللبناني، وتربط استمرار دعم إزالة الذخائر المتفجرة بعودة أكثر أماناً إلى المنازل والحقول. تُسجّل كالتزام تمويلي مُعلَن.",
+  "Renewed conflict derails Lebanon’s fragile economic recovery": "تجدد النزاع يعرقل التعافي الاقتصادي الهش في لبنان",
+  "The latest Lebanon Economic Monitor links renewed conflict to disruption of activity, pressure on public finances and a sharper contraction outlook for 2026.": "يربط أحدث إصدار من المرصد الاقتصادي للبنان تجدد النزاع بتعطل النشاط والضغط على المالية العامة وتوقع انكماش أشد في 2026.",
+  "Solar partnership targets more reliable public services": "شراكة للطاقة الشمسية تستهدف تحسين استمرارية الخدمات العامة",
+  "UNDP and the Kuwait Fund announced a partnership to install solar photovoltaic and energy-efficiency solutions at priority public institutions.": "أعلن برنامج الأمم المتحدة الإنمائي والصندوق الكويتي شراكة لتركيب أنظمة شمسية كهروضوئية وحلول لكفاءة الطاقة في مؤسسات عامة ذات أولوية.",
+  "Municipalities and community committees strengthen local readiness": "البلديات واللجان المجتمعية تعزز الجهوزية المحلية",
+  "A UNDP-supported partnership describes municipal and community work on local coordination, preparedness training and use of existing local resources across selected communities.": "تصف شراكة يدعمها برنامج الأمم المتحدة الإنمائي جهوداً بلدية ومجتمعية للتنسيق المحلي والتدريب على الجهوزية واستخدام الموارد المحلية المتاحة في مجتمعات مختارة.",
+  "National waste-management planning package adds GIS support": "حزمة التخطيط الوطني لإدارة النفايات تضيف دعماً بنظم المعلومات الجغرافية",
+  "A new studies package and GIS platform is designed to support investment prioritisation and coordination among municipalities, ministries, operators and partners.": "تهدف حزمة دراسات جديدة ومنصة للمعلومات الجغرافية إلى دعم تحديد أولويات الاستثمار والتنسيق بين البلديات والوزارات والمشغّلين والشركاء.",
+  "Lebanon Response Plan sets a joined-up response framework": "خطة الاستجابة للبنان تضع إطاراً منسقاً للاستجابة",
+  "The national plan brings humanitarian assistance, protection, resilience, livelihoods and public-service actions into a common 2026 framework.": "تجمع الخطة الوطنية المساعدات الإنسانية والحماية والصمود وسبل العيش وإجراءات الخدمات العامة ضمن إطار مشترك لعام 2026.",
+  "LEAP procurement plan adds a public planning checkpoint": "خطة مشتريات ليب تضيف محطة تخطيط معلنة",
+  "The disclosed procurement plan is a traceability signal for planned procurement. It should be read separately from later tender awards, contracts, expenditure and completed works.": "تتيح خطة المشتريات المنشورة تتبّع المشتريات المخطط لها. ويجب قراءتها بصورة منفصلة عن إرساء المناقصات والعقود والإنفاق والأعمال المنجزة لاحقاً.",
+  "South Lebanon building-level assessment adds a place-based damage view": "تقييم المباني في جنوب لبنان يضيف عرضاً مكانياً للأضرار",
+  "The assessment covers affected areas south of the Litani River using GeoAI and satellite imagery, while stating limits for underground and critical-infrastructure damage.": "يغطي التقييم المناطق المتضررة جنوب نهر الليطاني باستخدام الذكاء الاصطناعي الجغرافي وصور الأقمار الصناعية، مع توضيح حدود تقييم الأضرار تحت الأرض وفي البنية التحتية الحيوية.",
+  "School recovery is framed as a learning, protection and rehabilitation priority": "تعافي المدارس أولوية للتعليم والحماية وإعادة التأهيل",
+  "A nationwide assessment of conflict-affected schools is being used to focus rehabilitation and learning-continuity efforts before the academic year.": "يُستخدم تقييم وطني للمدارس المتضررة من النزاع لتوجيه جهود التأهيل واستمرارية التعليم قبل العام الدراسي.",
+  "Agrifood recovery initiative supports rural livelihoods in the South": "مبادرة لتعافي الزراعة والغذاء تدعم سبل العيش الريفية في الجنوب",
+  "The launched initiative supports crop and livestock production, rural incomes and local agrifood resilience in conflict-affected southern communities.": "تدعم المبادرة المُطلَقة الإنتاج النباتي والحيواني والدخل الريفي وصمود النظم الزراعية والغذائية المحلية في مجتمعات الجنوب المتضررة من النزاع.",
+  "Shelter-coordination programme records training and preparedness support": "برنامج تنسيق الإيواء يوثّق دعماً للتدريب والجهوزية",
+  "The Ministry of Social Affairs, the European Union and UNDP reported training 120 coordinators and volunteers who managed collective shelters during the 2026 escalation.": "أفادت وزارة الشؤون الاجتماعية والاتحاد الأوروبي وبرنامج الأمم المتحدة الإنمائي بتدريب 120 منسّقاً ومتطوعاً أداروا مراكز إيواء جماعي خلال تصعيد 2026.",
+  "WFP reports on food, cash and humanitarian logistics response": "برنامج الأغذية العالمي يقدّم تحديثاً عن الغذاء والنقد والخدمات اللوجستية الإنسانية",
+  "WFP’s update documents emergency food and cash assistance, logistics support and access constraints; it should be read as an operational response update, not a reconstruction-delivery record.": "يوثّق تحديث برنامج الأغذية العالمي المساعدات الغذائية والنقدية الطارئة والدعم اللوجستي وقيود الوصول؛ ويُقرأ كتحديث عن الاستجابة التشغيلية، لا كسجل لتنفيذ إعادة الإعمار.",
+  "Medical-service continuity update for conflict-affected areas": "تحديث عن استمرارية الخدمات الطبية في المناطق المتضررة من النزاع",
+  "The ICRC describes hospital, primary-care, medical-equipment and rehabilitation support for people affected by hostilities across several governorates.": "تصف اللجنة الدولية للصليب الأحمر دعم المستشفيات والرعاية الأولية والمعدات الطبية والتأهيل للأشخاص المتضررين من الأعمال العدائية في عدة محافظات.",
+  "Protection and reproductive-health situation report": "تقرير عن مستجدات الحماية والصحة الإنجابية",
+  "The situation report covers mobile health services, safe spaces, shelter support, case management and referral pathways during the 2026 emergency response.": "يغطي التقرير الخدمات الصحية المتنقلة والمساحات الآمنة ودعم الإيواء وإدارة الحالات ومسارات الإحالة خلال الاستجابة الطارئة لعام 2026.",
+  "LEAP procurement plan provides a traceable planning baseline": "خطة مشتريات ليب توفر مرجعاً تخطيطياً قابلاً للتتبّع",
+  "The published procurement plan identifies the first 18 months of planned procurement for the Lebanon Emergency Assistance Project. A plan is a pre-award checkpoint, not evidence of a completed contract or works.": "تحدد خطة المشتريات المنشورة المشتريات المخطط لها خلال أول 18 شهراً من مشروع المساعدة الطارئة للبنان. الخطة محطة قبل الإرساء، وليست دليلاً على إنجاز عقد أو أعمال.",
+  "Rebuild Lebanon home": "الصفحة الرئيسية لمرصد إعادة إعمار لبنان",
+  "Workspace views": "أقسام المرصد",
+  "03 · APPROVED INITIAL FINANCE": "03 · التمويل الأولي المُوافَق عليه",
+  "Initial World Bank approval within a $1B scalable framework": "موافقة أولية من البنك الدولي ضمن إطار قابل للتوسع بقيمة $1B",
+  "04 · LEAP FINANCE APPROVED": "04 · تمويل ليب المُوافَق عليه",
+  "Approved financing within a $1B scalable framework. This approval does not establish disbursement, spending or financing of the remaining framework.": "تمويل مُوافَق عليه ضمن إطار قابل للتوسع بقيمة $1B. لا تثبت هذه الموافقة صرف الأموال أو إنفاقها أو تمويل ما تبقى من الإطار.",
+  "Approval authorises financing for a defined purpose; it does not establish a signed agreement, payment or expenditure.": "تجيز الموافقة تمويلاً لغرض محدد؛ ولا تثبت توقيع اتفاق أو دفع أموال أو إنفاقها.",
+  "FINANCING APPROVED": "التمويل المُوافَق عليه",
+  "Approved financing is separate from the wider framework envelope. Amounts in US$ millions; not disbursements or spending.": "التمويل المُوافَق عليه منفصل عن مخصصات الإطار الأوسع. المبالغ بوحدة US$ millions؛ وليست أموالاً مصروفة أو منفقة.",
+  "Cross-cutting": "عابر للفترات",
+  "CDR posts a LEAP water-infrastructure services procurement": "مجلس الإنماء والإعمار ينشر طلب خدمات للبنية التحتية للمياه ضمن ليب",
+  "The notice seeks framework design and supervision services for water-infrastructure repair under LEAP. It is recorded as a pre-award procurement step, not an awarded contract or completed repair work.": "يطلب الإعلان خدمات التصميم والإشراف ضمن اتفاق إطاري لإصلاح البنية التحتية للمياه في ليب. يُسجّل كخطوة مشتريات قبل الإرساء، وليس كعقد مُرسى أو أعمال إصلاح منجزة.",
+  "LEAP water-infrastructure repair framework procurement": "طلب خدمات إطارية لإصلاح البنية التحتية للمياه ضمن ليب",
+  "Official pre-award procurement notice": "إعلان رسمي للمشتريات قبل الإرساء",
+  "Framework design and supervision services for water-infrastructure repair under LEAP": "خدمات التصميم والإشراف ضمن اتفاق إطاري لإصلاح البنية التحتية للمياه في ليب",
+  "Open a framework procurement for water-infrastructure repair design and supervision": "إطلاق طلب خدمات إطارية لتصميم إصلاح البنية التحتية للمياه والإشراف عليها",
+  "The CDR published a request for expressions of interest under LEAP for framework design and supervision services for water-infrastructure repair. The notice is a pre-award procurement step: it does not establish a selected consultant, contract award, completed design or completed repair works.": "نشر مجلس الإنماء والإعمار طلب إبداء اهتمام ضمن ليب لخدمات التصميم والإشراف على إصلاح البنية التحتية للمياه باتفاق إطاري. الإعلان خطوة مشتريات قبل الإرساء: لا يثبت اختيار استشاري أو إرساء عقد أو إنجاز التصميم أو أعمال الإصلاح.",
+  "National framework • Posted 8 Sep 2026": "إطار وطني • نُشر في 8 أيلول 2026",
+  "World Bank-financed procurement notice": "إعلان مشتريات يحدد البنك الدولي مصدراً للتمويل",
+  "Expression of interest only; no award, design or repair works reported": "طلب إبداء اهتمام فقط؛ لا إبلاغ عن إرساء عقد أو إنجاز تصميم أو أعمال إصلاح",
   "Share and export records": "مشاركة السجلات وتصديرها",
   "Copy this view": "انسخ رابط هذا العرض",
   "Download these results": "نزّل هذه النتائج",
@@ -996,12 +1046,10 @@ function mapProfileForPeriod(region) {
 
 const projectList = document.querySelector("#projectList");
 const projectSearch = document.querySelector("#projectSearch");
-const recordSort = document.querySelector("#recordSort");
 const recordCount = document.querySelector("#recordCount");
 const recordAreaFilter = document.querySelector("#recordAreaFilter");
 const recordFinanceFilter = document.querySelector("#recordFinanceFilter");
 const recordDeliveryFilter = document.querySelector("#recordDeliveryFilter");
-const libraryFilterStatus = document.querySelector("#libraryFilterStatus");
 const overviewFreshness = document.querySelector("#overviewFreshness");
 const sectorGrid = document.querySelector("#sectorGrid");
 const sourceList = document.querySelector("#sourceList");
@@ -1034,17 +1082,28 @@ let activeRecordArea = initialLibraryState.area;
 let activeRecordFinance = initialLibraryState.finance;
 let activeRecordDelivery = initialLibraryState.delivery;
 let activeRecordId = initialLibraryState.record;
+// Keep ordering in existing shared URLs without a visible sort control.
+let activeRecordSort = initialLibraryState.sort;
 projectSearch.value = initialLibraryState.q;
-recordSort.value = initialLibraryState.sort;
 recordAreaFilter.value = activeRecordArea;
 let currentReviewedAt = seedData.reviewedAt;
 let latestNewsPayload = null;
 let newsStatusKind = "ready";
 
-function isCurrentDataset(payload, baseline = seedData.reviewedAt) {
+function isCurrentDataset(payload, baseline = seedData.reviewedAt, collection = null) {
   const reviewed = Date.parse(payload?.reviewedAt);
   const minimum = Date.parse(baseline);
-  return Number.isFinite(reviewed) && Number.isFinite(minimum) && reviewed >= minimum;
+  if (!Number.isFinite(reviewed) || !Number.isFinite(minimum) || reviewed < minimum) return false;
+  if (!collection) return true;
+  const incoming = payload?.[collection];
+  const published = seedData[collection];
+  if (!Array.isArray(incoming) || !incoming.every(item => item && typeof item === "object")) return false;
+  // An unchanged review date is not a dataset version. The backend can lag
+  // behind the static release even when both carry the same review date.
+  // Require the published editorial fields; live check metadata may differ.
+  return published.every(expected => incoming.some(item =>
+    Object.entries(expected).every(([key, value]) => JSON.stringify(item[key]) === JSON.stringify(value))
+  ));
 }
 
 const recordAreaLabels = Object.freeze({
@@ -1097,9 +1156,8 @@ function localizedPeriodLabel(period) {
 }
 
 function sortRecords(items) {
-  const direction = recordSort.value;
+  const direction = activeRecordSort;
   return [...items].sort((a, b) => {
-    if (direction === "scale") return b.scale - a.scale;
     if (direction === "az") return recordTitle(a).localeCompare(recordTitle(b), activeLocale);
     return b.date.localeCompare(a.date);
   });
@@ -1199,20 +1257,12 @@ function renderRecords() {
   recordCount.textContent = activeLocale === "ar"
     ? `${visibleRecords.length} من أصل ${records.length} سجل مصدر${activePeriod === "All" ? "" : ` • ${localizedPeriodLabel(activePeriod)}`}`
     : `${visibleRecords.length} of ${records.length} source records${activePeriod === "All" ? "" : ` • ${localizedPeriodLabel(activePeriod)}`}`;
-  if (libraryFilterStatus) {
-    const period = activePeriod === "All" ? (activeLocale === "ar" ? "كل فترات الاستجابة" : "all response periods") : localizedPeriodLabel(activePeriod);
-    const area = activeRecordArea === "All" ? (activeLocale === "ar" ? "كل النطاقات" : "all coverage") : localizedAreaLabel(activeRecordArea);
-    const stages = [activeRecordFinance !== "All" ? `${uiText("Finance", "التمويل")}: ${recordStageLabel("finance", activeRecordFinance)}` : "", activeRecordDelivery !== "All" ? `${uiText("Delivery", "التنفيذ")}: ${recordStageLabel("delivery", activeRecordDelivery)}` : ""].filter(Boolean);
-    libraryFilterStatus.textContent = (activeLocale === "ar"
-      ? `يعرض ${period} · ${area} · ${visibleRecords.length} سجل متاح.`
-      : `Showing ${period} · ${area} · ${visibleRecords.length} matching records.`) + (stages.length ? ` · ${stages.join(" · ")}` : "");
-  }
   projectList.innerHTML = visibleRecords.length ? visibleRecords.map(renderRecordCard).join("") : `<p class="empty-state" data-locale-control>${uiText("No source-backed records match this search. Try changing the category, period, coverage or stage filters.", "لا توجد سجلات تطابق هذا البحث. جرّب تغيير مرشحات الفئة أو الفترة أو النطاق أو المرحلة.")}</p>`;
   renderLibraryLinkNotice();
 }
 
 function currentLibraryState() {
-  return { q:projectSearch.value.trim(), type:activeFilter, period:activePeriod, area:activeRecordArea, finance:activeRecordFinance, delivery:activeRecordDelivery, sort:recordSort.value, lang:activeLocale, record:activeRecordId };
+  return { q:projectSearch.value.trim(), type:activeFilter, period:activePeriod, area:activeRecordArea, finance:activeRecordFinance, delivery:activeRecordDelivery, sort:activeRecordSort, lang:activeLocale, record:activeRecordId };
 }
 
 function syncLibraryUrl({ push = false } = {}) {
@@ -1242,7 +1292,7 @@ function syncLibraryControls() {
 function restoreLibraryLocation() {
   const state = libraryTools.readState(window.location.search);
   projectSearch.value = state.q;
-  recordSort.value = state.sort;
+  activeRecordSort = state.sort;
   activeFilter = state.type;
   activePeriod = state.period;
   activeRecordArea = state.area;
@@ -1266,7 +1316,7 @@ function clearLibraryFilters() {
   activeFilter = activePeriod = activeRecordArea = activeRecordFinance = activeRecordDelivery = "All";
   activeRecordId = "";
   projectSearch.value = "";
-  recordSort.value = "latest";
+  activeRecordSort = "latest";
   syncLibraryUrl({ push:true });
   applyLocale(activeLocale, { persist:false });
 }
@@ -1656,7 +1706,6 @@ function downloadRecords() {
 }
 
 projectSearch.addEventListener("input", () => libraryControlChanged({ push:false }));
-recordSort.addEventListener("change", () => libraryControlChanged());
 recordAreaFilter?.addEventListener("change", () => {
   activeRecordArea = recordAreaFilter.value;
   libraryControlChanged();
@@ -1688,9 +1737,6 @@ document.querySelectorAll(".news-filter").forEach(button => button.addEventListe
   document.querySelectorAll(".news-filter").forEach(item => item.classList.toggle("active", item === button));
   renderNews();
 }));
-document.querySelector("[data-download]")?.addEventListener("click", downloadRecords);
-document.querySelector("#copyLibraryView")?.addEventListener("click", () => copyShareLink(libraryTools.viewUrl(window.location.href, currentLibraryState(), "#projects")));
-document.querySelector("#resetLibraryFilters")?.addEventListener("click", clearLibraryFilters);
 document.querySelector("#libraryLinkNotice")?.addEventListener("click", event => { if (event.target.closest("[data-clear-record]")) clearLibraryFilters(); });
 projectList.addEventListener("click", event => {
   const button = event.target.closest("[data-copy-record]");
@@ -1710,7 +1756,7 @@ async function refreshSources() {
     const response = await fetch(apiUrl("/api/refresh"), { method: "POST" });
     if (!response.ok) throw new Error("Refresh request failed");
     const payload = await response.json();
-    if (!isCurrentDataset(payload, currentReviewedAt)) throw new Error("Source dataset is older than the published data");
+    if (!isCurrentDataset(payload, currentReviewedAt, "sources")) throw new Error("Source dataset does not include the published data");
     sources = payload.sources;
     renderSources();
     const remoteChecks = payload.checks.filter(check => check.state !== "local");
@@ -1743,7 +1789,7 @@ async function refreshNews() {
     const response = await fetch(apiUrl("/api/news/refresh"), { method: "POST" });
     if (!response.ok) throw new Error("News refresh failed");
     const payload = await response.json();
-    if (!isCurrentDataset(payload, latestNewsPayload?.reviewedAt || seedData.reviewedAt)) throw new Error("News dataset is older than the published data");
+    if (!isCurrentDataset(payload, latestNewsPayload?.reviewedAt || seedData.reviewedAt, "news")) throw new Error("News dataset does not include the published data");
     news = payload.news;
     latestNewsPayload = payload;
     newsStatusKind = "checked";
@@ -1775,8 +1821,11 @@ async function loadApplicationData() {
     const [recordsPayload, sectorsPayload, sourcesPayload, healthPayload] = await Promise.all([
       recordsResponse.json(), sectorsResponse.json(), sourcesResponse.json(), healthResponse.json()
     ]);
-    if (![recordsPayload, sectorsPayload, sourcesPayload, healthPayload].every(payload => isCurrentDataset(payload, currentReviewedAt))) {
-      throw new Error("API dataset is older than the published data");
+    if (!isCurrentDataset(recordsPayload, currentReviewedAt, "records") ||
+        !isCurrentDataset(sectorsPayload, currentReviewedAt, "sectors") ||
+        !isCurrentDataset(sourcesPayload, currentReviewedAt, "sources") ||
+        !isCurrentDataset(healthPayload, currentReviewedAt)) {
+      throw new Error("API dataset does not include the published data");
     }
     records = recordsPayload.records;
     sectors = sectorsPayload.sectors;
@@ -1794,7 +1843,7 @@ async function loadApplicationData() {
       : `<i></i> Local API connected • ${healthPayload.recordCount} records${snapshots} • reviewed ${healthPayload.reviewedAt}`;
     updateFreshness(healthPayload.reviewedAt);
   } catch (error) {
-    if (sourceReview) sourceReview.innerHTML = `<i></i> ${uiText("Local fallback dataset • start server.js for live checks", "مجموعة بيانات محلية بديلة • شغّل server.js لإجراء الفحوصات المباشرة")}`;
+    if (sourceReview) sourceReview.innerHTML = `<i></i> ${uiText("Published dataset retained • live data unavailable or out of sync", "تم الاحتفاظ بالبيانات المنشورة • البيانات المباشرة غير متاحة أو غير متزامنة")}`;
     updateFreshness(seedData.reviewedAt);
   }
 }
@@ -1804,7 +1853,7 @@ async function loadNews() {
     const response = await fetch(apiUrl("/api/news"));
     if (!response.ok) throw new Error("News API unavailable");
     const payload = await response.json();
-    if (!isCurrentDataset(payload, latestNewsPayload?.reviewedAt || seedData.reviewedAt)) {
+    if (!isCurrentDataset(payload, latestNewsPayload?.reviewedAt || seedData.reviewedAt, "news")) {
       newsStatusKind = "stale";
       renderNewsStatus();
       return;
@@ -2312,7 +2361,25 @@ function showToast(message) {
 }
 
 document.querySelectorAll("[data-toast]").forEach(element => element.addEventListener("click", () => showToast(element.dataset.toast)));
-document.querySelector(".menu-button")?.addEventListener("click", () => document.querySelector(".sidebar").classList.toggle("open"));
+function setNavigationOpen(open, returnFocus = false) {
+  const sidebar = document.querySelector(".sidebar");
+  const button = document.querySelector(".menu-button");
+  if (!sidebar || !button) return;
+  const mobile = window.matchMedia("(max-width:780px)").matches;
+  const expanded = mobile && Boolean(open);
+  sidebar.classList.toggle("open", expanded);
+  sidebar.inert = mobile && !expanded;
+  button.setAttribute("aria-expanded", String(expanded));
+  button.setAttribute("aria-label", expanded ? uiText("Close navigation", "إغلاق التنقل") : uiText("Open navigation", "فتح التنقل"));
+  if (returnFocus && mobile) button.focus();
+}
+
+document.querySelector(".menu-button")?.addEventListener("click", () => setNavigationOpen(!document.querySelector(".sidebar").classList.contains("open")));
+document.addEventListener("keydown", event => {
+  if (event.key === "Escape" && document.querySelector(".sidebar").classList.contains("open")) setNavigationOpen(false, true);
+});
+window.matchMedia("(max-width:780px)").addEventListener("change", () => setNavigationOpen(false));
+setNavigationOpen(false);
 
 const tabPanels = [...document.querySelectorAll("[data-tab-panel]")];
 const tabLinks = [...document.querySelectorAll("[data-tab-link]")];
@@ -2353,8 +2420,8 @@ function activateTab(view, { resetScroll = true } = {}) {
   tabLinks.forEach(link => {
     const isActive = link.dataset.tabLink === activeView || (activeView === "leap-history" && link.dataset.tabLink === "leap");
     link.classList.toggle("active", isActive);
-    link.setAttribute("aria-selected", String(isActive));
-    if (link.classList.contains("nav-link")) link.toggleAttribute("aria-current", isActive);
+    if (isActive) link.setAttribute("aria-current", "page");
+    else link.removeAttribute("aria-current");
   });
   const currentView = document.querySelector("[data-current-view]");
   if (currentView) currentView.textContent = activeLocale === "ar" ? tabNamesArabic[activeView] : tabNames[activeView].toUpperCase();
@@ -2368,7 +2435,7 @@ function activateTab(view, { resetScroll = true } = {}) {
 tabLinks.forEach(link => link.addEventListener("click", event => {
   const view = link.dataset.tabLink;
   event.preventDefault();
-  document.querySelector(".sidebar").classList.remove("open");
+  setNavigationOpen(false);
   if (window.location.hash === `#${view}`) activateTab(view);
   else window.location.hash = view;
 }));
@@ -2387,11 +2454,7 @@ function updateLocaleControls() {
   languageToggle.setAttribute("aria-label", isArabic ? "التبديل إلى الإنجليزية" : "Switch website language to Arabic");
   projectSearch.placeholder = isArabic ? "ابحث في السجلات أو البرامج أو المصادر" : "Search records, programs, or sources";
   projectSearch.setAttribute("aria-label", projectSearch.placeholder);
-  recordSort.setAttribute("aria-label", isArabic ? "ترتيب السجلات" : "Sort records");
-  recordSort.options[0].textContent = isArabic ? "الأحدث أولاً" : "Latest first";
-  recordSort.options[1].textContent = isArabic ? "أكبر قيمة مالية" : "Largest financial scale";
-  recordSort.options[2].textContent = isArabic ? "أبجدياً" : "A–Z";
-  document.querySelector(".menu-button")?.setAttribute("aria-label", isArabic ? "فتح التنقل" : "Open navigation");
+  setNavigationOpen(document.querySelector(".sidebar")?.classList.contains("open"));
   syncLibraryControls();
 }
 

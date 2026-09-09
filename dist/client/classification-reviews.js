@@ -1,4 +1,4 @@
-/* Source-by-source editorial review, 8 September 2026.
+/* Source-by-source editorial review; individual sources may have later check dates.
  * Records are deliberately bound to the exact reviewed snapshot; never classify
  * new or changed records by keywords, publisher, category or a shared source.
  * Notes paraphrase the cited passages. Source claims are not independent audits.
@@ -9,6 +9,18 @@
   const data = {
   "checkedAt": "2026-09-08",
   "sources": {
+    "src-102": {
+      "originalUrl": "https://cdr.gov.lb/Procurment/ProcurementDetail.aspx?id=1259&lot=0",
+      "url": "https://www.cdr.gov.lb/Procurment/ProcurementDetail.aspx?id=1259&lot=0",
+      "checkedAt": "2026-09-09",
+      "status": "reviewed",
+      "access": "direct",
+      "locator": ["CDR procurement 1259: EOI title, publication date and funding source", "إعلان مشتريات مجلس الإنماء والإعمار 1259: عنوان طلب إبداء الاهتمام وتاريخ النشر ومصدر التمويل"],
+      "note": [
+        "The 8 September notice requests design and supervision services for water-infrastructure repair under LEAP and identifies IBRD as the funding source. It does not state a financing transaction or establish a contract award, completed design or repair works.",
+        "يطلب إعلان 8 أيلول خدمات التصميم والإشراف لإصلاح البنية التحتية للمياه ضمن ليب، ويحدد البنك الدولي للإنشاء والتعمير مصدراً للتمويل. لا يحدد معاملة تمويل ولا يثبت إرساء عقد أو إنجاز التصميم أو أعمال الإصلاح."
+      ]
+    },
     "src-001": {
       "originalUrl": "https://www.undp.org/lebanon/press-releases/un-calls-urgent-recovery-prevent-prolonged-crisis-lebanon",
       "url": "https://www.undp.org/lebanon/press-releases/un-calls-urgent-recovery-prevent-prolonged-crisis-lebanon",
@@ -1423,6 +1435,23 @@
     }
   },
   "records": {
+    "rec-0170": {
+      "source": "src-102",
+      "snapshot": {
+        "name": "LEAP Water-Infrastructure Repair Framework Procurement",
+        "place": "National framework • Posted 8 Sep 2026",
+        "filter": "Financing",
+        "period": "2024",
+        "status": "Council for Development and Reconstruction / World Bank",
+        "funding": "World Bank-financed procurement notice",
+        "marker": "Expression of interest only; no award, design or repair works reported",
+        "date": "2026-09-08",
+        "sourceId": "cdr-leap-water-infrastructure-procurement-2026",
+        "href": "https://cdr.gov.lb/Procurment/ProcurementDetail.aspx?id=1259&lot=0"
+      },
+      "finance": "not_stated",
+      "delivery": "procurement"
+    },
     "rec-0009": {
       "source": "src-001",
       "snapshot": {

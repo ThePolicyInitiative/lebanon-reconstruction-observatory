@@ -16,8 +16,16 @@ function json(body, status = 200, headers = {}) {
 }
 
 function csvValue(value) {
-  const safeValue = String(value).replace(/^([=+\-@])/, "'$1");
+  const safeValue = String(value ?? "").replace(/^([\s\u0000-\u001f\u007f]*[=+\-@])/, "'$1");
   return `"${safeValue.replaceAll('"', '""')}"`;
+}
+
+async function boundaryResponse(loader) {
+  try {
+    return json(await loader());
+  } catch (error) {
+    return json({ error: "Geographic boundary source unavailable", sourceUnavailable: true }, 503);
+  }
 }
 
 async function assetResponse(request, env, pathname) {
@@ -56,7 +64,6 @@ function selectRecords(records, params) {
     return hasFilter && hasPeriod && searchable.includes(query);
   });
   return matching.sort((left, right) => {
-    if (sort === "scale") return right.scale - left.scale;
     if (sort === "az") return left.name.localeCompare(right.name);
     return right.date.localeCompare(left.date);
   });
@@ -175,8 +182,8 @@ async function api(request, env, url) {
     const checkedAt = [...newsChecks.values()].map(check => check.checkedAt).sort().at(-1) || null;
     return json({ news: currentNews(news, snapshots), checkedAt, reviewedAt, snapshotCount: snapshots.size });
   }
-  if (request.method === "GET" && url.pathname === "/api/map/districts") return json(await districts());
-  if (request.method === "GET" && url.pathname === "/api/map/municipalities") return json(await municipalities());
+  if (request.method === "GET" && url.pathname === "/api/map/districts") return boundaryResponse(districts);
+  if (request.method === "GET" && url.pathname === "/api/map/municipalities") return boundaryResponse(municipalities);
   if (request.method === "POST" && url.pathname === "/api/refresh") {
     await Promise.all(sources.map(checkSource));
     return json({ reviewedAt, checkedAt: new Date().toISOString(), checks: [...sourceChecks.values()], sources: currentSources(sources, snapshots) });

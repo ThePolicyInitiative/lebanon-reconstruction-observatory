@@ -176,7 +176,8 @@
     "Mobile Primary Health Care Support for Displaced People": ["rec-0166", "دعم الرعاية الصحية الأولية المتنقلة للنازحين"],
     "Community Feedback, Social Listening and Rumour Tracking": ["rec-0167", "الملاحظات المجتمعية والرصد الاجتماعي وتتبع الشائعات"],
     "POWER4Girls Shelter Protection Sessions": ["rec-0168", "جلسات الحماية ضمن باور فور غيرلز في مراكز الإيواء"],
-    "Gender-Based Violence Shelter Safety Audits": ["rec-0169", "تقييم سلامة مراكز الإيواء من مخاطر العنف القائم على النوع الاجتماعي"]
+    "Gender-Based Violence Shelter Safety Audits": ["rec-0169", "تقييم سلامة مراكز الإيواء من مخاطر العنف القائم على النوع الاجتماعي"],
+    "LEAP Water-Infrastructure Repair Framework Procurement": ["rec-0170", "طلب إبداء اهتمام لخدمات تصميم إصلاح البنية التحتية للمياه والإشراف عليها ضمن ليب"]
   });
   const titles = Object.freeze(Object.fromEntries(Object.entries(readingRecords).map(([name, entry]) => [name, entry[1]])));
   const identities = Object.freeze(Object.fromEntries(Object.entries(readingRecords).map(([name, entry]) => [name, entry[0]])));
@@ -293,7 +294,7 @@
         id, titleAr, finance:reviewed ? entry.finance : "unknown", delivery:reviewed ? entry.delivery : "unknown",
         note:source.note,
         basis:reviewed ? { field:"source_review", text:source.note[0] } : null,
-        review:{ status:source.status, checkedAt:reviews.checkedAt, sourceUrl:source.url, access:source.access, locator:source.locator }
+        review:{ status:source.status, checkedAt:source.checkedAt || reviews.checkedAt, sourceUrl:source.url, access:source.access, locator:source.locator }
       };
     }
     const candidate = Object.hasOwn(annotations, record.name) ? annotations[record.name] : null;
