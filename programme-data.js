@@ -18,7 +18,8 @@
         note:["The source register dates the notice to 18 August and records an extended bid deadline of 3 September. A bid deadline is not a contract award or completion date.", "يؤرّخ سجل المصادر الإعلان في 18 أغسطس، ويسجّل تمديد مهلة العروض إلى 3 سبتمبر. موعد تقديم العروض ليس تاريخ إرساء عقد أو إنجاز أعمال."] },
       { id:"leap-public-buildings", date:"2026-09-04", recordId:"rec-0005", kind:["Pre-award procurement", "مشتريات قبل الإرساء"] },
       { id:"leap-environment-social", date:"2026-09-04", recordId:"rec-0006", kind:["Pre-award procurement", "مشتريات قبل الإرساء"] },
-      { id:"leap-water-infrastructure", date:"2026-09-08", recordId:"rec-0170", kind:["Pre-award procurement", "مشتريات قبل الإرساء"] }
+      { id:"leap-water-infrastructure", date:"2026-09-08", recordId:"rec-0170", kind:["Pre-award procurement", "مشتريات قبل الإرساء"] },
+      { id:"leap-rhuh-mri", date:"2026-09-09", recordId:"rec-0172", kind:["Pre-award procurement", "مشتريات قبل الإرساء"] }
     ]
   });
   function resolveEvents(data, guide) {

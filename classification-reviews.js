@@ -36,6 +36,21 @@
         "يفيد بيان 9 أيلول بتسليم معدات: تسع وحدات آلية لثلاثة مرافق لإدارة النفايات في البقاع و17 شاحنة جمع لـ15 شريكاً من البلديات والاتحادات في جنوب لبنان. ويحدد تمويل الاتحاد الأوروبي وتنفيذ برنامج الأمم المتحدة الإنمائي بالشراكة مع وزارة البيئة. ولا يحدد مبلغ تحويل مالي أو يثبت إنجاز برنامج أوسع للأعمال البلدية."
       ]
     },
+    "src-104": {
+      "originalUrl": "https://www.cdr.gov.lb/Procurment/ProcurementDetail.aspx?id=1262&lot=0",
+      "url": "https://www.cdr.gov.lb/Procurment/ProcurementDetail.aspx?id=1262&lot=0",
+      "checkedAt": "2026-09-11",
+      "status": "reviewed",
+      "access": "direct",
+      "locator": [
+        "CDR procurement 1262: title, publication date, procurement type, IBRD funding source and bid deadline",
+        "إعلان مشتريات مجلس الإنماء والإعمار 1262: العنوان وتاريخ النشر ونوع المشتريات ومصدر تمويل البنك الدولي وموعد تقديم العروض"
+      ],
+      "note": [
+        "The 9 September CDR notice requests bids for supply and installation of an MRI machine at Rafik Hariri University Hospital for the Ministry of Public Health, and lists IBRD as the funding source. It is a pre-award tender; the notice does not identify a selected supplier, a contract award, delivery or installation.",
+        "يطلب إعلان مجلس الإنماء والإعمار الصادر في 9 أيلول عروضاً لتوريد وتركيب جهاز تصوير بالرنين المغناطيسي في مستشفى رفيق الحريري الجامعي لوزارة الصحة العامة، ويحدد البنك الدولي للإنشاء والتعمير مصدراً للتمويل. وهو مناقصة قبل الإرساء ولا يحدد مورّداً مختاراً أو إرساء عقد أو تسليماً أو تركيباً."
+      ]
+    },
     "src-001": {
       "originalUrl": "https://www.undp.org/lebanon/press-releases/un-calls-urgent-recovery-prevent-prolonged-crisis-lebanon",
       "url": "https://www.undp.org/lebanon/press-releases/un-calls-urgent-recovery-prevent-prolonged-crisis-lebanon",
@@ -1450,6 +1465,23 @@
     }
   },
   "records": {
+    "rec-0172": {
+      "source": "src-104",
+      "snapshot": {
+        "name": "LEAP MRI Supply and Installation Procurement",
+        "place": "Rafik Hariri University Hospital, Beirut • Posted 9 Sep 2026",
+        "filter": "Financing",
+        "period": "2024",
+        "status": "Council for Development and Reconstruction / Ministry of Public Health / World Bank",
+        "funding": "World Bank-financed procurement notice",
+        "marker": "Open tender only; no supplier, delivery or installation reported",
+        "date": "2026-09-09",
+        "sourceId": "cdr-leap-rhuh-mri-procurement-2026",
+        "href": "https://www.cdr.gov.lb/Procurment/ProcurementDetail.aspx?id=1262&lot=0"
+      },
+      "finance": "not_stated",
+      "delivery": "procurement"
+    },
     "rec-0171": {
       "source": "src-103",
       "snapshot": {
