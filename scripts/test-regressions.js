@@ -318,8 +318,8 @@ const classificationReviews = require("../classification-reviews.js");
 const recordById = id => seed.records.find(record => guide.get(record).id === id);
 
 test("source-reviewed records have explicit outcomes and individual review dates, including inaccessible evidence", () => {
-  assert.equal(Object.keys(classificationReviews.records).length, 158);
-  assert.equal(Object.keys(classificationReviews.sources).length, 105);
+  assert.equal(Object.keys(classificationReviews.records).length, 162);
+  assert.equal(Object.keys(classificationReviews.sources).length, 109);
   assert.equal(classificationReviews.checkedAt, "2026-09-08");
   assert.equal(seed.reviewedAt, "7 Sep 2026", "Classification review does not redate the dataset");
   const counts = {};
@@ -351,7 +351,7 @@ test("source-reviewed records have explicit outcomes and individual review dates
       assert.ok(evidence.accessError);
     }
   }
-  assert.deepEqual(counts, {reviewed:156, unavailable:2});
+  assert.deepEqual(counts, {reviewed:160, unavailable:2});
   assert.equal(seed.records.filter(record => guide.get(record).review.status === "record_only").length, 14);
 });
 
@@ -502,8 +502,8 @@ test("needs, appeals, frameworks, announcements and approvals cannot become spen
     assert.equal(metadata.delivery, delivery);
   }
   const completed = seed.records.filter(record => guide.get(record).delivery === "reported_complete");
-  assert.deepEqual(completed.map(record => guide.get(record).id).sort(), ["rec-0015", "rec-0023", "rec-0028", "rec-0075", "rec-0088", "rec-0108", "rec-0163", "rec-0171"]);
-  for (const record of completed) assert.match(guide.get(record).note[0], /not independent|not completion of the entire|not all recovery|not completion of post-war|not completion of shelter|not the wider protection|wider municipal works programme/);
+  assert.deepEqual(completed.map(record => guide.get(record).id).sort(), ["rec-0015", "rec-0023", "rec-0028", "rec-0075", "rec-0088", "rec-0108", "rec-0163", "rec-0171", "rec-0175"]);
+  for (const record of completed) assert.match(guide.get(record).note[0], /not independent|not completion of the entire|not all recovery|not completion of post-war|not completion of shelter|not the wider protection|wider municipal works programme|handover/);
 });
 
 test("readable cards preserve source titles, quantities, URLs and original evidence in both languages", () => {
@@ -606,13 +606,13 @@ test("source-review provenance is bilingual, preserves Latin numbers and disting
     context.activeLocale = locale;
     vm.runInContext("renderRecords()", context);
     const output = context.projectList.innerHTML;
-    assert.equal((output.match(/data-review="reviewed"/g) || []).length, 156);
+    assert.equal((output.match(/data-review="reviewed"/g) || []).length, 160);
     assert.equal((output.match(/data-review="unavailable"/g) || []).length, 2);
     assert.equal((output.match(/data-review="record_only"/g) || []).length, 14);
     assert.equal((output.match(/data-review="[^"]+">[^<]*<time datetime="2026-09-08"/g) || []).length, 154);
     assert.equal((output.match(/data-review="[^"]+">[^<]*<time datetime="2026-09-09"/g) || []).length, 2);
     assert.equal((output.match(/data-review="[^"]+">[^<]*<time datetime="2026-09-11"/g) || []).length, 1);
-    assert.equal((output.match(/data-review="[^"]+">[^<]*<time datetime="2026-09-16"/g) || []).length, 1);
+    assert.equal((output.match(/data-review="[^"]+">[^<]*<time datetime="2026-09-16"/g) || []).length, 5);
     assert.doesNotMatch(output, /[\u0660-\u0669\u06f0-\u06f9]/);
     context.record = recordById("rec-0018");
     const alternative = vm.runInContext("renderRecordCard(record)", context);
@@ -864,7 +864,7 @@ test("LEAP history resolves chronological entries to existing evidence, not new 
     assert.ok(event.href?.startsWith("https://"));
     if (event.record) assert.notEqual(guide.get(event.record).delivery, "reported_complete");
   }
-  assert.equal(seed.records.length, 172);
+  assert.equal(seed.records.length, 176);
   assert.match(html, /data-tab-panel="leap-history"/);
   assert.match(source, /"leap-history": "LEAP programme history"/);
 });

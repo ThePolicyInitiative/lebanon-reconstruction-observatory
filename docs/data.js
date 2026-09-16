@@ -264,6 +264,10 @@ const OBSERVATORY_DATA = {
     ,{ name: "GATE Agricultural Matching-Grant Partnership", short: "GATE", period: "2026", category: "Agrifood recovery and climate resilience", role: "Links UNDP, the Ministry of Agriculture, CDR and the World Bank around an agricultural matching-grant implementation agreement intended to support agrifood recovery, competitiveness, sustainability and climate resilience. The CDR page does not publish a date and states that CDR formalities remain to be completed.", source: "CDR GATE matching-grant agreement update", href: "https://cdr.gov.lb/en-US/News/News-In-Home/%D8%AA%D9%88%D9%82%D9%8A%D8%B9-%D8%A7%D8%AA%D9%81%D8%A7%D9%82%D9%8A%D8%A9.aspx?index=4" }
     ,{ name: "Anera Emergency WASH Programme 2026", short: "ANERA", period: "2026", category: "Community water, sanitation and hygiene", role: "Launched a Lebanon Humanitarian Fund-supported WASH programme for conflict-affected communities and collective shelters in South Lebanon, Nabatieh, Mount Lebanon and Beirut, covering hygiene supplies, emergency water and sanitation, and rehabilitation of critical WASH infrastructure.", source: "Anera WASH programme launch", href: "https://www.anera.org/press/launching-a-wash-project-with-the-lebanon-humanitarian-fund/" }
     ,{ name: "Hima for Peace Civil-Society Coalition", short: "HIMA", period: "2026", category: "Community-led environmental resilience and peacebuilding", role: "Brings together 118 Lebanese environmental NGOs through the Lebanese Environmental Forum and SPNL around a voluntary community-led framework linking conservation, livelihoods, climate resilience and peacebuilding.", source: "SPNL Hima for Peace initiative", href: "https://www.spnl.org/118-lebanese-environmental-ngos-endorse-the-hima-for-peace-initiative/" }
+    ,{ name: "Tripoli Peace Initiative Community Co-Funding System", short: "TPI-CFS", period: "2026", category: "Municipal-community peacebuilding and local fundraising", role: "Tripoli Peace Initiative describes a community-led mechanism through which diaspora and other supporters can contribute to priorities identified by Tripoli communities, alongside municipal and community executive committees.", source: "Tripoli Peace Initiative community co-funding overview", href: "https://tripolipeaceinitiative.org/en/about/" }
+    ,{ name: "Fair Trade Lebanon Community Cash-for-Work Programme", short: "FTL-CFW", period: "2026", category: "Community livelihoods and municipal asset maintenance", role: "Launched a Lebanon Humanitarian Fund-supported cash-for-work programme in Baabda and Baalbek, working with municipalities and community stakeholders on public-space cleaning, waste management, irrigation canals and shelter and community assets.", source: "Fair Trade Lebanon programme page", href: "https://fairtradelebanon.org/Portfolio/livelihood-emergency-cash-for-work-support-to-conflict-affected-communities-in-baabda-and-baalbek/" }
+    ,{ name: "Tripoli Community-Led Urban Safety and Mobility Initiative", short: "TPI-MOB", period: "2026", category: "Municipal safety and youth-led local action", role: "VNG International reports that Tripoli youth and city government developed practical safety and mobility measures, including delivery of electric scooters and bicycles to municipal police.", source: "VNG International Tripoli update", href: "https://www.vng-international.nl/safer-streets-and-faster-local-response-in-tripoli/" }
+    ,{ name: "IOM Community Stabilization and Community-Driven Development", short: "IOM-CSD", period: "2026", category: "UN community stabilization and municipal infrastructure support", role: "IOM's 2026 response plan sets out community-based planning, local committees and community support projects intended to strengthen trust, public infrastructure, facilities and essential services in areas facing tensions.", source: "IOM Lebanon Crisis Response Plan 2026", href: "https://crisisresponse.iom.int/index.php/response/lebanon-crisis-response-plan-2026" }
   ],
   actions: [
     { name: "Measure national damage and recovery needs", period: "2024", stage: "Assessment", description: "The national RDNA establishes the damage, loss and recovery-needs baseline across ten sectors.", actor: "World Bank / Government partners", href: "https://www.worldbank.org/en/news/press-release/2025/03/07/lebanon-s-recovery-and-reconstruction-needs-estimated-at-us-11-billion" },
@@ -589,6 +593,10 @@ const OBSERVATORY_DATA = {
     ,{ name: "Set up agricultural matching-grant implementation under GATE", period: "2026", stage: "Implementation agreement", description: "CDR reports that UNDP signed a matching-grant implementation agreement under the Green Agri-Food Transformation for Economic Recovery project with the Ministry of Agriculture and World Bank. The page says CDR signing formalities remain to be completed; it does not report grant disbursement, beneficiary selection or completed agricultural recovery outputs.", actor: "UNDP / Ministry of Agriculture / Council for Development and Reconstruction / World Bank", href: "https://cdr.gov.lb/en-US/News/News-In-Home/%D8%AA%D9%88%D9%82%D9%8A%D8%B9-%D8%A7%D8%AA%D9%81%D8%A7%D9%82%D9%8A%D8%A9.aspx?index=4" }
     ,{ name: "Provide emergency WASH support and rehabilitate critical facilities", period: "2026", stage: "NGO programme launch", description: "Anera launched a Lebanon Humanitarian Fund-supported WASH programme for conflict-affected communities and collective shelters in four governorates. The announcement describes planned hygiene, water, sanitation and rehabilitation assistance; it does not report completed rehabilitation outputs.", actor: "Anera / Lebanon Humanitarian Fund / community and shelter partners", href: "https://www.anera.org/press/launching-a-wash-project-with-the-lebanon-humanitarian-fund/" }
     ,{ name: "Build community-led environmental resilience through Hima for Peace", period: "2026", stage: "Civil-society coalition", description: "SPNL and the Lebanese Environmental Forum report that 118 environmental NGOs endorsed the voluntary Hima for Peace framework, linking community stewardship, sustainable livelihoods, climate resilience and peacebuilding. The endorsement is a shared commitment, not a financing agreement or completed programme output.", actor: "SPNL / Lebanese Environmental Forum / 118 environmental NGOs / municipalities and community partners", href: "https://www.spnl.org/118-lebanese-environmental-ngos-endorse-the-hima-for-peace-initiative/" }
+    ,{ name: "Enable community co-funding for Tripoli priorities", period: "2026", stage: "Community fundraising mechanism", description: "Tripoli Peace Initiative presents a Community Co-Funding System for projects identified and prioritised by communities in Tripoli. It enables contributions; the overview does not substantiate completed project outputs or all funds raised.", actor: "Tripoli Peace Initiative / IOM / SHIFT / Tripoli Municipality / community executive committees", href: "https://tripolipeaceinitiative.org/en/about/" }
+    ,{ name: "Create cash-for-work opportunities linked to shared community assets", period: "2026", stage: "NGO programme launch", description: "Fair Trade Lebanon launched a seven-month Lebanon Humanitarian Fund-supported programme in Baabda and Baalbek for 633 planned participants, in partnership with local municipalities and community stakeholders. It describes intended cleaning, waste, irrigation-canal and shelter-asset work; it does not document completed outputs.", actor: "Fair Trade Lebanon / Lebanon Humanitarian Fund / local municipalities / community stakeholders", href: "https://fairtradelebanon.org/Portfolio/livelihood-emergency-cash-for-work-support-to-conflict-affected-communities-in-baabda-and-baalbek/" }
+    ,{ name: "Improve municipal safety response through youth-led mobility measures", period: "2026", stage: "Reported equipment handover", description: "VNG International reports that electric scooters and bicycles were handed over to Tripoli Municipality's police through a Community-Led Urban Safety & Mobility initiative shaped with young people. The report supports the handover, not a wider citywide safety outcome.", actor: "Tripoli Municipality / young people / VNG International", href: "https://www.vng-international.nl/safer-streets-and-faster-local-response-in-tripoli/" }
+    ,{ name: "Plan community-based stabilization and local service support", period: "2026", stage: "UN response plan", description: "IOM's 2026 plan requests funding for community-based planning, local committees and community support projects for public infrastructure, facilities and essential services. It is a planned response and funding requirement, not evidence of funding received or completed projects.", actor: "IOM / local communities / local committees / local authorities", href: "https://crisisresponse.iom.int/index.php/response/lebanon-crisis-response-plan-2026" }
   ],
   records: [
     {
@@ -618,6 +626,62 @@ const OBSERVATORY_DATA = {
       scale: 2,
       sourceId: "undp-municipal-waste-equipment-2026",
       href: "https://www.undp.org/arab-states/press-releases/bekaa-and-south-lebanon-receive-more-20-machines-and-trucks-support-waste-services"
+    },
+    {
+      name: "Tripoli Community Co-Funding for Local Priorities",
+      place: "Tripoli • 2026",
+      filter: "Municipal",
+      period: "2026",
+      icon: "⌘",
+      status: "Tripoli Peace Initiative / IOM / SHIFT / Tripoli Municipality / community executive committees",
+      funding: "Community-led co-funding mechanism",
+      marker: "Support pathway for projects identified and prioritised by Tripoli communities; no completed outputs reported",
+      date: "2026-08-29",
+      scale: 1,
+      sourceId: "tripoli-peace-community-cofunding-2026",
+      href: "https://tripolipeaceinitiative.org/en/about/"
+    },
+    {
+      name: "Baabda and Baalbek Community Cash-for-Work Launch",
+      place: "Baabda and Baalbek • August 2026 to February 2027",
+      filter: "Local recovery",
+      period: "2026",
+      icon: "✳",
+      status: "Fair Trade Lebanon / Lebanon Humanitarian Fund / local municipalities / community stakeholders",
+      funding: "Lebanon Humanitarian Fund-supported programme",
+      marker: "633 planned participants for work on shared spaces and local assets; programme launch, not completed output",
+      date: "2026-08-01",
+      scale: 633,
+      sourceId: "fair-trade-cash-for-work-2026",
+      href: "https://fairtradelebanon.org/Portfolio/livelihood-emergency-cash-for-work-support-to-conflict-affected-communities-in-baabda-and-baalbek/"
+    },
+    {
+      name: "Tripoli Community-Led Safety and Mobility Equipment Handover",
+      place: "Tripoli • June 2026",
+      filter: "Municipal",
+      period: "2026",
+      icon: "⌖",
+      status: "Tripoli Municipality / young people / VNG International",
+      funding: "Community-led urban safety and mobility initiative",
+      marker: "Reported handover of electric scooters and bicycles to municipal police",
+      date: "2026-06-01",
+      scale: 2,
+      sourceId: "vng-tripoli-safety-mobility-2026",
+      href: "https://www.vng-international.nl/safer-streets-and-faster-local-response-in-tripoli/"
+    },
+    {
+      name: "IOM Community Stabilization Response Plan",
+      place: "Communities facing tensions • 2026",
+      filter: "Local recovery",
+      period: "2026",
+      icon: "◌",
+      status: "IOM / local communities / local committees / local authorities",
+      funding: "$2.28M requested",
+      marker: "Planned community-based planning, local committees and support projects; no funding received or delivery established",
+      date: "2026-05-01",
+      scale: 2280000,
+      sourceId: "iom-community-stabilization-plan-2026",
+      href: "https://crisisresponse.iom.int/index.php/response/lebanon-crisis-response-plan-2026"
     },
     {
       name: "Lebanon Rapid Damage & Needs Assessment (RDNA)",
@@ -1900,6 +1964,46 @@ const OBSERVATORY_DATA = {
       href: "https://www.spnl.org/118-lebanese-environmental-ngos-endorse-the-hima-for-peace-initiative/"
     },
     {
+      id: "tripoli-peace-community-cofunding-2026",
+      category: "Municipal work",
+      date: "2026-08-29",
+      publisher: "Tripoli Peace Initiative / IOM / SHIFT / Tripoli Municipality",
+      period: "2026",
+      title: "Tripoli community co-funding system opens a route to support local priorities",
+      summary: "The initiative presents a community-led contribution system for projects identified by Tripoli communities. It is a fundraising and participation mechanism, not evidence that the listed priorities have been fully funded or delivered.",
+      href: "https://tripolipeaceinitiative.org/en/about/"
+    },
+    {
+      id: "fair-trade-cash-for-work-2026",
+      category: "Community initiative",
+      date: "2026-08-01",
+      publisher: "Fair Trade Lebanon / Lebanon Humanitarian Fund",
+      period: "2026",
+      title: "Fair Trade Lebanon launches cash-for-work programme with local municipalities",
+      summary: "The seven-month programme plans 633 cash-for-work participants in Baabda and Baalbek for shared-space cleaning, waste management, irrigation-canal rehabilitation and maintenance of shelters and community assets. It is a programme launch, not a completed-work record.",
+      href: "https://fairtradelebanon.org/Portfolio/livelihood-emergency-cash-for-work-support-to-conflict-affected-communities-in-baabda-and-baalbek/"
+    },
+    {
+      id: "vng-tripoli-safety-mobility-2026",
+      category: "Municipal work",
+      date: "2026-06-01",
+      publisher: "VNG International / Tripoli Municipality / youth partners",
+      period: "2026",
+      title: "Tripoli youth and municipality report safer-streets mobility support",
+      summary: "VNG International reports that electric scooters and bicycles were handed over to municipal police through a youth-informed community-led safety and mobility initiative. The report confirms the equipment handover, not a citywide safety outcome.",
+      href: "https://www.vng-international.nl/safer-streets-and-faster-local-response-in-tripoli/"
+    },
+    {
+      id: "iom-community-stabilization-plan-2026",
+      category: "Community initiative",
+      date: "2026-05-01",
+      publisher: "International Organization for Migration",
+      period: "2026",
+      title: "IOM sets out community-based stabilization and local-service plans",
+      summary: "IOM's 2026 response plan seeks funding for community-based planning, local committees and projects for public infrastructure, facilities and essential services. It is a funding requirement and planned response, not proof of funding received or completed delivery.",
+      href: "https://crisisresponse.iom.int/index.php/response/lebanon-crisis-response-plan-2026"
+    },
+    {
       id: "undp-lrc-disaster-resilience-mou-2026",
       category: "Coordination",
       date: "2026-08-21",
@@ -2137,6 +2241,10 @@ const OBSERVATORY_DATA = {
     { id: "anera-emergency-wash-launch-2026", name: "Anera emergency WASH programme", publisher: "Anera / Lebanon Humanitarian Fund", date: "15 Sep 2026", type: "NGO community WASH programme launch", coverage: "Hygiene, emergency water and sanitation, and critical WASH rehabilitation in South Lebanon, Nabatieh, Mount Lebanon and Beirut; planned through Feb 2027", href: "https://www.anera.org/press/launching-a-wash-project-with-the-lebanon-humanitarian-fund/" },
     { id: "icrc-humanitarian-needs-update-2026", name: "ICRC Lebanon humanitarian-needs update", publisher: "International Committee of the Red Cross", date: "11 Sep 2026", type: "Humanitarian organisation operational update", coverage: "Health, water, habitat and livelihoods support; includes remote monitoring for South Lebanon pumping stations", href: "https://www.icrc.org/en/article/lebanon-humanitarian-needs-remain-acute" },
     { id: "spnl-hima-for-peace-2026", name: "Hima for Peace civil-society initiative", publisher: "Society for the Protection of Nature in Lebanon / Lebanese Environmental Forum", date: "25 Aug 2026", type: "Civil-society environmental-resilience initiative", coverage: "Voluntary coalition of 118 environmental NGOs focused on community stewardship, livelihoods, climate resilience and peacebuilding", href: "https://www.spnl.org/118-lebanese-environmental-ngos-endorse-the-hima-for-peace-initiative/" },
+    { id: "tripoli-peace-community-cofunding-2026", name: "Tripoli Peace Initiative community co-funding system", publisher: "Tripoli Peace Initiative / IOM / SHIFT / Tripoli Municipality", date: "29 Aug 2026", type: "Municipal-community fundraising mechanism", coverage: "Community-led support pathway for priorities identified in Tripoli; no completed project outputs or aggregate funds raised established", href: "https://tripolipeaceinitiative.org/en/about/" },
+    { id: "fair-trade-cash-for-work-2026", name: "Fair Trade Lebanon cash-for-work programme", publisher: "Fair Trade Lebanon / Lebanon Humanitarian Fund", date: "Aug 2026 to Feb 2027", type: "NGO community-livelihoods programme launch", coverage: "633 planned participants in Baabda and Baalbek, working with municipalities and community stakeholders on shared spaces and community assets", href: "https://fairtradelebanon.org/Portfolio/livelihood-emergency-cash-for-work-support-to-conflict-affected-communities-in-baabda-and-baalbek/" },
+    { id: "vng-tripoli-safety-mobility-2026", name: "Tripoli community-led safety and mobility update", publisher: "VNG International / Tripoli Municipality / youth partners", date: "1 Jun 2026", type: "Municipal-community service update", coverage: "Reported handover of electric scooters and bicycles to municipal police through a youth-informed safety and mobility initiative", href: "https://www.vng-international.nl/safer-streets-and-faster-local-response-in-tripoli/" },
+    { id: "iom-community-stabilization-plan-2026", name: "IOM community stabilization and community-driven development plan", publisher: "International Organization for Migration", date: "2026", type: "UN response plan and funding requirement", coverage: "$2.28M funding requirement for planned community-based planning, local committees and support projects; no funding received reported", href: "https://crisisresponse.iom.int/index.php/response/lebanon-crisis-response-plan-2026" },
     { id: "undp-municipal-waste-equipment-2026", name: "Municipal waste-service equipment delivery", publisher: "European Union / UNDP / Ministry of Environment", date: "9 Sep 2026", type: "Official municipal service-delivery update", coverage: "Nine machinery units for three Bekaa waste-management facilities and 17 collection trucks for 15 municipal and union partners in South Lebanon", href: "https://www.undp.org/arab-states/press-releases/bekaa-and-south-lebanon-receive-more-20-machines-and-trucks-support-waste-services" },
     { id: "cdr-leap-water-infrastructure-procurement-2026", name: "LEAP water-infrastructure repair framework procurement", publisher: "Council for Development and Reconstruction / World Bank", date: "8 Sep 2026", type: "Official pre-award procurement notice", coverage: "Framework design and supervision services for water-infrastructure repair under LEAP", href: "https://cdr.gov.lb/Procurment/ProcurementDetail.aspx?id=1259&lot=0" },
     { id: "cdr-leap-nabatieh-roads-tender-2026", name: "LEAP Nabatieh damaged-road clearing and restoration tender", publisher: "Council for Development and Reconstruction / World Bank", date: "18 Aug 2026; deadline extended to 3 Sep 2026", type: "Official open procurement notice", coverage: "Damaged-road clearing and restoration in Nabatieh Caza • LEAP / World Bank financing • no award published", href: "https://www.cdr.gov.lb/en-US/Procurment/ProcurementDetail.aspx?aliaspath=%2FProcurment%2FProcurementDetail&id=1250&lot=0" },

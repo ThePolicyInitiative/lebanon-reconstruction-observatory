@@ -51,6 +51,42 @@
         "يطلب إعلان مجلس الإنماء والإعمار الصادر في 9 أيلول عروضاً لتوريد وتركيب جهاز تصوير بالرنين المغناطيسي في مستشفى رفيق الحريري الجامعي لوزارة الصحة العامة، ويحدد البنك الدولي للإنشاء والتعمير مصدراً للتمويل. وهو مناقصة قبل الإرساء ولا يحدد مورّداً مختاراً أو إرساء عقد أو تسليماً أو تركيباً."
       ]
     },
+    "src-106": {
+      "originalUrl": "https://tripolipeaceinitiative.org/en/about/",
+      "url": "https://tripolipeaceinitiative.org/en/about/",
+      "checkedAt": "2026-09-16",
+      "status": "reviewed",
+      "access": "direct",
+      "locator": ["Tripoli Peace Initiative: Community Co-Funding System description", "مبادرة طرابلس للسلام: وصف نظام التمويل المشترك المجتمعي"],
+      "note": ["The page presents a route for supporters to contribute to priorities identified by Tripoli communities. It does not document aggregate funds raised or completed project outputs.", "تعرض الصفحة مساراً يتيح للداعمين المساهمة في أولويات حددتها مجتمعات طرابلس. ولا توثق إجمالي الأموال المجمعة أو نتائج مشاريع مكتملة."]
+    },
+    "src-107": {
+      "originalUrl": "https://fairtradelebanon.org/Portfolio/livelihood-emergency-cash-for-work-support-to-conflict-affected-communities-in-baabda-and-baalbek/",
+      "url": "https://fairtradelebanon.org/Portfolio/livelihood-emergency-cash-for-work-support-to-conflict-affected-communities-in-baabda-and-baalbek/",
+      "checkedAt": "2026-09-16",
+      "status": "reviewed",
+      "access": "direct",
+      "locator": ["Fair Trade Lebanon programme page: August 2026 launch, duration, participant target and planned activities", "صفحة برنامج فير تريد لبنان: إطلاق آب 2026 والمدة والعدد المستهدف والأنشطة المخططة"],
+      "note": ["The programme page identifies 633 planned participants and intended work with municipalities and communities. It is a launch notice and does not establish completed work or spending.", "تحدد صفحة البرنامج 633 مشاركاً مخططاً لهم وأعمالاً مقصودة مع البلديات والمجتمعات. وهي إعلان إطلاق ولا تثبت أعمالاً مكتملة أو إنفاقاً."]
+    },
+    "src-108": {
+      "originalUrl": "https://www.vng-international.nl/safer-streets-and-faster-local-response-in-tripoli/",
+      "url": "https://www.vng-international.nl/safer-streets-and-faster-local-response-in-tripoli/",
+      "checkedAt": "2026-09-16",
+      "status": "reviewed",
+      "access": "direct",
+      "locator": ["VNG International Tripoli update: reported handover to municipal police", "تحديث في إن جي إنترناشيونال عن طرابلس: تسليم مُبلّغ عنه للشرطة البلدية"],
+      "note": ["VNG International reports handing electric scooters and bicycles to Tripoli municipal police. The report supports that handover, not a general citywide safety outcome.", "تفيد في إن جي إنترناشيونال بتسليم دراجات كهربائية وسكوترات للشرطة البلدية في طرابلس. ويدعم التقرير هذا التسليم، لا نتيجة عامة للسلامة على مستوى المدينة."]
+    },
+    "src-109": {
+      "originalUrl": "https://crisisresponse.iom.int/index.php/response/lebanon-crisis-response-plan-2026",
+      "url": "https://crisisresponse.iom.int/index.php/response/lebanon-crisis-response-plan-2026",
+      "checkedAt": "2026-09-16",
+      "status": "reviewed",
+      "access": "indexed",
+      "locator": ["IOM Lebanon Crisis Response Plan 2026: community stabilization and community-driven development funding requirement", "خطة المنظمة الدولية للهجرة للاستجابة في لبنان لعام 2026: احتياج تمويلي للاستقرار المجتمعي والتنمية التي تقودها المجتمعات"],
+      "note": ["The plan lists a $2.28M funding requirement for community-based planning, local committees and support projects. It is a planned response and does not show funding received or completed delivery.", "تورد الخطة احتياجاً تمويلياً بقيمة $2.28M للتخطيط القائم على المجتمع واللجان المحلية ومشاريع الدعم. وهي استجابة مخططة ولا تُظهر تمويلاً متلقّى أو تنفيذاً مكتملاً."]
+    },
     "src-105": {
       "originalUrl": "https://www.cdr.gov.lb/Procurment/ProcurementDetail.aspx?id=1261&lot=0",
       "url": "https://www.cdr.gov.lb/Procurment/ProcurementDetail.aspx?id=1261&lot=0",
@@ -1513,6 +1549,74 @@
       },
       "finance": "not_stated",
       "delivery": "procurement"
+    },
+    "rec-0173": {
+      "source": "src-106",
+      "snapshot": {
+        "name": "Tripoli Community Co-Funding for Local Priorities",
+        "place": "Tripoli • 2026",
+        "filter": "Municipal",
+        "period": "2026",
+        "status": "Tripoli Peace Initiative / IOM / SHIFT / Tripoli Municipality / community executive committees",
+        "funding": "Community-led co-funding mechanism",
+        "marker": "Support pathway for projects identified and prioritised by Tripoli communities; no completed outputs reported",
+        "date": "2026-08-29",
+        "sourceId": "tripoli-peace-community-cofunding-2026",
+        "href": "https://tripolipeaceinitiative.org/en/about/"
+      },
+      "finance": "not_stated",
+      "delivery": "planning"
+    },
+    "rec-0174": {
+      "source": "src-107",
+      "snapshot": {
+        "name": "Baabda and Baalbek Community Cash-for-Work Launch",
+        "place": "Baabda and Baalbek • August 2026 to February 2027",
+        "filter": "Local recovery",
+        "period": "2026",
+        "status": "Fair Trade Lebanon / Lebanon Humanitarian Fund / local municipalities / community stakeholders",
+        "funding": "Lebanon Humanitarian Fund-supported programme",
+        "marker": "633 planned participants for work on shared spaces and local assets; programme launch, not completed output",
+        "date": "2026-08-01",
+        "sourceId": "fair-trade-cash-for-work-2026",
+        "href": "https://fairtradelebanon.org/Portfolio/livelihood-emergency-cash-for-work-support-to-conflict-affected-communities-in-baabda-and-baalbek/"
+      },
+      "finance": "not_stated",
+      "delivery": "planning"
+    },
+    "rec-0175": {
+      "source": "src-108",
+      "snapshot": {
+        "name": "Tripoli Community-Led Safety and Mobility Equipment Handover",
+        "place": "Tripoli • June 2026",
+        "filter": "Municipal",
+        "period": "2026",
+        "status": "Tripoli Municipality / young people / VNG International",
+        "funding": "Community-led urban safety and mobility initiative",
+        "marker": "Reported handover of electric scooters and bicycles to municipal police",
+        "date": "2026-06-01",
+        "sourceId": "vng-tripoli-safety-mobility-2026",
+        "href": "https://www.vng-international.nl/safer-streets-and-faster-local-response-in-tripoli/"
+      },
+      "finance": "not_stated",
+      "delivery": "reported_complete"
+    },
+    "rec-0176": {
+      "source": "src-109",
+      "snapshot": {
+        "name": "IOM Community Stabilization Response Plan",
+        "place": "Communities facing tensions • 2026",
+        "filter": "Local recovery",
+        "period": "2026",
+        "status": "IOM / local communities / local committees / local authorities",
+        "funding": "$2.28M requested",
+        "marker": "Planned community-based planning, local committees and support projects; no funding received or delivery established",
+        "date": "2026-05-01",
+        "sourceId": "iom-community-stabilization-plan-2026",
+        "href": "https://crisisresponse.iom.int/index.php/response/lebanon-crisis-response-plan-2026"
+      },
+      "finance": "appeal",
+      "delivery": "planning"
     },
     "rec-0171": {
       "source": "src-103",

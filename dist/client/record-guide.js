@@ -179,7 +179,11 @@
     "Gender-Based Violence Shelter Safety Audits": ["rec-0169", "تقييم سلامة مراكز الإيواء من مخاطر العنف القائم على النوع الاجتماعي"],
     "LEAP Water-Infrastructure Repair Framework Procurement": ["rec-0170", "طلب إبداء اهتمام لخدمات تصميم إصلاح البنية التحتية للمياه والإشراف عليها ضمن ليب"],
     "EU and UNDP Municipal Waste-Service Equipment Delivery": ["rec-0171", "تسليم معدات لخدمات النفايات البلدية بدعم الاتحاد الأوروبي وبرنامج الأمم المتحدة الإنمائي"],
-    "LEAP MRI Supply and Installation Procurement": ["rec-0172", "مناقصة ليب لتوريد وتركيب جهاز تصوير بالرنين المغناطيسي"]
+    "LEAP MRI Supply and Installation Procurement": ["rec-0172", "مناقصة ليب لتوريد وتركيب جهاز تصوير بالرنين المغناطيسي"],
+    "Tripoli Community Co-Funding for Local Priorities": ["rec-0173", "تمويل مجتمعي مشترك لألولويات المحلية في طرابلس"],
+    "Baabda and Baalbek Community Cash-for-Work Launch": ["rec-0174", "إطلاق العمل مقابل أجر للمجتمعات في بعبدا وبعلبك"],
+    "Tripoli Community-Led Safety and Mobility Equipment Handover": ["rec-0175", "تسليم معدات السلامة والتنقل بقيادة المجتمع في طرابلس"],
+    "IOM Community Stabilization Response Plan": ["rec-0176", "خطة المنظمة الدولية للهجرة للاستقرار المجتمعي"]
   });
   const titles = Object.freeze(Object.fromEntries(Object.entries(readingRecords).map(([name, entry]) => [name, entry[1]])));
   const identities = Object.freeze(Object.fromEntries(Object.entries(readingRecords).map(([name, entry]) => [name, entry[0]])));
