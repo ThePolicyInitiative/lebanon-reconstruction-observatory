@@ -94,7 +94,7 @@
       "status": "reviewed",
       "access": "direct",
       "locator": ["UNIFIL update, 3 September 2026: municipal and community needs identification and reported support", "تحديث اليونيفيل، 3 أيلول 2026: تحديد الاحتياجات مع البلديات والمجتمع والدعم المُبلّغ عنه"],
-      "note": ["UNIFIL reports providing medical, education, veterinary and humanitarian-mission support after identifying needs with municipalities and community representatives. This is the mission's operational account, not independent verification of outcomes.", "تفيد اليونيفيل بتقديم دعم طبي وتعليمي وبيطري وتسهيل مهام إنسانية بعد تحديد الاحتياجات مع البلديات وممثلي المجتمع. وهذا عرض تشغيلي للبعثة، وليس تحققاً مستقلاً من النتائج."]
+      "note": ["UNIFIL reports providing medical, education, veterinary and humanitarian-mission support after identifying needs with municipalities and community representatives, including repair of two municipal firefighting trucks in El Hebbariye. This is the mission's operational account, not independent verification of outcomes.", "تفيد اليونيفيل بتقديم دعم طبي وتعليمي وبيطري وتسهيل مهام إنسانية بعد تحديد الاحتياجات مع البلديات وممثلي المجتمع، بما في ذلك إصلاح شاحنتي إطفاء بلديتين في الهبارية. وهذا عرض تشغيلي للبعثة، وليس تحققاً مستقلاً من النتائج."]
     },
     "src-111": {
       "originalUrl": "https://followlebanon.com/children-in-baalbek-partners-in-shaping-their-city/",
@@ -1645,7 +1645,7 @@
         "period": "2026",
         "status": "UNIFIL / municipalities / community representatives / local health facilities",
         "funding": "Reported operational support",
-        "marker": "Medical, education, veterinary and humanitarian-mission support reported with local input",
+        "marker": "Medical, education, veterinary and humanitarian-mission support reported with local input; two municipal firefighting trucks repaired in El Hebbariye",
         "date": "2026-09-03",
         "sourceId": "unifil-community-support-2026",
         "href": "https://unifil.unmissions.org/en/news/unifil-support-helps-communities-cope-with-the-impact-of-conflict"
