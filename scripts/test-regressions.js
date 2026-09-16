@@ -165,10 +165,10 @@ test("font request uses valid Playfair weight axes and versioned assets", () => 
   assert.match(html, /Playfair\+Display:wght@600;700/);
   assert.doesNotMatch(html, /Playfair\+Display:ital,wght@600;700/);
   for (const asset of ["styles.css", "clarity.css"]) {
-    assert.ok(html.includes(`${asset}?v=refresh-20260916`));
+    assert.ok(html.includes(`${asset}?v=external-20260916`));
   }
   for (const asset of ["data.js", "programme-data.js", "classification-reviews.js", "record-guide.js", "library-tools.js", "app.js", "observatory.css"]) {
-    assert.ok(html.includes(`${asset}?v=refresh-20260916`));
+    assert.ok(html.includes(`${asset}?v=external-20260916`));
   }
   assert.ok(html.indexOf('src="classification-reviews.js') < html.indexOf('src="record-guide.js'));
   assert.ok(html.indexOf('src="record-guide.js') < html.indexOf('src="app.js'));
@@ -573,11 +573,11 @@ test("overview uses the newest three dated publications, without mutating or con
   context.items = seed.news;
   const latest = vm.runInContext("recentUpdates(items)", context);
   assert.equal(latest.length, 3);
-  assert.equal(latest[0].id, "cdr-leap-public-buildings-addendum-2026");
-  assert.equal(latest[0].date, "2026-09-11");
-  assert.equal(latest[1].id, "cdr-leap-rhuh-mri-procurement-2026");
-  assert.equal(latest[1].date, "2026-09-09");
-  assert.equal(latest[2].id, "undp-municipal-waste-equipment-2026");
+  assert.equal(latest[0].id, "anera-emergency-wash-launch-2026");
+  assert.equal(latest[0].date, "2026-09-15");
+  assert.equal(latest[1].id, "cdr-leap-public-buildings-addendum-2026");
+  assert.equal(latest[1].date, "2026-09-11");
+  assert.equal(latest[2].id, "icrc-humanitarian-needs-update-2026");
   for (const item of latest) {
     context.title = item.title;
     context.summary = item.summary;
