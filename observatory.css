@@ -28,6 +28,13 @@ html[dir="rtl"] #overview h1 { font-family:"Cairo",sans-serif; line-height:1.35;
 .overview-reading-note { display:flex; align-items:center; flex-wrap:wrap; justify-content:space-between; gap:12px 28px; margin-top:20px; padding-top:20px; border-top:1px solid #d8cec0; font-size:14px; line-height:1.7; color:#526171; }
 .overview-reading-note p { max-width:70ch; margin:0; }
 .overview-reading-note a { color:#204f76; text-decoration:underline; }
+.latest-evidence-note { display:grid; grid-template-columns:minmax(0,1.05fr) minmax(0,1.4fr) auto; gap:20px; align-items:center; margin-top:24px; padding:22px 24px; border:1px solid #d5c5b2; border-inline-start:4px solid #b36a48; background:#fffaf2; color:#173654; }
+.latest-evidence-note > div { min-width:0; }
+.latest-evidence-note span { color:#9a5638; font:700 12px/1.6 "DM Mono",monospace; letter-spacing:.04em; }
+.latest-evidence-note h3 { margin:7px 0 0; font:700 20px/1.5 "DM Sans",Arial,sans-serif; }
+.latest-evidence-note p { max-width:68ch; margin:0; color:#42576a; font-size:15px; line-height:1.7; }
+.latest-evidence-note a { display:inline-flex; align-items:center; gap:8px; min-height:44px; color:#204f76; font-size:14px; font-weight:700; line-height:1.6; text-decoration:underline; text-underline-offset:4px; white-space:nowrap; }
+.latest-evidence-note a:focus-visible { outline:3px solid #a85d3f; outline-offset:4px; }
 #projects { padding-top:32px; }
 #projects .section-heading { gap:16px; }
 #projects .projects-heading { padding-top:0; }
@@ -83,6 +90,7 @@ html[dir="rtl"] #overview h1 { font-family:"Cairo",sans-serif; line-height:1.35;
   .overview-updates { grid-template-columns:1fr; gap:8px; }
   .overview-update h3 { margin-block:8px; }
   .metrics[data-tab-panel="overview"] { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .latest-evidence-note { grid-template-columns:1fr; gap:12px; }
 }
 @media(max-width:600px) {
   #overview .hero-copy { padding-top:68px; }
@@ -93,6 +101,8 @@ html[dir="rtl"] #overview h1 { font-family:"Cairo",sans-serif; line-height:1.35;
   .evidence-record { padding:18px; }
   .evidence-record h3 { font-size:18px; }
   .record-stages { grid-template-columns:1fr; }
+  .latest-evidence-note { padding:18px; }
+  .latest-evidence-note h3 { font-size:18px; }
 }
 
 /* Shareable evidence views and a chronological programme record. */
