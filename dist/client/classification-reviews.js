@@ -96,6 +96,15 @@
       "locator": ["UNIFIL update, 3 September 2026: municipal and community needs identification and reported support", "تحديث اليونيفيل، 3 أيلول 2026: تحديد الاحتياجات مع البلديات والمجتمع والدعم المُبلّغ عنه"],
       "note": ["UNIFIL reports providing medical, education, veterinary and humanitarian-mission support after identifying needs with municipalities and community representatives. This is the mission's operational account, not independent verification of outcomes.", "تفيد اليونيفيل بتقديم دعم طبي وتعليمي وبيطري وتسهيل مهام إنسانية بعد تحديد الاحتياجات مع البلديات وممثلي المجتمع. وهذا عرض تشغيلي للبعثة، وليس تحققاً مستقلاً من النتائج."]
     },
+    "src-111": {
+      "originalUrl": "https://followlebanon.com/children-in-baalbek-partners-in-shaping-their-city/",
+      "url": "https://followlebanon.com/children-in-baalbek-partners-in-shaping-their-city/",
+      "checkedAt": "2026-09-16",
+      "status": "reviewed",
+      "access": "direct",
+      "locator": ["Follow Lebanon, 15 September 2026: Baalbek Municipality and Himaya Association council launch, selection and training description", "فولو لبنان، 15 أيلول 2026: إطلاق المجلس من بلدية بعلبك وجمعية حماية ووصف الاختيار والتدريب"],
+      "note": ["The local media report describes the council launch, member selection and training. It is not a primary municipal publication and does not independently establish ongoing activity or city-project outcomes.", "يصف التقرير الإعلامي المحلي إطلاق المجلس واختيار الأعضاء والتدريب. وهو ليس منشوراً بلدياً أولياً ولا يثبت بشكل مستقل نشاطاً مستمراً أو نتائج لمشاريع المدينة."]
+    },
     "src-105": {
       "originalUrl": "https://www.cdr.gov.lb/Procurment/ProcurementDetail.aspx?id=1261&lot=0",
       "url": "https://www.cdr.gov.lb/Procurment/ProcurementDetail.aspx?id=1261&lot=0",
@@ -1643,6 +1652,23 @@
       },
       "finance": "not_stated",
       "delivery": "in_progress"
+    },
+    "rec-0178": {
+      "source": "src-111",
+      "snapshot": {
+        "name": "Baalbek Municipal Council for Children Launch",
+        "place": "Baalbek • September 2026",
+        "filter": "Municipal",
+        "period": "2026",
+        "status": "Baalbek Municipality / Himaya Association / schools and community organisations",
+        "funding": "Local child-participation initiative",
+        "marker": "Local media reports a council launch and preparatory training; no ongoing project outcomes established",
+        "date": "2026-09-15",
+        "sourceId": "baalbek-childrens-council-2026",
+        "href": "https://followlebanon.com/children-in-baalbek-partners-in-shaping-their-city/"
+      },
+      "finance": "not_stated",
+      "delivery": "planning"
     },
     "rec-0171": {
       "source": "src-103",
