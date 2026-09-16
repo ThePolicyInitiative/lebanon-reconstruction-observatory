@@ -296,7 +296,7 @@ test("older API data cannot remove published updates or source entries", async (
   await vm.runInContext("loadNews()", context);
   assert.equal(context.news.length, seed.news.length);
   assert.equal(context.sources.length, seed.sources.length);
-  assert.equal(context.news.filter(item => item.category === "Procurement").length, 4);
+  assert.equal(context.news.filter(item => item.category === "Procurement").length, 5);
   assert.equal(context.apiAvailable, false);
   assert.equal(context.newsStatusKind, "stale");
 });
@@ -318,8 +318,8 @@ const classificationReviews = require("../classification-reviews.js");
 const recordById = id => seed.records.find(record => guide.get(record).id === id);
 
 test("source-reviewed records have explicit outcomes and individual review dates, including inaccessible evidence", () => {
-  assert.equal(Object.keys(classificationReviews.records).length, 157);
-  assert.equal(Object.keys(classificationReviews.sources).length, 104);
+  assert.equal(Object.keys(classificationReviews.records).length, 158);
+  assert.equal(Object.keys(classificationReviews.sources).length, 105);
   assert.equal(classificationReviews.checkedAt, "2026-09-08");
   assert.equal(seed.reviewedAt, "7 Sep 2026", "Classification review does not redate the dataset");
   const counts = {};
@@ -351,8 +351,8 @@ test("source-reviewed records have explicit outcomes and individual review dates
       assert.ok(evidence.accessError);
     }
   }
-  assert.deepEqual(counts, {reviewed:155, unavailable:2});
-  assert.equal(seed.records.filter(record => guide.get(record).review.status === "record_only").length, 15);
+  assert.deepEqual(counts, {reviewed:156, unavailable:2});
+  assert.equal(seed.records.filter(record => guide.get(record).review.status === "record_only").length, 14);
 });
 
 test("source reviews fail closed on changed evidence, dates, URLs or scope, never by title keywords", () => {
@@ -493,7 +493,7 @@ test("needs, appeals, frameworks, announcements and approvals cannot become spen
     ["Lebanon Response Plan 2026", "appeal", "unknown"],
     ["Norway Additional Support for the Lebanese Armed Forces", "announced", "unknown"],
     ["LEAP Project Design and Safeguards", "framework", "planning"],
-    ["LEAP Public-Building Framework Procurement", "unknown", "procurement"],
+    ["LEAP Public-Building Framework Procurement", "not_stated", "procurement"],
     ["LEAP Environmental and Social Services Framework Procurement", "unknown", "procurement"]
   ];
   for (const [name, finance, delivery] of expected) {
@@ -573,11 +573,11 @@ test("overview uses the newest three dated publications, without mutating or con
   context.items = seed.news;
   const latest = vm.runInContext("recentUpdates(items)", context);
   assert.equal(latest.length, 3);
-  assert.equal(latest[0].id, "cdr-leap-rhuh-mri-procurement-2026");
-  assert.equal(latest[0].date, "2026-09-09");
-  assert.equal(latest[1].id, "undp-municipal-waste-equipment-2026");
+  assert.equal(latest[0].id, "cdr-leap-public-buildings-addendum-2026");
+  assert.equal(latest[0].date, "2026-09-11");
+  assert.equal(latest[1].id, "cdr-leap-rhuh-mri-procurement-2026");
   assert.equal(latest[1].date, "2026-09-09");
-  assert.equal(latest[2].date, "2026-09-08");
+  assert.equal(latest[2].id, "undp-municipal-waste-equipment-2026");
   for (const item of latest) {
     context.title = item.title;
     context.summary = item.summary;
@@ -606,12 +606,13 @@ test("source-review provenance is bilingual, preserves Latin numbers and disting
     context.activeLocale = locale;
     vm.runInContext("renderRecords()", context);
     const output = context.projectList.innerHTML;
-    assert.equal((output.match(/data-review="reviewed"/g) || []).length, 155);
+    assert.equal((output.match(/data-review="reviewed"/g) || []).length, 156);
     assert.equal((output.match(/data-review="unavailable"/g) || []).length, 2);
-    assert.equal((output.match(/data-review="record_only"/g) || []).length, 15);
+    assert.equal((output.match(/data-review="record_only"/g) || []).length, 14);
     assert.equal((output.match(/data-review="[^"]+">[^<]*<time datetime="2026-09-08"/g) || []).length, 154);
     assert.equal((output.match(/data-review="[^"]+">[^<]*<time datetime="2026-09-09"/g) || []).length, 2);
     assert.equal((output.match(/data-review="[^"]+">[^<]*<time datetime="2026-09-11"/g) || []).length, 1);
+    assert.equal((output.match(/data-review="[^"]+">[^<]*<time datetime="2026-09-16"/g) || []).length, 1);
     assert.doesNotMatch(output, /[\u0660-\u0669\u06f0-\u06f9]/);
     context.record = recordById("rec-0018");
     const alternative = vm.runInContext("renderRecordCard(record)", context);

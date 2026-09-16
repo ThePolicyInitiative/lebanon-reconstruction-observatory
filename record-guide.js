@@ -231,10 +231,6 @@
       delivery:"planning", field:"funding", evidence:"Disclosed procurement-planning record",
       note:["A procurement plan is not a tender award or completed works.", "خطة المشتريات ليست إرساءً لمناقصة ولا أعمالاً منجزة."]
     },
-    "LEAP Public-Building Framework Procurement": {
-      delivery:"procurement", field:"marker", evidence:"Expression of interest only; no award or completed works reported",
-      note:["An expression of interest for technical services. No award or completed works is reported in this record.", "طلب إبداء اهتمام بخدمات فنية. لا يتضمن هذا السجل إبلاغاً عن إرساء عقد أو إنجاز أعمال."]
-    },
     "LEAP Environmental and Social Services Framework Procurement": {
       delivery:"procurement", field:"marker", evidence:"Expression of interest only; no award or completed safeguard work reported",
       note:["An expression of interest for environmental and social services; no contract award or completed services is reported.", "طلب إبداء اهتمام بخدمات بيئية واجتماعية؛ لا يتضمن إبلاغاً عن إرساء عقد أو إنجاز الخدمات."]

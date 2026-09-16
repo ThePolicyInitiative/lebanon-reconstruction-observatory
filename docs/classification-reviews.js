@@ -51,6 +51,21 @@
         "يطلب إعلان مجلس الإنماء والإعمار الصادر في 9 أيلول عروضاً لتوريد وتركيب جهاز تصوير بالرنين المغناطيسي في مستشفى رفيق الحريري الجامعي لوزارة الصحة العامة، ويحدد البنك الدولي للإنشاء والتعمير مصدراً للتمويل. وهو مناقصة قبل الإرساء ولا يحدد مورّداً مختاراً أو إرساء عقد أو تسليماً أو تركيباً."
       ]
     },
+    "src-105": {
+      "originalUrl": "https://www.cdr.gov.lb/Procurment/ProcurementDetail.aspx?id=1261&lot=0",
+      "url": "https://www.cdr.gov.lb/Procurment/ProcurementDetail.aspx?id=1261&lot=0",
+      "checkedAt": "2026-09-16",
+      "status": "reviewed",
+      "access": "direct",
+      "locator": [
+        "CDR procurement 1261: 11 September addendum files and extended 22 September bid deadline",
+        "إعلان مشتريات مجلس الإنماء والإعمار 1261: ملفات الملحق الصادر في 11 أيلول وتمديد مهلة العروض إلى 22 أيلول"
+      ],
+      "note": [
+        "The CDR page records an 11 September addendum and extends the submission deadline for the public-building services procurement to 22 September. The notice remains pre-award and does not identify a selected consultant, contract award, completed supervision or works.",
+        "تسجل صفحة مجلس الإنماء والإعمار ملحقاً صادراً في 11 أيلول وتمدد مهلة تقديم العروض لخدمات المباني العامة إلى 22 أيلول. ويبقى الإعلان قبل الإرساء ولا يحدد استشارياً مختاراً أو إرساء عقد أو إنجاز الإشراف أو الأعمال."
+      ]
+    },
     "src-001": {
       "originalUrl": "https://www.undp.org/lebanon/press-releases/un-calls-urgent-recovery-prevent-prolonged-crisis-lebanon",
       "url": "https://www.undp.org/lebanon/press-releases/un-calls-urgent-recovery-prevent-prolonged-crisis-lebanon",
@@ -1465,6 +1480,23 @@
     }
   },
   "records": {
+    "rec-0005": {
+      "source": "src-105",
+      "snapshot": {
+        "name": "LEAP Public-Building Framework Procurement",
+        "place": "National framework • Posted 4 Sep 2026 • amended 11 Sep",
+        "filter": "Financing",
+        "period": "2024",
+        "status": "Council for Development and Reconstruction / World Bank",
+        "funding": "World Bank-financed procurement notice",
+        "marker": "Addendum issued 11 Sep; bid deadline extended to 22 Sep; no award or completed works reported",
+        "date": "2026-09-04",
+        "sourceId": "cdr-leap-public-buildings-procurement-2026",
+        "href": "https://www.cdr.gov.lb/Procurment/ProcurementDetail.aspx?id=1261&lot=0"
+      },
+      "finance": "not_stated",
+      "delivery": "procurement"
+    },
     "rec-0172": {
       "source": "src-104",
       "snapshot": {
