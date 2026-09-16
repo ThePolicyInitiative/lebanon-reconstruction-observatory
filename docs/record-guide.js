@@ -183,7 +183,8 @@
     "Tripoli Community Co-Funding for Local Priorities": ["rec-0173", "تمويل مجتمعي مشترك لألولويات المحلية في طرابلس"],
     "Baabda and Baalbek Community Cash-for-Work Launch": ["rec-0174", "إطلاق العمل مقابل أجر للمجتمعات في بعبدا وبعلبك"],
     "Tripoli Community-Led Safety and Mobility Equipment Handover": ["rec-0175", "تسليم معدات السلامة والتنقل بقيادة المجتمع في طرابلس"],
-    "IOM Community Stabilization Response Plan": ["rec-0176", "خطة المنظمة الدولية للهجرة للاستقرار المجتمعي"]
+    "IOM Community Stabilization Response Plan": ["rec-0176", "خطة المنظمة الدولية للهجرة للاستقرار المجتمعي"],
+    "UNIFIL Municipal and Community Support Update": ["rec-0177", "تحديث اليونيفيل عن الدعم البلدي والمجتمعي"]
   });
   const titles = Object.freeze(Object.fromEntries(Object.entries(readingRecords).map(([name, entry]) => [name, entry[1]])));
   const identities = Object.freeze(Object.fromEntries(Object.entries(readingRecords).map(([name, entry]) => [name, entry[0]])));

@@ -268,6 +268,7 @@ const OBSERVATORY_DATA = {
     ,{ name: "Fair Trade Lebanon Community Cash-for-Work Programme", short: "FTL-CFW", period: "2026", category: "Community livelihoods and municipal asset maintenance", role: "Launched a Lebanon Humanitarian Fund-supported cash-for-work programme in Baabda and Baalbek, working with municipalities and community stakeholders on public-space cleaning, waste management, irrigation canals and shelter and community assets.", source: "Fair Trade Lebanon programme page", href: "https://fairtradelebanon.org/Portfolio/livelihood-emergency-cash-for-work-support-to-conflict-affected-communities-in-baabda-and-baalbek/" }
     ,{ name: "Tripoli Community-Led Urban Safety and Mobility Initiative", short: "TPI-MOB", period: "2026", category: "Municipal safety and youth-led local action", role: "VNG International reports that Tripoli youth and city government developed practical safety and mobility measures, including delivery of electric scooters and bicycles to municipal police.", source: "VNG International Tripoli update", href: "https://www.vng-international.nl/safer-streets-and-faster-local-response-in-tripoli/" }
     ,{ name: "IOM Community Stabilization and Community-Driven Development", short: "IOM-CSD", period: "2026", category: "UN community stabilization and municipal infrastructure support", role: "IOM's 2026 response plan sets out community-based planning, local committees and community support projects intended to strengthen trust, public infrastructure, facilities and essential services in areas facing tensions.", source: "IOM Lebanon Crisis Response Plan 2026", href: "https://crisisresponse.iom.int/index.php/response/lebanon-crisis-response-plan-2026" }
+    ,{ name: "UNIFIL Community Support Update 2026", short: "UNIFIL-26", period: "2026", category: "UN municipal-community essential-service support", role: "Reports support identified with municipalities and community representatives in South Lebanon, including medical care, medicines and supplies for local health facilities, veterinary support, education assistance and facilitation of humanitarian missions.", source: "UNIFIL community-support update", href: "https://unifil.unmissions.org/en/news/unifil-support-helps-communities-cope-with-the-impact-of-conflict" }
   ],
   actions: [
     { name: "Measure national damage and recovery needs", period: "2024", stage: "Assessment", description: "The national RDNA establishes the damage, loss and recovery-needs baseline across ten sectors.", actor: "World Bank / Government partners", href: "https://www.worldbank.org/en/news/press-release/2025/03/07/lebanon-s-recovery-and-reconstruction-needs-estimated-at-us-11-billion" },
@@ -597,6 +598,7 @@ const OBSERVATORY_DATA = {
     ,{ name: "Create cash-for-work opportunities linked to shared community assets", period: "2026", stage: "NGO programme launch", description: "Fair Trade Lebanon launched a seven-month Lebanon Humanitarian Fund-supported programme in Baabda and Baalbek for 633 planned participants, in partnership with local municipalities and community stakeholders. It describes intended cleaning, waste, irrigation-canal and shelter-asset work; it does not document completed outputs.", actor: "Fair Trade Lebanon / Lebanon Humanitarian Fund / local municipalities / community stakeholders", href: "https://fairtradelebanon.org/Portfolio/livelihood-emergency-cash-for-work-support-to-conflict-affected-communities-in-baabda-and-baalbek/" }
     ,{ name: "Improve municipal safety response through youth-led mobility measures", period: "2026", stage: "Reported equipment handover", description: "VNG International reports that electric scooters and bicycles were handed over to Tripoli Municipality's police through a Community-Led Urban Safety & Mobility initiative shaped with young people. The report supports the handover, not a wider citywide safety outcome.", actor: "Tripoli Municipality / young people / VNG International", href: "https://www.vng-international.nl/safer-streets-and-faster-local-response-in-tripoli/" }
     ,{ name: "Plan community-based stabilization and local service support", period: "2026", stage: "UN response plan", description: "IOM's 2026 plan requests funding for community-based planning, local committees and community support projects for public infrastructure, facilities and essential services. It is a planned response and funding requirement, not evidence of funding received or completed projects.", actor: "IOM / local communities / local committees / local authorities", href: "https://crisisresponse.iom.int/index.php/response/lebanon-crisis-response-plan-2026" }
+    ,{ name: "Support conflict-affected South Lebanon communities with municipal input", period: "2026", stage: "Reported operational support", description: "UNIFIL reports that, with municipalities and community representatives, it identified local needs and provided medical, education, veterinary and humanitarian-mission support in South Lebanon. This is UNIFIL operational reporting, not independent verification of community-level outcomes.", actor: "UNIFIL / municipalities / community representatives / local health facilities", href: "https://unifil.unmissions.org/en/news/unifil-support-helps-communities-cope-with-the-impact-of-conflict" }
   ],
   records: [
     {
@@ -682,6 +684,20 @@ const OBSERVATORY_DATA = {
       scale: 2280000,
       sourceId: "iom-community-stabilization-plan-2026",
       href: "https://crisisresponse.iom.int/index.php/response/lebanon-crisis-response-plan-2026"
+    },
+    {
+      name: "UNIFIL Municipal and Community Support Update",
+      place: "South Lebanon • September 2026",
+      filter: "Local recovery",
+      period: "2026",
+      icon: "✚",
+      status: "UNIFIL / municipalities / community representatives / local health facilities",
+      funding: "Reported operational support",
+      marker: "Medical, education, veterinary and humanitarian-mission support reported with local input",
+      date: "2026-09-03",
+      scale: 1,
+      sourceId: "unifil-community-support-2026",
+      href: "https://unifil.unmissions.org/en/news/unifil-support-helps-communities-cope-with-the-impact-of-conflict"
     },
     {
       name: "Lebanon Rapid Damage & Needs Assessment (RDNA)",
@@ -2004,6 +2020,16 @@ const OBSERVATORY_DATA = {
       href: "https://crisisresponse.iom.int/index.php/response/lebanon-crisis-response-plan-2026"
     },
     {
+      id: "unifil-community-support-2026",
+      category: "Community initiative",
+      date: "2026-09-03",
+      publisher: "United Nations Interim Force in Lebanon",
+      period: "2026",
+      title: "UNIFIL reports municipal and community support across South Lebanon",
+      summary: "UNIFIL reports medical care, medicines and supplies for local health facilities, veterinary and education support, and humanitarian-mission facilitation identified with municipalities and community representatives. This is UNIFIL operational reporting, not independent verification of outcomes.",
+      href: "https://unifil.unmissions.org/en/news/unifil-support-helps-communities-cope-with-the-impact-of-conflict"
+    },
+    {
       id: "undp-lrc-disaster-resilience-mou-2026",
       category: "Coordination",
       date: "2026-08-21",
@@ -2245,6 +2271,7 @@ const OBSERVATORY_DATA = {
     { id: "fair-trade-cash-for-work-2026", name: "Fair Trade Lebanon cash-for-work programme", publisher: "Fair Trade Lebanon / Lebanon Humanitarian Fund", date: "Aug 2026 to Feb 2027", type: "NGO community-livelihoods programme launch", coverage: "633 planned participants in Baabda and Baalbek, working with municipalities and community stakeholders on shared spaces and community assets", href: "https://fairtradelebanon.org/Portfolio/livelihood-emergency-cash-for-work-support-to-conflict-affected-communities-in-baabda-and-baalbek/" },
     { id: "vng-tripoli-safety-mobility-2026", name: "Tripoli community-led safety and mobility update", publisher: "VNG International / Tripoli Municipality / youth partners", date: "1 Jun 2026", type: "Municipal-community service update", coverage: "Reported handover of electric scooters and bicycles to municipal police through a youth-informed safety and mobility initiative", href: "https://www.vng-international.nl/safer-streets-and-faster-local-response-in-tripoli/" },
     { id: "iom-community-stabilization-plan-2026", name: "IOM community stabilization and community-driven development plan", publisher: "International Organization for Migration", date: "2026", type: "UN response plan and funding requirement", coverage: "$2.28M funding requirement for planned community-based planning, local committees and support projects; no funding received reported", href: "https://crisisresponse.iom.int/index.php/response/lebanon-crisis-response-plan-2026" },
+    { id: "unifil-community-support-2026", name: "UNIFIL municipal and community support update", publisher: "United Nations Interim Force in Lebanon", date: "3 Sep 2026", type: "UN operational community-support update", coverage: "Reported medical, education, veterinary and humanitarian-mission support in South Lebanon, identified with municipalities and community representatives", href: "https://unifil.unmissions.org/en/news/unifil-support-helps-communities-cope-with-the-impact-of-conflict" },
     { id: "undp-municipal-waste-equipment-2026", name: "Municipal waste-service equipment delivery", publisher: "European Union / UNDP / Ministry of Environment", date: "9 Sep 2026", type: "Official municipal service-delivery update", coverage: "Nine machinery units for three Bekaa waste-management facilities and 17 collection trucks for 15 municipal and union partners in South Lebanon", href: "https://www.undp.org/arab-states/press-releases/bekaa-and-south-lebanon-receive-more-20-machines-and-trucks-support-waste-services" },
     { id: "cdr-leap-water-infrastructure-procurement-2026", name: "LEAP water-infrastructure repair framework procurement", publisher: "Council for Development and Reconstruction / World Bank", date: "8 Sep 2026", type: "Official pre-award procurement notice", coverage: "Framework design and supervision services for water-infrastructure repair under LEAP", href: "https://cdr.gov.lb/Procurment/ProcurementDetail.aspx?id=1259&lot=0" },
     { id: "cdr-leap-nabatieh-roads-tender-2026", name: "LEAP Nabatieh damaged-road clearing and restoration tender", publisher: "Council for Development and Reconstruction / World Bank", date: "18 Aug 2026; deadline extended to 3 Sep 2026", type: "Official open procurement notice", coverage: "Damaged-road clearing and restoration in Nabatieh Caza • LEAP / World Bank financing • no award published", href: "https://www.cdr.gov.lb/en-US/Procurment/ProcurementDetail.aspx?aliaspath=%2FProcurment%2FProcurementDetail&id=1250&lot=0" },

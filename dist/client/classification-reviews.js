@@ -87,6 +87,15 @@
       "locator": ["IOM Lebanon Crisis Response Plan 2026: community stabilization and community-driven development funding requirement", "خطة المنظمة الدولية للهجرة للاستجابة في لبنان لعام 2026: احتياج تمويلي للاستقرار المجتمعي والتنمية التي تقودها المجتمعات"],
       "note": ["The plan lists a $2.28M funding requirement for community-based planning, local committees and support projects. It is a planned response and does not show funding received or completed delivery.", "تورد الخطة احتياجاً تمويلياً بقيمة $2.28M للتخطيط القائم على المجتمع واللجان المحلية ومشاريع الدعم. وهي استجابة مخططة ولا تُظهر تمويلاً متلقّى أو تنفيذاً مكتملاً."]
     },
+    "src-110": {
+      "originalUrl": "https://unifil.unmissions.org/en/news/unifil-support-helps-communities-cope-with-the-impact-of-conflict",
+      "url": "https://unifil.unmissions.org/en/news/unifil-support-helps-communities-cope-with-the-impact-of-conflict",
+      "checkedAt": "2026-09-16",
+      "status": "reviewed",
+      "access": "direct",
+      "locator": ["UNIFIL update, 3 September 2026: municipal and community needs identification and reported support", "تحديث اليونيفيل، 3 أيلول 2026: تحديد الاحتياجات مع البلديات والمجتمع والدعم المُبلّغ عنه"],
+      "note": ["UNIFIL reports providing medical, education, veterinary and humanitarian-mission support after identifying needs with municipalities and community representatives. This is the mission's operational account, not independent verification of outcomes.", "تفيد اليونيفيل بتقديم دعم طبي وتعليمي وبيطري وتسهيل مهام إنسانية بعد تحديد الاحتياجات مع البلديات وممثلي المجتمع. وهذا عرض تشغيلي للبعثة، وليس تحققاً مستقلاً من النتائج."]
+    },
     "src-105": {
       "originalUrl": "https://www.cdr.gov.lb/Procurment/ProcurementDetail.aspx?id=1261&lot=0",
       "url": "https://www.cdr.gov.lb/Procurment/ProcurementDetail.aspx?id=1261&lot=0",
@@ -1617,6 +1626,23 @@
       },
       "finance": "appeal",
       "delivery": "planning"
+    },
+    "rec-0177": {
+      "source": "src-110",
+      "snapshot": {
+        "name": "UNIFIL Municipal and Community Support Update",
+        "place": "South Lebanon • September 2026",
+        "filter": "Local recovery",
+        "period": "2026",
+        "status": "UNIFIL / municipalities / community representatives / local health facilities",
+        "funding": "Reported operational support",
+        "marker": "Medical, education, veterinary and humanitarian-mission support reported with local input",
+        "date": "2026-09-03",
+        "sourceId": "unifil-community-support-2026",
+        "href": "https://unifil.unmissions.org/en/news/unifil-support-helps-communities-cope-with-the-impact-of-conflict"
+      },
+      "finance": "not_stated",
+      "delivery": "in_progress"
     },
     "rec-0171": {
       "source": "src-103",
