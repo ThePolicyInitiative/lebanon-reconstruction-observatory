@@ -64,7 +64,7 @@ const OBSERVATORY_DATA = {
     { name: "General Directorate of Local Administrations and Councils", short: "DGLAC", period: "2026", category: "Local-administration capacity", role: "Sits within the Ministry of Interior and Municipalities response architecture identified for training and crisis-management capacity alongside local authorities.", source: "Lebanon Response Plan 2026", href: "https://lebanon.un.org/sites/default/files/2026-02/Lebanon%20Response%20Plan%202026.pdf" },
     { name: "Fire Brigades", short: "FIRE", period: "2026", category: "Frontline emergency response", role: "Are identified alongside Civil Defense and municipal response rooms for operational support, staffing, equipment and continuity of local emergency services.", source: "Lebanon Response Plan 2026", href: "https://lebanon.un.org/sites/default/files/2026-02/Lebanon%20Response%20Plan%202026.pdf" },
     { name: "Governors and Qaemaqams", short: "GOV", period: "2026", category: "Subnational crisis response", role: "Translate national response arrangements at governorate and district level and are identified for staffing, training and equipment that strengthen local crisis coordination.", source: "Lebanon Response Plan 2026", href: "https://lebanon.un.org/sites/default/files/2026-02/Lebanon%20Response%20Plan%202026.pdf" },
-    { name: "Transition and Resilience Education Fund", short: "TREF", period: "2026", category: "Education recovery financing", role: "Provides the platform through which UNICEF supported the nationwide school-damage assessment and the education recovery response with government and donor partners.", source: "UNICEF school recovery update", href: "https://www.unicef.org/lebanon/press-releases/least%E2%80%AF100000-children%E2%80%AF-risk-missing-next-school-year-without-urgent-action-restore" },
+    { name: "Transition and Resilience Education Fund", short: "TREF", period: "2026", category: "Education recovery coordination", role: "Brings MEHE, UNICEF and contributing partners together around national education priorities, including strategic direction for learning recovery, safe schools and public-education reform. The board update does not announce a financing decision or completed output.", source: "UNICEF TREF strategic-board update", href: "https://www.unicef.org/lebanon/press-releases/salam-lebanons-recovery-cannot-succeed-without-education" },
     { name: "Government of Germany", short: "DEU", period: "2026", category: "Education recovery financing", role: "Is named as a supporter of the Transition and Resilience Education Fund, backing the school-assessment and rehabilitation response with UNICEF and the Ministry of Education.", source: "UNICEF school recovery update", href: "https://www.unicef.org/lebanon/press-releases/least%E2%80%AF100000-children%E2%80%AF-risk-missing-next-school-year-without-urgent-action-restore" },
     { name: "Government of France", short: "FRA", period: "2026", category: "Education recovery financing", role: "Is named as a supporter of the Transition and Resilience Education Fund, backing the school-assessment and rehabilitation response with UNICEF and the Ministry of Education.", source: "UNICEF school recovery update", href: "https://www.unicef.org/lebanon/press-releases/least%E2%80%AF100000-children%E2%80%AF-risk-missing-next-school-year-without-urgent-action-restore" }
     ,{ name: "Tyre Union of Municipalities", short: "TYRE", period: "Cross-cutting", category: "Municipal livelihoods recovery", role: "Partners with UNDP on short-term employment for displaced people and local recovery measures that connect municipal service delivery with household incomes.", source: "UNDP Tyre recovery story", href: "https://www.undp.org/lebanon/stories/lebanon-looks-rebuild-after-trauma-conflict" }
@@ -601,6 +601,7 @@ const OBSERVATORY_DATA = {
     ,{ name: "Plan community-based stabilization and local service support", period: "2026", stage: "UN response plan", description: "IOM's 2026 plan requests funding for community-based planning, local committees and community support projects for public infrastructure, facilities and essential services. It is a planned response and funding requirement, not evidence of funding received or completed projects.", actor: "IOM / local communities / local committees / local authorities", href: "https://crisisresponse.iom.int/index.php/response/lebanon-crisis-response-plan-2026" }
     ,{ name: "Support conflict-affected South Lebanon communities with municipal input", period: "2026", stage: "Reported operational support", description: "UNIFIL reports that, with municipalities and community representatives, it identified local needs and provided medical, education, veterinary and humanitarian-mission support in South Lebanon. Its maintenance team also reported repairing two municipal firefighting trucks in El Hebbariye on 25 August. This is UNIFIL operational reporting, not independent verification of community-level outcomes.", actor: "UNIFIL / municipalities / community representatives / local health facilities", href: "https://unifil.unmissions.org/en/news/unifil-support-helps-communities-cope-with-the-impact-of-conflict" }
     ,{ name: "Launch a municipal council for children in Baalbek", period: "2026", stage: "Local initiative launch", description: "Follow Lebanon reports that Baalbek Municipality and Himaya Association launched a municipal council for children, with representation sought across neighbourhoods, schools, girls and children with special needs. This is a local-media report of a launch, not independent verification of ongoing council activity or project outcomes.", actor: "Baalbek Municipality / Himaya Association / schools and community organisations", href: "https://followlebanon.com/children-in-baalbek-partners-in-shaping-their-city/" }
+    ,{ name: "Set strategic direction for education recovery through TREF", period: "2026", stage: "Strategic management board", description: "MEHE convened the third Transition and Resilience Education Fund Strategic Management Board with the Government, contributing partners and UNICEF to advance education recovery and guide the 2026/2027 school year. The meeting reaffirmed direction for learning recovery, safe schools and reform; it does not announce a new financing decision or completed recovery output.", actor: "Ministry of Education and Higher Education / TREF contributing partners / UNICEF", href: "https://www.unicef.org/lebanon/press-releases/salam-lebanons-recovery-cannot-succeed-without-education" }
   ],
   records: [
     {
@@ -714,6 +715,20 @@ const OBSERVATORY_DATA = {
       scale: 1,
       sourceId: "baalbek-childrens-council-2026",
       href: "https://followlebanon.com/children-in-baalbek-partners-in-shaping-their-city/"
+    },
+    {
+      name: "TREF Education Recovery Strategic Board Meeting",
+      place: "National education system • 16 Sep 2026",
+      filter: "Local recovery",
+      period: "2026",
+      icon: "▤",
+      status: "Ministry of Education and Higher Education / TREF contributing partners / UNICEF",
+      funding: "Education recovery coordination and technical assistance",
+      marker: "Third strategic board set direction for learning recovery, safe schools and reform; no new financing decision or completed output reported",
+      date: "2026-09-16",
+      scale: 1,
+      sourceId: "unicef-tref-board-2026",
+      href: "https://www.unicef.org/lebanon/press-releases/salam-lebanons-recovery-cannot-succeed-without-education"
     },
     {
       name: "Lebanon Rapid Damage & Needs Assessment (RDNA)",
@@ -1966,6 +1981,16 @@ const OBSERVATORY_DATA = {
   ],
   news: [
     {
+      id: "unicef-tref-board-2026",
+      category: "Public services",
+      date: "2026-09-16",
+      publisher: "Ministry of Education and Higher Education / UNICEF / TREF contributing partners",
+      period: "2026",
+      title: "TREF board reaffirms direction for education recovery and reform",
+      summary: "MEHE convened the third TREF Strategic Management Board with Government, contributing partners and UNICEF to guide education recovery for the 2026/2027 school year. It reaffirmed priorities for safe learning, learning recovery and reform, without announcing a new financing decision or completed output.",
+      href: "https://www.unicef.org/lebanon/press-releases/salam-lebanons-recovery-cannot-succeed-without-education"
+    },
+    {
       id: "anera-emergency-wash-launch-2026",
       category: "Public services",
       date: "2026-09-15",
@@ -2287,6 +2312,7 @@ const OBSERVATORY_DATA = {
     }
   ],
   sources: [
+    { id: "unicef-tref-board-2026", name: "TREF education-recovery strategic board meeting", publisher: "Ministry of Education and Higher Education / UNICEF / TREF contributing partners", date: "16 Sep 2026", type: "Official education-recovery governance update", coverage: "Third strategic board meeting on learning recovery, safe schools and reform; no financing decision or completed output reported", href: "https://www.unicef.org/lebanon/press-releases/salam-lebanons-recovery-cannot-succeed-without-education" },
     { id: "cdr-leap-rhuh-mri-procurement-2026", name: "LEAP MRI supply and installation procurement", publisher: "Council for Development and Reconstruction / Ministry of Public Health / World Bank", date: "9 Sep 2026", type: "Official pre-award procurement notice", coverage: "Open tender to supply and install an MRI machine for Rafik Hariri University Hospital under LEAP", href: "https://www.cdr.gov.lb/Procurment/ProcurementDetail.aspx?id=1262&lot=0" },
     { id: "undp-lrc-disaster-resilience-mou-2026", name: "UNDP–Lebanese Red Cross disaster-resilience cooperation agreement", publisher: "UNDP / Lebanese Red Cross", date: "21 Aug 2026", type: "Official community-preparedness and climate-resilience agreement", coverage: "Emergency preparedness, early action and risk-informed response; agreement does not itself report completed delivery", href: "https://www.undp.org/lebanon/press-releases/undp-and-lebanese-red-cross-sign-mou-strengthen-cooperation-disaster-management-climate-resilience-and-risk-informed-action" },
     { id: "cdr-gate-matching-grant-agreement", name: "GATE agricultural matching-grant implementation agreement", publisher: "UNDP / Ministry of Agriculture / CDR / World Bank", date: "Publication date not stated; checked 16 Sep 2026", type: "Official agrifood-recovery implementation update", coverage: "UNDP signed the agreement; CDR formal signing remains pending; no grant disbursement or beneficiary outcome reported", href: "https://cdr.gov.lb/en-US/News/News-In-Home/%D8%AA%D9%88%D9%82%D9%8A%D8%B9-%D8%A7%D8%AA%D9%81%D8%A7%D9%82%D9%8A%D8%A9.aspx?index=4" },

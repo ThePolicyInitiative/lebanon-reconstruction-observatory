@@ -185,7 +185,8 @@
     "Tripoli Community-Led Safety and Mobility Equipment Handover": ["rec-0175", "تسليم معدات السلامة والتنقل بقيادة المجتمع في طرابلس"],
     "IOM Community Stabilization Response Plan": ["rec-0176", "خطة المنظمة الدولية للهجرة للاستقرار المجتمعي"],
     "UNIFIL Municipal and Community Support Update": ["rec-0177", "تحديث اليونيفيل عن الدعم البلدي والمجتمعي"],
-    "Baalbek Municipal Council for Children Launch": ["rec-0178", "إطلاق المجلس البلدي للأطفال في بعلبك"]
+    "Baalbek Municipal Council for Children Launch": ["rec-0178", "إطلاق المجلس البلدي للأطفال في بعلبك"],
+    "TREF Education Recovery Strategic Board Meeting": ["rec-0179", "اجتماع المجلس الاستراتيجي لصندوق التحول والمرونة للتعافي التعليمي"]
   });
   const titles = Object.freeze(Object.fromEntries(Object.entries(readingRecords).map(([name, entry]) => [name, entry[1]])));
   const identities = Object.freeze(Object.fromEntries(Object.entries(readingRecords).map(([name, entry]) => [name, entry[0]])));

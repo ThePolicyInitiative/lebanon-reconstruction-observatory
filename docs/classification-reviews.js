@@ -105,6 +105,15 @@
       "locator": ["Follow Lebanon, 15 September 2026: Baalbek Municipality and Himaya Association council launch, selection and training description", "فولو لبنان، 15 أيلول 2026: إطلاق المجلس من بلدية بعلبك وجمعية حماية ووصف الاختيار والتدريب"],
       "note": ["The local media report describes the council launch, member selection and training. It is not a primary municipal publication and does not independently establish ongoing activity or city-project outcomes.", "يصف التقرير الإعلامي المحلي إطلاق المجلس واختيار الأعضاء والتدريب. وهو ليس منشوراً بلدياً أولياً ولا يثبت بشكل مستقل نشاطاً مستمراً أو نتائج لمشاريع المدينة."]
     },
+    "src-112": {
+      "originalUrl": "https://www.unicef.org/lebanon/press-releases/salam-lebanons-recovery-cannot-succeed-without-education",
+      "url": "https://www.unicef.org/lebanon/press-releases/salam-lebanons-recovery-cannot-succeed-without-education",
+      "checkedAt": "2026-09-17",
+      "status": "reviewed",
+      "access": "direct",
+      "locator": ["UNICEF release, 16 September 2026: third TREF Strategic Management Board and stated education-recovery priorities", "بيان اليونيسف، 16 أيلول 2026: الاجتماع الثالث للمجلس الاستراتيجي لصندوق التحول والمرونة وأولويات التعافي التعليمي المعلنة"],
+      "note": ["The release records that MEHE convened the third TREF Strategic Management Board with the Government, contributing partners and UNICEF. It states strategic direction for safe learning, learning recovery and reform, but does not announce a new financing decision or completed recovery output.", "يوثق البيان عقد وزارة التربية والتعليم العالي للاجتماع الثالث للمجلس الاستراتيجي لصندوق التحول والمرونة بمشاركة الحكومة والشركاء المساهمين واليونيسف. ويحدد توجيهاً استراتيجياً للتعلم الآمن وتعافي التعلم والإصلاح، لكنه لا يعلن قرار تمويل جديداً أو مخرجاً مكتملًا للتعافي."]
+    },
     "src-105": {
       "originalUrl": "https://www.cdr.gov.lb/Procurment/ProcurementDetail.aspx?id=1261&lot=0",
       "url": "https://www.cdr.gov.lb/Procurment/ProcurementDetail.aspx?id=1261&lot=0",
@@ -1669,6 +1678,23 @@
       },
       "finance": "not_stated",
       "delivery": "planning"
+    },
+    "rec-0179": {
+      "source": "src-112",
+      "snapshot": {
+        "name": "TREF Education Recovery Strategic Board Meeting",
+        "place": "National education system • 16 Sep 2026",
+        "filter": "Local recovery",
+        "period": "2026",
+        "status": "Ministry of Education and Higher Education / TREF contributing partners / UNICEF",
+        "funding": "Education recovery coordination and technical assistance",
+        "marker": "Third strategic board set direction for learning recovery, safe schools and reform; no new financing decision or completed output reported",
+        "date": "2026-09-16",
+        "sourceId": "unicef-tref-board-2026",
+        "href": "https://www.unicef.org/lebanon/press-releases/salam-lebanons-recovery-cannot-succeed-without-education"
+      },
+      "finance": "not_stated",
+      "delivery": "in_progress"
     },
     "rec-0171": {
       "source": "src-103",
