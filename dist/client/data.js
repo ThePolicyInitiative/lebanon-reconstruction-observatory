@@ -269,6 +269,7 @@ const OBSERVATORY_DATA = {
     ,{ name: "Tripoli Community-Led Urban Safety and Mobility Initiative", short: "TPI-MOB", period: "2026", category: "Municipal safety and youth-led local action", role: "VNG International reports that Tripoli youth and city government developed practical safety and mobility measures, including delivery of electric scooters and bicycles to municipal police.", source: "VNG International Tripoli update", href: "https://www.vng-international.nl/safer-streets-and-faster-local-response-in-tripoli/" }
     ,{ name: "IOM Community Stabilization and Community-Driven Development", short: "IOM-CSD", period: "2026", category: "UN community stabilization and municipal infrastructure support", role: "IOM's 2026 response plan sets out community-based planning, local committees and community support projects intended to strengthen trust, public infrastructure, facilities and essential services in areas facing tensions.", source: "IOM Lebanon Crisis Response Plan 2026", href: "https://crisisresponse.iom.int/index.php/response/lebanon-crisis-response-plan-2026" }
     ,{ name: "UNIFIL Community Support Update 2026", short: "UNIFIL-26", period: "2026", category: "UN municipal-community essential-service support", role: "Reports support identified with municipalities and community representatives in South Lebanon, including medical care, medicines and supplies for local health facilities, veterinary support, education assistance, humanitarian-mission facilitation, and repair of two municipal firefighting trucks in El Hebbariye.", source: "UNIFIL community-support update", href: "https://unifil.unmissions.org/en/news/unifil-support-helps-communities-cope-with-the-impact-of-conflict" }
+    ,{ name: "UNIFIL Community Livelihood Support", short: "UNIFIL-LIV", period: "2026", category: "UN community livelihoods and humanitarian access", role: "Reports work with municipalities, community groups and local partners on fairs, market access, vocational training, children’s activities and humanitarian facilitation in South Lebanon. This is UNIFIL institutional reporting, not independent verification of local economic outcomes.", source: "UNIFIL community-livelihoods update", href: "https://unifil.unmissions.org/en/news/peacekeepers-effort-to-help-rebuild-lives-after-hostilities-in-south-lebanon" }
     ,{ name: "Baalbek Municipal Council for Children", short: "BAAL-KIDS", period: "2026", category: "Municipal child participation and community initiative", role: "A local media report says Baalbek Municipality and Himaya Association launched a municipal council for children, with member selection through schools and associations and training on dialogue, teamwork, responsibility and initiative.", source: "Follow Lebanon local report", href: "https://followlebanon.com/children-in-baalbek-partners-in-shaping-their-city/" }
   ],
   actions: [
@@ -602,6 +603,7 @@ const OBSERVATORY_DATA = {
     ,{ name: "Support conflict-affected South Lebanon communities with municipal input", period: "2026", stage: "Reported operational support", description: "UNIFIL reports that, with municipalities and community representatives, it identified local needs and provided medical, education, veterinary and humanitarian-mission support in South Lebanon. Its maintenance team also reported repairing two municipal firefighting trucks in El Hebbariye on 25 August. This is UNIFIL operational reporting, not independent verification of community-level outcomes.", actor: "UNIFIL / municipalities / community representatives / local health facilities", href: "https://unifil.unmissions.org/en/news/unifil-support-helps-communities-cope-with-the-impact-of-conflict" }
     ,{ name: "Launch a municipal council for children in Baalbek", period: "2026", stage: "Local initiative launch", description: "Follow Lebanon reports that Baalbek Municipality and Himaya Association launched a municipal council for children, with representation sought across neighbourhoods, schools, girls and children with special needs. This is a local-media report of a launch, not independent verification of ongoing council activity or project outcomes.", actor: "Baalbek Municipality / Himaya Association / schools and community organisations", href: "https://followlebanon.com/children-in-baalbek-partners-in-shaping-their-city/" }
     ,{ name: "Set strategic direction for education recovery through TREF", period: "2026", stage: "Strategic management board", description: "MEHE convened the third Transition and Resilience Education Fund Strategic Management Board with the Government, contributing partners and UNICEF to advance education recovery and guide the 2026/2027 school year. The meeting reaffirmed direction for learning recovery, safe schools and reform; it does not announce a new financing decision or completed recovery output.", actor: "Ministry of Education and Higher Education / TREF contributing partners / UNICEF", href: "https://www.unicef.org/lebanon/press-releases/salam-lebanons-recovery-cannot-succeed-without-education" }
+    ,{ name: "Support community livelihoods and humanitarian access in South Lebanon", period: "2026", stage: "Reported operational support", description: "UNIFIL reports working with municipalities, community groups and local partners on fairs and market access, vocational training, children’s activities and facilitated humanitarian access in South Lebanon. The report describes an exhibition in Tyre with more than 100 women entrepreneurs; it is UNIFIL operational reporting, not independent verification of livelihood outcomes.", actor: "UNIFIL / Tyre Municipality / women entrepreneurs / community groups / humanitarian partners", href: "https://unifil.unmissions.org/en/news/peacekeepers-effort-to-help-rebuild-lives-after-hostilities-in-south-lebanon" }
   ],
   records: [
     {
@@ -729,6 +731,20 @@ const OBSERVATORY_DATA = {
       scale: 1,
       sourceId: "unicef-tref-board-2026",
       href: "https://www.unicef.org/lebanon/press-releases/salam-lebanons-recovery-cannot-succeed-without-education"
+    },
+    {
+      name: "UNIFIL Community Livelihoods and Access Support",
+      place: "South Lebanon and Tyre • 17 Sep 2026",
+      filter: "Local recovery",
+      period: "2026",
+      icon: "✦",
+      status: "UNIFIL / Tyre Municipality / community groups / humanitarian partners",
+      funding: "Reported operational support",
+      marker: "Fairs, market access, vocational training and humanitarian facilitation reported; not an independently verified livelihood outcome",
+      date: "2026-09-17",
+      scale: 1,
+      sourceId: "unifil-community-livelihoods-2026",
+      href: "https://unifil.unmissions.org/en/news/peacekeepers-effort-to-help-rebuild-lives-after-hostilities-in-south-lebanon"
     },
     {
       name: "Lebanon Rapid Damage & Needs Assessment (RDNA)",
@@ -1981,6 +1997,16 @@ const OBSERVATORY_DATA = {
   ],
   news: [
     {
+      id: "unifil-community-livelihoods-2026",
+      category: "Community initiative",
+      date: "2026-09-17",
+      publisher: "United Nations Interim Force in Lebanon / Tyre Municipality / community partners",
+      period: "2026",
+      title: "UNIFIL reports community-livelihood and humanitarian-access support in South Lebanon",
+      summary: "UNIFIL reports work with municipalities and community groups on fairs, market access, vocational training, children’s activities and humanitarian facilitation. The report includes a Tyre exhibition with more than 100 women entrepreneurs, but is not independent verification of local livelihood outcomes.",
+      href: "https://unifil.unmissions.org/en/news/peacekeepers-effort-to-help-rebuild-lives-after-hostilities-in-south-lebanon"
+    },
+    {
       id: "unicef-tref-board-2026",
       category: "Public services",
       date: "2026-09-16",
@@ -2312,6 +2338,7 @@ const OBSERVATORY_DATA = {
     }
   ],
   sources: [
+    { id: "unifil-community-livelihoods-2026", name: "UNIFIL community livelihoods and humanitarian-access update", publisher: "United Nations Interim Force in Lebanon / Tyre Municipality / community partners", date: "17 Sep 2026", type: "UN operational community-livelihoods update", coverage: "Reported fairs, market access, vocational training, children’s activities and humanitarian facilitation in South Lebanon; not independent outcome verification", href: "https://unifil.unmissions.org/en/news/peacekeepers-effort-to-help-rebuild-lives-after-hostilities-in-south-lebanon" },
     { id: "unicef-tref-board-2026", name: "TREF education-recovery strategic board meeting", publisher: "Ministry of Education and Higher Education / UNICEF / TREF contributing partners", date: "16 Sep 2026", type: "Official education-recovery governance update", coverage: "Third strategic board meeting on learning recovery, safe schools and reform; no financing decision or completed output reported", href: "https://www.unicef.org/lebanon/press-releases/salam-lebanons-recovery-cannot-succeed-without-education" },
     { id: "cdr-leap-rhuh-mri-procurement-2026", name: "LEAP MRI supply and installation procurement", publisher: "Council for Development and Reconstruction / Ministry of Public Health / World Bank", date: "9 Sep 2026", type: "Official pre-award procurement notice", coverage: "Open tender to supply and install an MRI machine for Rafik Hariri University Hospital under LEAP", href: "https://www.cdr.gov.lb/Procurment/ProcurementDetail.aspx?id=1262&lot=0" },
     { id: "undp-lrc-disaster-resilience-mou-2026", name: "UNDP–Lebanese Red Cross disaster-resilience cooperation agreement", publisher: "UNDP / Lebanese Red Cross", date: "21 Aug 2026", type: "Official community-preparedness and climate-resilience agreement", coverage: "Emergency preparedness, early action and risk-informed response; agreement does not itself report completed delivery", href: "https://www.undp.org/lebanon/press-releases/undp-and-lebanese-red-cross-sign-mou-strengthen-cooperation-disaster-management-climate-resilience-and-risk-informed-action" },

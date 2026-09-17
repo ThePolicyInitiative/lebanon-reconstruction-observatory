@@ -114,6 +114,15 @@
       "locator": ["UNICEF release, 16 September 2026: third TREF Strategic Management Board and stated education-recovery priorities", "بيان اليونيسف، 16 أيلول 2026: الاجتماع الثالث للمجلس الاستراتيجي لصندوق التحول والمرونة وأولويات التعافي التعليمي المعلنة"],
       "note": ["The release records that MEHE convened the third TREF Strategic Management Board with the Government, contributing partners and UNICEF. It states strategic direction for safe learning, learning recovery and reform, but does not announce a new financing decision or completed recovery output.", "يوثق البيان عقد وزارة التربية والتعليم العالي للاجتماع الثالث للمجلس الاستراتيجي لصندوق التحول والمرونة بمشاركة الحكومة والشركاء المساهمين واليونيسف. ويحدد توجيهاً استراتيجياً للتعلم الآمن وتعافي التعلم والإصلاح، لكنه لا يعلن قرار تمويل جديداً أو مخرجاً مكتملًا للتعافي."]
     },
+    "src-113": {
+      "originalUrl": "https://unifil.unmissions.org/en/news/peacekeepers-effort-to-help-rebuild-lives-after-hostilities-in-south-lebanon",
+      "url": "https://unifil.unmissions.org/en/news/peacekeepers-effort-to-help-rebuild-lives-after-hostilities-in-south-lebanon",
+      "checkedAt": "2026-09-17",
+      "status": "reviewed",
+      "access": "indexed",
+      "locator": ["UNIFIL update, 17 September 2026: reported community-livelihood, children’s activity and humanitarian-access support in South Lebanon", "تحديث اليونيفيل، 17 أيلول 2026: دعم مُبلّغ عنه لسبل العيش المجتمعية وأنشطة الأطفال والوصول الإنساني في جنوب لبنان"],
+      "note": ["The UNIFIL report describes fairs and market access, vocational training, children’s activities and humanitarian facilitation with municipalities and community partners, including a Tyre exhibition with more than 100 women entrepreneurs. It is the mission’s operational account and does not independently verify livelihood outcomes or funding.", "يصف تقرير اليونيفيل معارض والوصول إلى الأسواق والتدريب المهني وأنشطة الأطفال وتسهيل العمل الإنساني بالتعاون مع البلديات والشركاء المجتمعيين، بما في ذلك معرض في صور ضم أكثر من 100 سيدة رائدة أعمال. وهو عرض تشغيلي للبعثة ولا يتحقق بصورة مستقلة من نتائج سبل العيش أو التمويل."]
+    },
     "src-105": {
       "originalUrl": "https://www.cdr.gov.lb/Procurment/ProcurementDetail.aspx?id=1261&lot=0",
       "url": "https://www.cdr.gov.lb/Procurment/ProcurementDetail.aspx?id=1261&lot=0",
@@ -1692,6 +1701,23 @@
         "date": "2026-09-16",
         "sourceId": "unicef-tref-board-2026",
         "href": "https://www.unicef.org/lebanon/press-releases/salam-lebanons-recovery-cannot-succeed-without-education"
+      },
+      "finance": "not_stated",
+      "delivery": "in_progress"
+    },
+    "rec-0180": {
+      "source": "src-113",
+      "snapshot": {
+        "name": "UNIFIL Community Livelihoods and Access Support",
+        "place": "South Lebanon and Tyre • 17 Sep 2026",
+        "filter": "Local recovery",
+        "period": "2026",
+        "status": "UNIFIL / Tyre Municipality / community groups / humanitarian partners",
+        "funding": "Reported operational support",
+        "marker": "Fairs, market access, vocational training and humanitarian facilitation reported; not an independently verified livelihood outcome",
+        "date": "2026-09-17",
+        "sourceId": "unifil-community-livelihoods-2026",
+        "href": "https://unifil.unmissions.org/en/news/peacekeepers-effort-to-help-rebuild-lives-after-hostilities-in-south-lebanon"
       },
       "finance": "not_stated",
       "delivery": "in_progress"

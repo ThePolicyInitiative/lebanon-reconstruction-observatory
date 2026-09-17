@@ -318,8 +318,8 @@ const classificationReviews = require("../classification-reviews.js");
 const recordById = id => seed.records.find(record => guide.get(record).id === id);
 
 test("source-reviewed records have explicit outcomes and individual review dates, including inaccessible evidence", () => {
-  assert.equal(Object.keys(classificationReviews.records).length, 165);
-  assert.equal(Object.keys(classificationReviews.sources).length, 112);
+  assert.equal(Object.keys(classificationReviews.records).length, 166);
+  assert.equal(Object.keys(classificationReviews.sources).length, 113);
   assert.equal(classificationReviews.checkedAt, "2026-09-08");
   assert.equal(seed.reviewedAt, "7 Sep 2026", "Classification review does not redate the dataset");
   const counts = {};
@@ -351,7 +351,7 @@ test("source-reviewed records have explicit outcomes and individual review dates
       assert.ok(evidence.accessError);
     }
   }
-  assert.deepEqual(counts, {reviewed:163, unavailable:2});
+  assert.deepEqual(counts, {reviewed:164, unavailable:2});
   assert.equal(seed.records.filter(record => guide.get(record).review.status === "record_only").length, 14);
 });
 
@@ -573,11 +573,11 @@ test("overview uses the newest three dated publications, without mutating or con
   context.items = seed.news;
   const latest = vm.runInContext("recentUpdates(items)", context);
   assert.equal(latest.length, 3);
-  assert.equal(latest[0].id, "unicef-tref-board-2026");
-  assert.equal(latest[0].date, "2026-09-16");
-  assert.equal(latest[1].id, "anera-emergency-wash-launch-2026");
-  assert.equal(latest[1].date, "2026-09-15");
-  assert.equal(latest[2].id, "baalbek-childrens-council-2026");
+  assert.equal(latest[0].id, "unifil-community-livelihoods-2026");
+  assert.equal(latest[0].date, "2026-09-17");
+  assert.equal(latest[1].id, "unicef-tref-board-2026");
+  assert.equal(latest[1].date, "2026-09-16");
+  assert.equal(latest[2].id, "anera-emergency-wash-launch-2026");
   assert.equal(latest[2].date, "2026-09-15");
   for (const item of latest) {
     context.title = item.title;
@@ -607,14 +607,14 @@ test("source-review provenance is bilingual, preserves Latin numbers and disting
     context.activeLocale = locale;
     vm.runInContext("renderRecords()", context);
     const output = context.projectList.innerHTML;
-    assert.equal((output.match(/data-review="reviewed"/g) || []).length, 163);
+    assert.equal((output.match(/data-review="reviewed"/g) || []).length, 164);
     assert.equal((output.match(/data-review="unavailable"/g) || []).length, 2);
     assert.equal((output.match(/data-review="record_only"/g) || []).length, 14);
     assert.equal((output.match(/data-review="[^"]+">[^<]*<time datetime="2026-09-08"/g) || []).length, 154);
     assert.equal((output.match(/data-review="[^"]+">[^<]*<time datetime="2026-09-09"/g) || []).length, 2);
     assert.equal((output.match(/data-review="[^"]+">[^<]*<time datetime="2026-09-11"/g) || []).length, 1);
     assert.equal((output.match(/data-review="[^"]+">[^<]*<time datetime="2026-09-16"/g) || []).length, 7);
-    assert.equal((output.match(/data-review="[^"]+">[^<]*<time datetime="2026-09-17"/g) || []).length, 1);
+    assert.equal((output.match(/data-review="[^"]+">[^<]*<time datetime="2026-09-17"/g) || []).length, 2);
     assert.doesNotMatch(output, /[\u0660-\u0669\u06f0-\u06f9]/);
     context.record = recordById("rec-0018");
     const alternative = vm.runInContext("renderRecordCard(record)", context);
@@ -866,7 +866,7 @@ test("LEAP history resolves chronological entries to existing evidence, not new 
     assert.ok(event.href?.startsWith("https://"));
     if (event.record) assert.notEqual(guide.get(event.record).delivery, "reported_complete");
   }
-  assert.equal(seed.records.length, 179);
+  assert.equal(seed.records.length, 180);
   assert.match(html, /data-tab-panel="leap-history"/);
   assert.match(source, /"leap-history": "LEAP programme history"/);
 });
