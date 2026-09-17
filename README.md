@@ -74,3 +74,7 @@ python scripts/scrape_official_sources.py
 ```
 
 This does not copy article bodies or treat page availability as implementation evidence. The generated snapshot is used only to show source-monitoring detail in the website.
+
+## GitHub automation
+
+`.github/workflows/source-monitor.yml` runs the same public-source metadata check hourly (and can be started manually from the Actions tab). It validates and rebuilds the site, then commits `data/source-snapshots.json` only when page metadata or availability has changed. It deliberately does not alter editorial recovery records, financing classifications, or published claims: those require a reviewed source and an explicit repository change.
