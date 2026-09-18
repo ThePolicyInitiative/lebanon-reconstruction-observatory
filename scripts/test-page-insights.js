@@ -112,6 +112,119 @@ test("new assets are public and included in both website builds", () => {
   for(const file of ["page-insights.js","page-insights.css"]) {
     assert.ok(build.includes('copy("'+file+'"'));
     assert.ok(server.includes('"'+file+'"'));
-    assert.ok(html.includes(file+"?v=pages-20260918"));
+    assert.ok(html.includes(file+"?v=explore-20260918"));
   }
+});
+
+test("stage breakdowns follow response tags rather than publication years and count each record once", () => {
+  const selectedIds=["rec-0005","rec-0023","rec-0015"];
+  const fixture={records:data.records.filter(record=>selectedIds.includes(guide.get(record).id))};
+  // rec-0005 was published in 2026 but belongs to the 2024 response track.
+  const earlier=pages.stageSummary(fixture,guide,"delivery","2024");
+  assert.equal(earlier.total,1);
+  assert.equal(earlier.counts.procurement,1);
+  const later=pages.stageSummary(fixture,guide,"delivery","2026");
+  assert.equal(later.total,1);
+  assert.equal(later.counts.reported_complete,1);
+  const all=pages.stageSummary(fixture,guide,"delivery");
+  assert.equal(all.total,3);
+  assert.equal(all.counts.reported_complete,2);
+  for(const axis of ["finance","delivery"]) for(const period of ["All","2024","2026"]) {
+    const summary=pages.stageSummary(data,guide,axis,period);
+    assert.equal(Object.values(summary.counts).reduce((a,b)=>a+b,0),summary.total);
+    assert.ok(Object.values(summary.counts).every(count=>Number.isInteger(count)&&count>=0));
+  }
+  const empty=pages.stageSummary({records:[]},guide,"finance","2026");
+  assert.equal(empty.total,0);
+  assert.ok(Object.values(empty.counts).every(count=>count===0));
+  assert.doesNotMatch(pages.readerHtml("funding",{...options,data:{...data,records:[]}}),/NaN|Infinity/);
+});
+
+test("reader choices reject invalid IDs, unrecognised periods and unrelated state", () => {
+  assert.deepEqual(pages.readerState({deliveryPeriod:"2026",financePeriod:"2024",compareLeft:"rec-0181",compareRight:"rec-0182",q:"old"},data,guide),{deliveryPeriod:"2026",financePeriod:"2024",compareLeft:"rec-0181",compareRight:"rec-0182"});
+  assert.deepEqual(pages.readerState({deliveryPeriod:"Cross-cutting",financePeriod:"<script>",compareLeft:"rec-9999",compareRight:"bad"},data,guide),pages.readerDefaults);
+  assert.deepEqual(pages.readerState({}, {records:[]},guide),{...pages.readerDefaults,compareLeft:"",compareRight:""});
+  assert.equal(pages.collections.length,8);
+});
+
+test("publication digest groups publication months in order without mutating records", () => {
+  const fixture=[
+    {name:"Older",date:"2025-06"},{name:"Latest",date:"2026-09-18"},
+    {name:"Earlier September",date:"2026-09-01"},{name:"August",date:"2026-08-20"},
+    {name:"Undated",date:"unknown"},{name:"Bad month",date:"2026-19-04"}
+  ];
+  const before=JSON.stringify(fixture);
+  const groups=pages.publicationGroups(fixture,2);
+  assert.deepEqual(groups.map(group=>group.month),["2026-09","2026-08"]);
+  assert.deepEqual(groups[0].records.map(record=>record.name),["Latest","Earlier September"]);
+  assert.equal(JSON.stringify(fixture),before);
+  const actual=pages.publicationGroups(data.records);
+  assert.equal(actual.length,4);
+  assert.ok(actual[0].records.length>3);
+  const digest=pages.readerHtml("updates",options);
+  assert.equal((digest.match(/<li>/g)||[]).length,actual.reduce((sum,group)=>sum+Math.min(3,group.records.length),0));
+});
+
+test("comparison preserves different financing and delivery meanings in both languages", () => {
+  for(const locale of ["en","ar"]) {
+    const output=pages.readerHtml("projects",{...options,locale},"result");
+    assert.ok(output.includes(guide.stages.finance.committed[locale==="ar"?1:0]));
+    assert.ok(output.includes(guide.stages.delivery.reported_complete[locale==="ar"?1:0]));
+    assert.match(output,/record=rec-0022/);
+    assert.match(output,/record=rec-0023/);
+    assert.doesNotMatch(output,/q=old|finance=approved/);
+  }
+  assert.match(pages.readerHtml("projects",{...options,reader:{compareLeft:"rec-0181",compareRight:"rec-0181"}},"result"),/same record is selected twice/);
+  const changed={...data,records:data.records.map(record=>guide.get(record).id==="rec-0022"?{...record,funding:"Altered evidence"}:record)};
+  const output=pages.readerHtml("projects",{...options,data:changed},"result");
+  assert.match(output,/Not documented in this index/);
+  assert.doesNotMatch(output,/Signed commitment/);
+});
+
+test("reader controls update results and retain choices through language and source-check updates", async () => {
+  const listeners={}, results={delivery:{innerHTML:""},finance:{innerHTML:""},comparison:{innerHTML:""}};
+  const hosts=pages.pages.map(page=>({dataset:{pageInsights:page},innerHTML:"",querySelectorAll:()=>[]}));
+  const controls={};
+  let localeObserver, finishFetch;
+  const document={documentElement:{lang:"en"},activeElement:null,
+    querySelectorAll:()=>hosts,
+    querySelector:selector=>{
+      const result=selector.match(/data-reader-result="([^"]+)"/);
+      if(result) return results[result[1]];
+      const page=selector.match(/data-page-insights="([^"]+)"/);
+      if(page) return hosts.find(host=>host.dataset.pageInsights===page[1]);
+      const control=selector.match(/data-reader-control="([^"]+)"/);
+      return control?controls[control[1]]:null;
+    },
+    addEventListener:(name,callback)=>{listeners[name]=callback;}
+  };
+  const window={OBSERVATORY_DATA:data,ObservatoryRecordGuide:guide,ObservatoryLibrary:library,ObservatoryProgrammes:programmes,
+    location:{href:options.base},addEventListener:()=>{},
+    MutationObserver:class {constructor(callback){localeObserver=callback;} observe(){}},
+    fetch:()=>new Promise(resolve=>{finishFetch=resolve;})
+  };
+  pages.mount(document,window);
+  const change=(key,value)=>{
+    const target=controls[key]={dataset:{readerControl:key},value,focused:false,focus(){this.focused=true;}};
+    listeners.change({target});
+    return target;
+  };
+  const control=change("deliveryPeriod","2024");
+  assert.match(results.delivery.innerHTML,/After 2024 war/);
+  assert.match(results.delivery.innerHTML,/period=2024/);
+  change("compareLeft","rec-0181");
+  assert.match(results.comparison.innerHTML,/Anera Emergency WASH Programme/);
+  document.activeElement=control;
+  document.documentElement.lang="ar";
+  localeObserver();
+  const response=hosts.find(host=>host.dataset.pageInsights==="response").innerHTML;
+  assert.match(response,/value="2024" selected/);
+  assert.match(response,/بعد حرب 2024/);
+  assert.equal(control.focused,true);
+  const comparisonBefore=hosts.find(host=>host.dataset.pageInsights==="projects").innerHTML;
+  assert.match(comparisonBefore,/value="rec-0181" selected/);
+  finishFetch({ok:true,json:async()=>snapshot});
+  await new Promise(resolve=>setImmediate(resolve));
+  assert.equal(hosts.find(host=>host.dataset.pageInsights==="projects").innerHTML,comparisonBefore);
+  assert.match(hosts.find(host=>host.dataset.pageInsights==="sources").innerHTML,/134/);
 });

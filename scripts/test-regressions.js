@@ -165,10 +165,10 @@ test("font request uses valid Playfair weight axes and versioned assets", () => 
   assert.match(html, /Playfair\+Display:wght@600;700/);
   assert.doesNotMatch(html, /Playfair\+Display:ital,wght@600;700/);
   for (const asset of ["styles.css", "clarity.css"]) {
-    assert.ok(html.includes(`${asset}?v=pages-20260918`));
+    assert.ok(html.includes(`${asset}?v=explore-20260918`));
   }
   for (const asset of ["data.js", "programme-data.js", "classification-reviews.js", "record-guide.js", "library-tools.js", "app.js", "observatory.css"]) {
-    assert.ok(html.includes(`${asset}?v=pages-20260918`));
+    assert.ok(html.includes(`${asset}?v=explore-20260918`));
   }
   assert.ok(html.indexOf('src="classification-reviews.js') < html.indexOf('src="record-guide.js'));
   assert.ok(html.indexOf('src="record-guide.js') < html.indexOf('src="app.js'));
