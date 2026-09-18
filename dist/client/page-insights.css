@@ -1,0 +1,73 @@
+/* Page-specific reading material follows the Observatory's navy/copper palette. */
+.page-insights { margin-block:36px; padding-block:28px 8px; border-block-start:2px solid #b36a48; color:#173654; text-align:start; min-width:0; }
+.insight-heading { display:flex; flex-wrap:wrap; align-items:flex-start; justify-content:space-between; gap:16px 32px; margin-block-end:24px; }
+.insight-heading > div { flex:1 1 300px; min-width:0; }
+.insight-heading .eyebrow { margin:0 0 8px; font-size:.75rem; line-height:1.6; letter-spacing:.08em; color:#835036; }
+.insight-heading h3 { font-size:clamp(1.35rem,2.3vw,1.8rem); line-height:1.5; margin:0; max-width:36ch; }
+.insight-heading > p { flex:1 1 350px; max-width:65ch; margin:0; color:#42576a; font-size:1rem; line-height:1.75; }
+.page-insights p { font-size:1rem; line-height:1.75; color:#42576a; overflow-wrap:anywhere; }
+.page-insights h4 { margin:0 0 14px; color:#173654; font-size:1.125rem; line-height:1.65; overflow-wrap:anywhere; }
+.page-insights a { color:#204f76; text-decoration:underline; text-underline-offset:4px; font-size:.9375rem; line-height:1.7; overflow-wrap:anywhere; }
+.page-insights a:hover { color:#874529; }
+.page-insights :is(a,summary,[tabindex]):focus-visible { outline:3px solid #a85d3f; outline-offset:4px; }
+.insight-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; }
+.insight-grid-three { grid-template-columns:repeat(3,minmax(0,1fr)); }
+.insight-card,.insight-collection,.insight-partnership,.insight-deadline { padding:22px; min-width:0; border:1px solid #d8cec0; background:#fffdf9; }
+.insight-card > p,.insight-collection > p { margin-block:10px 16px; }
+.insight-metrics { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1px; margin-block:0 24px; background:#d8cec0; border:1px solid #d8cec0; }
+.insight-metric { display:flex; flex-direction:column; gap:6px; padding:18px 22px; background:#f6f3ed; min-width:0; }
+.insight-metric strong { font-size:2rem; line-height:1.35; color:#173654; }
+.insight-metric span { font-size:.875rem; line-height:1.6; color:#42576a; }
+.insight-number { display:block; margin-block-end:14px; color:#835036; font-size:.875rem; line-height:1.6; font-weight:700; }
+.insight-record-link { display:flex; align-items:flex-start; justify-content:space-between; gap:12px; padding-block:8px; min-height:44px; }
+.insight-record-link > span { flex:none; }
+.insight-stage { display:inline-block; padding:4px 9px; margin-block:0 8px; font-size:.875rem; line-height:1.65; background:#edf1f3; color:#344e61; }
+.insight-stage[data-stage="reported_complete"] { color:#28554b; background:#e8f0ec; }
+.insight-stage[data-stage="procurement"],.insight-stage[data-stage="planning"] { color:#714722; background:#f6e9d8; }
+.insight-next { border-inline-start:3px solid #a46c48; padding:14px 18px; background:#f5efe5; margin-block:20px; }
+.insight-next > strong { color:#173654; font-size:.9375rem; line-height:1.6; }
+.insight-next > p { margin:6px 0 0; }
+.insight-source-link { display:inline-flex; gap:10px; align-items:center; min-height:44px; padding-block:8px; }
+.insight-partnership ol { list-style:none; margin:0; padding:0; }
+.insight-partnership li { display:flex; gap:14px; padding-block:16px; border-block-start:1px solid #ded7cb; }
+.insight-partnership li strong { font-size:1rem; line-height:1.6; }
+.insight-partnership li p { margin:6px 0 0; }
+.insight-step { display:flex; align-items:center; justify-content:center; width:28px; height:28px; flex:0 0 28px; font-size:.875rem; background:#173654; color:white; }
+.insight-collection ul { list-style:none; padding:0; margin:0; }
+.insight-collection li { border-block-start:1px solid #ded7cb; padding-block:5px; }
+.insight-table-wrap { width:100%; overflow:auto; border:1px solid #d8cec0; }
+.insight-table { border-collapse:collapse; width:100%; table-layout:fixed; background:#fffdf9; font-size:.9375rem; line-height:1.65; }
+.insight-table th,.insight-table td { padding:16px; text-align:start; vertical-align:top; border-block-end:1px solid #ded7cb; overflow-wrap:anywhere; }
+.insight-table thead th { background:#173654; color:#fff; font-weight:600; font-size:.875rem; }
+.insight-table tbody th { font-weight:600; }
+.insight-table tbody tr:last-child > * { border-block-end:0; }
+.insight-table p { margin:8px 0 0; }
+.insight-table .insight-record-link { padding-block:0; }
+.page-insights-funding .insight-table th:first-child { width:29%; }
+.page-insights-funding .insight-table th:nth-child(2) { width:22%; }
+.insight-deadline { border-block-start:3px solid #173654; }
+.insight-deadline .insight-date { margin:0 0 14px; color:#835036; font-weight:700; font-size:1.125rem; }
+.insight-deadline .insight-source-link { display:flex; }
+.page-insights .insight-meta,.page-insights .insight-footnote { font-size:.875rem; line-height:1.8; }
+.insight-check-summary { padding:22px; border:1px solid #d8cec0; background:#f6f3ed; margin-block:24px; }
+.insight-check-summary p:last-child { margin-bottom:0; }
+.insight-faq { border-block-start:1px solid #d8cec0; }
+.insight-faq details { padding:16px 0; border-block-end:1px solid #d8cec0; }
+.insight-faq summary { color:#173654; cursor:pointer; font-size:1rem; font-weight:600; line-height:1.7; min-height:32px; }
+.insight-faq details p { max-width:85ch; margin-block-end:4px; }
+.is-arabic .insight-heading .eyebrow { letter-spacing:0; }
+.page-insights-projects { margin-block:20px; padding-block:16px; }
+.page-insights-projects > summary { cursor:pointer; font-size:1rem; font-weight:600; line-height:1.7; color:#204f76; padding-block:6px; }
+.page-insights-projects > section { margin-block-start:24px; }
+@media(max-width:1150px) {
+  .insight-grid-three { grid-template-columns:1fr; }
+}
+@media(max-width:680px) {
+  .insight-grid { grid-template-columns:1fr; }
+  .insight-metrics { grid-template-columns:1fr; }
+  .insight-metric { flex-direction:row; align-items:center; gap:18px; }
+  .insight-metric strong { font-size:1.75rem; min-width:3ch; }
+  .insight-card,.insight-collection,.insight-partnership,.insight-deadline { padding:18px; }
+  .insight-table { min-width:580px; }
+  .insight-heading > div,.insight-heading > p { flex-basis:100%; }
+}

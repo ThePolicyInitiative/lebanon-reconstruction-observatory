@@ -25,6 +25,8 @@ async function build() {
     copy("classification-reviews.js", "classification-reviews.js"),
     copy("library-tools.js", "library-tools.js"),
     copy("programme-data.js", "programme-data.js"),
+    copy("page-insights.js", "page-insights.js"),
+    copy("page-insights.css", "page-insights.css"),
     copy("assets", "assets"),
     copy("data", "data")
   ]);

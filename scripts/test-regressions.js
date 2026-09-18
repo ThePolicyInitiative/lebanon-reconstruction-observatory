@@ -165,10 +165,10 @@ test("font request uses valid Playfair weight axes and versioned assets", () => 
   assert.match(html, /Playfair\+Display:wght@600;700/);
   assert.doesNotMatch(html, /Playfair\+Display:ital,wght@600;700/);
   for (const asset of ["styles.css", "clarity.css"]) {
-    assert.ok(html.includes(`${asset}?v=refresh-20260918`));
+    assert.ok(html.includes(`${asset}?v=pages-20260918`));
   }
   for (const asset of ["data.js", "programme-data.js", "classification-reviews.js", "record-guide.js", "library-tools.js", "app.js", "observatory.css"]) {
-    assert.ok(html.includes(`${asset}?v=refresh-20260918`));
+    assert.ok(html.includes(`${asset}?v=pages-20260918`));
   }
   assert.ok(html.indexOf('src="classification-reviews.js') < html.indexOf('src="record-guide.js'));
   assert.ok(html.indexOf('src="record-guide.js') < html.indexOf('src="app.js'));
@@ -875,13 +875,13 @@ test("clipboard success and denied permission give truthful, usable feedback", a
 
 test("LEAP history resolves chronological entries to existing evidence, not new projects", () => {
   const events = programmeData.resolveEvents(seed, guide);
-  assert.equal(events.length, 9);
-  assert.equal(events.filter(event => event.record).length, 7);
+  assert.equal(events.length, 10);
+  assert.equal(events.filter(event => event.record).length, 8);
   assert.equal(events.filter(event => event.source).length, 2);
   assert.equal(new Set(events.map(event => event.id)).size, events.length);
   assert.equal(events[0].date, "2025-06");
-  assert.equal(events.at(-1).date, "2026-09-09");
-  assert.equal(events.at(-1).recordId, "rec-0172");
+  assert.equal(events.at(-1).date, "2026-09-11");
+  assert.equal(events.at(-1).recordId, "rec-0005");
   for (const event of events) {
     assert.ok(event.href?.startsWith("https://"));
     if (event.record) assert.notEqual(guide.get(event.record).delivery, "reported_complete");

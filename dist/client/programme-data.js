@@ -19,7 +19,10 @@
       { id:"leap-public-buildings", date:"2026-09-04", recordId:"rec-0005", kind:["Pre-award procurement", "مشتريات قبل الإرساء"] },
       { id:"leap-environment-social", date:"2026-09-04", recordId:"rec-0006", kind:["Pre-award procurement", "مشتريات قبل الإرساء"] },
       { id:"leap-water-infrastructure", date:"2026-09-08", recordId:"rec-0170", kind:["Pre-award procurement", "مشتريات قبل الإرساء"] },
-      { id:"leap-rhuh-mri", date:"2026-09-09", recordId:"rec-0172", kind:["Pre-award procurement", "مشتريات قبل الإرساء"] }
+      { id:"leap-rhuh-mri", date:"2026-09-09", recordId:"rec-0172", kind:["Pre-award procurement", "مشتريات قبل الإرساء"] },
+      { id:"leap-public-buildings-addendum", date:"2026-09-11", recordId:"rec-0005", kind:["Procurement addendum", "ملحق إعلان المشتريات"],
+        title:["Public-building consultancy deadline extended", "تمديد مهلة استشارات المباني العامة"],
+        note:["The CDR notice lists an addendum dated 11 September and a revised submission deadline of 22 September, noon Beirut time. This is a dated amendment to the 4 September notice, not a new project or an award. Notice checked on 18 September 2026.", "يسجل إعلان مجلس الإنماء والإعمار ملحقاً بتاريخ 11 أيلول ومهلة معدلة للتقديم في 22 أيلول، الساعة 12 ظهراً بتوقيت بيروت. هذا تعديل مؤرخ لإعلان 4 أيلول وليس مشروعاً جديداً أو إرساءً. فُحص الإعلان في 18 أيلول 2026."] }
     ]
   });
   function resolveEvents(data, guide) {
