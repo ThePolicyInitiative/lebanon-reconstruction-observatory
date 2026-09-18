@@ -26,6 +26,8 @@ try {
 if (initialLibraryState.lang) activeLocale = initialLibraryState.lang;
 
 const arabicText = Object.freeze({
+  "UNIFIL reports a vehicle and IT equipment handover to the ISF": "اليونيفيل تبلغ عن تسليم مركبات ومعدات تقنية إلى قوى الأمن الداخلي",
+  "The 9 September handover in Tyre supports institutional capacity in South Lebanon. The source reports an in-kind donation, with no monetary valuation or independently verified service outcomes.": "تدعم عملية التسليم في صور بتاريخ 9 أيلول القدرات المؤسسية في جنوب لبنان. ويبلغ المصدر عن تبرع عيني، من دون تقييم مالي أو نتائج خدمات متحقق منها بصورة مستقلة.",
   "Norway announces additional LAF support through UNDP": "النرويج تعلن دعماً إضافياً للجيش اللبناني عبر برنامج الأمم المتحدة الإنمائي",
   "The announced contribution supports Lebanese Armed Forces readiness and links continued support for explosive-ordnance clearance with safer return to homes and fields. It is recorded as an announced funding commitment.": "تدعم المساهمة المُعلَنة جهوزية الجيش اللبناني، وتربط استمرار دعم إزالة الذخائر المتفجرة بعودة أكثر أماناً إلى المنازل والحقول. تُسجّل كالتزام تمويلي مُعلَن.",
   "Renewed conflict derails Lebanon’s fragile economic recovery": "تجدد النزاع يعرقل التعافي الاقتصادي الهش في لبنان",

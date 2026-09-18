@@ -273,6 +273,22 @@ const OBSERVATORY_DATA = {
     ,{ name: "Baalbek Municipal Council for Children", short: "BAAL-KIDS", period: "2026", category: "Municipal child participation and community initiative", role: "A local media report says Baalbek Municipality and Himaya Association launched a municipal council for children, with member selection through schools and associations and training on dialogue, teamwork, responsibility and initiative.", source: "Follow Lebanon local report", href: "https://followlebanon.com/children-in-baalbek-partners-in-shaping-their-city/" }
   ],
   actions: [
+    {
+      "name": "Establish remote monitoring for South Lebanon pumping stations",
+      "period": "2026",
+      "stage": "Reported facility completion",
+      "description": "ICRC reports building a monitoring and operation centre with the South Lebanon Water Establishment. The facility is intended to support connected pumping stations; the account does not independently verify network-wide service recovery.",
+      "actor": "ICRC / South Lebanon Water Establishment",
+      "href": "https://www.icrc.org/en/article/lebanon-humanitarian-needs-remain-acute"
+    },
+    {
+      "name": "Hand over vehicles and IT equipment to the Internal Security Forces",
+      "period": "2026",
+      "stage": "Reported equipment handover",
+      "description": "UNIFIL reports donating vehicles and IT equipment to the ISF during a ceremony in Tyre on 9 September. The in-kind handover does not establish a monetary disbursement or independently verified public-service outcome.",
+      "actor": "UNIFIL / Internal Security Forces",
+      "href": "https://unifil.unmissions.org/en/news/unifil-donates-vehicles-it-equipment-to-internal-security-forces"
+    },
     { name: "Measure national damage and recovery needs", period: "2024", stage: "Assessment", description: "The national RDNA establishes the damage, loss and recovery-needs baseline across ten sectors.", actor: "World Bank / Government partners", href: "https://www.worldbank.org/en/news/press-release/2025/03/07/lebanon-s-recovery-and-reconstruction-needs-estimated-at-us-11-billion" },
     { name: "Document municipal recovery needs", period: "2024", stage: "Local assessment", description: "A UNDP rapid impact assessment uses municipality and governorate-level Disaster Risk Management inputs to record local infrastructure, livelihoods and service needs.", actor: "Municipalities / DRM units / UNDP", href: "https://www.undp.org/lebanon/publications/crisis-recovery-local-authorities-confronting-post-war-realities-lebanon-rapid-impact-assessment" },
     { name: "Prioritise recovery investments", period: "2024", stage: "Coordination", description: "LEAP uses a Council of Ministers-approved methodology based on damage intensity, winter population and pre-conflict economic activity.", actor: "CoM / CDR / CNRS-L", href: "https://www.worldbank.org/en/news/factsheet/2026/02/17/lebanon-emergency-assistance-project-frequently-asked-questions" },
@@ -606,6 +622,48 @@ const OBSERVATORY_DATA = {
     ,{ name: "Support community livelihoods and humanitarian access in South Lebanon", period: "2026", stage: "Reported operational support", description: "UNIFIL reports working with municipalities, community groups and local partners on fairs and market access, vocational training, children’s activities and facilitated humanitarian access in South Lebanon. The report describes an exhibition in Tyre with more than 100 women entrepreneurs; it is UNIFIL operational reporting, not independent verification of livelihood outcomes.", actor: "UNIFIL / Tyre Municipality / women entrepreneurs / community groups / humanitarian partners", href: "https://unifil.unmissions.org/en/news/peacekeepers-effort-to-help-rebuild-lives-after-hostilities-in-south-lebanon" }
   ],
   records: [
+    {
+      "name": "Anera Emergency WASH Programme",
+      "place": "South Lebanon, Nabatieh, Mount Lebanon and Beirut • 2026–2027",
+      "filter": "Local recovery",
+      "period": "2026",
+      "icon": "≈",
+      "status": "Anera / Lebanon Humanitarian Fund / local authorities and WASH partners",
+      "funding": "LHF-supported programme; amount and payment stage not stated",
+      "marker": "Launch announces planned hygiene supplies, emergency services and infrastructure rehabilitation through February 2027; outputs not yet reported",
+      "date": "2026-09-15",
+      "scale": 1,
+      "sourceId": "anera-emergency-wash-launch-2026",
+      "href": "https://www.anera.org/press/launching-a-wash-project-with-the-lebanon-humanitarian-fund/"
+    },
+    {
+      "name": "South Lebanon Water Remote Monitoring Centre",
+      "place": "South Lebanon pumping stations • April–September 2026 update",
+      "filter": "Local recovery",
+      "period": "2026",
+      "icon": "≈",
+      "status": "ICRC / South Lebanon Water Establishment",
+      "funding": "Water-service infrastructure support; payment stage not stated",
+      "marker": "ICRC reports building a centre to monitor and operate connected pumping stations remotely; network-wide recovery is not established",
+      "date": "2026-09-11",
+      "scale": 1,
+      "sourceId": "icrc-humanitarian-needs-update-2026",
+      "href": "https://www.icrc.org/en/article/lebanon-humanitarian-needs-remain-acute"
+    },
+    {
+      "name": "UNIFIL Equipment Handover to Internal Security Forces",
+      "place": "Tyre, South Lebanon • 9 Sep 2026",
+      "filter": "Local recovery",
+      "period": "2026",
+      "icon": "⇄",
+      "status": "UNIFIL / Internal Security Forces",
+      "funding": "In-kind equipment donation; monetary value not stated",
+      "marker": "UNIFIL reports handing over vehicles and IT equipment in Tyre; subsequent service outcomes are not independently verified",
+      "date": "2026-09-09",
+      "scale": 1,
+      "sourceId": "unifil-isf-equipment-handover-2026",
+      "href": "https://unifil.unmissions.org/en/news/unifil-donates-vehicles-it-equipment-to-internal-security-forces"
+    },
     {
       name: "LEAP MRI Supply and Installation Procurement",
       place: "Rafik Hariri University Hospital, Beirut • Posted 9 Sep 2026",
@@ -1997,6 +2055,16 @@ const OBSERVATORY_DATA = {
   ],
   news: [
     {
+      "id": "unifil-isf-equipment-handover-2026",
+      "category": "Public services",
+      "date": "2026-09-09",
+      "publisher": "United Nations Interim Force in Lebanon / Internal Security Forces",
+      "period": "2026",
+      "title": "UNIFIL reports a vehicle and IT equipment handover to the ISF",
+      "summary": "The 9 September handover in Tyre supports institutional capacity in South Lebanon. The source reports an in-kind donation, with no monetary valuation or independently verified service outcomes.",
+      "href": "https://unifil.unmissions.org/en/news/unifil-donates-vehicles-it-equipment-to-internal-security-forces"
+    },
+    {
       id: "unifil-community-livelihoods-2026",
       category: "Community initiative",
       date: "2026-09-17",
@@ -2338,6 +2406,7 @@ const OBSERVATORY_DATA = {
     }
   ],
   sources: [
+    { id: "unifil-isf-equipment-handover-2026", name: "UNIFIL equipment handover to the ISF", publisher: "United Nations Interim Force in Lebanon", date: "9 Sep 2026", type: "UN equipment handover report", coverage: "Reported vehicle and IT equipment donation in Tyre; subsequent service outcomes not independently verified", href: "https://unifil.unmissions.org/en/news/unifil-donates-vehicles-it-equipment-to-internal-security-forces" },
     { id: "unifil-community-livelihoods-2026", name: "UNIFIL community livelihoods and humanitarian-access update", publisher: "United Nations Interim Force in Lebanon / Tyre Municipality / community partners", date: "17 Sep 2026", type: "UN operational community-livelihoods update", coverage: "Reported fairs, market access, vocational training, children’s activities and humanitarian facilitation in South Lebanon; not independent outcome verification", href: "https://unifil.unmissions.org/en/news/peacekeepers-effort-to-help-rebuild-lives-after-hostilities-in-south-lebanon" },
     { id: "unicef-tref-board-2026", name: "TREF education-recovery strategic board meeting", publisher: "Ministry of Education and Higher Education / UNICEF / TREF contributing partners", date: "16 Sep 2026", type: "Official education-recovery governance update", coverage: "Third strategic board meeting on learning recovery, safe schools and reform; no financing decision or completed output reported", href: "https://www.unicef.org/lebanon/press-releases/salam-lebanons-recovery-cannot-succeed-without-education" },
     { id: "cdr-leap-rhuh-mri-procurement-2026", name: "LEAP MRI supply and installation procurement", publisher: "Council for Development and Reconstruction / Ministry of Public Health / World Bank", date: "9 Sep 2026", type: "Official pre-award procurement notice", coverage: "Open tender to supply and install an MRI machine for Rafik Hariri University Hospital under LEAP", href: "https://www.cdr.gov.lb/Procurment/ProcurementDetail.aspx?id=1262&lot=0" },

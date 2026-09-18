@@ -8,6 +8,9 @@
   // IDs are assigned once. Preserve each literal ID if its reading title changes;
   // never renumber this registry when adding, removing or reordering records.
   const readingRecords = Object.freeze({
+    "Anera Emergency WASH Programme": ["rec-0181","برنامج أنيرا الطارئ للمياه والصرف الصحي والنظافة"],
+    "South Lebanon Water Remote Monitoring Centre": ["rec-0182","مركز مراقبة وتشغيل محطات ضخ المياه عن بُعد في جنوب لبنان"],
+    "UNIFIL Equipment Handover to Internal Security Forces": ["rec-0183","تسليم اليونيفيل مركبات ومعدات تقنية لقوى الأمن الداخلي"],
     "Lebanon Rapid Damage & Needs Assessment (RDNA)": ["rec-0001", "التقييم السريع للأضرار والاحتياجات في لبنان"],
     "Lebanon Emergency Assistance Project (LEAP)": ["rec-0002", "مشروع المساعدة الطارئة للبنان (LEAP)"],
     "LEAP Project Design and Safeguards": ["rec-0003", "تصميم مشروع ليب وضماناته البيئية والاجتماعية"],

@@ -235,10 +235,38 @@ def fetch_target(target: dict[str, str], timeout: int, context: ssl.SSLContext) 
     return result
 
 
+def comparable_snapshot(snapshot: dict[str, Any]) -> list[dict[str, Any]]:
+    """Compare evidence and availability, ignoring request timing and ordering."""
+    return sorted(
+        [{key: value for key, value in target.items() if key not in {"checkedAt", "durationMs"}}
+         for target in snapshot["targets"]],
+        key=lambda target: target["url"],
+    )
+
+
+def save_snapshot(summary: dict[str, Any], output: Path, only_if_changed: bool = False) -> int:
+    # A network-wide failure must not replace the last useful public snapshot.
+    if not summary["reachableCount"]:
+        print("No sources reached; previous snapshot retained.")
+        return 1
+    if only_if_changed and output.exists():
+        previous = json.loads(output.read_text(encoding="utf-8"))
+        if comparable_snapshot(previous) == comparable_snapshot(summary):
+            print("No source metadata or availability changes; saved snapshot retained.")
+            return 0
+    output.parent.mkdir(parents=True, exist_ok=True)
+    temporary = output.with_name(output.name + ".tmp")
+    temporary.write_text(json.dumps(summary, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    temporary.replace(output)
+    print(f"Wrote {output} - {summary['reachableCount']}/{summary['targetCount']} pages reachable")
+    return 0
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description="Scrape metadata from official Observatory sources.")
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT, help="Generated JSON snapshot path")
     parser.add_argument("--timeout", type=int, default=20, help="Per-request timeout in seconds")
+    parser.add_argument("--only-if-changed", action="store_true", help="Retain the saved snapshot when only check times or request durations change")
     parser.add_argument(
         "--scope",
         choices=("registered", "core"),
@@ -261,10 +289,7 @@ def main() -> int:
         "reachableCount": sum(item.get("state") == "reachable" for item in results),
         "targets": results,
     }
-    args.output.parent.mkdir(parents=True, exist_ok=True)
-    args.output.write_text(json.dumps(summary, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print(f"Wrote {args.output} — {summary['reachableCount']}/{summary['targetCount']} pages reachable")
-    return 0 if summary["reachableCount"] else 1
+    return save_snapshot(summary, args.output, args.only_if_changed)
 
 
 if __name__ == "__main__":

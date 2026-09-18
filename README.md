@@ -33,11 +33,12 @@ The site deliberately does not claim live implementation completion data, munici
 
 ## Bilingual record guide and evidence stages
 
-`record-guide.js` supplies Arabic reading titles and permanent IDs for all 170 records and a separate, conservative financing/delivery classification. Original record titles, source wording, values and links in `data.js` are retained. The frontend applies the guide equally to bundled and API-loaded records.
+`record-guide.js` supplies Arabic reading titles and permanent IDs for all 183 records and a separate, conservative financing/delivery classification. Original record titles, source wording, values and links in `data.js` are retained. The frontend applies the guide equally to bundled and API-loaded records.
 
 - Title keys are exact English record names; they must be updated deliberately if a record is renamed.
 - `classification-reviews.js` records the 8 September 2026 source review of the remaining 154 records: 152 classified from 100 readable official sources, and 2 awaiting a readable copy of the same 29 November 2024 UNHCR report. Its 101 source entries include bilingual rationales, passage/page locators, original and alternative URLs, and direct/indexed/unavailable access status. Indexed access means official text was read through the search index, not that the original URL was live.
-- A separately dated 9 September check adds CDR procurement 1259 as `rec-0170` / `src-102`: a pre-award water-services procurement, not a reported payment or completed repair. Earlier sources keep their original check dates. Totals are now 155 source-review outcomes across 102 source entries, plus 15 record-wording annotations.
+- Separately dated reviews preserve earlier check dates. As of 18 September there are 169 source-review outcomes across 116 review-source entries (167 reviewed records and 2 inaccessible-source outcomes), plus 14 record-wording annotations. The public register contains 166 source entries, some sharing a URL.
+- The 18 September additions are `rec-0181` (Anera WASH programme, planned delivery), `rec-0182` (ICRC and South Lebanon Water Establishment monitoring centre, reported facility completion), and `rec-0183` (UNIFIL equipment donation to the ISF, reported handover). All three keep financing at “Source does not state stage.” The UNIFIL text was reviewed through the official search index; the other two pages were read directly. Publication dates remain 15, 11 and 9 September respectively. The baseline dataset review date remains 7 September; availability checks and individual editorial reviews have their own dates.
 - Each reviewed classification is bound to an exact snapshot of the record's source URL, date, scope and descriptive fields. Changed evidence fails closed and is visibly marked for re-review. The earlier 15 annotations retain their exact `funding` or `marker` guards and are labelled “Based on record wording”; they are not presented as newly reviewed primary sources.
 - “Source does not state stage” is a reviewed source's silence on one axis; “Evidence / information only” covers assessments, research and monitoring instead of delivery. An unavailable source stays unknown, not “no activity.” Damage estimates, needs, appeals, budgets, approvals, signed commitments, disbursements and spending are separate financing categories. A signed financing contract is not a works contract award.
 - Do not infer delivery from a publisher, category, planned activity, financing approval or procurement notice. Reported completion is not independent verification and does not establish spending or completion of an entire programme.
@@ -53,13 +54,13 @@ Run `npm test` before `npm run build`. The build includes the guide and styleshe
 
 The `v` cache-version parameter is retained, but unrelated query parameters are not included in copied URLs. Clipboard denial exposes a selectable manual-copy field. Programme links clear record filters; record links open the single identified record.
 
-Permanent `rec-0001` style identifiers are literal assignments in the `record-guide.js` reading registry. **Never renumber them or derive them from the current array order.** When renaming a record, update its registry key while preserving its ID; assign a new unused ID to a newly added record. Keep retired IDs reserved. The existing 169 records keep their original source data; source reviews add separate editorial metadata.
+Permanent `rec-0001` style identifiers are literal assignments in the `record-guide.js` reading registry. **Never renumber them or derive them from the current array order.** When renaming a record, update its registry key while preserving its ID; assign a new unused ID to a newly added record. Keep retired IDs reserved. Source reviews add separate editorial metadata; an availability refresh does not rewrite record evidence.
 
 The library intentionally omits the matching-results sentence, language explanation, sort selector, and view-copy/download/clear-filter toolbar. Search, category/period/coverage/stage filters and per-record links remain. Existing alphabetical links still work; legacy `sort=scale` links fall back to latest first because headline measures mix money, people and other units. This applies to the frontend and API.
 
 The retained CSV helper serializes `visibleRecords` with bilingual titles and notes, classification provenance, source links and original quantities. It preserves the UTF-8 BOM and formula-injection safeguards but has no visible download button. The legacy `/api/export.csv` endpoint remains available with its existing parameters; it does not implement the newer stage/coverage/Arabic-title filters.
 
-`programme-data.js` defines eight selected LEAP history entries (six library records and two additional sources). It is an editorial source chronology, not a live status feed or a count of separate projects. Dates identify publication or register dates, preserve month-only precision, and distinguish the approval announcement from the underlying decision. The history retains the dataset review date and does not certify awards, disbursements, expenditure or programme completion. Add later events only with dated source evidence and stable event IDs.
+`programme-data.js` defines nine selected LEAP history entries (seven library records and two additional sources). It is an editorial source chronology, not a live status feed or a count of separate projects. Dates identify publication or register dates, preserve month-only precision, and distinguish the approval announcement from the underlying decision. The history retains the dataset review date and does not certify awards, disbursements, expenditure or programme completion. Add later events only with dated source evidence and stable event IDs.
 
 API collections must contain the bundled editorial entries before replacing them; matching review dates alone do not establish freshness. Live availability metadata may change independently. The local preview serves only public site files and assets, not workspace research, Git metadata or notes. Mobile navigation supports Escape, an expanded-state label, and an inactive off-screen menu. The narrow-screen library resets desktop flex bases to prevent oversized search and filter controls.
 
@@ -67,14 +68,16 @@ The retained geographic API is not used by the current visible site. Its ArcGIS 
 
 ## Refresh source metadata
 
-The site includes a small, dependency-free Python collector that checks selected primary institutional pages and writes title, description, publication metadata, HTTP status and check time to `data/source-snapshots.json`.
+The site includes a small, dependency-free Python collector that checks the public source register and a core diagnostic subset and writes title, description, publication metadata, HTTP status and check time to `data/source-snapshots.json`.
 
 ```powershell
 python scripts/scrape_official_sources.py
 ```
 
+A manual run saves the current check times. A run with `--only-if-changed` retains the saved snapshot when only request timings change. If no page is reachable, the collector exits with failure and preserves the previous snapshot. Writes are atomic.
+
 This does not copy article bodies or treat page availability as implementation evidence. The generated snapshot is used only to show source-monitoring detail in the website.
 
 ## GitHub automation
 
-`.github/workflows/source-monitor.yml` runs the same public-source metadata check hourly (and can be started manually from the Actions tab). It validates and rebuilds the site, then commits `data/source-snapshots.json` only when page metadata or availability has changed. It deliberately does not alter editorial recovery records, financing classifications, or published claims: those require a reviewed source and an explicit repository change.
+`.github/workflows/source-monitor.yml` runs the same public-source metadata check hourly (and can be started manually from the Actions tab). It runs `--only-if-changed`, validates and rebuilds the site, then commits the snapshot and both served copies (`docs/data/` and `dist/client/data/`) together when page metadata, monitored URLs or availability changes. Recorded check times refer to the last saved run, rather than every unchanged hourly attempt. Python collector regressions run alongside the application suite. It deliberately does not alter editorial recovery records, financing classifications, or published claims: those require a reviewed source and an explicit repository change.

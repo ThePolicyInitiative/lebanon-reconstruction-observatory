@@ -165,10 +165,10 @@ test("font request uses valid Playfair weight axes and versioned assets", () => 
   assert.match(html, /Playfair\+Display:wght@600;700/);
   assert.doesNotMatch(html, /Playfair\+Display:ital,wght@600;700/);
   for (const asset of ["styles.css", "clarity.css"]) {
-    assert.ok(html.includes(`${asset}?v=external-20260916`));
+    assert.ok(html.includes(`${asset}?v=refresh-20260918`));
   }
   for (const asset of ["data.js", "programme-data.js", "classification-reviews.js", "record-guide.js", "library-tools.js", "app.js", "observatory.css"]) {
-    assert.ok(html.includes(`${asset}?v=external-20260916`));
+    assert.ok(html.includes(`${asset}?v=refresh-20260918`));
   }
   assert.ok(html.indexOf('src="classification-reviews.js') < html.indexOf('src="record-guide.js'));
   assert.ok(html.indexOf('src="record-guide.js') < html.indexOf('src="app.js'));
@@ -318,8 +318,8 @@ const classificationReviews = require("../classification-reviews.js");
 const recordById = id => seed.records.find(record => guide.get(record).id === id);
 
 test("source-reviewed records have explicit outcomes and individual review dates, including inaccessible evidence", () => {
-  assert.equal(Object.keys(classificationReviews.records).length, 166);
-  assert.equal(Object.keys(classificationReviews.sources).length, 113);
+  assert.equal(Object.keys(classificationReviews.records).length, 169);
+  assert.equal(Object.keys(classificationReviews.sources).length, 116);
   assert.equal(classificationReviews.checkedAt, "2026-09-08");
   assert.equal(seed.reviewedAt, "7 Sep 2026", "Classification review does not redate the dataset");
   const counts = {};
@@ -351,8 +351,27 @@ test("source-reviewed records have explicit outcomes and individual review dates
       assert.ok(evidence.accessError);
     }
   }
-  assert.deepEqual(counts, {reviewed:164, unavailable:2});
+  assert.deepEqual(counts, {reviewed:167, unavailable:2});
   assert.equal(seed.records.filter(record => guide.get(record).review.status === "record_only").length, 14);
+});
+
+test("September additions separate planned WASH work from reported facility and equipment completion", () => {
+  for (const [id, delivery, access] of [
+    ["rec-0181", "planning", "direct"],
+    ["rec-0182", "reported_complete", "direct"],
+    ["rec-0183", "reported_complete", "indexed"]
+  ]) {
+    const record = recordById(id), meta = guide.get(record);
+    assert.equal(meta.finance, "not_stated", "No payment stage can be inferred from in-kind or named-donor support");
+    assert.equal(meta.delivery, delivery);
+    assert.equal(meta.review.checkedAt, "2026-09-18");
+    assert.equal(meta.review.access, access);
+    assert.match(meta.titleAr, /[\u0600-\u06ff]/);
+    assert.equal(guide.get({...record, marker:"Changed delivery claim"}).review.status, "stale");
+  }
+  assert.equal(recordById("rec-0181").date, "2026-09-15", "A review date cannot replace a publication date");
+  assert.match(guide.get(recordById("rec-0182")).note[0], /whole network/);
+  assert.match(guide.get(recordById("rec-0183")).note[0], /in kind/);
 });
 
 test("source reviews fail closed on changed evidence, dates, URLs or scope, never by title keywords", () => {
@@ -502,7 +521,7 @@ test("needs, appeals, frameworks, announcements and approvals cannot become spen
     assert.equal(metadata.delivery, delivery);
   }
   const completed = seed.records.filter(record => guide.get(record).delivery === "reported_complete");
-  assert.deepEqual(completed.map(record => guide.get(record).id).sort(), ["rec-0015", "rec-0023", "rec-0028", "rec-0075", "rec-0088", "rec-0108", "rec-0163", "rec-0171", "rec-0175"]);
+  assert.deepEqual(completed.map(record => guide.get(record).id).sort(), ["rec-0015", "rec-0023", "rec-0028", "rec-0075", "rec-0088", "rec-0108", "rec-0163", "rec-0171", "rec-0175", "rec-0182", "rec-0183"]);
   for (const record of completed) assert.match(guide.get(record).note[0], /not independent|not completion of the entire|not all recovery|not completion of post-war|not completion of shelter|not the wider protection|wider municipal works programme|handover/);
 });
 
@@ -607,7 +626,7 @@ test("source-review provenance is bilingual, preserves Latin numbers and disting
     context.activeLocale = locale;
     vm.runInContext("renderRecords()", context);
     const output = context.projectList.innerHTML;
-    assert.equal((output.match(/data-review="reviewed"/g) || []).length, 164);
+    assert.equal((output.match(/data-review="reviewed"/g) || []).length, 167);
     assert.equal((output.match(/data-review="unavailable"/g) || []).length, 2);
     assert.equal((output.match(/data-review="record_only"/g) || []).length, 14);
     assert.equal((output.match(/data-review="[^"]+">[^<]*<time datetime="2026-09-08"/g) || []).length, 154);
@@ -615,6 +634,7 @@ test("source-review provenance is bilingual, preserves Latin numbers and disting
     assert.equal((output.match(/data-review="[^"]+">[^<]*<time datetime="2026-09-11"/g) || []).length, 1);
     assert.equal((output.match(/data-review="[^"]+">[^<]*<time datetime="2026-09-16"/g) || []).length, 7);
     assert.equal((output.match(/data-review="[^"]+">[^<]*<time datetime="2026-09-17"/g) || []).length, 2);
+    assert.equal((output.match(/data-review="[^"]+">[^<]*<time datetime="2026-09-18"/g) || []).length, 3);
     assert.doesNotMatch(output, /[\u0660-\u0669\u06f0-\u06f9]/);
     context.record = recordById("rec-0018");
     const alternative = vm.runInContext("renderRecordCard(record)", context);
@@ -866,7 +886,7 @@ test("LEAP history resolves chronological entries to existing evidence, not new 
     assert.ok(event.href?.startsWith("https://"));
     if (event.record) assert.notEqual(guide.get(event.record).delivery, "reported_complete");
   }
-  assert.equal(seed.records.length, 180);
+  assert.equal(seed.records.length, 183);
   assert.match(html, /data-tab-panel="leap-history"/);
   assert.match(source, /"leap-history": "LEAP programme history"/);
 });

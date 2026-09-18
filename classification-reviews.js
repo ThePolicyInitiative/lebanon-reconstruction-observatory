@@ -9,6 +9,51 @@
   const data = {
   "checkedAt": "2026-09-08",
   "sources": {
+    "src-114": {
+      "originalUrl": "https://www.anera.org/press/launching-a-wash-project-with-the-lebanon-humanitarian-fund/",
+      "url": "https://www.anera.org/press/launching-a-wash-project-with-the-lebanon-humanitarian-fund/",
+      "checkedAt": "2026-09-18",
+      "status": "reviewed",
+      "access": "direct",
+      "locator": [
+        "Anera release, 15 September 2026: opening programme dates and the sections on shelter support and damaged WASH infrastructure",
+        "بيان أنيرا، 15 أيلول 2026: تواريخ البرنامج في المقدمة وفقرتا دعم مراكز الإيواء والبنية التحتية المتضررة للمياه والصرف الصحي"
+      ],
+      "note": [
+        "The launch describes intended assistance through February 2027. It identifies LHF support but gives no amount or payment stage and reports no completed rehabilitation.",
+        "يصف الإطلاق المساعدة المزمع تقديمها حتى فبراير 2027. ويسمي صندوق لبنان الإنساني داعماً، لكنه لا يحدد مبلغاً أو مرحلة دفع ولا يبلغ عن تأهيل مكتمل."
+      ]
+    },
+    "src-115": {
+      "originalUrl": "https://www.icrc.org/en/article/lebanon-humanitarian-needs-remain-acute",
+      "url": "https://www.icrc.org/en/article/lebanon-humanitarian-needs-remain-acute",
+      "checkedAt": "2026-09-18",
+      "status": "reviewed",
+      "access": "direct",
+      "locator": [
+        "ICRC update, 11 September 2026: Strengthening access to clean water, final paragraph on the remote monitoring and operation centre",
+        "تحديث اللجنة الدولية للصليب الأحمر، 11 أيلول 2026: فقرة تعزيز الوصول إلى المياه النظيفة، الفقرة الأخيرة عن مركز المراقبة والتشغيل عن بُعد"
+      ],
+      "note": [
+        "ICRC reports that it built the centre with the South Lebanon Water Establishment. Completion applies to this facility; it is not independent verification of service reliability or recovery of the whole network. No payment stage is stated.",
+        "تفيد اللجنة الدولية بأنها أنشأت المركز مع مؤسسة مياه لبنان الجنوبي. يخص الإنجاز هذا المرفق؛ ولا يمثل تحققاً مستقلاً من موثوقية الخدمة أو تعافي الشبكة كاملة. لا يحدد المصدر مرحلة دفع."
+      ]
+    },
+    "src-116": {
+      "originalUrl": "https://unifil.unmissions.org/en/news/unifil-donates-vehicles-it-equipment-to-internal-security-forces",
+      "url": "https://unifil.unmissions.org/en/news/unifil-donates-vehicles-it-equipment-to-internal-security-forces",
+      "checkedAt": "2026-09-18",
+      "status": "reviewed",
+      "access": "indexed",
+      "locator": [
+        "UNIFIL release, 9 September 2026: opening donation description and paragraph identifying the ISF recipient",
+        "بيان اليونيفيل، 9 أيلول 2026: وصف التبرع في المقدمة والفقرة التي تحدد مستلم المعدات من قوى الأمن الداخلي"
+      ],
+      "note": [
+        "UNIFIL reports a handover of vehicles and IT equipment to the ISF in Tyre. This is completion of the reported handover, not independent verification of later public-service outcomes. The donation is in kind; no monetary value or cash-payment stage is stated.",
+        "تفيد اليونيفيل بتسليم مركبات ومعدات تقنية إلى قوى الأمن الداخلي في صور. يخص الإنجاز عملية التسليم المبلغ عنها، ولا يمثل تحققاً مستقلاً من نتائج الخدمات العامة لاحقاً. التبرع عيني ولا يحدد قيمة مالية أو مرحلة دفع نقدي."
+      ]
+    },
     "src-102": {
       "originalUrl": "https://cdr.gov.lb/Procurment/ProcurementDetail.aspx?id=1259&lot=0",
       "url": "https://www.cdr.gov.lb/Procurment/ProcurementDetail.aspx?id=1259&lot=0",
@@ -1552,6 +1597,57 @@
     }
   },
   "records": {
+    "rec-0181": {
+      "source": "src-114",
+      "snapshot": {
+        "name": "Anera Emergency WASH Programme",
+        "place": "South Lebanon, Nabatieh, Mount Lebanon and Beirut • 2026–2027",
+        "filter": "Local recovery",
+        "period": "2026",
+        "status": "Anera / Lebanon Humanitarian Fund / local authorities and WASH partners",
+        "funding": "LHF-supported programme; amount and payment stage not stated",
+        "marker": "Launch announces planned hygiene supplies, emergency services and infrastructure rehabilitation through February 2027; outputs not yet reported",
+        "date": "2026-09-15",
+        "sourceId": "anera-emergency-wash-launch-2026",
+        "href": "https://www.anera.org/press/launching-a-wash-project-with-the-lebanon-humanitarian-fund/"
+      },
+      "finance": "not_stated",
+      "delivery": "planning"
+    },
+    "rec-0182": {
+      "source": "src-115",
+      "snapshot": {
+        "name": "South Lebanon Water Remote Monitoring Centre",
+        "place": "South Lebanon pumping stations • April–September 2026 update",
+        "filter": "Local recovery",
+        "period": "2026",
+        "status": "ICRC / South Lebanon Water Establishment",
+        "funding": "Water-service infrastructure support; payment stage not stated",
+        "marker": "ICRC reports building a centre to monitor and operate connected pumping stations remotely; network-wide recovery is not established",
+        "date": "2026-09-11",
+        "sourceId": "icrc-humanitarian-needs-update-2026",
+        "href": "https://www.icrc.org/en/article/lebanon-humanitarian-needs-remain-acute"
+      },
+      "finance": "not_stated",
+      "delivery": "reported_complete"
+    },
+    "rec-0183": {
+      "source": "src-116",
+      "snapshot": {
+        "name": "UNIFIL Equipment Handover to Internal Security Forces",
+        "place": "Tyre, South Lebanon • 9 Sep 2026",
+        "filter": "Local recovery",
+        "period": "2026",
+        "status": "UNIFIL / Internal Security Forces",
+        "funding": "In-kind equipment donation; monetary value not stated",
+        "marker": "UNIFIL reports handing over vehicles and IT equipment in Tyre; subsequent service outcomes are not independently verified",
+        "date": "2026-09-09",
+        "sourceId": "unifil-isf-equipment-handover-2026",
+        "href": "https://unifil.unmissions.org/en/news/unifil-donates-vehicles-it-equipment-to-internal-security-forces"
+      },
+      "finance": "not_stated",
+      "delivery": "reported_complete"
+    },
     "rec-0005": {
       "source": "src-105",
       "snapshot": {
