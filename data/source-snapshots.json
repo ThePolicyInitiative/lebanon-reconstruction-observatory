@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-09-25T07:55:47.920017+00:00",
+  "generatedAt": "2026-09-25T13:54:32.588102+00:00",
   "collector": "scripts/scrape_official_sources.py",
   "targetCount": 157,
-  "reachableCount": 133,
+  "reachableCount": 131,
   "targets": [
     {
       "label": "Anera / Lebanon Humanitarian Fund — Anera emergency WASH programme",
       "url": "https://www.anera.org/press/launching-a-wash-project-with-the-lebanon-humanitarian-fund/",
-      "checkedAt": "2026-09-25T07:54:19.230222+00:00",
+      "checkedAt": "2026-09-25T13:53:18.217089+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -17,12 +17,12 @@
       "description": "Anera launches an emergency WASH project funded by the Lebanon Humanitarian Fund to support conflict-affected communities in Lebanon",
       "publishedAt": null,
       "updatedAt": "2026-09-15T17:22:56+00:00",
-      "durationMs": 1636
+      "durationMs": 266
     },
     {
       "label": "Anera / Ministry of Public Health / Americares — Anera public-hospital medicines support",
       "url": "https://www.anera.org/stories/supporting-lebanons-hospitals-with-medicines-during-a-time-of-crisis/",
-      "checkedAt": "2026-09-25T07:55:22.336622+00:00",
+      "checkedAt": "2026-09-25T13:54:11.015892+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -32,83 +32,83 @@
       "description": "Vital medical aid from Americares provides a boost to a healthcare system under strain.",
       "publishedAt": null,
       "updatedAt": "2026-07-21T17:11:37+00:00",
-      "durationMs": 204
+      "durationMs": 1702
     },
     {
       "label": "Council for Development and Reconstruction / Ministry of Public Health / World Bank — LEAP MRI supply and installation procurement",
       "url": "https://www.cdr.gov.lb/Procurment/ProcurementDetail.aspx?id=1262&lot=0",
-      "checkedAt": "2026-09-25T07:54:18.777613+00:00",
+      "checkedAt": "2026-09-25T13:53:17.083195+00:00",
       "state": "response-error",
       "status": 403,
       "error": "HTTP 403",
-      "durationMs": 252
+      "durationMs": 344
     },
     {
       "label": "Council for Development and Reconstruction / World Bank — LEAP Nabatieh damaged-road clearing and restoration tender",
       "url": "https://www.cdr.gov.lb/en-US/Procurment/ProcurementDetail.aspx?aliaspath=%2FProcurment%2FProcurementDetail&id=1250&lot=0",
-      "checkedAt": "2026-09-25T07:54:25.850276+00:00",
+      "checkedAt": "2026-09-25T13:53:23.414538+00:00",
+      "state": "response-error",
+      "status": 403,
+      "error": "HTTP 403",
+      "durationMs": 52
+    },
+    {
+      "label": "Council for Development and Reconstruction / World Bank — LEAP environmental and social services framework procurement",
+      "url": "https://www.cdr.gov.lb/en-US/Procurment.aspx?sortId=DESC",
+      "checkedAt": "2026-09-25T13:53:24.544775+00:00",
+      "state": "response-error",
+      "status": 403,
+      "error": "HTTP 403",
+      "durationMs": 351
+    },
+    {
+      "label": "Council for Development and Reconstruction / World Bank — LEAP implementation and procurement schedule",
+      "url": "https://documents1.worldbank.org/curated/en/099092325113021010/pdf/P509428-0fd29ca4-40c0-4950-83a7-5d5a4a805e23.pdf",
+      "checkedAt": "2026-09-25T13:54:04.374692+00:00",
+      "state": "reachable",
+      "status": 200,
+      "contentType": "application/pdf",
+      "finalUrl": "https://documents1.worldbank.org/curated/en/099092325113021010/pdf/P509428-0fd29ca4-40c0-4950-83a7-5d5a4a805e23.pdf",
+      "truncated": false,
+      "durationMs": 77
+    },
+    {
+      "label": "Council for Development and Reconstruction / World Bank — LEAP public-building framework procurement",
+      "url": "https://www.cdr.gov.lb/Procurment/ProcurementDetail.aspx?id=1261&lot=0",
+      "checkedAt": "2026-09-25T13:53:24.500812+00:00",
       "state": "response-error",
       "status": 403,
       "error": "HTTP 403",
       "durationMs": 50
     },
     {
-      "label": "Council for Development and Reconstruction / World Bank — LEAP environmental and social services framework procurement",
-      "url": "https://www.cdr.gov.lb/en-US/Procurment.aspx?sortId=DESC",
-      "checkedAt": "2026-09-25T07:54:26.240139+00:00",
-      "state": "response-error",
-      "status": 403,
-      "error": "HTTP 403",
-      "durationMs": 361
-    },
-    {
-      "label": "Council for Development and Reconstruction / World Bank — LEAP implementation and procurement schedule",
-      "url": "https://documents1.worldbank.org/curated/en/099092325113021010/pdf/P509428-0fd29ca4-40c0-4950-83a7-5d5a4a805e23.pdf",
-      "checkedAt": "2026-09-25T07:55:11.156704+00:00",
-      "state": "reachable",
-      "status": 200,
-      "contentType": "application/pdf",
-      "finalUrl": "https://documents1.worldbank.org/curated/en/099092325113021010/pdf/P509428-0fd29ca4-40c0-4950-83a7-5d5a4a805e23.pdf",
-      "truncated": false,
-      "durationMs": 67
-    },
-    {
-      "label": "Council for Development and Reconstruction / World Bank — LEAP public-building framework procurement",
-      "url": "https://www.cdr.gov.lb/Procurment/ProcurementDetail.aspx?id=1261&lot=0",
-      "checkedAt": "2026-09-25T07:54:25.956166+00:00",
-      "state": "response-error",
-      "status": 403,
-      "error": "HTTP 403",
-      "durationMs": 284
-    },
-    {
       "label": "Council for Development and Reconstruction / World Bank — LEAP water-infrastructure repair framework procurement",
       "url": "https://cdr.gov.lb/Procurment/ProcurementDetail.aspx?id=1259&lot=0",
-      "checkedAt": "2026-09-25T07:54:25.787892+00:00",
+      "checkedAt": "2026-09-25T13:53:23.361833+00:00",
       "state": "response-error",
       "status": 403,
       "error": "HTTP 403",
-      "durationMs": 62
+      "durationMs": 53
     },
     {
       "label": "Directorate General of Antiquities / UNESCO — Emergency protection of cultural heritage",
       "url": "https://www.unesco.org/en/articles/unesco-and-lebanons-directorate-general-antiquities-discuss-emergency-measures-protect-cultural?hub=802",
-      "checkedAt": "2026-09-25T07:55:12.677597+00:00",
+      "checkedAt": "2026-09-25T13:54:05.476752+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
       "finalUrl": "https://www.unesco.org/en/articles/unesco-and-lebanons-directorate-general-antiquities-discuss-emergency-measures-protect-cultural?hub=802",
       "truncated": false,
-      "pageTitle": "UNESCO and Lebanon’s Directorate General of Antiquities Discuss",
-      "description": "Technical cooperation focuses on safeguarding heritage sites and movable cultural assets amid ongoing conflict",
+      "pageTitle": "Request Rejected",
+      "description": null,
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 4552
+      "durationMs": 603
     },
     {
       "label": "Directorate General of Vocational and Technical Education / UNICEF — Pathways Plus technical-education re-entry",
       "url": "https://www.unicef.org/lebanon/stories/pathways-plus-second-chance-learn-through-tvet-lebanon",
-      "checkedAt": "2026-09-25T07:55:12.525608+00:00",
+      "checkedAt": "2026-09-25T13:54:05.281174+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -118,12 +118,12 @@
       "description": "Pathways Plus has supported 225 out-of-school adolescents and youth to return to formal TVET education and build practical skills for the future",
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 2395
+      "durationMs": 312
     },
     {
       "label": "European Union / Lebanese Armed Forces / UNDP / UNSCOL — EU, LAF and UNDP southern-community recovery project",
       "url": "https://www.undp.org/lebanon/press-releases/new-eu125m-project-support-lebanese-armed-forces",
-      "checkedAt": "2026-09-25T07:55:25.693739+00:00",
+      "checkedAt": "2026-09-25T13:54:14.077695+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -133,12 +133,12 @@
       "description": "The European Union announced a new €12.5 million project to support the Lebanese Armed Forces (LAF) in leading recovery efforts, enhancing security and helping communities in Southern Lebanon rebuild. The project will be implemented by the United Nations Development Programme (UNDP).",
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 5124
+      "durationMs": 5161
     },
     {
       "label": "European Union / UNDP / Ministry of Environment — Municipal waste-service equipment delivery",
       "url": "https://www.undp.org/arab-states/press-releases/bekaa-and-south-lebanon-receive-more-20-machines-and-trucks-support-waste-services",
-      "checkedAt": "2026-09-25T07:54:25.138663+00:00",
+      "checkedAt": "2026-09-25T13:53:23.150813+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -148,12 +148,12 @@
       "description": "The European Union (EU), the United Nations Development Programme (UNDP) and the Ministry of Environment have delivered essential waste management equipment to municipalities, unions of municipalities and waste management facilities across the Bekaa and South Lebanon.",
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 3015
+      "durationMs": 2905
     },
     {
       "label": "European Union / UNDP / UN-Habitat — Municipal Empowerment and Resilience Project completion",
       "url": "https://www.undp.org/lebanon/press-releases/eu-and-un-celebrate-completion-key-project-support-local-authorities-lebanon",
-      "checkedAt": "2026-09-25T07:55:33.743683+00:00",
+      "checkedAt": "2026-09-25T13:54:20.693019+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -163,12 +163,12 @@
       "description": "The European Union (EU), in collaboration with the United Nations Development Programme (UNDP) and the United Nations Human Settlements Programme (UN-Habitat), celebrated the successful conclusion of the Municipal Empowerment and Resilience Project (MERP).",
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 7256
+      "durationMs": 3663
     },
     {
       "label": "European Union / UNDP / UNODC — EU post-conflict stability and peacebuilding support",
       "url": "https://www.undp.org/lebanon/press-releases/eu-announces-eu8-million-post-conflict-stability-lebanon",
-      "checkedAt": "2026-09-25T07:55:38.574197+00:00",
+      "checkedAt": "2026-09-25T13:54:21.053262+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -178,12 +178,12 @@
       "description": "The European Union announced 8 million Euro to support stability, security, and peace in Lebanon, following 13 months of conflict. The project will be implemented by the United Nations Development Programme (UNDP) and the United Nations Office on Drugs and Crime (UNODC).",
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 5681
+      "durationMs": 3493
     },
     {
       "label": "FAO / WFP / Ministry of Agriculture — Food Security and Agriculture Cluster activation",
       "url": "https://www.fao.org/lebanon/news/detail/fao%27s-response-to-the-escalating-conflict-in-lebanon--safeguarding-food--nutrition--security-and-agriculture/en",
-      "checkedAt": "2026-09-25T07:55:24.620444+00:00",
+      "checkedAt": "2026-09-25T13:54:13.437025+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -193,12 +193,12 @@
       "description": "The Food and Agriculture Organization of the United Nations (FAO) is ramping up efforts to support the agriculture sector and safeguard food and nutrition se...",
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 1071
+      "durationMs": 641
     },
     {
       "label": "FAO / WFP / Ministry of Agriculture — Post-conflict food-security analysis",
       "url": "https://www.fao.org/lebanon/news/detail/food-insecurity-deepens-in-lebanon-following-conflict--new-report-shows/en",
-      "checkedAt": "2026-09-25T07:55:41.223272+00:00",
+      "checkedAt": "2026-09-25T13:54:25.709612+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -208,12 +208,12 @@
       "description": "Nearly a third of Lebanon’s population is facing acute food insecurity following the escalation of conflict in late 2024 and the impact of hostilities on agr...",
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 432
+      "durationMs": 375
     },
     {
       "label": "FAO Lebanon / Ministry of Agriculture — Accessible agricultural guidance for women farmers",
       "url": "https://www.fao.org/lebanon/news/detail/empowering-women-in-crisis--fao-keeps-lebanon-s-farmers-connected/en",
-      "checkedAt": "2026-09-25T07:55:04.010038+00:00",
+      "checkedAt": "2026-09-25T13:54:00.586620+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -223,12 +223,12 @@
       "description": "As the crisis in Lebanon continues to restrict movement and access to several rural areas, FAO Lebanon rapidly adapted its support to farmers by shifting its...",
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 674
+      "durationMs": 539
     },
     {
       "label": "FAO Lebanon — Cooperatives and rural-community resilience",
       "url": "https://www.fao.org/lebanon/news/detail/international-day-of-cooperatives--fao-highlights-the-role-of-cooperatives-in-strengthening-rural-communities-in-lebanon/en",
-      "checkedAt": "2026-09-25T07:55:10.835022+00:00",
+      "checkedAt": "2026-09-25T13:54:04.062947+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -238,12 +238,12 @@
       "description": "Across Lebanon, cooperatives and producer organizations support farmers, fishers, women, men and youth entrepreneurs and rural communities overcome economic ...",
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 322
+      "durationMs": 312
     },
     {
       "label": "Fair Trade Lebanon / Lebanon Humanitarian Fund — Fair Trade Lebanon cash-for-work programme",
       "url": "https://fairtradelebanon.org/Portfolio/livelihood-emergency-cash-for-work-support-to-conflict-affected-communities-in-baabda-and-baalbek/",
-      "checkedAt": "2026-09-25T07:54:21.823674+00:00",
+      "checkedAt": "2026-09-25T13:53:20.184205+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -253,12 +253,12 @@
       "description": null,
       "publishedAt": "2026-09-14T12:57:55+00:00",
       "updatedAt": "2026-09-14T13:12:21+00:00",
-      "durationMs": 1966
+      "durationMs": 1570
     },
     {
       "label": "Follow Lebanon — Baalbek Municipal Council for Children launch",
       "url": "https://followlebanon.com/children-in-baalbek-partners-in-shaping-their-city/",
-      "checkedAt": "2026-09-25T07:54:23.888063+00:00",
+      "checkedAt": "2026-09-25T13:53:22.056137+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -268,12 +268,12 @@
       "description": "The Baalbek Municipality and the “Himaya” Association are launching the Municipal Children’s Council to promote participation and citizenship and turn children’s ideas into initiatives that benefit the city.",
       "publishedAt": "2026-09-15T05:21:32+00:00",
       "updatedAt": null,
-      "durationMs": 1251
+      "durationMs": 1306
     },
     {
       "label": "Government of Lebanon / United Nations — Government and UN Lebanon flash appeal",
       "url": "https://lebanon.un.org/en/280095-united-nations-and-lebanese-government-launch-426-million-flash-appeal-urgent-humanitarian",
-      "checkedAt": "2026-09-25T07:55:45.830048+00:00",
+      "checkedAt": "2026-09-25T13:54:29.805428+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -283,12 +283,12 @@
       "description": "Since 17 September 2024, Lebanon has experienced an unprecedented surge in casualties and displacement, dramatically compounding the already profound toll of over 11 months of violence. In just the past two weeks, more than 1,000 people have lost their lives, over 6,000 have been injured, and an estimated 1 million people have been directly affected or disp…",
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 732
+      "durationMs": 949
     },
     {
       "label": "Government of Lebanon / United Nations — Lebanon Response Plan 2026",
       "url": "https://lebanon.un.org/en/309523-lebanon-response-plan-2026",
-      "checkedAt": "2026-09-25T07:54:29.176305+00:00",
+      "checkedAt": "2026-09-25T13:53:27.469710+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -298,12 +298,12 @@
       "description": "As Lebanon navigates a fragile recovery amid continued economic collapse, conflict aftershocks, and regional instability, millions remain in urgent need of support. The Lebanon Response Plan (LRP) 2026 — jointly led by the Government of Lebanon and the United Nations — sets out a coordinated, nationwide strategy to deliver life-saving assistance, protect th…",
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 704
+      "durationMs": 798
     },
     {
       "label": "Government of Lebanon / United Nations — Lebanon Response Plan national oversight",
       "url": "https://lebanon.un.org/en/307012-steering-committee-endorses-lebanon-response-plan-2026",
-      "checkedAt": "2026-09-25T07:54:56.441198+00:00",
+      "checkedAt": "2026-09-25T13:53:56.474098+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -313,12 +313,12 @@
       "description": "The LRP 2026 calls for USD 1.62 billion to support 1.5 million people in critical need of assistance and protection services, including vulnerable Lebanese, displaced Syrians, Palestinian Refugees from Syria (PRS), Palestine Refugees in Lebanon (PRL), and migrants. The LRP also reflects the Government’s priority to facilitate safe, dignified, and sustainabl…",
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 898
+      "durationMs": 893
     },
     {
       "label": "Government of Norway / UNDP / Lebanese Armed Forces — Norway additional support to the Lebanese Armed Forces",
       "url": "https://www.undp.org/lebanon/press-releases/norway-announces-15-million-additional-support-lebanese-armed-forces-through-undp",
-      "checkedAt": "2026-09-25T07:54:26.601209+00:00",
+      "checkedAt": "2026-09-25T13:53:24.551095+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -328,32 +328,32 @@
       "description": null,
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 2575
+      "durationMs": 2857
     },
     {
       "label": "IFRC / Lebanese Red Cross — IFRC Lebanon complex emergency appeal",
       "url": "https://www.ifrc.org/sites/default/files/media/appeal/file/2024-11/MDRLB017EA.pdf",
-      "checkedAt": "2026-09-25T07:55:45.581618+00:00",
+      "checkedAt": "2026-09-25T13:54:29.615188+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "application/pdf",
       "finalUrl": "https://www.ifrc.org/sites/default/files/media/appeal/file/2024-11/MDRLB017EA.pdf",
       "truncated": false,
-      "durationMs": 395
+      "durationMs": 190
     },
     {
       "label": "IFRC / Lebanese Red Cross — IFRC Lebanon complex emergency response",
       "url": "https://www.ifrc.org/emergency/lebanon-complex-emergency",
-      "checkedAt": "2026-09-25T07:55:46.561741+00:00",
+      "checkedAt": "2026-09-25T13:54:31.038005+00:00",
       "state": "response-error",
       "status": 403,
       "error": "HTTP 403",
-      "durationMs": 39
+      "durationMs": 44
     },
     {
       "label": "ILO / Ministry of Labour / social partners — National tripartite dialogue on employment recovery",
       "url": "https://www.ilo.org/resource/news/lebanon%E2%80%99s-national-tripartite-dialogue-sets-shared-priorities-economic",
-      "checkedAt": "2026-09-25T07:55:46.600766+00:00",
+      "checkedAt": "2026-09-25T13:54:31.082399+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -363,12 +363,12 @@
       "description": "Amid the ongoing hostilities and economic crisis, dialogue identifies shared priorities to protect jobs, sustain enterprises, support workers and safeguard their rights, uphold the fundamental principles and rights at work, and strengthen labour market resilience.",
       "publishedAt": "2026-07-03T10:05:01+0000",
       "updatedAt": "2026-07-03T10:06:22+0000",
-      "durationMs": 302
+      "durationMs": 817
     },
     {
       "label": "International Committee of the Red Cross / Ministry of Public Health / Lebanese Red Cross — ICRC medical-service continuity support",
       "url": "https://www.icrc.org/en/article/lebanon-icrc-supporting-life-saving-medical-services-during-hostilities",
-      "checkedAt": "2026-09-25T07:55:40.649335+00:00",
+      "checkedAt": "2026-09-25T13:54:25.124465+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -378,12 +378,12 @@
       "description": "Across Lebanon, the intensification of hostilities, coupled with evacuation orders covering entire districts in Beirut, southern Lebanon and the Bekaa Valley, has placed enormous strain on the country’s health-care system.",
       "publishedAt": "2026-03-13T10:23:01+01:00",
       "updatedAt": "2026-03-13T12:57:10+01:00",
-      "durationMs": 574
+      "durationMs": 1649
     },
     {
       "label": "International Committee of the Red Cross — ICRC Lebanon humanitarian-needs update",
       "url": "https://www.icrc.org/en/article/lebanon-humanitarian-needs-remain-acute",
-      "checkedAt": "2026-09-25T07:54:20.866643+00:00",
+      "checkedAt": "2026-09-25T13:53:18.483019+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -393,12 +393,12 @@
       "description": null,
       "publishedAt": "2026-09-11T11:31:58+02:00",
       "updatedAt": "2026-09-11T12:06:45+02:00",
-      "durationMs": 806
+      "durationMs": 1558
     },
     {
       "label": "International Committee of the Red Cross — ICRC Lebanon operational update",
       "url": "https://www.icrc.org/en/article/lebanon-operational-facts-and-figures-2026",
-      "checkedAt": "2026-09-25T07:55:00.603486+00:00",
+      "checkedAt": "2026-09-25T13:53:57.464627+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -408,23 +408,23 @@
       "description": "Since the escalation of the armed conflict in Lebanon in March 2026, ICRC teams have supported authorities and local actors, assisted communities in urgent need, and engaged in confidential dialogue with relevant parties. They have trained responders, empowered communities, and strengthened protection systems, putting humanitarian principles into concrete a…",
       "publishedAt": "2026-04-21T10:30:42+02:00",
       "updatedAt": "2026-07-31T18:32:24+02:00",
-      "durationMs": 730
+      "durationMs": 1484
     },
     {
       "label": "International Committee of the Red Cross — ICRC escalation response in Lebanon",
       "url": "https://www.icrc.org/sites/default/files/2026-04/AR---26-March---Response-to-the-Escalation-of-Armed-Conflict-in-Lebanon-March-2026_0.pdf",
-      "checkedAt": "2026-09-25T07:55:25.773823+00:00",
+      "checkedAt": "2026-09-25T13:54:14.099625+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "application/pdf",
       "finalUrl": "https://www.icrc.org/sites/default/files/2026-04/AR---26-March---Response-to-the-Escalation-of-Armed-Conflict-in-Lebanon-March-2026_0.pdf",
       "truncated": true,
-      "durationMs": 1104
+      "durationMs": 1080
     },
     {
       "label": "International Labour Organization — ILO emergency response for displaced people",
       "url": "https://www.ilo.org/resource/news/ilo-responds-lebanon-crisis-emergency-assistance-displaced-people",
-      "checkedAt": "2026-09-25T07:55:44.996489+00:00",
+      "checkedAt": "2026-09-25T13:54:28.630280+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -434,12 +434,12 @@
       "description": "Working with its national partners, the ILO’s Emergency Response Plan prepares the ground for long-term recovery.",
       "publishedAt": "2024-11-12T09:34:47+0000",
       "updatedAt": "2024-12-17T15:07:28+0000",
-      "durationMs": 585
+      "durationMs": 562
     },
     {
       "label": "International Labour Organization — ILO labour market assessment during renewed conflict",
       "url": "https://www.ilo.org/publications/lebanons-labour-market-crisis-assessing-impacts-renewed-conflict-and",
-      "checkedAt": "2026-09-25T07:55:46.903165+00:00",
+      "checkedAt": "2026-09-25T13:54:31.561429+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -449,12 +449,12 @@
       "description": "This report provides evidence on the impacts of the current crisis on employment, earnings and working conditions in the private sector, and examines the coping strategies adopted by workers and their priorities for recovery, with the aim of informing policy responses to protect workers and promote labour market recovery during a period of acute economic an…",
       "publishedAt": "2026-07-07T07:59:59+0000",
       "updatedAt": "2026-07-29T12:45:45+0000",
-      "durationMs": 315
+      "durationMs": 537
     },
     {
       "label": "International Organization for Migration — IOM Displacement Tracking Matrix Lebanon",
       "url": "https://dtm.iom.int/lebanon",
-      "checkedAt": "2026-09-25T07:55:46.537182+00:00",
+      "checkedAt": "2026-09-25T13:54:30.754150+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -464,23 +464,23 @@
       "description": null,
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 552
+      "durationMs": 1004
     },
     {
       "label": "International Organization for Migration — IOM Lebanon emergency response activity update",
       "url": "https://crisisresponse.iom.int/sites/g/files/tmzbdl1481/files/appeal/documents/IOM%20Lebanon%20External%20Update%204%2015-28%20November%202024.pdf",
-      "checkedAt": "2026-09-25T07:55:44.541065+00:00",
+      "checkedAt": "2026-09-25T13:54:27.372319+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "application/pdf",
       "finalUrl": "https://crisisresponse.iom.int/sites/g/files/tmzbdl1481/files/appeal/documents/IOM%20Lebanon%20External%20Update%204%2015-28%20November%202024.pdf",
       "truncated": false,
-      "durationMs": 481
+      "durationMs": 1258
     },
     {
       "label": "International Organization for Migration — IOM Lebanon mobility snapshot",
       "url": "https://dtm.iom.int/dtm-insights/june-2026-edition/data-update-saving-lives-and-protecting-people-move-lebanon",
-      "checkedAt": "2026-09-25T07:55:45.976171+00:00",
+      "checkedAt": "2026-09-25T13:54:30.518313+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -490,12 +490,12 @@
       "description": "The Mobility Snapshot is produced through IOM’s Displacement Tracking Matrix (DTM) Mobility Tracking exercise in Lebanon. The report supports the humanitarian community with preparedness and response planning through regular monitoring of population movements and is complemented by data from national systems to support data triangulation and validation. Inf…",
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 979
+      "durationMs": 1043
     },
     {
       "label": "International Organization for Migration — IOM community stabilization and community-driven development plan",
       "url": "https://crisisresponse.iom.int/index.php/response/lebanon-crisis-response-plan-2026",
-      "checkedAt": "2026-09-25T07:54:23.622848+00:00",
+      "checkedAt": "2026-09-25T13:53:21.398185+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -505,21 +505,21 @@
       "description": "IOM aims to support and empower Lebanon’s most vulnerable populations, including migrants, refugees, internally displaced persons, and host communities, amid ongoing socioeconomic challenges and the lasting impact of the 2024 conflict escalation, and the renewed hostilities which started in March 2026. IOM will continue delivering essential humanitarian aid…",
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 2165
+      "durationMs": 3103
     },
     {
       "label": "MEHE / UNICEF — School rehabilitation and learning continuity alert",
       "url": "https://www.unicef.org/lebanon/press-releases/least%E2%80%AF100000-children%E2%80%AF-risk-missing-next-school-year-without-urgent-action-restore",
-      "checkedAt": "2026-09-25T07:54:44.764338+00:00",
+      "checkedAt": "2026-09-25T13:53:41.038543+00:00",
       "state": "response-error",
       "status": 404,
       "error": "HTTP 404",
-      "durationMs": 492
+      "durationMs": 543
     },
     {
       "label": "Ministry of Agriculture / European Union / FAO / WFP — Food security and rural livelihoods coordination",
       "url": "https://www.fao.org/lebanon/news/detail/ministry-of-agriculture--the-eu--fao-and-wfp-drive-coordinated-action-to-support-food-security-and-rural-livelihoods-in-lebanon/en",
-      "checkedAt": "2026-09-25T07:55:03.106736+00:00",
+      "checkedAt": "2026-09-25T13:54:00.333183+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -529,12 +529,12 @@
       "description": "The Ministry of Agriculture, in collaboration with the European Union (EU), the Food and Agriculture Organization of the United Nations (FAO), the World Food...",
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 555
+      "durationMs": 1275
     },
     {
       "label": "Ministry of Agriculture / FAO / CNRS-L — Agricultural damage and loss assessment",
       "url": "https://www.fao.org/neareast/news/details/fao-and-ministry-of-agriculture-launch-the-lebanon-agricultural-damage-and-loss-assessment-report/en",
-      "checkedAt": "2026-09-25T07:54:27.581895+00:00",
+      "checkedAt": "2026-09-25T13:53:25.667381+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -544,12 +544,12 @@
       "description": "The Food and Agriculture Organization of the United Nations (FAO), in close collaboration with the Ministry of Agriculture (MoA) and the National Council for...",
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 622
+      "durationMs": 617
     },
     {
       "label": "Ministry of Agriculture / FAO / Government of Canada — Digital farmer training during access constraints",
       "url": "https://www.fao.org/lebanon/news/detail/ministry-of-agriculture--fao-and-government-of-canada-launch-online-training-to-support-farmers-across-lebanon/en",
-      "checkedAt": "2026-09-25T07:54:51.806227+00:00",
+      "checkedAt": "2026-09-25T13:53:49.039863+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -559,12 +559,12 @@
       "description": "In a step aimed at supporting the resilience of the agricultural sector amid current challenges, the Lebanese Ministry of Agriculture, in collaboration with ...",
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 1015
+      "durationMs": 521
     },
     {
       "label": "Ministry of Agriculture / FAO / Government of Japan — South Lebanon agrifood recovery and resilience",
       "url": "https://www.fao.org/lebanon/news/detail/ministry-of-agriculture-and-fao-launch-japan-funded-project-to-enhance-recovery-and-resilience-of-agrifood-systems-and-rural-livelihoods-in-conflict-affected-areas-of-south-lebanon/en",
-      "checkedAt": "2026-09-25T07:54:28.153757+00:00",
+      "checkedAt": "2026-09-25T13:53:26.055341+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -574,12 +574,12 @@
       "description": "The Ministry of Agriculture and the Food and Agriculture Organization of the United Nations (FAO) in Lebanon, has launched a new project “Enhancing Recovery ...",
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 383
+      "durationMs": 1414
     },
     {
       "label": "Ministry of Agriculture / FAO / Ministry of Energy and Water / Switzerland — Water and food sector resilience project",
       "url": "https://www.fao.org/lebanon/news/detail/launch-and-inception-workshop-of-the-project-increasing-resilience-of-lebanon-s-water-and-food-sector/en",
-      "checkedAt": "2026-09-25T07:54:28.204086+00:00",
+      "checkedAt": "2026-09-25T13:53:26.284780+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -589,12 +589,12 @@
       "description": "The Ministry of Agriculture, in collaboration with the Food and Agriculture Organization of the United Nations (FAO) in Lebanon, launched today the three-yea...",
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 1137
+      "durationMs": 1513
     },
     {
       "label": "Ministry of Agriculture / FAO Lebanon — National Agriculture Strategy 2026 to 2035 validation",
       "url": "https://www.fao.org/lebanon/news/detail/lebanon-validates-strategic-framework-and-sesa-scoping-for-the-national-agriculture-strategy-2026-2035/en",
-      "checkedAt": "2026-09-25T07:55:12.211576+00:00",
+      "checkedAt": "2026-09-25T13:54:04.451749+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -604,12 +604,12 @@
       "description": "The Ministry of Agriculture (MoA), in collaboration with the Food and Agriculture Organization of the United Nations (FAO), organized a national worksho...",
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 314
+      "durationMs": 1025
     },
     {
       "label": "Ministry of Agriculture / FAO — Rapid agriculture needs assessment after the 2024 escalation",
       "url": "https://www.fao.org/lebanon/news/detail/launch-of-the-rapid-needs-assessment--on-the-impact-of-conflict-on-agriculture-in-lebanon/en",
-      "checkedAt": "2026-09-25T07:55:40.999211+00:00",
+      "checkedAt": "2026-09-25T13:54:25.391231+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -619,12 +619,12 @@
       "description": "The Food and Agriculture Organization of the United Nations (FAO), in partnership with the Lebanese Ministry of Agriculture, conducted a rapid needs assessme...",
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 246
+      "durationMs": 318
     },
     {
       "label": "Ministry of Education and Higher Education / UNICEF / TREF contributing partners — TREF education-recovery strategic board meeting",
       "url": "https://www.unicef.org/lebanon/press-releases/salam-lebanons-recovery-cannot-succeed-without-education",
-      "checkedAt": "2026-09-25T07:54:18.777131+00:00",
+      "checkedAt": "2026-09-25T13:53:17.082782+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -634,23 +634,23 @@
       "description": "Lebanon reaffirms commitment to education recovery and reform, placing learning at the heart of the country’s future",
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 115
+      "durationMs": 174
     },
     {
       "label": "Ministry of Education and Higher Education / UNICEF — TVET learning-continuity response",
       "url": "https://www.unicef.org/lebanon/media/14141/file/UNICEF%20Lebanon%20Humanitarian%20Flash%20Update%20No.6%2C%202%20April%202026.pdf",
-      "checkedAt": "2026-09-25T07:55:12.371762+00:00",
+      "checkedAt": "2026-09-25T13:54:05.126674+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "application/pdf",
       "finalUrl": "https://www.unicef.org/lebanon/media/14141/file/UNICEF%20Lebanon%20Humanitarian%20Flash%20Update%20No.6%2C%202%20April%202026.pdf",
       "truncated": false,
-      "durationMs": 306
+      "durationMs": 154
     },
     {
       "label": "Ministry of Environment / UNDP / European Union — National waste-management planning and GIS platform",
       "url": "https://www.undp.org/lebanon/press-releases/lebanon-launches-new-national-planning-package-strengthen-waste-management",
-      "checkedAt": "2026-09-25T07:54:32.546285+00:00",
+      "checkedAt": "2026-09-25T13:53:31.078379+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -660,12 +660,12 @@
       "description": null,
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 2636
+      "durationMs": 3250
     },
     {
       "label": "Ministry of Environment / UNDP — Climate policy and sustainable reconstruction framework",
       "url": "https://www.undp.org/lebanon/press-releases/lebanon-launches-climate-policy-package-advance-paris-agreement-goals-and-accelerate-low-carbon-transition",
-      "checkedAt": "2026-09-25T07:55:14.920491+00:00",
+      "checkedAt": "2026-09-25T13:54:05.593108+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -675,12 +675,12 @@
       "description": null,
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 4905
+      "durationMs": 2446
     },
     {
       "label": "Ministry of Information / UNDP / Dawaer Foundation — Together, We Stay Strong social-cohesion campaign",
       "url": "https://www.undp.org/lebanon/press-releases/together-we-stay-strong-national-campaign-promote-solidarity-empathy-and-shared-humanity",
-      "checkedAt": "2026-09-25T07:55:04.428692+00:00",
+      "checkedAt": "2026-09-25T13:54:01.125149+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -690,12 +690,12 @@
       "description": null,
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 5940
+      "durationMs": 2938
     },
     {
       "label": "Ministry of Interior and Municipalities / Internal Security Forces / Canada / UNDP — Minieh ISF station rehabilitation",
       "url": "https://www.undp.org/lebanon/press-releases/isf-canada-and-undp-visit-marks-rehabilitation-minieh-isf-station-north-lebanon",
-      "checkedAt": "2026-09-25T07:55:03.661763+00:00",
+      "checkedAt": "2026-09-25T13:54:00.564118+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -705,12 +705,12 @@
       "description": null,
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 8550
+      "durationMs": 6615
     },
     {
       "label": "Ministry of National Defense / UNDP / LMAC — National mine-action support agreement",
       "url": "https://www.undp.org/lebanon/press-releases/undp-and-minister-national-defense-sign-support-agreement-lmac",
-      "checkedAt": "2026-09-25T07:54:57.339095+00:00",
+      "checkedAt": "2026-09-25T13:53:57.061322+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -720,12 +720,12 @@
       "description": null,
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 3038
+      "durationMs": 3009
     },
     {
       "label": "Ministry of Public Health / UNICEF / health partners — Assistance and Care for War-Wounded and Affected Children",
       "url": "https://www.unicef.org/lebanon/health",
-      "checkedAt": "2026-09-25T07:55:23.253610+00:00",
+      "checkedAt": "2026-09-25T13:54:12.993033+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -735,12 +735,12 @@
       "description": "UNICEF’s Health programme improves access to quality healthcare and immunization to ensure better health and well-being for children, adolescents, and women",
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 2092
+      "durationMs": 337
     },
     {
       "label": "Ministry of Public Works and Transport / UNDP — Public Works Ministry infrastructure reform partnership",
       "url": "https://www.undp.org/arab-states/press-releases/ministry-public-works-and-transport-and-undp-sign-partnership-advance-public-sector-reform-and-sustainable-infrastructure",
-      "checkedAt": "2026-09-25T07:54:55.496158+00:00",
+      "checkedAt": "2026-09-25T13:53:53.486406+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -750,12 +750,12 @@
       "description": "The Ministry of Public Works and Transport (MoPWT), represented by its Minister, H.E. Mr. Fayez Rasamny, and the United Nations Development Programme (UNDP), represented by its Resident Representative in Lebanon, Ms. Blerta Aliko, signed a Memorandum of Understanding (MoU) establishing a strategic framework for cooperation to support institutional reform, i…",
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 6343
+      "durationMs": 3600
     },
     {
       "label": "Ministry of Social Affairs / European Union / UNDP — Ministry of Social Affairs shelter-coordination programme",
       "url": "https://www.undp.org/lebanon/press-releases/lebanon-recognizes-120-ministry-social-affairs-coordinators-and-volunteers-supporting-displaced-families-during-conflict",
-      "checkedAt": "2026-09-25T07:55:11.224225+00:00",
+      "checkedAt": "2026-09-25T13:54:04.412286+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -765,21 +765,21 @@
       "description": null,
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 4855
+      "durationMs": 714
     },
     {
       "label": "Ministry of Social Affairs / UNDP / UNHCR / OCHA / Resident Coordinator’s Office — Lebanon Response Plan inter-agency coordination",
       "url": "https://www.unhcr.org/lb/inter-agency-coordination",
-      "checkedAt": "2026-09-25T07:55:32.371100+00:00",
+      "checkedAt": "2026-09-25T13:54:19.640491+00:00",
       "state": "response-error",
       "status": 403,
       "error": "HTTP 403",
-      "durationMs": 676
+      "durationMs": 730
     },
     {
       "label": "Ministry of Social Affairs / UNICEF / WFP — National registration support for displaced people",
       "url": "https://www.unicef.org/lebanon/emergency-response-lebanon",
-      "checkedAt": "2026-09-25T07:55:23.157390+00:00",
+      "checkedAt": "2026-09-25T13:54:12.874205+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -789,12 +789,12 @@
       "description": "UNICEF is delivering critical aid and support in Lebanon following the ceasefire",
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 96
+      "durationMs": 119
     },
     {
       "label": "Ministry of Social Affairs / World Food Programme — Government and WFP emergency cash assistance",
       "url": "https://ar.wfp.org/news/wfp-and-government-lebanon-launch-cash-assistance-conflict-affected-people-amid-spiraling",
-      "checkedAt": "2026-09-25T07:55:41.654943+00:00",
+      "checkedAt": "2026-09-25T13:54:26.084611+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -804,12 +804,12 @@
       "description": "بيروت، لبنان – أطلقت حكومة لبنان، من خلال وزارة الشؤون الاجتماعية، وبالتعاون مع برنامج الأغذية العالمي التابع للأمم المتحدة، برنامجاً طارئاً للمساعدات النقدية للأسر المتضررة من النزاع، بالتوازي مع توسيع نطاق المساعدات الغذائية، في ظل تزايد النزوح الجماعي في مختلف أنحاء البلاد.",
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 707
+      "durationMs": 1059
     },
     {
       "label": "Ministry of State for Administrative Reform / UNDP — Government service innovation and digital-transformation platform",
       "url": "https://www.undp.org/lebanon/press-releases/under-patronage-pm-nawaf-salam-ministry-state-administrative-reform-launches-behavioral-innovation-and-digital-transformation",
-      "checkedAt": "2026-09-25T07:54:57.989263+00:00",
+      "checkedAt": "2026-09-25T13:53:57.086068+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -819,12 +819,12 @@
       "description": null,
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 2702
+      "durationMs": 998
     },
     {
       "label": "Médecins Sans Frontières — MSF mobile medical response",
       "url": "https://www.msf.org/msf-scales-response-lebanon-displacement-rises",
-      "checkedAt": "2026-09-25T07:55:21.519840+00:00",
+      "checkedAt": "2026-09-25T13:54:09.793861+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -834,12 +834,12 @@
       "description": "MSF teams are scaling up activities across Lebanon given the escalation of violence and the mass displacement of people.",
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 1816
+      "durationMs": 3080
     },
     {
       "label": "National Anti-Corruption Commission / UNDP — National Anti-Corruption Commission institutional support",
       "url": "https://www.undp.org/lebanon/projects/anti-corruption-trust-act-lebanon",
-      "checkedAt": "2026-09-25T07:55:16.079436+00:00",
+      "checkedAt": "2026-09-25T13:54:06.079922+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -849,12 +849,12 @@
       "description": null,
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 4712
+      "durationMs": 2778
     },
     {
       "label": "Norwegian Refugee Council — NRC legal brief on the Reconstruction Law",
       "url": "https://www.nrc.no/resources/briefing-notes/legal-brief-on-law-no.-222025-the-reconstruction-law",
-      "checkedAt": "2026-09-25T07:55:22.709380+00:00",
+      "checkedAt": "2026-09-25T13:54:12.843175+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -864,29 +864,29 @@
       "description": "Following the war in 2023–2024, widespread destruction has severely affected housing and infrastructure. In response, the Government of Lebanon adopted ...",
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 878
+      "durationMs": 594
     },
     {
       "label": "Prime Minister's Office — Return and recovery coordination meeting",
       "url": "https://www.pcm.gov.lb/arabic/subpg.aspx?pageid=27476",
-      "checkedAt": "2026-09-25T07:54:25.899805+00:00",
+      "checkedAt": "2026-09-25T13:53:23.466786+00:00",
       "state": "unreachable",
       "error": "[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.pcm.gov.lb'. (_ssl.c:1010)",
-      "durationMs": 925
+      "durationMs": 1078
     },
     {
       "label": "Save the Children Lebanon — Save the Children child-focused response",
       "url": "https://www.savethechildren.net/what-we-do/emergencies/lebanon-crisis",
-      "checkedAt": "2026-09-25T07:55:22.540731+00:00",
+      "checkedAt": "2026-09-25T13:54:12.717648+00:00",
       "state": "response-error",
       "status": 403,
       "error": "HTTP 403",
-      "durationMs": 169
+      "durationMs": 126
     },
     {
       "label": "Society for the Protection of Nature in Lebanon / Lebanese Environmental Forum — Hima for Peace civil-society initiative",
       "url": "https://www.spnl.org/118-lebanese-environmental-ngos-endorse-the-hima-for-peace-initiative/",
-      "checkedAt": "2026-09-25T07:54:21.327599+00:00",
+      "checkedAt": "2026-09-25T13:53:18.936262+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -896,12 +896,12 @@
       "description": "SPNL to expand the initiative through engagement with ten ministries and launch it internationally in Nairobi on 8 September 2026 A broad coalition of 118 Lebanese local environmental non-governmental organizations has endorsed the Memorandum of Understanding and Charter of Hima for Peace, marking an important step towards transforming the revival of the Hi…",
       "publishedAt": "2026-08-25T05:39:54+00:00",
       "updatedAt": "2026-08-25T08:39:54+03:00",
-      "durationMs": 2560
+      "durationMs": 2462
     },
     {
       "label": "South Tyre municipalities / UNDP / Republic of Korea — Tyre Caza municipal recovery priorities",
       "url": "https://www.undp.org/lebanon/press-releases/undp-and-republic-korea-increase-support-south-lebanon-communities-affected-recent-conflict",
-      "checkedAt": "2026-09-25T07:55:17.229574+00:00",
+      "checkedAt": "2026-09-25T13:54:07.179475+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -911,12 +911,12 @@
       "description": "The United Nations Development Programme (UNDP) in Lebanon is pleased to announce a new contribution of 1 million USD from the Republic of Korea, aimed at bolstering support to communities in South Lebanon affected by the recent conflict.",
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 5928
+      "durationMs": 5868
     },
     {
       "label": "Tripoli Peace Initiative / IOM / SHIFT / Tripoli Municipality — Tripoli Peace Initiative community co-funding system",
       "url": "https://tripolipeaceinitiative.org/en/about/",
-      "checkedAt": "2026-09-25T07:54:21.672965+00:00",
+      "checkedAt": "2026-09-25T13:53:20.041307+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -926,12 +926,12 @@
       "description": null,
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 1120
+      "durationMs": 1084
     },
     {
       "label": "UN Women / women-led organisations — Women-led humanitarian response",
       "url": "https://open.unwomen.org/en/country-results/LB",
-      "checkedAt": "2026-09-25T07:55:20.791547+00:00",
+      "checkedAt": "2026-09-25T13:54:08.858007+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -941,12 +941,12 @@
       "description": "Interactive data visualizations of UN Women’s results and resources",
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 728
+      "durationMs": 936
     },
     {
       "label": "UN-Habitat / University of Balamand / Saint Joseph University — Building destruction and debris assessments",
       "url": "https://unhabitat.org/BDDQA-Lebanon",
-      "checkedAt": "2026-09-25T07:55:19.825823+00:00",
+      "checkedAt": "2026-09-25T13:54:08.039525+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -956,12 +956,12 @@
       "description": null,
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 133
+      "durationMs": 265
     },
     {
       "label": "UN-Habitat — Urban Crisis Response, Recovery and Reconstruction Framework for Lebanon",
       "url": "https://unhabitat.org/urban-crisis-response-recovery-and-reconstruction-framework-for-lebanon-urfl",
-      "checkedAt": "2026-09-25T07:54:34.542595+00:00",
+      "checkedAt": "2026-09-25T13:53:33.566854+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -971,12 +971,12 @@
       "description": "This document outlines UN-Habitat’s ongoing and anticipated role, contribution and interventions in response to the post-October 2023 armed conflict in Lebanon and its vast destructive impact on built and social urban fabric and habitats, within a wider context of the multiple crises the country has been facing since 2019. This involves the development of a…",
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 154
+      "durationMs": 137
     },
     {
       "label": "UNDP / CNRS-L / Lebanese Armed Forces — Rapid building damage assessment",
       "url": "https://www.undp.org/arab-states/press-releases/rapid-damage-assessment-estimates-over-us365-million-building-damage-across-beirut-and-mount-lebanon",
-      "checkedAt": "2026-09-25T07:54:37.778690+00:00",
+      "checkedAt": "2026-09-25T13:53:37.098230+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -986,12 +986,12 @@
       "description": "The United Nations Development Programme (UNDP), in coordination with the Lebanese National Council for Scientific Research (CNRS-L) and in collaboration with the Lebanese Armed Forces (LAF) and the United Nations Department of Safety and Security (UNDSS), has announced the results of a rapid assessment of damaged buildings in Beirut and Mount Lebanon.",
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 3199
+      "durationMs": 2938
     },
     {
       "label": "UNDP / CNRS-L — South Lebanon building-level damage assessment",
       "url": "https://www.undp.org/lebanon/press-releases/building-damage-assessment-estimates-over-usd-138-billion-across-south-lebanon-until-april-2026",
-      "checkedAt": "2026-09-25T07:54:42.873674+00:00",
+      "checkedAt": "2026-09-25T13:53:40.036151+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -1001,12 +1001,12 @@
       "description": null,
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 2759
+      "durationMs": 3372
     },
     {
       "label": "UNDP / ESCWA / UNICEF / ILO / UN-Habitat — Socioeconomic Impacts of the 2024 War",
       "url": "https://www.undp.org/lebanon/press-releases/un-calls-urgent-recovery-prevent-prolonged-crisis-lebanon",
-      "checkedAt": "2026-09-25T07:54:28.536853+00:00",
+      "checkedAt": "2026-09-25T13:53:27.408277+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -1016,12 +1016,12 @@
       "description": "The United Nations has called for urgent and coordinated recovery efforts in Lebanon to prevent the ongoing crisis from deepening in the already war-torn and heavily impacted country.",
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 3152
+      "durationMs": 5605
     },
     {
       "label": "UNDP / ESCWA / UNICEF / ILO / UN-Habitat — The socioeconomic impacts of the 2024 war on Lebanon",
       "url": "https://www.undp.org/arab-states/publications/socioeconomic-impacts-2024-war-lebanon",
-      "checkedAt": "2026-09-25T07:54:34.696451+00:00",
+      "checkedAt": "2026-09-25T13:53:33.703506+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -1031,12 +1031,12 @@
       "description": null,
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 3001
+      "durationMs": 3312
     },
     {
       "label": "UNDP / European Union / Ministry of Justice — Justice Palace energy resilience",
       "url": "https://www.undp.org/lebanon/stories/keeping-lights-justice-lebanon",
-      "checkedAt": "2026-09-25T07:54:40.977958+00:00",
+      "checkedAt": "2026-09-25T13:53:40.032752+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -1046,12 +1046,12 @@
       "description": null,
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 3786
+      "durationMs": 4142
     },
     {
       "label": "UNDP / Kuwait Fund — Solar public services partnership",
       "url": "https://www.undp.org/lebanon/press-releases/undp-and-kuwait-fund-sign-us3-million-partnership-strengthen-public-services-lebanon",
-      "checkedAt": "2026-09-25T07:54:40.179642+00:00",
+      "checkedAt": "2026-09-25T13:53:38.206061+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -1061,12 +1061,12 @@
       "description": null,
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 5033
+      "durationMs": 2832
     },
     {
       "label": "UNDP / Lebanese Red Cross — UNDP–Lebanese Red Cross disaster-resilience cooperation agreement",
       "url": "https://www.undp.org/lebanon/press-releases/undp-and-lebanese-red-cross-sign-mou-strengthen-cooperation-disaster-management-climate-resilience-and-risk-informed-action",
-      "checkedAt": "2026-09-25T07:54:18.892560+00:00",
+      "checkedAt": "2026-09-25T13:53:17.257279+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -1076,12 +1076,12 @@
       "description": null,
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 2931
+      "durationMs": 2927
     },
     {
       "label": "UNDP / Lebanon Mine Action Center — Mine action and safe-recovery programme",
       "url": "https://www.undp.org/lebanon/projects/mine-action",
-      "checkedAt": "2026-09-25T07:54:49.255037+00:00",
+      "checkedAt": "2026-09-25T13:53:47.319139+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -1091,21 +1091,21 @@
       "description": null,
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 2836
+      "durationMs": 2394
     },
     {
       "label": "UNDP / Ministry of Agriculture / CDR / World Bank — GATE agricultural matching-grant implementation agreement",
       "url": "https://cdr.gov.lb/en-US/News/News-In-Home/%D8%AA%D9%88%D9%82%D9%8A%D8%B9-%D8%A7%D8%AA%D9%81%D8%A7%D9%82%D9%8A%D8%A9.aspx?index=4",
-      "checkedAt": "2026-09-25T07:54:19.029634+00:00",
+      "checkedAt": "2026-09-25T13:53:17.426902+00:00",
       "state": "response-error",
       "status": 403,
       "error": "HTTP 403",
-      "durationMs": 201
+      "durationMs": 790
     },
     {
       "label": "UNDP / municipalities / DRM units — Local authorities rapid impact assessment",
       "url": "https://www.undp.org/lebanon/publications/crisis-recovery-local-authorities-confronting-post-war-realities-lebanon-rapid-impact-assessment",
-      "checkedAt": "2026-09-25T07:54:45.213078+00:00",
+      "checkedAt": "2026-09-25T13:53:41.581551+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -1115,12 +1115,12 @@
       "description": "This report examines the impact of hostilities and the post-escalation conditions of affected municipalities in Lebanon.",
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 2493
+      "durationMs": 2873
     },
     {
       "label": "UNDP / municipalities / community partners — Community-led municipal preparedness",
       "url": "https://www.undp.org/lebanon/stories/how-communities-across-lebanon-are-building-stronger-local-solutions",
-      "checkedAt": "2026-09-25T07:54:31.895201+00:00",
+      "checkedAt": "2026-09-25T13:53:30.837675+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -1130,12 +1130,12 @@
       "description": null,
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 2647
+      "durationMs": 3191
     },
     {
       "label": "UNDP / national institutions / local authorities — Stabilization in Southern Lebanon",
       "url": "https://www.undp.org/lebanon/projects/stabilization-southern-lebanon",
-      "checkedAt": "2026-09-25T07:54:46.795857+00:00",
+      "checkedAt": "2026-09-25T13:53:44.554587+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -1145,12 +1145,12 @@
       "description": null,
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 2327
+      "durationMs": 2598
     },
     {
       "label": "UNDP Lebanon / France / Lebanese Armed Forces — Civil-military public-service restoration",
       "url": "https://www.undp.org/lebanon/stories/france-and-undp-partnering-peace-building-resilience-lebanon",
-      "checkedAt": "2026-09-25T07:54:52.821575+00:00",
+      "checkedAt": "2026-09-25T13:53:49.712937+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -1160,12 +1160,12 @@
       "description": null,
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 2478
+      "durationMs": 3437
     },
     {
       "label": "UNDP Lebanon / France — France and UNDP: Empowering Cooperatives for Recovery",
       "url": "https://www.undp.org/lebanon/stories/france-and-undp-empowering-cooperatives-recovery-lebanon",
-      "checkedAt": "2026-09-25T07:54:34.856150+00:00",
+      "checkedAt": "2026-09-25T13:53:34.029087+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -1175,12 +1175,12 @@
       "description": null,
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 5323
+      "durationMs": 3069
     },
     {
       "label": "UNDP Lebanon / KfW — Local Development Project",
       "url": "https://www.undp.org/lebanon/projects/local-development-project-ldp",
-      "checkedAt": "2026-09-25T07:54:31.688485+00:00",
+      "checkedAt": "2026-09-25T13:53:28.426433+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -1190,12 +1190,12 @@
       "description": null,
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 2518
+      "durationMs": 2652
     },
     {
       "label": "UNDP Lebanon / Lebanese Civil Defense / KfW — Civil Defense frontline-readiness update",
       "url": "https://www.undp.org/lebanon/stories/lebanons-civil-defense-prepared-today-save-lives-every-day",
-      "checkedAt": "2026-09-25T07:55:28.808187+00:00",
+      "checkedAt": "2026-09-25T13:54:15.259243+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -1205,12 +1205,12 @@
       "description": null,
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 9766
+      "durationMs": 4744
     },
     {
       "label": "UNDP Lebanon / Ministry of Environment / technical partners — Post-disaster rubble management procedures",
       "url": "https://www.undp.org/lebanon/publications/standard-operating-procedures-post-disaster-rubble-management-2025",
-      "checkedAt": "2026-09-25T07:55:33.514585+00:00",
+      "checkedAt": "2026-09-25T13:54:20.511041+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -1220,12 +1220,12 @@
       "description": "The \"Standard Operating Procedures for Post Disaster Rubble Management\" (2025) outlines key procedures designed to systematically address the management of debris resulting from natural disasters and conflicts in Lebanon.",
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 5283
+      "durationMs": 4880
     },
     {
       "label": "UNDP Lebanon / National DRM Unit — National crisis-coordination room",
       "url": "https://www.undp.org/lebanon/stories/inside-lebanons-crisis-coordination-room",
-      "checkedAt": "2026-09-25T07:54:49.122959+00:00",
+      "checkedAt": "2026-09-25T13:53:46.872138+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -1235,12 +1235,12 @@
       "description": null,
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 4083
+      "durationMs": 6614
     },
     {
       "label": "UNDP Lebanon / Tyre Union of Municipalities — Tyre municipal livelihoods and service recovery",
       "url": "https://www.undp.org/lebanon/stories/lebanon-looks-rebuild-after-trauma-conflict",
-      "checkedAt": "2026-09-25T07:54:53.205704+00:00",
+      "checkedAt": "2026-09-25T13:53:53.149786+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -1250,12 +1250,12 @@
       "description": "In the blink of an eye, entire neighbourhoods of Tyre emptied. Families fled, leaving behind homes, businesses, and memories - lives shattered by violence. For 13 months, Tyre, one of the world’s oldest cities, endured relentless destruction. Buildings crumbled, streets emptied, and hope seemed distant. Yet, amidst the devastation, a few remained.",
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 3235
+      "durationMs": 3912
     },
     {
       "label": "UNDP Lebanon / municipalities — Emergency municipal waste collection",
       "url": "https://www.undp.org/lebanon/projects/towards-decentralised-waste-management-integrated-response-tadwir-0",
-      "checkedAt": "2026-09-25T07:54:55.299663+00:00",
+      "checkedAt": "2026-09-25T13:53:53.381137+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -1265,12 +1265,12 @@
       "description": null,
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 2690
+      "durationMs": 3093
     },
     {
       "label": "UNDP Lebanon — Lebanon Host Communities Support Project: Phase 2",
       "url": "https://www.undp.org/lebanon/projects/lebanon-host-communities-support-project-phase-2-lhsp-20",
-      "checkedAt": "2026-09-25T07:54:29.880533+00:00",
+      "checkedAt": "2026-09-25T13:53:28.267525+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -1280,12 +1280,12 @@
       "description": null,
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 2666
+      "durationMs": 2570
     },
     {
       "label": "UNDP Lebanon — MSME & cooperative stabilization micro-grants",
       "url": "https://www.undp.org/lebanon/grants-msmes-and-cooperatives-affected-2026-war",
-      "checkedAt": "2026-09-25T07:54:39.892092+00:00",
+      "checkedAt": "2026-09-25T13:53:37.130236+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -1295,12 +1295,12 @@
       "description": null,
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 2982
+      "durationMs": 2903
     },
     {
       "label": "UNDP Lebanon — Recovery package for services, employment and local recovery",
       "url": "https://www.undp.org/lebanon/press-releases/lebanons-recovery-depends-immediate-action-restore-stability-and-rebuild-trust",
-      "checkedAt": "2026-09-25T07:54:52.091477+00:00",
+      "checkedAt": "2026-09-25T13:53:49.561368+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -1310,12 +1310,12 @@
       "description": "At the end of a two-day visit to Lebanon, UNDP Associate Administrator Haoliang Xu called for increased investment in stabilization and recovery efforts as the country seeks to rebuild after more than a year of hostilities and long-standing governance and economic challenges.",
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 3405
+      "durationMs": 3820
     },
     {
       "label": "UNDP Lebanon — Response operations and essential services update",
       "url": "https://www.undp.org/lebanon/press-releases/lebanon-faces-perfect-storm-undp-warns-compounded-crisis-while-supporting-national-response",
-      "checkedAt": "2026-09-25T07:54:48.902866+00:00",
+      "checkedAt": "2026-09-25T13:53:46.104560+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -1325,12 +1325,12 @@
       "description": null,
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 2645
+      "durationMs": 2821
     },
     {
       "label": "UNDP Lebanon — UNDP Lebanon recovery programs",
       "url": "https://www.undp.org/lebanon/projects",
-      "checkedAt": "2026-09-25T07:54:29.341177+00:00",
+      "checkedAt": "2026-09-25T13:53:27.797542+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -1340,12 +1340,12 @@
       "description": null,
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 2554
+      "durationMs": 629
     },
     {
       "label": "UNDP Lebanon — UNDP Lebanon: 2025 in Review",
       "url": "https://www.undp.org/lebanon/stories/undp-lebanon-2025-review",
-      "checkedAt": "2026-09-25T07:54:35.181856+00:00",
+      "checkedAt": "2026-09-25T13:53:34.328685+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -1355,83 +1355,83 @@
       "description": null,
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 4710
+      "durationMs": 3877
     },
     {
       "label": "UNESCO / Ministry of Culture / Lebanese Board on Books for Young People — UNESCO reading and psychosocial support in collective shelters",
       "url": "https://www.unesco.org/en/articles/lebanon-supporting-children-collective-shelters-through-reading",
-      "checkedAt": "2026-09-25T07:55:40.030945+00:00",
+      "checkedAt": "2026-09-25T13:54:24.546649+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
       "finalUrl": "https://www.unesco.org/en/articles/lebanon-supporting-children-collective-shelters-through-reading",
       "truncated": false,
-      "pageTitle": "Lebanon: Supporting children in collective shelters through reading",
-      "description": "Reading as a lifeline, supporting displaced children in Lebanon with learning, comfort and a sense of normalcy",
+      "pageTitle": "Request Rejected",
+      "description": null,
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 618
+      "durationMs": 578
     },
     {
       "label": "UNESCO / Ministry of Education and Higher Education / France / Portugal — UNESCO teaching hubs for displaced learners",
       "url": "https://www.unesco.org/en/articles/liban-lunesco-renforce-ses-operations-durgence-pour-la-scolarisation-des-populations-deplacees?hub=200006",
-      "checkedAt": "2026-09-25T07:55:04.683691+00:00",
+      "checkedAt": "2026-09-25T13:54:01.607907+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
       "finalUrl": "https://www.unesco.org/en/articles/liban-lunesco-renforce-ses-operations-durgence-pour-la-scolarisation-des-populations-deplacees?hub=200006",
       "truncated": false,
-      "pageTitle": "In Lebanon, UNESCO allocates $650,000 to support the continuity of",
-      "description": "Amid the escalation of hostilities in the Middle East and Lebanon, more than 1 million people are now displaced within the country, including approximately 500,000 school-aged children. In this",
+      "pageTitle": "Request Rejected",
+      "description": null,
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 4925
+      "durationMs": 467
     },
     {
       "label": "UNESCO Heritage Emergency Fund — Cultural and creative industry emergency recovery",
       "url": "https://www.unesco.org/en/culture-emergencies/heritage-emergency-fund/emergency-funding-support-cultural-and-creative-industries-lebanon",
-      "checkedAt": "2026-09-25T07:55:01.839624+00:00",
+      "checkedAt": "2026-09-25T13:53:59.943845+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
       "finalUrl": "https://www.unesco.org/en/culture-emergencies/heritage-emergency-fund/emergency-funding-support-cultural-and-creative-industries-lebanon",
       "truncated": false,
-      "pageTitle": "Emergency funding support for cultural and creative industries in",
-      "description": "Emergency funding support for cultural and creative industries in Lebanon",
+      "pageTitle": "Request Rejected",
+      "description": null,
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 2170
+      "durationMs": 643
     },
     {
       "label": "UNESCO — UNESCO education, heritage and information response",
       "url": "https://www.unesco.org/en/articles/unesco-steps-support-lebanons-crisis-unfolds",
-      "checkedAt": "2026-09-25T07:55:01.538252+00:00",
+      "checkedAt": "2026-09-25T13:53:59.216004+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
       "finalUrl": "https://www.unesco.org/en/articles/unesco-steps-support-lebanons-crisis-unfolds",
       "truncated": false,
-      "pageTitle": "UNESCO steps up support as Lebanon's crisis unfolds",
-      "description": "As Lebanon crisis unfolds, UNESCO is working with national authorities and partners to help sustain education, safeguard cultural heritage and strengthen access to reliable information—systems that",
+      "pageTitle": "Request Rejected",
+      "description": null,
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 1273
+      "durationMs": 832
     },
     {
       "label": "UNFPA / UNHCR / Ministry of Social Affairs — UNFPA protection and GBV emergency update",
       "url": "https://www.unfpa.org/sites/default/files/resource-pdf/UNFPA%20Lebanon%20Situation%20Report%20%282-9%20March%202026%29.pdf",
-      "checkedAt": "2026-09-25T07:55:02.810824+00:00",
+      "checkedAt": "2026-09-25T13:54:00.070761+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "application/pdf",
       "finalUrl": "https://www.unfpa.org/sites/default/files/resource-pdf/UNFPA%20Lebanon%20Situation%20Report%20%282-9%20March%202026%29.pdf",
       "truncated": false,
-      "durationMs": 296
+      "durationMs": 493
     },
     {
       "label": "UNFPA Lebanon / Ministry of Public Health / Ministry of Social Affairs — UNFPA protection and reproductive-health response",
       "url": "https://www.unfpa.org/resources/situation-report-crisis-lebanon-9-22-june-2026",
-      "checkedAt": "2026-09-25T07:55:09.608586+00:00",
+      "checkedAt": "2026-09-25T13:54:02.074892+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -1440,13 +1440,13 @@
       "pageTitle": "Situation report on the crisis in Lebanon (9-22 June 2026)",
       "description": "The humanitarian situation in Lebanon remains volatile despite the United States-Iran Memorandum of Understanding signed on 15 June and broader regional de-escalation efforts. Hostilities continue across the country, particularly in",
       "publishedAt": null,
-      "updatedAt": "1790322910",
-      "durationMs": 1226
+      "updatedAt": "1790344443",
+      "durationMs": 1291
     },
     {
       "label": "UNFPA Lebanon — UNFPA Lebanon situation report 2",
       "url": "https://www.unfpa.org/resources/lebanon-situation-report-2-october-2024?page=1",
-      "checkedAt": "2026-09-25T07:55:45.022491+00:00",
+      "checkedAt": "2026-09-25T13:54:29.192659+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -1455,13 +1455,13 @@
       "pageTitle": "Lebanon Situation Report #2 - October 2024",
       "description": "Since 17 September 2024, intensified hostilities in Lebanon have triggered a surge in casualties and displacement, further straining the country after more than a year of violence stemming from the Israeli-Gaza conflict. Over the past year",
       "publishedAt": null,
-      "updatedAt": "1790322945",
-      "durationMs": 808
+      "updatedAt": "1790344470",
+      "durationMs": 1326
     },
     {
       "label": "UNFPA Lebanon — UNFPA Lebanon situation report 3",
       "url": "https://lebanon.unfpa.org/en/publications/situation-report-3-unfpa-response-escalation-hostilities-lebanon",
-      "checkedAt": "2026-09-25T07:55:45.521703+00:00",
+      "checkedAt": "2026-09-25T13:54:29.503087+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -1470,13 +1470,13 @@
       "pageTitle": "Situation Report #3 - UNFPA Response to the Escalation of Hostilities in Lebanon",
       "description": "Since October 2023, escalating hostilities across Lebanon have resulted in over 3,100 deaths and more than 13,800 people have been injured. Of the people in need, an estimated 13,900 are pregnant women",
       "publishedAt": null,
-      "updatedAt": "1790322946",
-      "durationMs": 1015
+      "updatedAt": "1790344470",
+      "durationMs": 1535
     },
     {
       "label": "UNFPA Lebanon — UNFPA crisis response for sexual and reproductive health and GBV",
       "url": "https://www.unfpa.org/resources/situation-report-crisis-lebanon-18-25-march-2026",
-      "checkedAt": "2026-09-25T07:55:38.797535+00:00",
+      "checkedAt": "2026-09-25T13:54:24.355732+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -1485,31 +1485,31 @@
       "pageTitle": "Situation Report on the Crisis in Lebanon (18-25 March 2026)",
       "description": "The humanitarian situation in Lebanon is rapidly deteriorating as hostilities escalate in intensity, frequency, and geographic spread. As of 24 March, 1,072 people have been killed and 2,966 injured, with women and girls, including pregnant",
       "publishedAt": null,
-      "updatedAt": "1790322939",
-      "durationMs": 1233
+      "updatedAt": "1790344465",
+      "durationMs": 1367
     },
     {
       "label": "UNHCR / European Union / Governments of Ireland and Italy — Humanitarian airbridge relief support",
       "url": "https://www.unhcr.org/lb/sites/lb/files/2026-03/UNHCR%20LBN_Flash%20Update%204.pdf",
-      "checkedAt": "2026-09-25T07:55:25.345393+00:00",
+      "checkedAt": "2026-09-25T13:54:13.667457+00:00",
       "state": "response-error",
       "status": 403,
       "error": "HTTP 403",
-      "durationMs": 41
+      "durationMs": 57
     },
     {
       "label": "UNHCR / Government of Lebanon — Return and recovery support for displaced families",
       "url": "https://www.unhcr.org/news/briefing-notes/lebanon-more-850-000-displaced-return-areas-origin-crisis-remains-far-over",
-      "checkedAt": "2026-09-25T07:54:45.632277+00:00",
+      "checkedAt": "2026-09-25T13:53:44.174483+00:00",
       "state": "response-error",
       "status": 403,
       "error": "HTTP 403",
-      "durationMs": 254
+      "durationMs": 158
     },
     {
       "label": "UNHCR / IOM / Lebanese authorities — Organised voluntary-return programme",
       "url": "https://help.unhcr.org/lebanon/en/welcome/return-to-syria/unhcr-iom-supported-organized-voluntary-return-programme/",
-      "checkedAt": "2026-09-25T07:55:10.368667+00:00",
+      "checkedAt": "2026-09-25T13:54:03.366188+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -1519,102 +1519,102 @@
       "description": "This programme will run through 30 September 2026. Any potential extension will be communicated. The Organised Voluntary Return Programme is a UNHCR and IOM initiative to support Syrians known to UNHCR in Lebanon that freely and voluntarily decide to return to Syria. Through this programme, each returning family member receives a one-time return cash grant…",
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 2003
+      "durationMs": 1046
     },
     {
       "label": "UNHCR Lebanon / Qatar Ministry of Foreign Affairs — UNHCR and Qatar emergency airlift",
       "url": "https://www.unhcr.org/lb/news/unhcr-state-qatar-airlift-emergency-aid-lebanon",
-      "checkedAt": "2026-09-25T07:55:32.019403+00:00",
+      "checkedAt": "2026-09-25T13:54:19.411247+00:00",
       "state": "response-error",
       "status": 403,
       "error": "HTTP 403",
-      "durationMs": 674
+      "durationMs": 593
     },
     {
       "label": "UNHCR Lebanon / arcenciel — UNHCR disability-inclusive shelter and protection update",
       "url": "https://www.unhcr.org/sites/default/files/2024-11/UNHCR%20Lebanon%20-%20External%20Flash%20update%20%2826%2011%202024%29%20_0.pdf",
-      "checkedAt": "2026-09-25T07:55:47.218331+00:00",
+      "checkedAt": "2026-09-25T13:54:31.899709+00:00",
       "state": "response-error",
       "status": 403,
       "error": "HTTP 403",
-      "durationMs": 40
+      "durationMs": 50
     },
     {
       "label": "UNHCR Lebanon / community protection partners — UNHCR community-based protection network",
       "url": "https://www.unhcr.org/lb/what-we-do/protection",
-      "checkedAt": "2026-09-25T07:55:25.691172+00:00",
+      "checkedAt": "2026-09-25T13:54:13.948254+00:00",
       "state": "response-error",
       "status": 403,
       "error": "HTTP 403",
-      "durationMs": 91
+      "durationMs": 151
     },
     {
       "label": "UNHCR Lebanon — UNHCR 2024 shelter, relief and protection response",
       "url": "https://www.unhcr.org/lb/news/unhcr-response-mtv-report-13-november-2024",
-      "checkedAt": "2026-09-25T07:55:31.955315+00:00",
+      "checkedAt": "2026-09-25T13:54:19.238921+00:00",
+      "state": "response-error",
+      "status": 403,
+      "error": "HTTP 403",
+      "durationMs": 72
+    },
+    {
+      "label": "UNHCR Lebanon — UNHCR Level 3 emergency response update",
+      "url": "https://www.unhcr.org/sites/default/files/2024-11/UNHCR%20Lebanon%20-%20External%20Flash%20update%20%2801%2011%202024%29%20.pdf",
+      "checkedAt": "2026-09-25T13:54:25.806881+00:00",
       "state": "response-error",
       "status": 403,
       "error": "HTTP 403",
       "durationMs": 64
     },
     {
-      "label": "UNHCR Lebanon — UNHCR Level 3 emergency response update",
-      "url": "https://www.unhcr.org/sites/default/files/2024-11/UNHCR%20Lebanon%20-%20External%20Flash%20update%20%2801%2011%202024%29%20.pdf",
-      "checkedAt": "2026-09-25T07:55:41.528869+00:00",
-      "state": "response-error",
-      "status": 403,
-      "error": "HTTP 403",
-      "durationMs": 51
-    },
-    {
       "label": "UNHCR Lebanon — UNHCR cash-for-shelter and disability-inclusion update",
       "url": "https://www.unhcr.org/lb/sites/lb/files/2026-04/UNHCR%20LBN_Flash%20Update%206.pdf",
-      "checkedAt": "2026-09-25T07:55:33.046626+00:00",
+      "checkedAt": "2026-09-25T13:54:20.003950+00:00",
       "state": "response-error",
       "status": 403,
       "error": "HTTP 403",
-      "durationMs": 697
+      "durationMs": 1049
     },
     {
       "label": "UNHCR Lebanon — UNHCR community protection and referral update",
       "url": "https://www.unhcr.org/lb/sites/lb/files/2026-03/UNHCR%20LBN_Flash%20Update%203%20v3.0.pdf",
-      "checkedAt": "2026-09-25T07:55:28.755860+00:00",
+      "checkedAt": "2026-09-25T13:54:15.179368+00:00",
       "state": "response-error",
       "status": 403,
       "error": "HTTP 403",
-      "durationMs": 52
+      "durationMs": 80
     },
     {
       "label": "UNHCR Lebanon — UNHCR emergency cash and shelter update",
       "url": "https://www.unhcr.org/lb/sites/lb/files/2026-03/UNHCR-Lebanon-flash-update-2.pdf",
-      "checkedAt": "2026-09-25T07:55:32.693640+00:00",
+      "checkedAt": "2026-09-25T13:54:20.002888+00:00",
       "state": "response-error",
       "status": 403,
       "error": "HTTP 403",
-      "durationMs": 718
+      "durationMs": 690
     },
     {
       "label": "UNHCR Lebanon — UNHCR post-ceasefire community-protection update",
       "url": "https://www.unhcr.org/sites/default/files/2024-12/UNHCR%20Lebanon%20-%20External%20Flash%20update%20%2829%2011%202024%29_.pdf",
-      "checkedAt": "2026-09-25T07:55:31.989129+00:00",
+      "checkedAt": "2026-09-25T13:54:19.310554+00:00",
       "state": "response-error",
       "status": 403,
       "error": "HTTP 403",
-      "durationMs": 382
+      "durationMs": 330
     },
     {
       "label": "UNHCR Lebanon — UNHCR post-ceasefire shelter and protection update",
       "url": "https://www.unhcr.org/sites/default/files/2024-12/UNHCR%20Lebanon%20-%20External%20Flash%20Update%20%2826%2012%202024%29.pdf",
-      "checkedAt": "2026-09-25T07:55:41.580286+00:00",
+      "checkedAt": "2026-09-25T13:54:25.870776+00:00",
       "state": "response-error",
       "status": 403,
       "error": "HTTP 403",
-      "durationMs": 347
+      "durationMs": 378
     },
     {
       "label": "UNICEF / KfW — Learning to Earning shelter-response initiative",
       "url": "https://www.unicef.org/lebanon/stories/lebanons-shelters-youth-are-stepping-when-it-matters-most",
-      "checkedAt": "2026-09-25T07:55:23.335539+00:00",
+      "checkedAt": "2026-09-25T13:54:13.047137+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -1624,23 +1624,23 @@
       "description": "Across Lebanon, young people are preparing meals, producing essential items, and offering care services for families in shelters",
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 2438
+      "durationMs": 620
     },
     {
       "label": "UNICEF / MEHE — School rehabilitation and shelter decommissioning",
       "url": "https://www.unicef.org/media/178831/file/Lebanon-Humanitarian-Situation-Report-No.5-%28End-of-Year%29-31-December-2025.pdf.pdf",
-      "checkedAt": "2026-09-25T07:54:34.375251+00:00",
+      "checkedAt": "2026-09-25T13:53:33.127863+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "application/pdf",
       "finalUrl": "https://www.unicef.org/media/178831/file/Lebanon-Humanitarian-Situation-Report-No.5-%28End-of-Year%29-31-December-2025.pdf.pdf",
       "truncated": false,
-      "durationMs": 481
+      "durationMs": 439
     },
     {
       "label": "UNICEF / national water-service partners — Emergency water and wastewater service continuity",
       "url": "https://www.unicef.org/lebanon/children-caught-escalating-violence-lebanon",
-      "checkedAt": "2026-09-25T07:54:34.206708+00:00",
+      "checkedAt": "2026-09-25T13:53:33.013115+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -1650,12 +1650,12 @@
       "description": "UNICEF Lebanon is delivering critical aid and support in Lebanon following the recent escalation of hostilities",
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 169
+      "durationMs": 115
     },
     {
       "label": "UNICEF / national water-service partners — Water and sanitation recovery programme",
       "url": "https://www.unicef.org/lebanon/water-sanitation-and-hygiene-wash-programme",
-      "checkedAt": "2026-09-25T07:54:46.635909+00:00",
+      "checkedAt": "2026-09-25T13:53:44.454835+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -1665,23 +1665,20 @@
       "description": "UNICEF’s WASH programme works to ensure that every child in Lebanon has access to safe, clean water and sanitation services",
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 2267
+      "durationMs": 100
     },
     {
       "label": "UNICEF / protection partners — POWER4Girls shelter outreach",
       "url": "https://www.unicef.org/media/179621/file/Lebanon-Humanitarian-Situation-Report-No.1%28Escalation-of-Hostilities%29-19-March-2026.pdf.pdf",
-      "checkedAt": "2026-09-25T07:55:23.587570+00:00",
-      "state": "reachable",
-      "status": 200,
-      "contentType": "application/pdf",
-      "finalUrl": "https://www.unicef.org/media/179621/file/Lebanon-Humanitarian-Situation-Report-No.1%28Escalation-of-Hostilities%29-19-March-2026.pdf.pdf",
-      "truncated": false,
-      "durationMs": 1033
+      "checkedAt": "2026-09-25T13:54:13.330476+00:00",
+      "state": "unreachable",
+      "error": "[Errno 104] Connection reset by peer",
+      "durationMs": 618
     },
     {
       "label": "UNICEF Lebanon / local authorities — South Lebanon emergency response",
       "url": "https://www.unicef.org/lebanon/emergency-response-south-lebanon",
-      "checkedAt": "2026-09-25T07:54:49.128332+00:00",
+      "checkedAt": "2026-09-25T13:53:47.152663+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -1691,45 +1688,45 @@
       "description": "UNICEF is providing critical aid and support due the situation in South Lebanon",
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 127
+      "durationMs": 166
     },
     {
       "label": "UNICEF Lebanon / local partners — Community engagement, youth support and safeguarding response",
       "url": "https://www.unicef.org/media/180486/file/Lebanon-Humanitarian-Situation-Report-No.1%2C31-March-2026.pdf.pdf",
-      "checkedAt": "2026-09-25T07:55:25.386329+00:00",
+      "checkedAt": "2026-09-25T13:54:13.724446+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "application/pdf",
       "finalUrl": "https://www.unicef.org/media/180486/file/Lebanon-Humanitarian-Situation-Report-No.1%2C31-March-2026.pdf.pdf",
       "truncated": true,
-      "durationMs": 307
+      "durationMs": 727
     },
     {
       "label": "UNICEF Lebanon — Rapid response for displacement and shelters",
       "url": "https://www.unicef.org/media/179726/file/Lebanon-Humanitarian-Flash-Update-No.5%28Escalation-of-Hostilities%29-26-March-2026.pdf.pdf",
-      "checkedAt": "2026-09-25T07:54:51.547751+00:00",
+      "checkedAt": "2026-09-25T13:53:48.925788+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "application/pdf",
       "finalUrl": "https://www.unicef.org/media/179726/file/Lebanon-Humanitarian-Flash-Update-No.5%28Escalation-of-Hostilities%29-26-March-2026.pdf.pdf",
       "truncated": false,
-      "durationMs": 258
+      "durationMs": 114
     },
     {
       "label": "UNICEF Lebanon — UNICEF Flash Update 1 on the 2026 escalation",
       "url": "https://www.unicef.org/lebanon/media/13891/file/UNICEF%20Lebanon%20Humanitarian%20Flash%20Update%20No.1%2C%202%20March%202026.pdf",
-      "checkedAt": "2026-09-25T07:55:28.405322+00:00",
+      "checkedAt": "2026-09-25T13:54:15.106168+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "application/pdf",
       "finalUrl": "https://www.unicef.org/lebanon/media/13891/file/UNICEF%20Lebanon%20Humanitarian%20Flash%20Update%20No.1%2C%202%20March%202026.pdf",
       "truncated": false,
-      "durationMs": 351
+      "durationMs": 312
     },
     {
       "label": "UNICEF Lebanon — UNICEF Lebanon 2024 humanitarian appeal",
       "url": "https://www.unicef.org/lebanon/reports/lebanon-appeal",
-      "checkedAt": "2026-09-25T07:55:25.782559+00:00",
+      "checkedAt": "2026-09-25T13:54:14.451430+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -1739,12 +1736,12 @@
       "description": "Humanitarian Action for Children 2024",
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 3871
+      "durationMs": 243
     },
     {
       "label": "UNICEF Lebanon — UNICEF Lebanon 2026 humanitarian flash-update library",
       "url": "https://www.unicef.org/lebanon/documents/unicef-lebanon-humanitarian-flash-appeal",
-      "checkedAt": "2026-09-25T07:55:26.878086+00:00",
+      "checkedAt": "2026-09-25T13:54:14.694100+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -1754,12 +1751,12 @@
       "description": "This page provides the latest UNICEF Lebanon Humanitarian Flash Updates, highlighting key developments, response actions, and operational updates as the situation in Lebanon evolves.",
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 1527
+      "durationMs": 412
     },
     {
       "label": "UNICEF Lebanon — UNICEF emergency medical supplies for hospitals",
       "url": "https://www.unicef.org/lebanon/press-releases/unicef-delivers-emergency-medical-supplies-hospitals-lebanon-struggle-cope-rising",
-      "checkedAt": "2026-09-25T07:55:33.411215+00:00",
+      "checkedAt": "2026-09-25T13:54:20.370365+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -1769,56 +1766,53 @@
       "description": null,
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 103
+      "durationMs": 141
     },
     {
       "label": "UNICEF Lebanon — UNICEF humanitarian flash update at the 2024 escalation",
       "url": "https://www.unicef.org/media/162566/file/Lebanon-Humanitarian-Flash-EoH-24-September-2024.pdf",
-      "checkedAt": "2026-09-25T07:55:46.955407+00:00",
-      "state": "reachable",
-      "status": 200,
-      "contentType": "application/pdf",
-      "finalUrl": "https://www.unicef.org/media/162566/file/Lebanon-Humanitarian-Flash-EoH-24-September-2024.pdf",
-      "truncated": false,
-      "durationMs": 287
+      "checkedAt": "2026-09-25T13:54:31.758291+00:00",
+      "state": "unreachable",
+      "error": "[Errno 104] Connection reset by peer",
+      "durationMs": 30
     },
     {
       "label": "UNICEF Lebanon — UNICEF humanitarian situation report during the 2024 escalation",
       "url": "https://www.unicef.org/media/165071/file/Lebanon-Humanitarian-SitRep-12-November-2024.pdf.pdf",
-      "checkedAt": "2026-09-25T07:55:41.245601+00:00",
+      "checkedAt": "2026-09-25T13:54:25.722981+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "application/pdf",
       "finalUrl": "https://www.unicef.org/media/165071/file/Lebanon-Humanitarian-SitRep-12-November-2024.pdf.pdf",
       "truncated": false,
-      "durationMs": 283
+      "durationMs": 84
     },
     {
       "label": "UNICEF Lebanon — UNICEF rapid response mechanism in the 2026 escalation",
       "url": "https://www.unicef.org/media/179731/file/Lebanon-Humanitarian-Flash-Update-No.4%28Escalation-of-Hostilities%29-19-March-2026.pdf.pdf",
-      "checkedAt": "2026-09-25T07:55:47.242373+00:00",
+      "checkedAt": "2026-09-25T13:54:31.950100+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "application/pdf",
       "finalUrl": "https://www.unicef.org/media/179731/file/Lebanon-Humanitarian-Flash-Update-No.4%28Escalation-of-Hostilities%29-19-March-2026.pdf.pdf",
       "truncated": false,
-      "durationMs": 677
+      "durationMs": 638
     },
     {
       "label": "UNICEF Lebanon — UNICEF rapid response mechanism update",
       "url": "https://www.unicef.org/media/164011/file/Lebanon-Humanitarian-SitRep-22-Oct-2024.pdf",
-      "checkedAt": "2026-09-25T07:55:47.089397+00:00",
+      "checkedAt": "2026-09-25T13:54:31.787925+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "application/pdf",
       "finalUrl": "https://www.unicef.org/media/164011/file/Lebanon-Humanitarian-SitRep-22-Oct-2024.pdf",
       "truncated": false,
-      "durationMs": 500
+      "durationMs": 443
     },
     {
       "label": "UNOPS / Beirut Municipality — Beirut municipal emergency operations support",
       "url": "https://www.unops.org/news-and-stories/stories/on-the-ground-in-lebanon-providing-urgent-relief-and-community-support",
-      "checkedAt": "2026-09-25T07:55:19.958816+00:00",
+      "checkedAt": "2026-09-25T13:54:08.304776+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -1828,21 +1822,21 @@
       "description": "Widespread displacement and damaged infrastructure are straining communities across Lebanon. Here are five ways UNOPS is working with partners to deliver…",
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 2378
+      "durationMs": 2711
     },
     {
       "label": "UNRWA — UNRWA Lebanon emergency response",
       "url": "https://www.unrwa.org/resources/reports/unrwa-situation-report-14-lebanon-emergency-response-2026",
-      "checkedAt": "2026-09-25T07:55:00.376835+00:00",
+      "checkedAt": "2026-09-25T13:53:57.367039+00:00",
       "state": "response-error",
       "status": 403,
       "error": "HTTP 403",
-      "durationMs": 227
+      "durationMs": 98
     },
     {
       "label": "United Nations Interim Force in Lebanon / Tyre Municipality / community partners — UNIFIL community livelihoods and humanitarian-access update",
       "url": "https://unifil.unmissions.org/en/news/peacekeepers-effort-to-help-rebuild-lives-after-hostilities-in-south-lebanon",
-      "checkedAt": "2026-09-25T07:54:18.776265+00:00",
+      "checkedAt": "2026-09-25T13:53:17.082168+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -1852,12 +1846,12 @@
       "description": "In the wake of the recent hostilities in south Lebanon, UNIFIL peacekeepers have stepped up efforts to support local communities in rebuilding their lives and restoring a sense of normalcy.Working",
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 2551
+      "durationMs": 1854
     },
     {
       "label": "United Nations Interim Force in Lebanon — UNIFIL municipal and community support update",
       "url": "https://unifil.unmissions.org/en/news/unifil-support-helps-communities-cope-with-the-impact-of-conflict",
-      "checkedAt": "2026-09-25T07:54:23.789194+00:00",
+      "checkedAt": "2026-09-25T13:53:21.754185+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -1867,12 +1861,12 @@
       "description": "Over the past weeks, UNIFIL peacekeepers ramped up support to communities affected by the recent hostilities – including through medical assistance, education support, veterinary support, and",
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 2167
+      "durationMs": 1397
     },
     {
       "label": "United Nations Lebanon / UN partners — Sustainable debris management and recovery",
       "url": "https://lebanon.un.org/en/293523-rebuilding-hope-lebanon%E2%80%99s-journey-toward-sustainable-recovery-through-debris-management",
-      "checkedAt": "2026-09-25T07:54:47.705791+00:00",
+      "checkedAt": "2026-09-25T13:53:44.683698+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -1882,12 +1876,12 @@
       "description": "The recent conflict in Lebanon between Israel and Hezbollah, which further escalated significantly in late 2024, has left a trail of devastation. Thousands have lost their lives, countless areas have been reduced to rubble, and critical infrastructure has been shattered. At the height of the crisis, about 1.3 million people were internally displaced. The sh…",
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 1423
+      "durationMs": 1421
     },
     {
       "label": "United Nations in Lebanon / OCHA — Lebanon Flash Appeal coordination",
       "url": "https://lebanon.un.org/en/311820-un-humanitarian-coordinator-speech-launch-lebanons-2026-lebanon-flash-appeal",
-      "checkedAt": "2026-09-25T07:55:01.333014+00:00",
+      "checkedAt": "2026-09-25T13:53:58.948494+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -1897,12 +1891,12 @@
       "description": "Speech of the UN Humanitarian Coordinator at the Launch of Lebanon's Flash Appeal at the Grand Serail, Beirut, Lebanon.",
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 726
+      "durationMs": 995
     },
     {
       "label": "United Nations in Lebanon — UN disability inclusion coordination",
       "url": "https://lebanon.un.org/en/about/about-the-un",
-      "checkedAt": "2026-09-25T07:55:00.691496+00:00",
+      "checkedAt": "2026-09-25T13:53:58.084552+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -1912,12 +1906,12 @@
       "description": null,
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 847
+      "durationMs": 1131
     },
     {
       "label": "VNG International / Tripoli Municipality / youth partners — Tripoli community-led safety and mobility update",
       "url": "https://www.vng-international.nl/safer-streets-and-faster-local-response-in-tripoli/",
-      "checkedAt": "2026-09-25T07:54:22.792685+00:00",
+      "checkedAt": "2026-09-25T13:53:21.125790+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -1927,12 +1921,12 @@
       "description": "In Tripoli, Lebanon, young people and the city government have worked together on practical changes to make daily life safer and easier for residents. With support from VNG International, the initiative has led to improvements in road safety, faster local response and better communication between residents and the municipality.",
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 830
+      "durationMs": 930
     },
     {
       "label": "WHO / Ministry of Public Health — Health emergency support in Lebanon",
       "url": "https://www.who.int/philippines/news/detail-global/03-04-2026-who-s-head-of-emergencies-reaffirms-support-to-lebanon-s-health-system-amid-escalating-needs",
-      "checkedAt": "2026-09-25T07:54:45.255895+00:00",
+      "checkedAt": "2026-09-25T13:53:43.407878+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -1942,12 +1936,12 @@
       "description": "Lebanon’s health system continues to function despite the mounting pressures of conflict, displacement and repeated attacks on health care – but without urgent action and sustained international support, access to essential health services is increasingly at risk.",
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 1540
+      "durationMs": 3464
     },
     {
       "label": "WHO / Ministry of Public Health — Public Health Emergency Operations Centre coordination",
       "url": "https://www.emro.who.int/lbn/lebanon-news/the-public-health-emergency-operation-centre-brings-lebanons-health-sector-together.html",
-      "checkedAt": "2026-09-25T07:55:29.653675+00:00",
+      "checkedAt": "2026-09-25T13:54:15.418326+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -1957,12 +1951,12 @@
       "description": "31 October 2024, Beirut, Lebanon – On the afternoon of 17 September, despite the chaos that ensued following the explosion of pagers that resulted in over 3000 severe injuries, emergency rooms in Beirut’s hospitals...",
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 2302
+      "durationMs": 2526
     },
     {
       "label": "WHO / Ministry of Public Health — WHO Lebanon emergency health response overview",
       "url": "https://www.emro.who.int/lbn/crisis/index.html",
-      "checkedAt": "2026-09-25T07:55:42.361760+00:00",
+      "checkedAt": "2026-09-25T13:54:26.773609+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -1972,23 +1966,23 @@
       "description": null,
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 2635
+      "durationMs": 2729
     },
     {
       "label": "WHO / Ministry of Public Health — WHO Lebanon health emergency update",
       "url": "https://www.emro.who.int/images/stories/lebanon/Lebanon-Emergency-Sitrep-22-2026.pdf",
-      "checkedAt": "2026-09-25T07:55:02.058818+00:00",
+      "checkedAt": "2026-09-25T13:54:00.048044+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "application/pdf",
       "finalUrl": "https://www.emro.who.int/images/stories/lebanon/Lebanon-Emergency-Sitrep-22-2026.pdf",
       "truncated": true,
-      "durationMs": 2370
+      "durationMs": 285
     },
     {
       "label": "WHO / Ministry of Public Health — WHO health service-continuity response",
       "url": "https://www.who.int/news/item/16-10-2024-attacks-on-hospitals-and-health-workers-jeopardize-provision-of-health-in-lebanon",
-      "checkedAt": "2026-09-25T07:55:30.817521+00:00",
+      "checkedAt": "2026-09-25T13:54:17.944591+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -1998,12 +1992,12 @@
       "description": "Since the escalation of hostilities between Israel and Lebanon on 17 September 2024, WHO has verified 23 attacks on health care in Lebanon that have led to 72 deaths and 43 injuries among health workers and patients. Fifteen incidents impacted health facilities, while 13 impacted health transport.",
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 454
+      "durationMs": 727
     },
     {
       "label": "WHO Lebanon — WHO continuity-of-care and community engagement update",
       "url": "https://www.emro.who.int/cpi/news/rcce-in-action-safeguarding-continuity-of-care-in-lebanon.html",
-      "checkedAt": "2026-09-25T07:55:42.904885+00:00",
+      "checkedAt": "2026-09-25T13:54:27.077009+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -2013,23 +2007,23 @@
       "description": "WHO team visit the Dekwaneh shelter in Beirut, hosting internally displaced people30 April 2026, Cairo, Egypt – In Lebanon’s evolving emergency, the most immediate threats to life are not always visible. For thousands...",
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 2617
+      "durationMs": 2538
     },
     {
       "label": "WHO — WHO Lebanon health emergency situation report",
       "url": "https://cdn.who.int/media/docs/default-source/middle-east-situation-report/middle-east-conflict-global-situation-report-11-june-2026.pdf?download=true&sfvrsn=3c57424b_3",
-      "checkedAt": "2026-09-25T07:55:44.255331+00:00",
+      "checkedAt": "2026-09-25T13:54:27.143689+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "application/pdf",
       "finalUrl": "https://cdn.who.int/media/docs/default-source/middle-east-situation-report/middle-east-conflict-global-situation-report-11-june-2026.pdf?download=true&sfvrsn=3c57424b_3",
       "truncated": false,
-      "durationMs": 286
+      "durationMs": 229
     },
     {
       "label": "World Bank / CDR — LEAP procurement plan",
       "url": "https://documents.worldbank.org/en/publication/documents-reports/documentdetail/099081426042514118",
-      "checkedAt": "2026-09-25T07:54:27.473882+00:00",
+      "checkedAt": "2026-09-25T13:53:25.506064+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -2039,23 +2033,23 @@
       "description": null,
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 108
+      "durationMs": 161
     },
     {
       "label": "World Bank — LEAP project design document",
       "url": "https://documents1.worldbank.org/curated/en/099061125095016009/pdf/BOSIB-92339148-e75a-4dca-8bc2-580a6104a46a.pdf",
-      "checkedAt": "2026-09-25T07:54:27.261598+00:00",
+      "checkedAt": "2026-09-25T13:53:25.353180+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "application/pdf",
       "finalUrl": "https://documents1.worldbank.org/curated/en/099061125095016009/pdf/BOSIB-92339148-e75a-4dca-8bc2-580a6104a46a.pdf",
       "truncated": false,
-      "durationMs": 212
+      "durationMs": 153
     },
     {
       "label": "World Bank — Lebanon Economic Monitor: A Conflict-Torn Economy",
       "url": "https://www.worldbank.org/en/news/press-release/2026/08/21/renewed-conflict-derails-lebanon-s-fragile-economic-recovery",
-      "checkedAt": "2026-09-25T07:54:37.697338+00:00",
+      "checkedAt": "2026-09-25T13:53:37.015770+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -2065,12 +2059,12 @@
       "description": "Lebanon’s economy is projected to contract by 6.4% in 2026 as renewed conflict reversed the fragile stabilization and recovery momentum recorded in 2025, according to the latest World Bank Lebanon Economic Monitor (LEM). While Lebanon continues to face urgent humanitarian and reconstruction needs, progress on reforms remains essential to restore confidence,…",
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 81
+      "durationMs": 114
     },
     {
       "label": "World Bank — Lebanon Emergency Assistance Project",
       "url": "https://www.worldbank.org/en/news/factsheet/2026/02/17/lebanon-emergency-assistance-project-frequently-asked-questions",
-      "checkedAt": "2026-09-25T07:54:26.989548+00:00",
+      "checkedAt": "2026-09-25T13:53:25.081288+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -2085,7 +2079,7 @@
     {
       "label": "World Bank — Lebanon Rapid Damage and Needs Assessment",
       "url": "https://www.worldbank.org/en/news/press-release/2025/03/07/lebanon-s-recovery-and-reconstruction-needs-estimated-at-us-11-billion",
-      "checkedAt": "2026-09-25T07:54:26.824904+00:00",
+      "checkedAt": "2026-09-25T13:53:24.896050+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -2095,12 +2089,12 @@
       "description": "Reconstruction and recovery needs following the conflict that affected Lebanon are estimated at US$11 billion, according to a Lebanon Rapid Damage and Needs Assessment (RDNA) 2025 report released by the World Bank that assesses damage, losses, and needs in ten sectors across the entire country, covering the period from October 8, 2023 until December 20, 202…",
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 165
+      "durationMs": 185
     },
     {
       "label": "World Food Programme — Lebanon food-security and livelihoods response",
       "url": "https://www.wfp.org/emergencies/lebanon",
-      "checkedAt": "2026-09-25T07:54:45.886131+00:00",
+      "checkedAt": "2026-09-25T13:53:44.332098+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -2110,12 +2104,12 @@
       "description": "Lebanon experienced a sharp escalation of conflict in March 2026 as part of a broader security crisis in the Middle East, with devastating humanitarian consequences.Insecurity persists despite a ceasefire in June, driving a food security emergency that is also fed by economic collapse, rising prices",
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 750
+      "durationMs": 352
     },
     {
       "label": "World Food Programme — WFP emergency food and cash response",
       "url": "https://www.wfp.org/news/wfp-reaches-half-million-people-lebanon-emergency-aid-amid-escalating-crisis",
-      "checkedAt": "2026-09-25T07:55:31.271806+00:00",
+      "checkedAt": "2026-09-25T13:54:18.672085+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -2125,12 +2119,12 @@
       "description": "BEIRUT – The United Nations World Food Programme (WFP) has delivered emergency assistance to over half a million people in Lebanon since the escalation of the conflict began. The agency is drawing on contingency planning that included pre-positioning food supplies inside the country. WFP continues scaling up with the goal of reaching one million people. The…",
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 717
+      "durationMs": 739
     },
     {
       "label": "World Food Programme — WFP emergency response scale-up and logistics update",
       "url": "https://www.wfp.org/news/wfp-scales-response-lebanon-displacement-crisis-enters-third-month-and-rising-costs-push-food",
-      "checkedAt": "2026-09-25T07:55:41.926874+00:00",
+      "checkedAt": "2026-09-25T13:54:26.248299+00:00",
       "state": "reachable",
       "status": 200,
       "contentType": "text/html",
@@ -2140,7 +2134,7 @@
       "description": "BEIRUT, Lebanon – The United Nations World Food Programme (WFP) is warning that nearly three months into the conflict, Lebanon faces a deepening humanitarian emergency with a critical combination of displacement and increased food insecurity. More than one million people remain displaced, while soaring prices, lost incomes and strained markets are pushing f…",
       "publishedAt": null,
       "updatedAt": null,
-      "durationMs": 978
+      "durationMs": 829
     }
   ]
 }
