@@ -9,6 +9,51 @@
   const data = {
   "checkedAt": "2026-09-08",
   "sources": {
+  "src-117": {
+    "originalUrl": "https://www.cdr.gov.lb/Procurment/ProcurementDetail.aspx?id=1264&lot=0",
+    "url": "https://www.cdr.gov.lb/Procurment/ProcurementDetail.aspx?id=1264&lot=0",
+    "checkedAt": "2026-09-28",
+    "status": "reviewed",
+    "access": "direct",
+    "locator": [
+      "CDR notice 1264: title, publication, funding source and submission deadline; checked 28 September 2026",
+      "إعلان مجلس الإنماء والإعمار 1264: العنوان والنشر ومصدر التمويل ومهلة التقديم؛ فُحص في 28 أيلول 2026"
+    ],
+    "note": [
+      "The tender seeks 29 ambulances and names IBRD as funder. Submission closes 12 October at noon Beirut time. It establishes neither a payment stage nor delivery.",
+      "تطلب المناقصة 29 سيارة إسعاف وتسمي البنك الدولي جهة التمويل. تنتهي المهلة في 12 تشرين الأول ظهراً بتوقيت بيروت. ولا تثبت مرحلة دفع أو تسليماً."
+    ]
+  },
+  "src-118": {
+    "originalUrl": "https://www.cdr.gov.lb/Procurment/ProcurementDetail.aspx?id=1240&lot=0",
+    "url": "https://www.cdr.gov.lb/Procurment/ProcurementDetail.aspx?id=1240&lot=0",
+    "checkedAt": "2026-09-28",
+    "status": "reviewed",
+    "access": "direct",
+    "locator": [
+      "CDR notice 1240, LEAP-OG5: title, publication date, Qualified procurement type and deadline",
+      "إعلان مجلس الإنماء والإعمار 1240، LEAP-OG5: العنوان وتاريخ النشر ونوع المناقصة المحصورة والمهلة"
+    ],
+    "note": [
+      "The notice seeks 30,000 wireless devices for OGERO, with bids due 19 October at noon Beirut time. IBRD is the funding source; the notice establishes neither payment nor delivery.",
+      "يطلب الإعلان 30,000 جهاز لاسلكي لأوجيرو، بمهلة تنتهي في 19 تشرين الأول ظهراً بتوقيت بيروت. البنك الدولي جهة التمويل؛ ولا يثبت الإعلان دفعاً أو تسليماً."
+    ]
+  },
+  "src-119": {
+    "originalUrl": "https://north-africa-middle-east-gulf.ec.europa.eu/news/eu-adopts-eur505-million-package-support-lebanons-stability-recovery-and-reforms-2026-09-23_en",
+    "url": "https://north-africa-middle-east-gulf.ec.europa.eu/news/eu-adopts-eur505-million-package-support-lebanons-stability-recovery-and-reforms-2026-09-23_en",
+    "checkedAt": "2026-09-28",
+    "status": "reviewed",
+    "access": "direct",
+    "locator": [
+      "European Commission release, 23 September 2026: opening, three focus areas, background and adoption statement",
+      "بيان المفوضية الأوروبية، 23 أيلول 2026: المقدمة ومجالات الدعم الثلاثة والخلفية وإعلان الاعتماد"
+    ],
+    "note": [
+      "The Commission reports adopting €505M for 2026–2027 within its existing €1B package. This is approval, not evidence of tranche disbursement or completed outputs; do not add the tranche to the umbrella package.",
+      "تفيد المفوضية باعتماد €505M لعامَي 2026–2027 ضمن حزمتها القائمة البالغة €1B. هذا اعتماد ولا يثبت صرف الشريحة أو إنجاز مخرجات؛ لا تُجمع الشريحة مع الحزمة الأم."
+    ]
+  },
     "src-114": {
       "originalUrl": "https://www.anera.org/press/launching-a-wash-project-with-the-lebanon-humanitarian-fund/",
       "url": "https://www.anera.org/press/launching-a-wash-project-with-the-lebanon-humanitarian-fund/",
@@ -84,16 +129,16 @@
     "src-104": {
       "originalUrl": "https://www.cdr.gov.lb/Procurment/ProcurementDetail.aspx?id=1262&lot=0",
       "url": "https://www.cdr.gov.lb/Procurment/ProcurementDetail.aspx?id=1262&lot=0",
-      "checkedAt": "2026-09-11",
+      "checkedAt": "2026-09-28",
       "status": "reviewed",
       "access": "direct",
       "locator": [
-        "CDR procurement 1262: title, publication date, procurement type, IBRD funding source and bid deadline",
-        "إعلان مشتريات مجلس الإنماء والإعمار 1262: العنوان وتاريخ النشر ونوع المشتريات ومصدر تمويل البنك الدولي وموعد تقديم العروض"
+        "CDR notice 1262: 22 September extension, 23 September tender update and 15 October noon deadline",
+        "إعلان مجلس الإنماء والإعمار 1262: تمديد 22 أيلول وتحديث وثيقة 23 أيلول ومهلة 15 تشرين الأول ظهراً"
       ],
       "note": [
-        "The 9 September CDR notice requests bids for supply and installation of an MRI machine at Rafik Hariri University Hospital for the Ministry of Public Health, and lists IBRD as the funding source. It is a pre-award tender; the notice does not identify a selected supplier, a contract award, delivery or installation.",
-        "يطلب إعلان مجلس الإنماء والإعمار الصادر في 9 أيلول عروضاً لتوريد وتركيب جهاز تصوير بالرنين المغناطيسي في مستشفى رفيق الحريري الجامعي لوزارة الصحة العامة، ويحدد البنك الدولي للإنشاء والتعمير مصدراً للتمويل. وهو مناقصة قبل الإرساء ولا يحدد مورّداً مختاراً أو إرساء عقد أو تسليماً أو تركيباً."
+        "CDR extends the MRI tender deadline to 15 October, noon Beirut time. The original publication remains 9 September. The notice does not establish an award, delivery, installation or payment stage.",
+        "يمدد المجلس مهلة مناقصة الرنين المغناطيسي إلى 15 تشرين الأول ظهراً بتوقيت بيروت. يبقى تاريخ النشر الأصلي 9 أيلول. ولا يثبت الإعلان إرساءً أو تسليماً أو تركيباً أو مرحلة دفع."
       ]
     },
     "src-106": {
@@ -1597,6 +1642,57 @@
     }
   },
   "records": {
+  "rec-0184": {
+    "source": "src-117",
+    "snapshot": {
+      "name": "LEAP Fully Equipped Ambulance Procurement",
+      "place": "Lebanon / Ministry of Public Health • Posted 18 Sep 2026",
+      "filter": "Financing",
+      "period": "2024",
+      "status": "Council for Development and Reconstruction / Ministry of Public Health / World Bank",
+      "funding": "World Bank-financed procurement notice",
+      "marker": "Tender for 29 equipped ambulances; bids due 12 Oct; no award or delivery reported",
+      "date": "2026-09-18",
+      "sourceId": "cdr-leap-ambulances-procurement-2026",
+      "href": "https://www.cdr.gov.lb/Procurment/ProcurementDetail.aspx?id=1264&lot=0"
+    },
+    "finance": "not_stated",
+    "delivery": "procurement"
+  },
+  "rec-0185": {
+    "source": "src-118",
+    "snapshot": {
+      "name": "LEAP OGERO Wireless Equipment Procurement",
+      "place": "Lebanon / telecommunications services • Posted 25 Sep 2026",
+      "filter": "Financing",
+      "period": "2024",
+      "status": "Council for Development and Reconstruction / Ministry of Telecommunications / OGERO / World Bank",
+      "funding": "World Bank-financed procurement notice",
+      "marker": "Qualified tender for 30,000 LTE-A CPEs; bids due 19 Oct; no award or delivery reported",
+      "date": "2026-09-25",
+      "sourceId": "cdr-leap-ogero-wireless-procurement-2026",
+      "href": "https://www.cdr.gov.lb/Procurment/ProcurementDetail.aspx?id=1240&lot=0"
+    },
+    "finance": "not_stated",
+    "delivery": "procurement"
+  },
+  "rec-0186": {
+    "source": "src-119",
+    "snapshot": {
+      "name": "EU Lebanon Support Package 2026–2027",
+      "place": "Lebanon • 2026–2027 support tranche",
+      "filter": "Financing",
+      "period": "2026",
+      "status": "European Commission / Lebanese authorities / implementing partners",
+      "funding": "€505M adopted within the previously announced €1B package",
+      "marker": "Adopted support for services, recovery, reforms, security, civil society and culture; tranche disbursement and completed outputs not established",
+      "date": "2026-09-23",
+      "sourceId": "eu-lebanon-support-package-2026-2027",
+      "href": "https://north-africa-middle-east-gulf.ec.europa.eu/news/eu-adopts-eur505-million-package-support-lebanons-stability-recovery-and-reforms-2026-09-23_en"
+    },
+    "finance": "approved",
+    "delivery": "planning"
+  },
     "rec-0181": {
       "source": "src-114",
       "snapshot": {
@@ -1674,7 +1770,7 @@
         "period": "2024",
         "status": "Council for Development and Reconstruction / Ministry of Public Health / World Bank",
         "funding": "World Bank-financed procurement notice",
-        "marker": "Open tender only; no supplier, delivery or installation reported",
+        "marker": "Bid deadline extended to 15 Oct by 22 Sep notice; no supplier, delivery or installation reported",
         "date": "2026-09-09",
         "sourceId": "cdr-leap-rhuh-mri-procurement-2026",
         "href": "https://www.cdr.gov.lb/Procurment/ProcurementDetail.aspx?id=1262&lot=0"

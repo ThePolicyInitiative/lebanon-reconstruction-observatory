@@ -86,9 +86,9 @@ test("source health deduplicates registered URLs and excludes unrelated or missi
 });
 
 test("procurement dates remain dated observations and the addendum is not a new project", () => {
-  assert.deepEqual(pages.deadlines.map(item=>item.date),["2026-09-22","2026-09-25"]);
+  assert.deepEqual(pages.deadlines.map(item=>item.date),["2026-10-12","2026-10-15","2026-10-19"]);
   const output=pages.pageHtml("updates",options);
-  assert.match(output,/18 September 2026/);
+  assert.match(output,/28 September 2026/);
   assert.match(output,/does not establish an award/);
   const event=programmes.leap.events.find(item=>item.id==="leap-public-buildings-addendum");
   assert.equal(event.recordId,"rec-0005");
@@ -112,7 +112,7 @@ test("new assets are public and included in both website builds", () => {
   for(const file of ["page-insights.js","page-insights.css"]) {
     assert.ok(build.includes('copy("'+file+'"'));
     assert.ok(server.includes('"'+file+'"'));
-    assert.ok(html.includes(file+"?v=explore-20260918"));
+    assert.ok(html.includes(file+"?v=refresh-20260928"));
   }
 });
 
@@ -226,5 +226,6 @@ test("reader controls update results and retain choices through language and sou
   finishFetch({ok:true,json:async()=>snapshot});
   await new Promise(resolve=>setImmediate(resolve));
   assert.equal(hosts.find(host=>host.dataset.pageInsights==="projects").innerHTML,comparisonBefore);
-  assert.match(hosts.find(host=>host.dataset.pageInsights==="sources").innerHTML,/134/);
+  const health=pages.snapshotSummary(snapshot,data.sources);
+  assert.ok(hosts.find(host=>host.dataset.pageInsights==="sources").innerHTML.includes(`${health.reachable} / ${health.total}`));
 });

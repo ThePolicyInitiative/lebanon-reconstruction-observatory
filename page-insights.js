@@ -51,14 +51,17 @@
     {id:"rec-0005", title:["Public buildings", "المباني العامة"], scope:["Design, structural assessment and rehabilitation supervision.", "التصميم والتقييم الإنشائي والإشراف على التأهيل."]},
     {id:"rec-0006", title:["Environmental and social services", "الخدمات البيئية والاجتماعية"], scope:["Impact assessments, management plans and audits.", "تقييمات الأثر وخطط الإدارة والتدقيق."]},
     {id:"rec-0170", title:["Water infrastructure", "البنية التحتية للمياه"], scope:["Repair design and supervision services.", "خدمات تصميم الإصلاح والإشراف عليه."]},
-    {id:"rec-0172", title:["Hospital MRI equipment", "معدات الرنين المغناطيسي للمستشفى"], scope:["Supply and installation at Rafik Hariri University Hospital.", "التوريد والتركيب في مستشفى رفيق الحريري الجامعي."]}
+    {id:"rec-0172", title:["Hospital MRI equipment", "معدات الرنين المغناطيسي للمستشفى"], scope:["Supply and installation at Rafik Hariri University Hospital.", "التوريد والتركيب في مستشفى رفيق الحريري الجامعي."]},
+    {id:"rec-0184", title:["Equipped ambulances", "سيارات إسعاف مجهزة"], scope:["Supply of 29 ambulances for the Ministry of Public Health.", "توريد 29 سيارة إسعاف لوزارة الصحة العامة."]},
+    {id:"rec-0185", title:["Telecommunications equipment", "معدات الاتصالات"], scope:["Supply of 30,000 wireless devices for OGERO.", "توريد 30,000 جهاز لاسلكي لأوجيرو."]}
   ];
   // Dated observations of the notices, not a continuously refreshed tender calendar.
   const deadlines = [
-    {id:"rec-0005", date:"2026-09-22", title:["Public-building consultancy", "استشارات المباني العامة"], note:["The 11 September addendum extends submission to 22 September, noon Beirut time.", "يمدد ملحق 11 أيلول تقديم العروض إلى 22 أيلول، الساعة 12 ظهراً بتوقيت بيروت."]},
-    {id:"rec-0172", date:"2026-09-25", title:["RHUH MRI supply and installation", "توريد جهاز الرنين المغناطيسي وتركيبه في مستشفى رفيق الحريري"], note:["The 9 September notice lists 25 September, noon Beirut time, for submission.", "يحدد إعلان 9 أيلول موعد تقديم العروض في 25 أيلول، الساعة 12 ظهراً بتوقيت بيروت."]}
+    {id:"rec-0184", date:"2026-10-12", title:["Equipped ambulances", "سيارات إسعاف مجهزة"], note:["The 18 September notice lists 12 October, noon Beirut time, for submission.", "يحدد إعلان 18 أيلول موعد تقديم العروض في 12 تشرين الأول ظهراً بتوقيت بيروت."]},
+    {id:"rec-0172", date:"2026-10-15", title:["RHUH MRI supply and installation", "توريد جهاز الرنين المغناطيسي وتركيبه في مستشفى رفيق الحريري"], note:["The 22 September extension moves submission from 25 September to 15 October, noon Beirut time.", "ينقل تمديد 22 أيلول مهلة تقديم العروض من 25 أيلول إلى 15 تشرين الأول ظهراً بتوقيت بيروت."]},
+    {id:"rec-0185", date:"2026-10-19", title:["OGERO wireless equipment", "معدات أوجيرو اللاسلكية"], note:["The 25 September notice lists 19 October, noon Beirut time, for submission.", "يحدد إعلان 25 أيلول موعد تقديم العروض في 19 تشرين الأول ظهراً بتوقيت بيروت."]}
   ];
-  const financeIds = ["rec-0001", "rec-0010", "rec-0007", "rec-0002", "rec-0022", "rec-0011"];
+  const financeIds = ["rec-0001", "rec-0010", "rec-0007", "rec-0002", "rec-0022", "rec-0011", "rec-0186"];
   function escape(value) {
     return String(value ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"})[c]);
   }
@@ -230,7 +233,7 @@
       content = heading(["CURATED COLLECTIONS","مجموعات مختارة"],["Explore a recovery question","استكشف أحد مجالات التعافي"],["Selected reading lists bring related records together across dates, publishers and delivery stages.","تجمع قوائم القراءة المختارة سجلات مترابطة عبر التواريخ والناشرين ومراحل التنفيذ."]);
       content += '<div class="insight-grid">' + collections.map(item=>`<article class="insight-collection"><h4>${text(item.title)}</h4><p>${text(item.note)}</p><ul>${item.ids.map(id=>`<li>${recordLink(id)}</li>`).join("")}</ul></article>`).join("")+"</div>";
     } else if (page === "funding") {
-      content = heading(["FINANCING IN THE RECORD","التمويل في السجل"],["Six examples, six different meanings","ستة أمثلة ومعانٍ مختلفة"],["Read the classified stage alongside the original headline measure. Figures refer to different scopes and must not be totalled.","اقرأ المرحلة المصنفة إلى جانب القيمة الأصلية. تخص الأرقام نطاقات مختلفة ولا يجوز جمعها."]);
+      content = heading(["FINANCING IN THE RECORD","التمويل في السجل"],["Seven examples of financing evidence","سبعة أمثلة على أدلة التمويل"],["Read the classified stage alongside the original headline measure. Figures refer to different scopes and must not be totalled.","اقرأ المرحلة المصنفة إلى جانب القيمة الأصلية. تخص الأرقام نطاقات مختلفة ولا يجوز جمعها."]);
       content += `<div class="insight-table-wrap" tabindex="0" role="region" aria-label="${text(["Financing evidence examples","أمثلة الأدلة التمويلية"])}"><table class="insight-table"><thead><tr><th scope="col">${text(["Source record","سجل المصدر"])}</th><th scope="col">${text(["Headline measure","القيمة الأصلية"])}</th><th scope="col">${text(["Financing stage and reading","مرحلة التمويل وقراءتها"])}</th></tr></thead><tbody>${financeIds.map(id=>`<tr><th scope="row">${recordLink(id)}</th><td><bdi dir="auto" lang="en">${escape(records.get(id)?.funding)}</bdi></td><td>${stage(id,"finance")}<p>${escape(note(id))}</p></td></tr>`).join("")}</tbody></table></div>`;
     } else if (page === "leap") {
       content = heading(["PROCUREMENT CASEBOOK","ملفات المشتريات"],["What the notices actually cover","ما الذي تغطيه الإعلانات فعلياً"],["These are separate procurement scopes within LEAP. None of these records establishes a contract award or completed works.","هذه نطاقات مشتريات منفصلة ضمن ليب. لا يثبت أي من هذه السجلات إرساء عقد أو إنجاز أعمال."]);
@@ -247,7 +250,7 @@
       ]) content += `<article class="insight-card"><h4>${text(name)}</h4><p>${text(description)}</p><a href="${escape(href)}">${text(["Read the linked record","اقرأ السجل المرتبط"])} ${ar?"←":"→"}</a></article>`;
       content += "</div>";
     } else if (page === "updates") {
-      content = heading(["PROCUREMENT DATES TO FOLLOW","مواعيد مشتريات للمتابعة"],["Two published submission dates","موعدان منشوران لتقديم العروض"],["Notice details checked on 18 September 2026. Confirm amendments with CDR before relying on a deadline; reaching a deadline does not establish an award.","فُحصت تفاصيل الإعلانين في 18 أيلول 2026. راجع التعديلات لدى مجلس الإنماء والإعمار قبل الاعتماد على موعد؛ وبلوغ الموعد لا يثبت الإرساء."]);
+      content = heading(["PROCUREMENT DATES TO FOLLOW","مواعيد مشتريات للمتابعة"],["Three published submission dates","ثلاثة مواعيد منشورة لتقديم العروض"],["Notice details checked on 28 September 2026. Confirm amendments with CDR before relying on a deadline; reaching a deadline does not establish an award.","فُحصت تفاصيل الإعلانات في 28 أيلول 2026. راجع التعديلات لدى مجلس الإنماء والإعمار قبل الاعتماد على موعد؛ وبلوغ الموعد لا يثبت الإرساء."]);
       content += '<div class="insight-grid">' + deadlines.map(item=>`<article class="insight-deadline"><p class="insight-date">${time(item.date)}</p><h4>${text(item.title)}</h4><p>${text(item.note)}</p>${stage(item.id)}${primary(item.id)}</article>`).join("")+"</div>";
       content += `<p class="insight-footnote">${text(["Publication, editorial review and availability checks are separate dates. The source monitor checks access; it does not automatically discover awards or rewrite delivery classifications.","النشر والمراجعة التحريرية وفحص الإتاحة تواريخ منفصلة. يتحقق مراقب المصادر من الوصول ولا يكتشف الإرساء تلقائياً أو يعيد تصنيف التنفيذ."])}</p>`;
     } else if (page === "sources") {

@@ -20,6 +20,11 @@
       { id:"leap-environment-social", date:"2026-09-04", recordId:"rec-0006", kind:["Pre-award procurement", "مشتريات قبل الإرساء"] },
       { id:"leap-water-infrastructure", date:"2026-09-08", recordId:"rec-0170", kind:["Pre-award procurement", "مشتريات قبل الإرساء"] },
       { id:"leap-rhuh-mri", date:"2026-09-09", recordId:"rec-0172", kind:["Pre-award procurement", "مشتريات قبل الإرساء"] },
+      { id:"leap-ambulances", date:"2026-09-18", recordId:"rec-0184", kind:["Pre-award procurement", "مشتريات قبل الإرساء"] },
+      { id:"leap-rhuh-mri-extension", date:"2026-09-22", recordId:"rec-0172", kind:["Procurement extension", "تمديد مهلة المشتريات"],
+        title:["Hospital MRI tender deadline extended", "تمديد مهلة مناقصة الرنين المغناطيسي للمستشفى"],
+        note:["CDR lists an extension notice dated 22 September and a tender-document update dated 23 September. The submission deadline is 15 October, noon Beirut time. Checked 28 September 2026; no award is established.", "يسجل المجلس إعلان تمديد في 22 أيلول وتحديثاً لوثيقة المناقصة في 23 أيلول. تنتهي مهلة التقديم في 15 تشرين الأول ظهراً بتوقيت بيروت. فُحص في 28 أيلول 2026؛ ولا يثبت إرساءً."] },
+      { id:"leap-ogero-wireless", date:"2026-09-25", recordId:"rec-0185", kind:["Pre-award procurement", "مشتريات قبل الإرساء"] },
       { id:"leap-public-buildings-addendum", date:"2026-09-11", recordId:"rec-0005", kind:["Procurement addendum", "ملحق إعلان المشتريات"],
         title:["Public-building consultancy deadline extended", "تمديد مهلة استشارات المباني العامة"],
         note:["The CDR notice lists an addendum dated 11 September and a revised submission deadline of 22 September, noon Beirut time. This is a dated amendment to the 4 September notice, not a new project or an award. Notice checked on 18 September 2026.", "يسجل إعلان مجلس الإنماء والإعمار ملحقاً بتاريخ 11 أيلول ومهلة معدلة للتقديم في 22 أيلول، الساعة 12 ظهراً بتوقيت بيروت. هذا تعديل مؤرخ لإعلان 4 أيلول وليس مشروعاً جديداً أو إرساءً. فُحص الإعلان في 18 أيلول 2026."] }
