@@ -9,6 +9,21 @@
   const data = {
   "checkedAt": "2026-09-08",
   "sources": {
+  "src-120": {
+    "originalUrl": "https://lebanon.un.org/en/323037-lebanon-response-plan-2026-addendum",
+    "url": "https://lebanon.un.org/en/323037-lebanon-response-plan-2026-addendum",
+    "checkedAt": "2026-09-28",
+    "status": "reviewed",
+    "access": "direct",
+    "locator": [
+      "United Nations in Lebanon publication, 18 September 2026: addendum scope, Government return and service-restoration alignment, September–December appeal and statement that original LRP requirements are unchanged",
+      "منشور الأمم المتحدة في لبنان، 18 أيلول 2026: نطاق الملحق ومواءمته مع العودة واستعادة الخدمات الحكومية، ونداء أيلول إلى كانون الأول، والتأكيد أن احتياجات الخطة الأصلية لم تتغير"
+    ],
+    "note": [
+      "The addendum seeks US$385.88M for prioritized humanitarian and stabilization assistance from September to December 2026. It complements the original LRP and aligns relevant sectors with return and basic-service restoration priorities. It does not establish funds received, disbursement or completed work.",
+      "يطلب الملحق US$385.88M لمساعدة إنسانية واستقرارية ذات أولوية من أيلول إلى كانون الأول 2026. ويكمل الخطة الأصلية ويوائم القطاعات ذات الصلة مع أولويات العودة واستعادة الخدمات الأساسية. ولا يثبت أموالاً متلقاة أو صرفاً أو أعمالاً مكتملة."
+    ]
+  },
   "src-117": {
     "originalUrl": "https://www.cdr.gov.lb/Procurment/ProcurementDetail.aspx?id=1264&lot=0",
     "url": "https://www.cdr.gov.lb/Procurment/ProcurementDetail.aspx?id=1264&lot=0",
@@ -1642,6 +1657,23 @@
     }
   },
   "records": {
+  "rec-0187": {
+    "source": "src-120",
+    "snapshot": {
+      "name": "Lebanon Response Plan 2026 Addendum",
+      "place": "Lebanon • September–December 2026",
+      "filter": "Financing",
+      "period": "2026",
+      "status": "Government of Lebanon / OCHA / RCO / UNDP / UNHCR / humanitarian and stabilization partners",
+      "funding": "US$385.88M appeal for additional September–December response",
+      "marker": "Appeal seeks assistance for 732,125 people; it does not establish funding received or completed outputs",
+      "date": "2026-09-18",
+      "sourceId": "lrp-addendum-2026",
+      "href": "https://lebanon.un.org/en/323037-lebanon-response-plan-2026-addendum"
+    },
+    "finance": "appeal",
+    "delivery": "planning"
+  },
   "rec-0184": {
     "source": "src-117",
     "snapshot": {

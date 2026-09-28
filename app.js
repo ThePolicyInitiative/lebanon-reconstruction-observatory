@@ -27,6 +27,14 @@ if (initialLibraryState.lang) activeLocale = initialLibraryState.lang;
 
 const arabicText = Object.freeze({
   "NEWLY REVIEWED · 28 SEP 2026": "مراجعة حديثة · 28 أيلول 2026",
+  "UN and Government publish 2026 Response Plan Addendum": "الأمم المتحدة والحكومة تنشران ملحق خطة الاستجابة لعام 2026",
+  "The September–December addendum seeks US$385.88M for 732,125 people. It is a humanitarian and stabilization appeal, not evidence of funding received or completed work.": "يطلب ملحق أيلول إلى كانون الأول US$385.88M لصالح 732,125 شخصاً. وهو نداء إنساني واستقراري، وليس دليلاً على أموال متلقاة أو أعمال مكتملة.",
+  "Appeal seeks assistance for 732,125 people; it does not establish funding received or completed outputs": "يطلب النداء مساعدة 732,125 شخصاً؛ ولا يثبت أموالاً متلقاة أو مخرجات مكتملة",
+  "US$385.88M appeal for additional September–December response": "نداء بقيمة US$385.88M لاستجابة إضافية من أيلول إلى كانون الأول",
+  "Lebanon • September–December 2026": "لبنان • أيلول إلى كانون الأول 2026",
+  "Align September–December humanitarian support with return and service restoration": "مواءمة الدعم الإنساني من أيلول إلى كانون الأول مع العودة واستعادة الخدمات",
+  "The Lebanon Response Plan 2026 Addendum sets additional September–December priorities for humanitarian and stabilization partners, including cash for rent, minor shelter repair, restoration of essential services and support to affected national and local systems. It is a plan and appeal, not evidence of funded delivery or completed work.": "يحدد ملحق خطة الاستجابة للبنان لعام 2026 أولويات إضافية من أيلول إلى كانون الأول للشركاء الإنسانيين والاستقراريين، ومنها بدل الإيجار وإصلاحات بسيطة للمأوى واستعادة الخدمات الأساسية ودعم الأنظمة الوطنية والمحلية المتضررة. وهو خطة ونداء، وليس دليلاً على تنفيذ ممول أو عمل مكتمل.",
+  "Government of Lebanon / OCHA / RCO / UNDP / UNHCR / humanitarian and stabilization partners": "حكومة لبنان / أوتشا / مكتب المنسق المقيم / برنامج الأمم المتحدة الإنمائي / المفوضية السامية للأمم المتحدة لشؤون اللاجئين / شركاء إنسانيون واستقراريون",
   "Open the European Commission release": "افتح بيان المفوضية الأوروبية",
   "CDR publishes LEAP procurement for 30,000 wireless devices": "مجلس الإنماء والإعمار ينشر مناقصة 30,000 جهاز لاسلكي ضمن ليب",
   "The OGERO tender lists 19 October at noon Beirut time as its bid deadline. Equipment delivery is not established.": "تحدد مناقصة أوجيرو مهلة تقديم العروض في 19 تشرين الأول ظهراً بتوقيت بيروت. ولا تثبت تسليم المعدات.",
