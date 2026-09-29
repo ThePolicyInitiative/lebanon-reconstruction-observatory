@@ -112,7 +112,7 @@ test("new assets are public and included in both website builds", () => {
   for(const file of ["page-insights.js","deadline-data.js","styles.css"]) {
     assert.ok(build.includes('copy("'+file+'"'));
     assert.ok(server.includes('"'+file+'"'));
-    assert.ok(html.includes(file+"?v=library-20260929"));
+    assert.match(html,new RegExp(file.replaceAll(".","\\.")+"\\?v=[A-Za-z0-9_-]+[\"']"));
   }
 });
 
