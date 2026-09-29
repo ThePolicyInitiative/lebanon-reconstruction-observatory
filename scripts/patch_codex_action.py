@@ -84,7 +84,26 @@ NEW = '''      const child = (0, import_child_process2.spawn)(program2, command,
         await drainCodexOutputStreams([child.stdout, child.stderr]);
         closeOutputStreams();
 '''
-DRAIN = '''function isCompleteDailyReport(text) {
+DRAIN = '''function readDailyEditorialDiff(gitBinary = "/usr/bin/git") {
+  if (!process.env.GITHUB_WORKSPACE) throw new Error("Missing review workspace");
+  return (0, import_child_process2.execFileSync)(gitBinary, [
+    "-c", "core.hooksPath=/dev/null", "diff", "--no-ext-diff", "--no-textconv",
+    "--no-color", "HEAD", "--", "data.js", "record-guide.js",
+    "classification-reviews.js", "programme-data.js", "deadline-data.js", "locale.js"
+  ], { cwd: process.env.GITHUB_WORKSPACE, encoding: "utf8", maxBuffer: 200000 });
+}
+function attachDailyWorkspaceDiff(text, readDiff = readDailyEditorialDiff) {
+  if (!isCompleteDailyReport(text)) throw new Error("Invalid final review metadata");
+  const report = JSON.parse(text);
+  if (report.status === "blocked") return JSON.stringify({ ...report, patch: "" });
+  const patch = readDiff();
+  if (report.status === "no_change" && patch) throw new Error("No-change review left editorial edits");
+  if (report.status === "updated" && (!patch || patch.length > 24000)) {
+    throw new Error("Updated review needs a nonempty Git diff under 24,000 characters");
+  }
+  return JSON.stringify({ ...report, patch });
+}
+function isCompleteDailyReport(text) {
   if (text.length > 200000) return false;
   try {
     const report = JSON.parse(text);
@@ -128,9 +147,12 @@ def patch_bundle(content):
         raise ValueError("Unexpected Codex action bundle; refusing to patch a different version")
     source = content.decode("utf-8")
     anchor = "async function finalizeExecution(outputFile, runAsUser) {"
-    if source.count(OLD) != 1 or source.count(anchor) != 1:
+    output = '(0, import_core.setOutput)("final-message", lastMessage);'
+    if source.count(OLD) != 1 or source.count(anchor) != 1 or source.count(output) != 1:
         raise ValueError("Expected exactly one Codex lifecycle patch location")
-    return source.replace(OLD, NEW).replace(anchor, DRAIN + anchor).encode("utf-8")
+    source = source.replace(OLD, NEW).replace(anchor, DRAIN + anchor)
+    source = source.replace(output, 'lastMessage = attachDailyWorkspaceDiff(lastMessage);\n    ' + output)
+    return source.encode("utf-8")
 
 
 if __name__ == "__main__":

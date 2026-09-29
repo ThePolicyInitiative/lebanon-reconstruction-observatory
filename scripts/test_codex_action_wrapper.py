@@ -1,4 +1,5 @@
 import json
+import os
 import subprocess
 import tempfile
 import unittest
@@ -90,6 +91,44 @@ process.exitCode = 7;
     def test_unrecognized_upstream_code_is_rejected(self):
         with self.assertRaisesRegex(ValueError, "different version"):
             patch_bundle(b"unrecognized bundle")
+
+    def test_handoff_uses_exact_git_diff_instead_of_model_patch(self):
+        with tempfile.TemporaryDirectory() as directory:
+            def git(*args, **kwargs):
+                return subprocess.run(["git", *args], cwd=directory, check=True,
+                                      capture_output=True, **kwargs).stdout
+            git("init", "-q")
+            git("config", "user.name", "Test")
+            git("config", "user.email", "test@example.invalid")
+            git("config", "core.autocrlf", "false")
+            for name in ("data.js", "other.txt"):
+                Path(directory, name).write_text("original\n", encoding="utf-8")
+            git("add", ".")
+            git("commit", "-qm", "Initial")
+            Path(directory, "data.js").write_text('const title = "مياه الشرب";\n', encoding="utf-8")
+            Path(directory, "other.txt").write_text("exclude this file\n", encoding="utf-8")
+            script = 'const import_child_process2 = require("node:child_process");\n' + DRAIN + '''
+const metadata = {status: "updated", summary: "Verified change", sources: [], patch: "malformed model patch"};
+console.log(attachDailyWorkspaceDiff(JSON.stringify(metadata), () => readDailyEditorialDiff("git")));
+'''
+            result = subprocess.run(["node", "-e", script], check=True, capture_output=True,
+                                    env={**os.environ, "GITHUB_WORKSPACE": directory})
+            report = json.loads(result.stdout)
+            self.assertEqual(report["patch"].encode(), git("diff", "--no-color", "HEAD", "--", "data.js"))
+            self.assertNotIn("other.txt", report["patch"])
+            git("restore", "data.js")
+            git("apply", "--check", input=report["patch"].encode())
+
+    def test_handoff_rejects_inconsistent_status_and_oversized_changes(self):
+        script = 'const assert = require("node:assert/strict");\n' + DRAIN + '''
+const report = status => JSON.stringify({status, summary: "Reviewed", sources: [], patch: ""});
+assert.throws(() => attachDailyWorkspaceDiff(report("no_change"), () => "diff"));
+assert.throws(() => attachDailyWorkspaceDiff(report("updated"), () => ""));
+assert.throws(() => attachDailyWorkspaceDiff(report("updated"), () => "x".repeat(24001)));
+assert.equal(JSON.parse(attachDailyWorkspaceDiff(report("no_change"), () => "")).patch, "");
+assert.equal(JSON.parse(attachDailyWorkspaceDiff(report("blocked"), () => {throw Error("must not read diff")})).status, "blocked");
+'''
+        subprocess.run(["node", "-e", script], check=True, capture_output=True)
 
 
 if __name__ == "__main__":

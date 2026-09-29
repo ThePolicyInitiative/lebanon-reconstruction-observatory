@@ -66,11 +66,12 @@ handle builds, cache versions and deployment. Do not change docs/ or dist/.
 Run npm test for material edits; a failing validation means status `blocked`.
 
 Return ONLY the JSON object specified by the supplied output schema.
-- `updated`: verified material changes, evidence in sources, and a unified Git
-  patch against the original HEAD for the six allowed files. Obtain the exact
-  patch with `git diff --no-ext-diff --no-color HEAD -- <allowed files>` and JSON
-  encode it, including real newlines. Do not return markdown fences. Keep the
-  patch under 24,000 characters; if larger, report blocked for manual handling.
+- `updated`: leave verified material changes in the six allowed working files
+  and return the supporting evidence in sources. Return an empty patch string:
+  the action wrapper generates the exact Git diff directly from your edited
+  files. Do not copy or reconstruct a patch in your response. Keep the actual
+  Git diff under 24,000 characters; if larger, reduce the batch or report blocked
+  for manual handling. Do not return markdown fences.
 - `no_change`: successful source review found no verified material change;
   return an empty patch and summarize the coverage in the run output only.
 - `blocked`: describe the specific obstacle; return an empty patch.
