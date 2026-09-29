@@ -1,19 +1,33 @@
 import json
 import subprocess
+import tempfile
 import unittest
+from pathlib import Path
 
 from patch_codex_action import DRAIN, NEW, patch_bundle
 
 
 class CodexActionWrapperTests(unittest.TestCase):
     def run_wrapper(self, child):
+        with tempfile.TemporaryDirectory() as directory:
+            return self.run_wrapper_in(directory, child)
+
+    def run_wrapper_in(self, directory, child):
+        output_path = str(Path(directory) / "final.json")
+        child = child.replace("OUTPUT_PATH", json.dumps(output_path))
         script = '''const import_child_process2 = require("node:child_process");
+const import_promises = require("node:fs/promises");
+const runAsUser = null, outputFile = {file: OUTPUT_PATH};
+async function finalizeExecution(file) {
+  JSON.parse(await import_promises.readFile(file.file, "utf8"));
+  console.log("FINAL_REPORT_RECOVERED");
+}
 const program2 = process.execPath, env = process.env, input = "";
 const command = ["-e", CHILD];
-''' .replace("CHILD", json.dumps(child)) + DRAIN + '''
+''' .replace("OUTPUT_PATH", json.dumps(output_path)).replace("CHILD", json.dumps(child)) + DRAIN + '''
 (async () => {
   await new Promise((resolve, reject) => {
-''' + NEW + '''
+''' + NEW.replace("< 30000", "< 100").replace("}, 1000);", "}, 25);") + '''
     if (code !== 0) { reject(new Error("child exit " + code)); return; }
     resolve();
   });
@@ -40,6 +54,38 @@ descendant.unref();
         result = self.run_wrapper("process.exitCode = 7;")
         self.assertNotEqual(result.returncode, 0)
         self.assertNotIn("WRAPPER_COMPLETED", result.stdout)
+
+    def test_complete_report_is_recovered_when_direct_child_hangs(self):
+        result = self.run_wrapper('''
+require("node:fs").writeFileSync(OUTPUT_PATH, JSON.stringify({
+  status: "no_change", summary: "Reviewed sources", sources: [], patch: ""
+}));
+setTimeout(() => {}, 8000);
+''')
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertIn("FINAL_REPORT_RECOVERED", result.stdout)
+        self.assertIn("WRAPPER_COMPLETED", result.stdout)
+
+    def test_partial_or_invalid_reports_cannot_trigger_recovery(self):
+        for report in ['{"status":', '{}', 'null', '{"status":"updated"}']:
+            with self.subTest(report=report):
+                result = self.run_wrapper(
+                    'require("node:fs").writeFileSync(OUTPUT_PATH, ' + json.dumps(report) + ');'
+                    'setTimeout(() => { process.exitCode = 7; }, 400);'
+                )
+                self.assertNotEqual(result.returncode, 0)
+                self.assertNotIn("FINAL_REPORT_RECOVERED", result.stdout)
+                self.assertNotIn("WRAPPER_COMPLETED", result.stdout)
+
+    def test_failure_before_recovery_grace_is_not_accepted(self):
+        result = self.run_wrapper('''
+require("node:fs").writeFileSync(OUTPUT_PATH, JSON.stringify({
+  status: "no_change", summary: "Reviewed sources", sources: [], patch: ""
+}));
+process.exitCode = 7;
+''')
+        self.assertNotEqual(result.returncode, 0)
+        self.assertNotIn("FINAL_REPORT_RECOVERED", result.stdout)
 
     def test_unrecognized_upstream_code_is_rejected(self):
         with self.assertRaisesRegex(ValueError, "different version"):

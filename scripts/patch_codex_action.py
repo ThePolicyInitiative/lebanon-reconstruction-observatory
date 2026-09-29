@@ -1,4 +1,4 @@
-"""Apply the reviewed stream-lifecycle fix to one exact upstream action bundle.
+"""Apply bounded shutdown recovery to one exact upstream action bundle.
 
 Upstream: https://github.com/openai/codex-action/pull/151
 No changes to privilege dropping, sandbox configuration, or credentials.
@@ -32,15 +32,69 @@ NEW = '''      const child = (0, import_child_process2.spawn)(program2, command,
         child.stdout.destroy();
         child.stderr.destroy();
       };
+      let settled = false;
+      let candidate = "", candidateSince = 0, checking = false;
+      // The CLI writes this file only after its final response. Some upstream
+      // shutdown paths never emit exit, so recover a complete, stable report.
+      // A fresh job still validates its patch and runs all publication checks.
+      const recoveryHandle = setInterval(async () => {
+        if (settled || checking || runAsUser != null) return;
+        checking = true;
+        try {
+          const report = await (0, import_promises.readFile)(outputFile.file, "utf8");
+          if (settled) return;
+          if (!isCompleteDailyReport(report)) {
+            candidate = "";
+            return;
+          }
+          if (report !== candidate) {
+            candidate = report;
+            candidateSince = Date.now();
+            return;
+          }
+          if (Date.now() - candidateSince < 30000) return;
+          settled = true;
+          clearInterval(recoveryHandle);
+          console.warn("::warning::Recovered a complete final report after Codex shutdown stalled; independent validation is still required.");
+          // Touch only this invocation's child, never other runner processes.
+          try { child.kill("SIGTERM"); } catch (_) {}
+          child.stdin.destroy();
+          await drainCodexOutputStreams([child.stdout, child.stderr]);
+          closeOutputStreams();
+          child.unref();
+          try {
+            await finalizeExecution(outputFile, runAsUser);
+            resolve(void 0);
+          } catch (err) { reject(err); }
+        } catch (_) {
+          candidate = "";
+        } finally { checking = false; }
+      }, 1000);
       child.once("error", (err) => {
+        if (settled) return;
+        settled = true;
+        clearInterval(recoveryHandle);
         closeOutputStreams();
         reject(err);
       });
       child.once("exit", async (code) => {
+        if (settled) return;
+        settled = true;
+        clearInterval(recoveryHandle);
         await drainCodexOutputStreams([child.stdout, child.stderr]);
         closeOutputStreams();
 '''
-DRAIN = '''function drainCodexOutputStreams(streams) {
+DRAIN = '''function isCompleteDailyReport(text) {
+  if (text.length > 200000) return false;
+  try {
+    const report = JSON.parse(text);
+    return report !== null && typeof report === "object" &&
+      ["updated", "no_change", "blocked"].includes(report.status) &&
+      typeof report.summary === "string" && Array.isArray(report.sources) &&
+      typeof report.patch === "string" && report.patch.length <= 24000;
+  } catch (_) { return false; }
+}
+function drainCodexOutputStreams(streams) {
   return new Promise((resolve) => {
     let quietHandle;
     const onData = () => scheduleQuietCheck();
