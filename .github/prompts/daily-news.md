@@ -1,5 +1,6 @@
 Keep the Lebanon Reconstruction Observatory current with verified new information
-and news. This runs daily at 09:00 Asia/Beirut on GitHub. Read README.md and the
+and news. This runs every six hours (00:00, 06:00, 12:00 and 18:00 Asia/Beirut)
+on GitHub. Read README.md and the
 current editorial files before working. Use the current date from the runner.
 
 The workflow has already completed live search and original-page fetching through

@@ -8,7 +8,7 @@ on:
       - '.github/workflows/pages.yml'
   # GITHUB_TOKEN commits do not trigger ordinary push workflows.
   workflow_run:
-    workflows: [Refresh source monitor, Daily news updates]
+    workflows: [Refresh source monitor, Reconstruction news updates]
     types: [completed]
     branches: [main]
   workflow_dispatch:
