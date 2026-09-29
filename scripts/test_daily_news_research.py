@@ -15,9 +15,7 @@ class DailyNewsResearchTests(unittest.TestCase):
         }
 
     def response(self, report=None):
-        return {"status": "completed", "output": [{"type": "message", "content": [
-            {"type": "output_text", "text": json.dumps(report or self.report)},
-        ]}]}
+        return {"choices": [{"finish_reason": "stop", "message": {"content": json.dumps(report or self.report)}}]}
 
     def test_completed_coverage_can_report_no_material_changes(self):
         self.assertEqual(parse_report(self.response()), self.report)
@@ -33,8 +31,14 @@ class DailyNewsResearchTests(unittest.TestCase):
 
     def test_incomplete_api_response_is_rejected(self):
         response = self.response()
-        response["status"] = "incomplete"
+        response["choices"][0]["finish_reason"] = "length"
         with self.assertRaises(ValueError): parse_report(response)
+
+    def test_malformed_report_fails_with_actionable_error(self):
+        report = copy.deepcopy(self.report)
+        report["summary"] = {"finding": "Unexpected provider format"}
+        with self.assertRaisesRegex(ValueError, "report format"):
+            parse_report(self.response(report))
 
     def test_api_error_redacts_the_key(self):
         key = "sk-or-v1-test-secret"

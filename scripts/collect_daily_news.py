@@ -38,14 +38,12 @@ SCHEMA = {
 
 
 def parse_report(response):
-    if response.get("error") or response.get("status") != "completed":
+    choices = response.get("choices", [])
+    if response.get("error") or not choices or choices[0].get("finish_reason") != "stop":
         raise ValueError("OpenRouter research response did not complete")
-    text = "".join(
-        part.get("text", "") for item in response.get("output", [])
-        if item.get("type") == "message"
-        for part in item.get("content", []) if part.get("type") == "output_text"
-    )
-    report = json.loads(text)
+    report = json.loads(choices[0]["message"]["content"])
+    if not isinstance(report, dict) or not isinstance(report.get("summary"), str):
+        raise ValueError("OpenRouter returned an invalid research report format")
     if report.get("status") != "complete":
         raise ValueError("Primary-source research blocked: " + report.get("summary", "No details"))
     coverage = report.get("coverage", [])
@@ -101,12 +99,14 @@ money, geography, awards or implementation. Never report unsuccessful retrieval
 as no new news. Include checked primary sources even when all items duplicate
 the index. If meaningful coverage of a group is impossible, return blocked.
 Return the required JSON. Do not write site files or make editorial patches.
+The exact output JSON Schema is:
+{json.dumps(SCHEMA)}
 
 Current public index for deduplication:
 {json.dumps(context, ensure_ascii=False)}"""
     body = {
         "model": os.environ.get("OPENROUTER_MODEL", "openai/gpt-5.6-sol"),
-        "input": instructions,
+        "messages": [{"role": "user", "content": instructions}],
         "tools": [
             {"type": "openrouter:web_search", "parameters": {
                 "engine": "exa", "max_results": 5, "max_total_results": 60, "max_uses": 12,
@@ -116,10 +116,13 @@ Current public index for deduplication:
             }},
         ],
         "reasoning": {"effort": "medium"},
-        "max_output_tokens": 14000,
-        "text": {"format": {"type": "json_schema", "name": "source_research", "strict": True, "schema": SCHEMA}},
+        "max_tokens": 14000,
+        "provider": {"require_parameters": True},
+        "response_format": {"type": "json_schema", "json_schema": {
+            "name": "source_research", "strict": True, "schema": SCHEMA,
+        }},
     }
-    request = Request("https://openrouter.ai/api/v1/responses", data=json.dumps(body).encode(), headers={
+    request = Request("https://openrouter.ai/api/v1/chat/completions", data=json.dumps(body).encode(), headers={
         "Authorization": f"Bearer {key}", "Content-Type": "application/json",
     })
     try:
