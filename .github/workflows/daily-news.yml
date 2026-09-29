@@ -24,20 +24,31 @@ jobs:
       - uses: actions/checkout@v4
         with:
           persist-credentials: false
-      - name: Check required API secret
+      - name: Check OpenRouter API secret
         env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          REVIEW_API_KEY: ${{ secrets.OPENROUTER_API_KEY || secrets.OPENAI_API_KEY }}
         run: |
-          if [ -z "$OPENAI_API_KEY" ]; then
-            echo "::error::Add the OPENAI_API_KEY repository secret in Settings > Secrets and variables > Actions. The news review has not run."
+          if [ -z "$REVIEW_API_KEY" ]; then
+            echo "::error::Add the OPENROUTER_API_KEY repository secret in Settings > Secrets and variables > Actions. The news review has not run."
             exit 1
           fi
+          case "$REVIEW_API_KEY" in
+            sk-or-*) ;;
+            *)
+              echo "::error::This workflow uses OpenRouter. Save an OpenRouter key as OPENROUTER_API_KEY; an OpenAI key cannot be sent to this endpoint."
+              exit 1
+              ;;
+          esac
       # Keep Codex last; later jobs start on fresh runners without the API key.
       - name: Review new primary publications
         id: review
         uses: openai/codex-action@86365089eb2b84e0a8fb0717b304f8bdcb13b20e # v1
         with:
-          openai-api-key: ${{ secrets.OPENAI_API_KEY }}
+          # The action uses this input name for any compatible Responses endpoint.
+          openai-api-key: ${{ secrets.OPENROUTER_API_KEY || secrets.OPENAI_API_KEY }}
+          responses-api-endpoint: https://openrouter.ai/api/v1/responses
+          model: ${{ vars.OPENROUTER_MODEL || 'openai/gpt-5.6-sol' }}
+          effort: medium
           permission-profile: ":workspace"
           safety-strategy: drop-sudo
           codex-args: '["--config", "web_search=\"live\"", "--ephemeral"]'
