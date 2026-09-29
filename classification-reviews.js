@@ -9,6 +9,26 @@
   const data = {
   "checkedAt": "2026-09-08",
   "sources": {
+  "src-123": {
+    "originalUrl": "https://www.ppa.gov.lb/ar/tenders/details/12779",
+    "url": "https://www.ppa.gov.lb/ar/tenders/details/12779",
+    "checkedAt": "2026-09-29", "status": "reviewed", "access": "direct",
+    "locator": ["PPA tender 12779: procurement-detail header, works title and 26 October offer deadline", "مناقصة هيئة الشراء العام 12779: عنوان صفحة الشراء وموضوع الأشغال ومهلة العروض في 26 تشرين الأول"],
+    "note": ["CDR opened a works tender to rehabilitate and upgrade drinking-water systems in Wadi al-Dalam, Qabb Elias and Mreijat. The notice establishes neither an award nor implementation; its retrieved text does not state a financing stage.", "فتح مجلس الإنماء والإعمار مناقصة أشغال لتأهيل وتطوير منظومات مياه الشرب في وادي الدلم وقب الياس والمريجات. لا يثبت الإعلان إرساءً أو تنفيذاً، ولا يذكر النص المسترجع مرحلة تمويل."]
+  },
+  "src-124": {
+    "originalUrl": "https://lebanon.un.org/en/323178-how-un-strengthening-local-institutions-support-communities-across-lebanon-times-crisis",
+    "url": "https://lebanon.un.org/en/323178-how-un-strengthening-local-institutions-support-communities-across-lebanon-times-crisis",
+    "checkedAt": "2026-09-29", "status": "reviewed", "access": "direct",
+    "locator": ["UN Lebanon story, 23 September 2026: Saida community-kitchen and TVET-kitchens passages", "قصة الأمم المتحدة في لبنان، 23 أيلول 2026: فقرتا المطبخ المجتمعي في صيدا ومطابخ التعليم المهني والتقني"],
+    "note": ["The UN reports that UNICEF and WFP helped rehabilitate and equip TVET kitchens that can shift from school meals to food support for displaced families. This is reported operational delivery, not a new financing approval or independent outcome verification.", "تفيد الأمم المتحدة بأن اليونيسف وبرنامج الأغذية العالمي ساهما في تأهيل وتجهيز مطابخ التعليم المهني والتقني القادرة على التحول من الوجبات المدرسية إلى دعم غذائي للأسر النازحة. هذا تنفيذ تشغيلي مُبلّغ عنه، وليس موافقة تمويل جديدة أو تحققاً مستقلاً من النتائج."]
+  },
+  "src-125": {
+    "originalUrl": "https://www.amalbaladi.org.lb/details/10078/", "url": "https://www.amalbaladi.org.lb/details/10078/",
+    "checkedAt": "2026-09-29", "status": "reviewed", "access": "direct",
+    "locator": ["Municipal Action Association article, 23 September 2026: technical-plan and concluding coordination paragraphs", "مقال جمعية العمل البلدي، 23 أيلول 2026: فقرة التصور الفني وفقرة التنسيق الختامية"],
+    "note": ["The registered NGO reports that Bint Jbeil Municipality presented CDR with public-facility and infrastructure priorities and agreed to continue technical preparation. It confirms no financing, programme inclusion, award or implementation.", "تفيد الجمعية المسجلة بأن بلدية بنت جبيل عرضت على مجلس الإنماء والإعمار أولويات للمرافق العامة والبنى التحتية واتُفق على متابعة التحضير الفني. ولا يؤكد المصدر تمويلاً أو إدراجاً في برنامج أو إرساءً أو تنفيذاً."]
+  },
   "src-121": {
     "originalUrl": "https://www.ppa.gov.lb/ar/tenders/details/12896/tenders",
     "url": "https://www.ppa.gov.lb/ar/tenders/details/12896/tenders",
@@ -1687,6 +1707,9 @@
     }
   },
   "records": {
+  "rec-0190": {"source":"src-123","snapshot":{"name":"Zahle Caza Drinking-Water Systems Rehabilitation Tender","place":"Wadi al-Dalam, Qabb Elias and Mreijat, Zahle Caza • Posted 15 Sep 2026","filter":"Financing","period":"2024","status":"Council for Development and Reconstruction / Public Procurement Authority","funding":"Open works procurement; financing and payment stage not stated","marker":"Tender for drinking-water system rehabilitation and upgrading; offers due 26 Oct; no award or works reported","date":"2026-09-15","sourceId":"ppa-zahle-water-tender-2026","href":"https://www.ppa.gov.lb/ar/tenders/details/12779"},"finance":"not_stated","delivery":"procurement"},
+  "rec-0191": {"source":"src-124","snapshot":{"name":"Adaptive TVET Community Kitchens","place":"Saida and participating TVET institutions • September 2026 update","filter":"Local recovery","period":"2026","status":"UNICEF / WFP / Technical and Vocational Education and Training institutions","funding":"UN-supported kitchen rehabilitation and equipment; amount and payment stage not stated","marker":"UN reports rehabilitated and equipped kitchens shifting from school meals to food support for displaced families","date":"2026-09-23","sourceId":"un-adaptive-tvet-kitchens-2026","href":"https://lebanon.un.org/en/323178-how-un-strengthening-local-institutions-support-communities-across-lebanon-times-crisis"},"finance":"not_stated","delivery":"in_progress"},
+  "rec-0192": {"source":"src-125","snapshot":{"name":"Bint Jbeil Municipal Recovery Priorities","place":"Bint Jbeil • September 2026","filter":"Municipal","period":"2026","status":"Bint Jbeil Municipality / Council for Development and Reconstruction","funding":"Technical recovery planning; no financing or programme inclusion confirmed","marker":"Municipality presented public-facility and infrastructure priorities to CDR; further technical preparation planned","date":"2026-09-23","sourceId":"bint-jbeil-cdr-recovery-priorities-2026","href":"https://www.amalbaladi.org.lb/details/10078/"},"finance":"not_stated","delivery":"planning"},
   "rec-0188": {
     "source": "src-121",
     "snapshot": {

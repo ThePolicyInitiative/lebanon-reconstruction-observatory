@@ -3,6 +3,22 @@
 (function (root) {
   const entries = [
   {
+    "id": "rec-0190",
+    "date": "2026-10-26",
+    "time": null,
+    "checkedAt": "2026-09-29",
+    "title": ["Zahle Caza water systems", "منظومات المياه في قضاء زحلة"],
+    "timeZone": "Asia/Beirut",
+    "snapshot": {
+      "name": "Zahle Caza Drinking-Water Systems Rehabilitation Tender",
+      "date": "2026-09-15",
+      "place": "Wadi al-Dalam, Qabb Elias and Mreijat, Zahle Caza • Posted 15 Sep 2026",
+      "funding": "Open works procurement; financing and payment stage not stated",
+      "marker": "Tender for drinking-water system rehabilitation and upgrading; offers due 26 Oct; no award or works reported",
+      "href": "https://www.ppa.gov.lb/ar/tenders/details/12779"
+    }
+  },
+  {
     "id": "rec-0005",
     "date": "2026-09-22",
     "time": "12:00",

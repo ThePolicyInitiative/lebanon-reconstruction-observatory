@@ -1,5 +1,11 @@
 /* Bilingual copy, attributes and number formatting. Loaded before app.js. */
 const arabicText = Object.freeze({
+  "UN reports adaptive community kitchens supporting displaced families": "الأمم المتحدة تفيد بدعم مطابخ مجتمعية متكيّفة للأسر النازحة",
+  "UNICEF and WFP supported rehabilitation and equipment for TVET kitchens that can shift from school meals to food assistance. The report is operational reporting, not a new financing approval.": "دعمت اليونيسف وبرنامج الأغذية العالمي تأهيل وتجهيز مطابخ التعليم المهني والتقني القادرة على التحول من الوجبات المدرسية إلى المساعدة الغذائية. هذا إبلاغ تشغيلي وليس موافقة تمويل جديدة.",
+  "Bint Jbeil presents technical recovery priorities to CDR": "بنت جبيل تعرض على مجلس الإنماء والإعمار أولويات تقنية للتعافي",
+  "The municipality presented priorities for public facilities and infrastructure and sought possible future programme inclusion. No financing, inclusion, award or implementation was confirmed.": "عرضت البلدية أولويات للمرافق العامة والبنى التحتية وسعت إلى إمكان إدراجها مستقبلاً في برنامج. ولم يتأكد تمويل أو إدراج أو إرساء أو تنفيذ.",
+  "CDR opens drinking-water rehabilitation tender in Zahle Caza": "مجلس الإنماء والإعمار يفتح مناقصة لتأهيل مياه الشرب في قضاء زحلة",
+  "The tender covers systems in Wadi al-Dalam, Qabb Elias and Mreijat, with offers due 26 October. It establishes neither an award nor implementation.": "تشمل المناقصة منظومات وادي الدلم وقب الياس والمريجات، وتنتهي مهلة العروض في 26 تشرين الأول. ولا تثبت إرساءً أو تنفيذاً.",
   "Lebanon": "لبنان",
   "Lebanon / telecommunications services": "لبنان / خدمات الاتصالات",
   "Lebanon / Ministry of Public Health": "لبنان / وزارة الصحة العامة",

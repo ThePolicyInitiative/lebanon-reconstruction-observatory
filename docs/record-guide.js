@@ -8,6 +8,9 @@
   // IDs are assigned once. Preserve each literal ID if its reading title changes;
   // never renumber this registry when adding, removing or reordering records.
   const readingRecords = Object.freeze({
+    "Zahle Caza Drinking-Water Systems Rehabilitation Tender": ["rec-0190","مناقصة تأهيل منظومات مياه الشرب في قضاء زحلة"],
+    "Adaptive TVET Community Kitchens": ["rec-0191","مطابخ مجتمعية متكيّفة في مؤسسات التعليم المهني والتقني"],
+    "Bint Jbeil Municipal Recovery Priorities": ["rec-0192","أولويات التعافي البلدية في بنت جبيل"],
     "LEAP Public-School Shelter Rehabilitation Procurement Batch 1": ["rec-0188","مناقصات تأهيل مدارس الإيواء الرسمية ضمن ليب، الحزمة الأولى"],
     "LEAP Public-School Shelter Rehabilitation Procurement Batch 3": ["rec-0189","مناقصات تأهيل مدارس الإيواء الرسمية ضمن ليب، الحزمة الثالثة"],
     "Lebanon Response Plan 2026 Addendum": ["rec-0187","ملحق خطة الاستجابة للبنان لعام 2026"],
