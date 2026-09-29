@@ -39,6 +39,17 @@ jobs:
               exit 1
               ;;
           esac
+      - name: Collect current primary-source evidence
+        env:
+          REVIEW_API_KEY: ${{ secrets.OPENROUTER_API_KEY || secrets.OPENAI_API_KEY }}
+          OPENROUTER_MODEL: ${{ vars.OPENROUTER_MODEL || 'openai/gpt-5.6-sol' }}
+        run: python scripts/collect_daily_news.py "$RUNNER_TEMP/daily-research"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: daily-source-research
+          path: ${{ runner.temp }}/daily-research/source-review.json
+          retention-days: 7
+          if-no-files-found: error
       # Keep Codex last; later jobs start on fresh runners without the API key.
       - name: Review new primary publications
         id: review
@@ -51,8 +62,8 @@ jobs:
           effort: medium
           permission-profile: ":workspace"
           safety-strategy: drop-sudo
-          codex-args: '["--config", "web_search=\"live\"", "--ephemeral"]'
-          prompt-file: .github/prompts/daily-news.md
+          codex-args: '["--ephemeral"]'
+          prompt-file: ${{ runner.temp }}/daily-research/daily-news-prompt.md
           output-schema-file: .github/prompts/daily-news.schema.json
 
   validate:
