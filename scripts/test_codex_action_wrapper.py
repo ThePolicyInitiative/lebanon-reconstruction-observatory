@@ -19,8 +19,8 @@ class CodexActionWrapperTests(unittest.TestCase):
         script = '''const import_child_process2 = require("node:child_process");
 const import_promises = require("node:fs/promises");
 const runAsUser = null, outputFile = {file: OUTPUT_PATH};
-async function finalizeExecution(file) {
-  JSON.parse(await import_promises.readFile(file.file, "utf8"));
+async function finalizeExecution(file, user, recoveredMessage) {
+  JSON.parse(recoveredMessage ?? await import_promises.readFile(file.file, "utf8"));
   console.log("FINAL_REPORT_RECOVERED");
 }
 const program2 = process.execPath, env = process.env, input = "";
@@ -77,6 +77,16 @@ setTimeout(() => {}, 8000);
                 self.assertNotEqual(result.returncode, 0)
                 self.assertNotIn("FINAL_REPORT_RECOVERED", result.stdout)
                 self.assertNotIn("WRAPPER_COMPLETED", result.stdout)
+
+    def test_completed_stdout_report_is_recovered_before_file_flush(self):
+        result = self.run_wrapper('''
+console.log("Startup diagnostic, not a report.");
+console.log(JSON.stringify({status: "updated", summary: "Verified", sources: [], patch: ""}));
+setTimeout(() => {}, 8000);
+''')
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertIn("FINAL_REPORT_RECOVERED", result.stdout)
+        self.assertIn("WRAPPER_COMPLETED", result.stdout)
 
     def test_failure_before_recovery_grace_is_not_accepted(self):
         result = self.run_wrapper('''

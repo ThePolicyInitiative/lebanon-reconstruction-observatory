@@ -22,11 +22,20 @@ NEW = '''      const child = (0, import_child_process2.spawn)(program2, command,
         env,
         stdio: ["pipe", "pipe", "pipe"]
       });
+      child.stdout.setEncoding("utf8");
       child.stdout.pipe(process.stdout, { end: false });
       child.stderr.pipe(process.stderr, { end: false });
+      let stdoutTail = "", stdoutReport = "";
+      const rememberFinalOutput = (chunk) => {
+        stdoutTail = (stdoutTail + chunk.toString("utf8")).slice(-200000);
+        const lastLine = stdoutTail.trim().split(/\\r?\\n/).pop() || "";
+        stdoutReport = isCompleteDailyReport(lastLine) ? lastLine : "";
+      };
+      child.stdout.on("data", rememberFinalOutput);
       child.stdin.write(input);
       child.stdin.end();
       const closeOutputStreams = () => {
+        child.stdout.off("data", rememberFinalOutput);
         child.stdout.unpipe(process.stdout);
         child.stderr.unpipe(process.stderr);
         child.stdout.destroy();
@@ -41,7 +50,12 @@ NEW = '''      const child = (0, import_child_process2.spawn)(program2, command,
         if (settled || checking || runAsUser != null) return;
         checking = true;
         try {
-          const report = await (0, import_promises.readFile)(outputFile.file, "utf8");
+          let report;
+          try {
+            report = await (0, import_promises.readFile)(outputFile.file, "utf8");
+          } catch (_) { report = ""; }
+          // Some CLI shutdowns print the final JSON before flushing the file.
+          if (!isCompleteDailyReport(report)) report = stdoutReport;
           if (settled) return;
           if (!isCompleteDailyReport(report)) {
             candidate = "";
@@ -63,7 +77,7 @@ NEW = '''      const child = (0, import_child_process2.spawn)(program2, command,
           closeOutputStreams();
           child.unref();
           try {
-            await finalizeExecution(outputFile, runAsUser);
+            await finalizeExecution(outputFile, runAsUser, report);
             resolve(void 0);
           } catch (err) { reject(err); }
         } catch (_) {
@@ -148,9 +162,14 @@ def patch_bundle(content):
     source = content.decode("utf-8")
     anchor = "async function finalizeExecution(outputFile, runAsUser) {"
     output = '(0, import_core.setOutput)("final-message", lastMessage);'
-    if source.count(OLD) != 1 or source.count(anchor) != 1 or source.count(output) != 1:
+    read_anchor = '    let lastMessage;\n    if (runAsUser == null) {'
+    if any(source.count(part) != 1 for part in (OLD, anchor, output, read_anchor)):
         raise ValueError("Expected exactly one Codex lifecycle patch location")
-    source = source.replace(OLD, NEW).replace(anchor, DRAIN + anchor)
+    source = source.replace(OLD, NEW).replace(anchor, DRAIN +
+        "async function finalizeExecution(outputFile, runAsUser, recoveredMessage) {")
+    source = source.replace(read_anchor,
+        '    let lastMessage;\n    if (recoveredMessage != null) {\n'
+        '      lastMessage = recoveredMessage;\n    } else if (runAsUser == null) {')
     source = source.replace(output, 'lastMessage = attachDailyWorkspaceDiff(lastMessage);\n    ' + output)
     return source.encode("utf-8")
 
