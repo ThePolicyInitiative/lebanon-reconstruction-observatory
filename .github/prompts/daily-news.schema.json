@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["status", "summary", "sources", "patch"],
+  "properties": {
+    "status": {"type": "string", "enum": ["updated", "no_change", "blocked"]},
+    "summary": {"type": "string"},
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["url", "publication_date", "locator", "finding"],
+        "properties": {
+          "url": {"type": "string"},
+          "publication_date": {"type": "string"},
+          "locator": {"type": "string"},
+          "finding": {"type": "string"}
+        }
+      }
+    },
+    "patch": {"type": "string"}
+  }
+}

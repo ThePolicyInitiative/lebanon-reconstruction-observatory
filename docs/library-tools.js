@@ -1,6 +1,6 @@
 /* Pure helpers shared by the interface and regression tests. No network or storage. */
 (function (root) {
-  const defaults = Object.freeze({ q:"", type:"All", period:"All", area:"All", finance:"All", delivery:"All", sort:"latest", lang:null, record:"" });
+  const defaults = Object.freeze({ q:"", type:"All", period:"All", area:"All", finance:"All", delivery:"All", sort:"latest", lang:null, record:"", programme:"leap" });
   const choices = Object.freeze({
     type:["All", "Assessment", "Financing", "Local recovery", "Evidence", "Municipal"],
     period:["All", "2024", "2026"], area:["All", "National", "South", "Beirut", "Bekaa"],
@@ -8,7 +8,7 @@
     delivery:["All", "unknown", "not_stated", "not_applicable", "planning", "procurement", "contracted", "in_progress", "reported_complete"],
     // Old sort=scale links fall back to latest: headline measures mix money,
     // people and other units, so ranking them numerically is not meaningful.
-    sort:["latest", "az"], lang:["ar", "en"]
+    sort:["latest", "az"], lang:["ar", "en"], programme:["leap", "lrp-2026", "unicef-2024"]
   });
   function readState(search) {
     const params = new URLSearchParams(search);
@@ -39,6 +39,9 @@
   function recordUrl(base, id, lang) {
     return viewUrl(base, { ...defaults, record:id, lang }, "#projects");
   }
+  function historyUrl(base, programme, lang) {
+    return viewUrl(base, { ...defaults, programme, lang }, "#programme-history");
+  }
   function csvCell(value) {
     // Spreadsheet apps can evaluate formulas after leading whitespace/control
     // characters. Quote every field and neutralise those prefixes, not just '='.
@@ -58,7 +61,7 @@
     // UTF-8 BOM preserves Arabic in common spreadsheet applications.
     return "\uFEFF" + [header, ...rows].map(row => row.map(csvCell).join(",")).join("\r\n") + "\r\n";
   }
-  const api = Object.freeze({ defaults, choices, readState, viewUrl, recordUrl, csvCell, recordsCsv });
+  const api = Object.freeze({ defaults, choices, readState, viewUrl, recordUrl, historyUrl, csvCell, recordsCsv });
   if (typeof module !== "undefined" && module.exports) module.exports = api;
   else root.ObservatoryLibrary = api;
 })(typeof window !== "undefined" ? window : globalThis);

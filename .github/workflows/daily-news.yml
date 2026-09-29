@@ -1,0 +1,113 @@
+name: Daily news updates
+
+on:
+  schedule:
+    - cron: "0 9 * * *"
+      timezone: Asia/Beirut
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: daily-news
+  cancel-in-progress: false
+
+jobs:
+  review:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    outputs:
+      result: ${{ steps.review.outputs.final-message }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Check required API secret
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          if [ -z "$OPENAI_API_KEY" ]; then
+            echo "::error::Add the OPENAI_API_KEY repository secret in Settings > Secrets and variables > Actions. The news review has not run."
+            exit 1
+          fi
+      # Keep Codex last; later jobs start on fresh runners without the API key.
+      - name: Review new primary publications
+        id: review
+        uses: openai/codex-action@86365089eb2b84e0a8fb0717b304f8bdcb13b20e # v1
+        with:
+          openai-api-key: ${{ secrets.OPENAI_API_KEY }}
+          permission-profile: ":workspace"
+          safety-strategy: drop-sudo
+          codex-args: '["--search", "--ephemeral"]'
+          prompt-file: .github/prompts/daily-news.md
+          output-schema-file: .github/prompts/daily-news.schema.json
+
+  validate:
+    needs: review
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    outputs:
+      changed: ${{ steps.apply.outputs.changed }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Validate the review and apply editorial changes
+        id: apply
+        env:
+          REVIEW_JSON: ${{ needs.review.outputs.result }}
+        run: python scripts/daily_news_guard.py review
+      - name: Test and rebuild changed data
+        if: steps.apply.outputs.changed == 'true'
+        run: |
+          python -m unittest discover -s scripts -p 'test_*.py'
+          npm test
+          npm run build
+          python scripts/daily_news_guard.py pack "$RUNNER_TEMP/news-bundle.json"
+      - uses: actions/upload-artifact@v4
+        if: steps.apply.outputs.changed == 'true'
+        with:
+          name: validated-news
+          path: ${{ runner.temp }}/news-bundle.json
+          retention-days: 7
+          if-no-files-found: error
+
+  publish:
+    needs: validate
+    if: needs.validate.outputs.changed == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    # Share the write lock with the hourly metadata collector.
+    concurrency:
+      group: observatory-data-main
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/download-artifact@v4
+        with:
+          name: validated-news
+          path: ${{ runner.temp }}/validated-news
+      - name: Commit validated changes without overwriting newer data
+        run: |
+          python scripts/daily_news_guard.py publish "$RUNNER_TEMP/validated-news/news-bundle.json"
+          if git diff --cached --quiet; then
+            echo "No new editorial changes to publish."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git -c core.hooksPath=/dev/null commit -m "Update verified reconstruction news"
+          git push origin HEAD:main

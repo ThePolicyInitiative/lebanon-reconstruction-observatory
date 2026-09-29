@@ -194,7 +194,7 @@ async function serveStatic(response, pathname) {
   const filePath = path.resolve(ROOT, normalized);
   if (!filePath.startsWith(`${ROOT}${path.sep}`)) return sendText(response, 403, "Forbidden");
   // Preview only the public site, never workspace notes, research or Git files.
-  const publicFiles = new Set(["index.html", "app.js", "data.js", "styles.css", "clarity.css", "observatory.css", "record-guide.js", "classification-reviews.js", "library-tools.js", "programme-data.js", "page-insights.js", "page-insights.css"]);
+  const publicFiles = new Set(["index.html", "app.js", "locale.js", "library-view.js", "deadline-data.js", "data.js", "styles.css", "record-guide.js", "classification-reviews.js", "library-tools.js", "programme-data.js", "page-insights.js"]);
   const relative = path.relative(ROOT, filePath).split(path.sep).join("/");
   if (!publicFiles.has(relative) && !relative.startsWith("assets/") && relative !== "data/source-snapshots.json") {
     return sendText(response, 404, "Not found");

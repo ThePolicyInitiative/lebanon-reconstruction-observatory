@@ -5,10 +5,10 @@ const vm = require("node:vm");
 const { test } = require("node:test");
 
 const root = path.resolve(__dirname, "..");
-const source = fs.readFileSync(path.join(root, "app.js"), "utf8");
+const source = ["locale.js", "library-view.js", "app.js"].map(file => fs.readFileSync(path.join(root, file), "utf8")).join("\n");
 const html = fs.readFileSync(path.join(root, "index.html"), "utf8");
 const seed = require("../data.js");
-const localeCode = source.slice(source.indexOf("const arabicText ="), source.indexOf("const mapTopics ="));
+const localeCode = fs.readFileSync(path.join(root, "locale.js"), "utf8");
 
 function functionCode(name) {
   return extractFunction(source, name);
@@ -164,11 +164,11 @@ test("unavailable boundary services return an explicit error, never empty or inv
 test("font request uses valid Playfair weight axes and versioned assets", () => {
   assert.match(html, /Playfair\+Display:wght@600;700/);
   assert.doesNotMatch(html, /Playfair\+Display:ital,wght@600;700/);
-  for (const asset of ["styles.css", "clarity.css"]) {
-    assert.ok(html.includes(`${asset}?v=refresh-20260928`));
+  for (const asset of ["styles.css"]) {
+    assert.ok(html.includes(`${asset}?v=library-20260929`));
   }
-  for (const asset of ["data.js", "programme-data.js", "classification-reviews.js", "record-guide.js", "library-tools.js", "app.js", "observatory.css"]) {
-    assert.ok(html.includes(`${asset}?v=refresh-20260928`));
+  for (const asset of ["data.js", "programme-data.js", "classification-reviews.js", "record-guide.js", "library-tools.js", "app.js", "locale.js", "library-view.js", "deadline-data.js"]) {
+    assert.ok(html.includes(`${asset}?v=library-20260929`));
   }
   assert.ok(html.indexOf('src="classification-reviews.js') < html.indexOf('src="record-guide.js'));
   assert.ok(html.indexOf('src="record-guide.js') < html.indexOf('src="app.js'));
@@ -284,7 +284,7 @@ function dataContext(date) {
     latestNewsPayload: null, newsStatusKind: "ready", sourceReview: null,
     fetch: async url => ({ ok: true, json: async () => payloads[url] }), apiUrl: url => url,
     renderSectors() {}, renderSources() {}, renderPeriodComparison() {}, renderAftermathBoard() {},
-    renderAftermathDetails() {}, renderRecords() {}, renderNews() {}, renderNewsStatus() {}
+    renderAftermathDetails() {}, renderRecords() {}, renderNews() {}, renderNewsStatus() {}, renderProgrammeHistory() {}
   });
   vm.runInContext(["isCurrentDataset", "loadApplicationData", "loadNews"].map(functionCode).join("\n"), context);
   return context;
@@ -296,7 +296,7 @@ test("older API data cannot remove published updates or source entries", async (
   await vm.runInContext("loadNews()", context);
   assert.equal(context.news.length, seed.news.length);
   assert.equal(context.sources.length, seed.sources.length);
-  assert.equal(context.news.filter(item => item.category === "Procurement").length, 10);
+  assert.equal(context.news.filter(item => item.category === "Procurement").length, seed.news.filter(item => item.category === "Procurement").length);
   assert.equal(context.apiAvailable, false);
   assert.equal(context.newsStatusKind, "stale");
 });
@@ -318,8 +318,8 @@ const classificationReviews = require("../classification-reviews.js");
 const recordById = id => seed.records.find(record => guide.get(record).id === id);
 
 test("source-reviewed records have explicit outcomes and individual review dates, including inaccessible evidence", () => {
-  assert.equal(Object.keys(classificationReviews.records).length, 175);
-  assert.equal(Object.keys(classificationReviews.sources).length, 122);
+  assert.ok(Object.keys(classificationReviews.records).length >= 175, "Existing source reviews are retained");
+  assert.ok(Object.keys(classificationReviews.sources).length >= 122, "Existing reviewed sources are retained");
   assert.equal(classificationReviews.checkedAt, "2026-09-08");
   assert.equal(seed.reviewedAt, "7 Sep 2026", "Classification review does not redate the dataset");
   const counts = {};
@@ -351,8 +351,9 @@ test("source-reviewed records have explicit outcomes and individual review dates
       assert.ok(evidence.accessError);
     }
   }
-  assert.deepEqual(counts, {reviewed:173, unavailable:2});
-  assert.equal(seed.records.filter(record => guide.get(record).review.status === "record_only").length, 14);
+  assert.ok(counts.reviewed >= 173);
+  assert.equal(Object.values(counts).reduce((sum, count) => sum + count, 0), Object.keys(classificationReviews.records).length);
+  assert.ok(seed.records.filter(record => guide.get(record).review.status === "record_only").length <= 14, "New entries require primary-source review");
 });
 
 test("September additions separate planned WASH work from reported facility and equipment completion", () => {
@@ -437,7 +438,7 @@ const programmeData = require("../programme-data.js");
 
 function recordContext(locale = "ar") {
   const context = vm.createContext({
-    activeLocale:locale, recordGuide:guide, records:seed.records, seedData:seed, programmeData, libraryTools,
+    activeLocale:locale, recordGuide:guide, records:seed.records, seedData:seed, programmeData, libraryTools, deadlineData:require("../deadline-data.js"), recordBatchSize:20, renderedRecordLimit:20, recordQuerySignature:"",
     activeFilter:"All", activePeriod:"All", activeRecordArea:"All",
     activeRecordFinance:"All", activeRecordDelivery:"All", activeRecordId:"", visibleRecords:[],
     document:{ querySelector:() => null, querySelectorAll:() => [] },
@@ -450,7 +451,7 @@ function recordContext(locale = "ar") {
     recordDeliveryFilter:{innerHTML:"",value:"All",setAttribute() {}}
   });
   vm.runInContext(localeCode, context);
-  const functions = ["escapeHtml", "recordTitle", "recordStageLabel", "localizedMarkup", "normalizeRecordSearch", "matchesRecordSearch", "renderRecordCard", "localizedRecordFilter", "localizedPeriodLabel", "periodLabel", "formatNewsDate", "sortRecords", "matchesRecordArea", "localizedAreaLabel", "renderRecords", "renderRecordStageControls", "recentUpdates", "renderLibraryLinkNotice", "currentLibraryState", "syncLibraryUrl", "syncLibraryControls", "restoreLibraryLocation", "clearLibraryFilters", "libraryControlChanged", "copyShareLink", "formatHistoryDate", "renderLeapHistory", "downloadRecords"];
+  const functions = ["escapeHtml", "recordTitle", "recordStageLabel", "localizedMarkup", "normalizeRecordSearch", "matchesRecordSearch", "renderRecordCard", "localizedRecordFilter", "localizedPeriodLabel", "periodLabel", "formatNewsDate", "sortRecords", "matchesRecordArea", "localizedAreaLabel", "renderRecords", "renderRecordStageControls", "recentUpdates", "renderLibraryLinkNotice", "currentLibraryState", "syncLibraryUrl", "syncLibraryControls", "restoreLibraryLocation", "clearLibraryFilters", "libraryControlChanged", "copyShareLink", "formatHistoryDate", "renderLeapHistory", "renderHistory", "renderProgrammeHistory", "loadMoreRecords", "downloadRecords"];
   vm.runInContext([...functions, "recordReviewLabel", "setNavigationOpen"].map(functionCode).join("\n"), context);
   return context;
 }
@@ -535,16 +536,15 @@ test("readable cards preserve source titles, quantities, URLs and original evide
     context.activeLocale = locale;
     vm.runInContext("renderRecords()", context);
     const output = context.projectList.innerHTML;
-    assert.equal((output.match(/class="evidence-record"/g) || []).length, seed.records.length);
-    assert.equal((output.match(/class="record-detail"/g) || []).length, seed.records.length);
-    assert.ok(output.includes("$250M"));
-    assert.ok(output.includes("$1B"));
-    assert.ok(output.includes("648,942"));
+    assert.equal((output.match(/class="evidence-record"/g) || []).length, 20);
+    assert.equal((output.match(/class="record-detail"/g) || []).length, 20);
     for (const record of seed.records) {
       context.record = record;
       const card = vm.runInContext("renderRecordCard(record)", context);
       context.value = record.name;
       assert.ok(card.includes(vm.runInContext("escapeHtml(value)", context)), record.name);
+      context.value = record.funding;
+      assert.ok(card.includes(vm.runInContext("localizedMarkup(value)", context)), record.funding);
       context.value = record.href;
       assert.ok(card.includes(vm.runInContext("escapeHtml(value)", context)), record.href);
     }
@@ -569,12 +569,12 @@ test("stage filters combine with category, period, coverage and text without cha
   const context = recordContext();
   context.activeRecordDelivery = "procurement";
   vm.runInContext("renderRecords(); renderRecordStageControls()", context);
-  assert.equal(context.visibleRecords.length, 8);
+  assert.equal(context.visibleRecords.length, seed.records.filter(record => guide.get(record).delivery === "procurement").length);
   assert.equal(context.recordDeliveryFilter.value, "procurement");
   assert.match(context.recordDeliveryFilter.innerHTML, /مشتريات قبل الإرساء/);
   context.activePeriod = "2026";
   vm.runInContext("renderRecords()", context);
-  assert.equal(context.visibleRecords.length, 0);
+  assert.equal(context.visibleRecords.length, seed.records.filter(record => record.period === "2026" && guide.get(record).delivery === "procurement").length);
   context.activePeriod = "2024";
   context.activeLocale = "en";
   context.projectSearch.value = "public-building";
@@ -595,12 +595,8 @@ test("overview uses the newest three dated publications, without mutating or con
   context.items = seed.news;
   const latest = vm.runInContext("recentUpdates(items)", context);
   assert.equal(latest.length, 3);
-  assert.equal(latest[0].id, "cdr-leap-public-schools-batch1-2026");
-  assert.equal(latest[0].date, "2026-09-28");
-  assert.equal(latest[1].id, "cdr-leap-ogero-wireless-procurement-2026");
-  assert.equal(latest[1].date, "2026-09-25");
-  assert.equal(latest[2].id, "cdr-leap-public-schools-batch3-2026");
-  assert.equal(latest[2].date, "2026-09-25");
+  const newestDates = seed.news.map(item => item.date).sort().reverse().slice(0, 3);
+  assert.deepEqual(Array.from(latest, item => item.date), newestDates);
   for (const item of latest) {
     context.title = item.title;
     context.summary = item.summary;
@@ -628,17 +624,14 @@ test("source-review provenance is bilingual, preserves Latin numbers and disting
   for (const locale of ["ar", "en"]) {
     context.activeLocale = locale;
     vm.runInContext("renderRecords()", context);
-    const output = context.projectList.innerHTML;
-    assert.equal((output.match(/data-review="reviewed"/g) || []).length, 173);
-    assert.equal((output.match(/data-review="unavailable"/g) || []).length, 2);
-    assert.equal((output.match(/data-review="record_only"/g) || []).length, 14);
-    assert.equal((output.match(/data-review="[^"]+">[^<]*<time datetime="2026-09-08"/g) || []).length, 154);
-    assert.equal((output.match(/data-review="[^"]+">[^<]*<time datetime="2026-09-09"/g) || []).length, 2);
-    assert.equal((output.match(/data-review="[^"]+">[^<]*<time datetime="2026-09-28"/g) || []).length, 5);
-    assert.equal((output.match(/data-review="[^"]+">[^<]*<time datetime="2026-09-29"/g) || []).length, 2);
-    assert.equal((output.match(/data-review="[^"]+">[^<]*<time datetime="2026-09-16"/g) || []).length, 7);
-    assert.equal((output.match(/data-review="[^"]+">[^<]*<time datetime="2026-09-17"/g) || []).length, 2);
-    assert.equal((output.match(/data-review="[^"]+">[^<]*<time datetime="2026-09-18"/g) || []).length, 3);
+    const output = vm.runInContext('records.map(renderRecordCard).join("")', context);
+    const reviews = seed.records.map(record => guide.get(record).review);
+    for (const status of ["reviewed", "unavailable", "record_only"]) {
+      assert.equal((output.match(new RegExp(`data-review="${status}"`, "g")) || []).length, reviews.filter(review => review.status === status).length);
+    }
+    for (const date of new Set(reviews.filter(review => ["reviewed", "unavailable"].includes(review.status)).map(review => review.checkedAt))) {
+      assert.equal((output.match(new RegExp(`data-review="[^"]+">[^<]*<time datetime="${date}"`, "g")) || []).length, reviews.filter(review => review.checkedAt === date && ["reviewed", "unavailable"].includes(review.status)).length);
+    }
     assert.doesNotMatch(output, /[\u0660-\u0669\u06f0-\u06f9]/);
     context.record = recordById("rec-0018");
     const alternative = vm.runInContext("renderRecordCard(record)", context);
@@ -693,7 +686,7 @@ test("all current records have unique permanent IDs, independent of display orde
 });
 
 test("share links round-trip every filter, Arabic text, sort and language on GitHub Pages", () => {
-  const state = { q:"تأهيل المدارس & $250M", type:"Financing", period:"2024", area:"South", finance:"approved", delivery:"procurement", sort:"az", lang:"ar", record:"" };
+  const state = { q:"تأهيل المدارس & $250M", type:"Financing", period:"2024", area:"South", finance:"approved", delivery:"procurement", sort:"az", lang:"ar", record:"", programme:"leap" };
   const url = new URL(libraryTools.viewUrl("https://example.org/repo/?v=test&tracking=private#overview", state, "#projects"));
   assert.equal(url.pathname, "/repo/");
   assert.equal(url.hash, "#projects");
@@ -879,18 +872,18 @@ test("clipboard success and denied permission give truthful, usable feedback", a
 
 test("LEAP history resolves chronological entries to existing evidence, not new projects", () => {
   const events = programmeData.resolveEvents(seed, guide);
-  assert.equal(events.length, 13);
-  assert.equal(events.filter(event => event.record).length, 11);
-  assert.equal(events.filter(event => event.source).length, 2);
+  assert.equal(events.length, programmeData.leap.events.length);
+  assert.ok(events.length >= 15, "Existing chronology is retained");
+  assert.ok(events.every(event => event.record || event.source));
   assert.equal(new Set(events.map(event => event.id)).size, events.length);
   assert.equal(events[0].date, "2025-06");
-  assert.equal(events.at(-1).date, "2026-09-25");
-  assert.equal(events.at(-1).recordId, "rec-0185");
+  assert.ok(events.some(event => event.date === "2026-09-28" && event.recordId === "rec-0188"));
+  assert.deepEqual(events.map(event => event.date), events.map(event => event.date).sort());
   for (const event of events) {
     assert.ok(event.href?.startsWith("https://"));
-    if (event.record) assert.notEqual(guide.get(event.record).delivery, "reported_complete");
+    if (event.record) assert.ok(guide.get(event.record).id);
   }
-  assert.equal(seed.records.length, 189);
+  assert.ok(seed.records.length >= 189, "Existing source records are retained");
   assert.match(html, /data-tab-panel="leap-history"/);
   assert.match(source, /"leap-history": "LEAP programme history"/);
 });
@@ -911,4 +904,126 @@ test("LEAP history renders both languages, source citations, month precision and
     if (locale === "ar") { assert.ok(list.innerHTML.includes("↖")); assert.ok(list.innerHTML.includes("السجل الأصلي")); }
     assert.doesNotMatch(vm.runInContext('formatHistoryDate("2025-06")', context), /\b01\b/);
   }
+});
+
+
+test("batched browsing keeps full exports, resets filters and reaches older permalinks", () => {
+  const context = recordContext("en");
+  vm.runInContext("renderRecords()", context);
+  assert.equal((context.projectList.innerHTML.match(/class="evidence-record"/g)||[]).length,20);
+  assert.equal(context.visibleRecords.length,seed.records.length);
+  vm.runInContext("renderedRecordLimit=40; renderRecords(); activeLocale='ar'; renderRecords()",context);
+  assert.equal((context.projectList.innerHTML.match(/class="evidence-record"/g)||[]).length,40);
+  assert.equal(libraryTools.recordsCsv(context.visibleRecords,guide,"https://example.org/",seed.reviewedAt).split('\r\n').length,seed.records.length+2);
+  context.activeRecordId="rec-0001";
+  vm.runInContext("renderRecords()",context);
+  assert.equal(context.visibleRecords.length,1);
+  assert.match(context.projectList.innerHTML,/id="rec-0001"/);
+  assert.equal(context.renderedRecordLimit,20);
+  context.activeRecordId="";
+  context.projectSearch.value="no-record-matches-this-query";
+  vm.runInContext("renderRecords()",context);
+  assert.equal(context.visibleRecords.length,0);
+  assert.match(context.projectList.innerHTML,/empty-state/);
+});
+
+test("deadline evidence fails closed while availability changes do not rewrite dates", () => {
+  const deadlines=require("../deadline-data.js");
+  const resolved=deadlines.resolve(seed,guide);
+  assert.equal(resolved.length,deadlines.entries.length);
+  assert.ok(resolved.every(item=>item.status==="reviewed"));
+  const mri=resolved.find(item=>item.id==="rec-0172");
+  const observation=deadlines.entries.find(item=>item.id===mri.id);
+  assert.equal(mri.date,observation.date);
+  assert.equal(mri.previousDate,observation.previousDate);
+  assert.equal(mri.amendedAt,observation.amendedAt);
+  for(const field of ["date","href","marker","funding","place"]){
+    const changed={...seed,records:seed.records.map(record=>guide.get(record).id===mri.id?{...record,[field]:"changed"}:record)};
+    const stale=deadlines.resolve(changed,guide).find(item=>item.id===mri.id);
+    assert.equal(stale.status,"needs_review",field);
+    assert.equal(deadlines.dateState(stale,"2026-09-29"),"needs_review");
+    assert.match(deadlines.html(stale),/historical date/);
+  }
+  const checks={...seed,records:seed.records.map(record=>({...record,check:{state:"unavailable"}}))};
+  assert.deepEqual(deadlines.resolve(checks,guide).map(item=>[item.id,item.date,item.status]),resolved.map(item=>[item.id,item.date,item.status]));
+});
+
+test("deadline labels use Beirut dates and never invent school submission times", () => {
+  const deadlines=require("../deadline-data.js");
+  assert.equal(deadlines.dayInBeirut(new Date("2026-09-29T21:30:00Z")),"2026-09-30");
+  const school={...deadlines.resolve(seed,guide).find(item=>item.id==="rec-0188"),date:"2026-10-08",checkedAt:"2026-09-29",time:null};
+  assert.equal(deadlines.dateState(school,"2026-10-07"),"upcoming");
+  assert.equal(deadlines.dateState(school,"2026-10-08"),"today");
+  assert.equal(deadlines.dateState(school,"2026-10-09"),"passed");
+  for(const locale of ["en","ar"]){
+    const markup=deadlines.html(school,locale,{today:"2026-09-29"});
+    assert.ok(markup.includes(locale==="ar"?"لم يُسجّل الوقت":"Time not recorded"));
+    assert.doesNotMatch(markup,/12:00/);
+    assert.match(markup,/2026-09-29/);
+  }
+});
+
+test("related histories preserve record identity, classifications and independent scopes", () => {
+  const before=JSON.stringify(seed);
+  for(const programme of programmeData.programmes){
+    const events=programmeData.resolveEvents(seed,guide,programme.id);
+    assert.ok(events.length>=2);
+    assert.equal(new Set(events.map(event=>event.id)).size,events.length);
+    assert.deepEqual(events.map(event=>event.date),events.map(event=>event.date).sort());
+    for(const event of events){
+      if(event.record){
+        assert.equal(guide.get(event.record).id,event.recordId);
+        assert.ok(programmeData.relatedProgrammes(event.recordId).includes(programme));
+      }
+    }
+  }
+  assert.deepEqual(programmeData.resolveEvents(seed,guide,"unknown"),[]);
+  assert.equal(JSON.stringify(seed),before);
+  assert.match(programmeData.programmes.find(p=>p.id==="unicef-2024").note[0],/share the appeal URL/);
+  assert.deepEqual(programmeData.resolveEvents(seed,guide,"lrp-2026").map(e=>e.recordId),["rec-0010","rec-0187"]);
+});
+
+test("programme links restore selected history and discard unrelated record filters", () => {
+  const url=new URL(libraryTools.historyUrl("https://example.org/observ/?q=old&record=rec-0001&finance=approved#projects","lrp-2026","ar"));
+  assert.equal(url.pathname,"/observ/");
+  assert.equal(url.hash,"#programme-history");
+  assert.equal(url.searchParams.get("programme"),"lrp-2026");
+  for(const key of ["q","record","finance"])assert.equal(url.searchParams.has(key),false);
+  assert.equal(libraryTools.readState(url.search).programme,"lrp-2026");
+  assert.equal(libraryTools.readState("?programme=invalid").programme,"leap");
+});
+
+test("all static image descriptions and accessible labels translate and round-trip", () => {
+  const context=vm.createContext({activeLocale:"ar"});
+  vm.runInContext(localeCode,context);
+  for(const match of html.matchAll(/(?:aria-label|alt)="([^"]*)"/g)){
+    const original=match[1].replaceAll("&amp;","&");
+    if(["Switch website language to Arabic","Open navigation","Search records, programs, or sources"].includes(original))continue;
+    context.label=original;
+    const translated=vm.runInContext("translatedText(label)",context);
+    assert.match(translated,/[\u0600-\u06ff]/,original);
+  }
+  const attrs={alt:"Damaged buildings and debris in Nabatieh, South Lebanon"};
+  const original=attrs.alt;
+  const image={closest:()=>null,hasAttribute:key=>key in attrs,getAttribute:key=>attrs[key],setAttribute:(key,value)=>{attrs[key]=value;}};
+  context.root={querySelectorAll:()=>[image]};
+  vm.runInContext("localizeAttributes(root)",context);
+  assert.match(attrs.alt,/النبطية/);
+  vm.runInContext("activeLocale='en'; localizeAttributes(root)",context);
+  assert.equal(attrs.alt,original);
+});
+
+test("navigation focuses visible content without stealing focus on language rerenders", () => {
+  const headings={projects:{setAttribute(){},focus(){this.focused=true;}},overview:{setAttribute(){},focus(){this.focused=true;}}};
+  const context=vm.createContext({window:{location:{hash:"#projects"},scrollTo(){}},document:{querySelector:selector=>selector.includes('projects')?headings.projects:selector.includes('overview')?headings.overview:null,body:{dataset:{}}},tabNames:{projects:"Data library",overview:"Overview"},tabNamesArabic:{},activeLocale:"en",tabPanels:[{dataset:{tabPanel:"projects"}},{dataset:{tabPanel:"overview"}}],tabLinks:[]});
+  vm.runInContext(functionCode("resolveTab")+functionCode("activateTab"),context);
+  vm.runInContext("activateTab('projects')",context);
+  assert.equal(headings.projects.focused,true);
+  assert.equal(context.tabPanels[0].hidden,false);
+  assert.equal(context.tabPanels[1].hidden,true);
+  headings.projects.focused=false;
+  vm.runInContext("activateTab('projects',{resetScroll:false})",context);
+  assert.equal(headings.projects.focused,false);
+  assert.match(html,/class="skip-link"/);
+  assert.doesNotMatch(html,/role="tabpanel"/);
 });

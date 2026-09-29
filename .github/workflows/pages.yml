@@ -1,0 +1,73 @@
+name: Deploy observatory
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'docs/**'
+      - '.github/workflows/pages.yml'
+  # GITHUB_TOKEN commits do not trigger ordinary push workflows.
+  workflow_run:
+    workflows: [Refresh source monitor, Daily news updates]
+    types: [completed]
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+jobs:
+  package:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: read
+    outputs:
+      changed: ${{ steps.current.outputs.changed }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Skip deployment when the served content is unchanged
+        id: current
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+        run: |
+          deployed=$(gh api "repos/$REPO/deployments?environment=github-pages&per_page=20" --jq '[.[] | select(.sha != null)] | .[].id' | while read -r id; do
+            state=$(gh api "repos/$REPO/deployments/$id/statuses" --jq '.[0].state')
+            if [ "$state" = "success" ]; then
+              gh api "repos/$REPO/deployments/$id" --jq '.sha'
+              break
+            fi
+          done)
+          if [ -n "$deployed" ] && git cat-file -e "$deployed^{commit}" 2>/dev/null && { git merge-base --is-ancestor HEAD "$deployed" || git diff --quiet "$deployed" HEAD -- docs; }; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+      - uses: actions/upload-pages-artifact@v3
+        if: steps.current.outputs.changed == 'true'
+        with:
+          path: docs
+  deploy:
+    needs: package
+    if: needs.package.outputs.changed == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Publish GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

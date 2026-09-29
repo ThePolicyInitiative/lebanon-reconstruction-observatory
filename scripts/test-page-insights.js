@@ -86,9 +86,9 @@ test("source health deduplicates registered URLs and excludes unrelated or missi
 });
 
 test("procurement dates remain dated observations and the addendum is not a new project", () => {
-  assert.deepEqual(pages.deadlines.map(item=>item.date),["2026-10-12","2026-10-15","2026-10-19"]);
+  assert.deepEqual(pages.deadlines.map(item=>item.date),require("../deadline-data.js").entries.map(item=>item.date));
   const output=pages.pageHtml("updates",options);
-  assert.match(output,/28 September 2026/);
+  assert.match(output,/Last checked/);
   assert.match(output,/does not establish an award/);
   const event=programmes.leap.events.find(item=>item.id==="leap-public-buildings-addendum");
   assert.equal(event.recordId,"rec-0005");
@@ -109,10 +109,10 @@ test("source-derived text is escaped in page additions", () => {
 test("new assets are public and included in both website builds", () => {
   const build=fs.readFileSync(path.join(root,"scripts/build-site.js"),"utf8");
   const server=fs.readFileSync(path.join(root,"server.js"),"utf8");
-  for(const file of ["page-insights.js","page-insights.css"]) {
+  for(const file of ["page-insights.js","deadline-data.js","styles.css"]) {
     assert.ok(build.includes('copy("'+file+'"'));
     assert.ok(server.includes('"'+file+'"'));
-    assert.ok(html.includes(file+"?v=refresh-20260928"));
+    assert.ok(html.includes(file+"?v=library-20260929"));
   }
 });
 

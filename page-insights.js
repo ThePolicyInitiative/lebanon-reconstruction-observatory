@@ -56,11 +56,8 @@
     {id:"rec-0185", title:["Telecommunications equipment", "معدات الاتصالات"], scope:["Supply of 30,000 wireless devices for OGERO.", "توريد 30,000 جهاز لاسلكي لأوجيرو."]}
   ];
   // Dated observations of the notices, not a continuously refreshed tender calendar.
-  const deadlines = [
-    {id:"rec-0184", date:"2026-10-12", title:["Equipped ambulances", "سيارات إسعاف مجهزة"], note:["The 18 September notice lists 12 October, noon Beirut time, for submission.", "يحدد إعلان 18 أيلول موعد تقديم العروض في 12 تشرين الأول ظهراً بتوقيت بيروت."]},
-    {id:"rec-0172", date:"2026-10-15", title:["RHUH MRI supply and installation", "توريد جهاز الرنين المغناطيسي وتركيبه في مستشفى رفيق الحريري"], note:["The 22 September extension moves submission from 25 September to 15 October, noon Beirut time.", "ينقل تمديد 22 أيلول مهلة تقديم العروض من 25 أيلول إلى 15 تشرين الأول ظهراً بتوقيت بيروت."]},
-    {id:"rec-0185", date:"2026-10-19", title:["OGERO wireless equipment", "معدات أوجيرو اللاسلكية"], note:["The 25 September notice lists 19 October, noon Beirut time, for submission.", "يحدد إعلان 25 أيلول موعد تقديم العروض في 19 تشرين الأول ظهراً بتوقيت بيروت."]}
-  ];
+  const deadlineData = typeof module !== "undefined" && module.exports ? require("./deadline-data.js") : root.ObservatoryDeadlines;
+  const deadlines = deadlineData.entries;
   const financeIds = ["rec-0001", "rec-0010", "rec-0007", "rec-0002", "rec-0022", "rec-0011", "rec-0186"];
   function escape(value) {
     return String(value ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"})[c]);
@@ -250,9 +247,15 @@
       ]) content += `<article class="insight-card"><h4>${text(name)}</h4><p>${text(description)}</p><a href="${escape(href)}">${text(["Read the linked record","اقرأ السجل المرتبط"])} ${ar?"←":"→"}</a></article>`;
       content += "</div>";
     } else if (page === "updates") {
-      content = heading(["PROCUREMENT DATES TO FOLLOW","مواعيد مشتريات للمتابعة"],["Three published submission dates","ثلاثة مواعيد منشورة لتقديم العروض"],["Notice details checked on 28 September 2026. Confirm amendments with CDR before relying on a deadline; reaching a deadline does not establish an award.","فُحصت تفاصيل الإعلانات في 28 أيلول 2026. راجع التعديلات لدى مجلس الإنماء والإعمار قبل الاعتماد على موعد؛ وبلوغ الموعد لا يثبت الإرساء."]);
-      content += '<div class="insight-grid">' + deadlines.map(item=>`<article class="insight-deadline"><p class="insight-date">${time(item.date)}</p><h4>${text(item.title)}</h4><p>${text(item.note)}</p>${stage(item.id)}${primary(item.id)}</article>`).join("")+"</div>";
-      content += `<p class="insight-footnote">${text(["Publication, editorial review and availability checks are separate dates. The source monitor checks access; it does not automatically discover awards or rewrite delivery classifications.","النشر والمراجعة التحريرية وفحص الإتاحة تواريخ منفصلة. يتحقق مراقب المصادر من الوصول ولا يكتشف الإرساء تلقائياً أو يعيد تصنيف التنفيذ."])}</p>`;
+      content = heading(["PROCUREMENT DATES TO FOLLOW","مواعيد مشتريات للمتابعة"],["Published submission dates","مواعيد تقديم العروض المنشورة"],["Dated observations from reviewed notices. Confirm amendments with the publishing authority; reaching a deadline does not establish an award.","مواعيد مؤرخة من إعلانات خضعت للمراجعة. تحقق من التعديلات لدى الجهة الناشرة؛ بلوغ الموعد لا يثبت الإرساء."]);
+      const dates = deadlineData.resolve(data,guide);
+      const today = deadlineData.dayInBeirut();
+      const upcoming = dates.filter(item=>deadlineData.dateState(item,today)!=="passed");
+      const passed = dates.filter(item=>deadlineData.dateState(item,today)==="passed");
+      content += '<div class="insight-grid">' + upcoming.map(item=>deadlineData.html(item,locale,{today})).join("") + '</div>';
+      if (!upcoming.length) content += '<p>'+text(["No future submission dates are recorded. Check the source notices for amendments.","لا توجد مواعيد تقديم مستقبلية مسجلة. راجع إعلانات المصادر للتحقق من التعديلات."])+ '</p>';
+      if (passed.length) content += '<details class="past-deadlines"><summary>'+text(["Past listed dates","المواعيد المسجلة السابقة"])+ ' ('+passed.length+')</summary><div class="insight-grid">'+passed.map(item=>deadlineData.html(item,locale,{today})).join("")+'</div></details>';
+      content += '<p class="insight-footnote">'+text(["Publication, editorial review and availability checks are separate dates. An access check does not update these deadlines or establish an award.","النشر والمراجعة التحريرية وفحص الإتاحة تواريخ منفصلة. لا يحدّث فحص الوصول هذه المواعيد ولا يثبت الإرساء."])+ '</p>';
     } else if (page === "sources") {
       const reviews = data.records.map(record=>guide.get(record).review);
       content = heading(["EVIDENCE COVERAGE","تغطية الأدلة"],["What has been reviewed, and what remains uncertain","ما خضع للمراجعة وما بقي غير محسوم"],["Editorial review assesses the cited passage. Availability checks only test whether a page responds.","تقيّم المراجعة التحريرية المقطع المستشهد به. أما فحوص الإتاحة فتختبر استجابة الصفحة فقط."]);
