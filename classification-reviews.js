@@ -9,6 +9,36 @@
   const data = {
   "checkedAt": "2026-09-08",
   "sources": {
+  "src-121": {
+    "originalUrl": "https://www.ppa.gov.lb/ar/tenders/details/12896/tenders",
+    "url": "https://www.ppa.gov.lb/ar/tenders/details/12896/tenders",
+    "checkedAt": "2026-09-29",
+    "status": "reviewed",
+    "access": "indexed",
+    "locator": [
+      "Public Procurement Authority tender 12896 and CDR Batch 1 listing: public-school shelter-rehabilitation scope, World Bank financing, three open lots and 8 October deadline",
+      "مناقصة هيئة الشراء العام 12896 وقائمة مجلس الإنماء والإعمار للحزمة الأولى: نطاق تأهيل مدارس الإيواء والتمويل من البنك الدولي وثلاث مجموعات مفتوحة ومهلة 8 تشرين الأول"
+    ],
+    "note": [
+      "The notices concern public schools and educational facilities damaged through use as shelters during the 2024 and 2026 hostilities. The cited Batch 1 tender is a pre-award works procurement; it establishes neither contractor selection, a works contract nor completed repairs.",
+      "تتعلق الإعلانات بمدارس ومنشآت تربوية رسمية تضررت من استخدامها كمراكز إيواء خلال أعمال 2024 و2026. مناقصة الحزمة الأولى المذكورة هي شراء أشغال قبل الإرساء، ولا تثبت اختيار متعهد أو عقد أشغال أو إصلاحات مكتملة."
+    ]
+  },
+  "src-122": {
+    "originalUrl": "https://www.ppa.gov.lb/ar/tenders/details/12889",
+    "url": "https://www.ppa.gov.lb/ar/tenders/details/12889",
+    "checkedAt": "2026-09-29",
+    "status": "reviewed",
+    "access": "indexed",
+    "locator": [
+      "Public Procurement Authority tender 12889 and CDR Batch 3 listing: public-school shelter-rehabilitation scope, World Bank financing, four open lots and 6 October deadline",
+      "مناقصة هيئة الشراء العام 12889 وقائمة مجلس الإنماء والإعمار للحزمة الثالثة: نطاق تأهيل مدارس الإيواء والتمويل من البنك الدولي وأربع مجموعات مفتوحة ومهلة 6 تشرين الأول"
+    ],
+    "note": [
+      "The notices concern public schools and educational facilities damaged through use as shelters during the 2024 and 2026 hostilities. The cited Batch 3 tender is a pre-award works procurement; it establishes neither contractor selection, a works contract nor completed repairs.",
+      "تتعلق الإعلانات بمدارس ومنشآت تربوية رسمية تضررت من استخدامها كمراكز إيواء خلال أعمال 2024 و2026. مناقصة الحزمة الثالثة المذكورة هي شراء أشغال قبل الإرساء، ولا تثبت اختيار متعهد أو عقد أشغال أو إصلاحات مكتملة."
+    ]
+  },
   "src-120": {
     "originalUrl": "https://lebanon.un.org/en/323037-lebanon-response-plan-2026-addendum",
     "url": "https://lebanon.un.org/en/323037-lebanon-response-plan-2026-addendum",
@@ -1657,6 +1687,40 @@
     }
   },
   "records": {
+  "rec-0188": {
+    "source": "src-121",
+    "snapshot": {
+      "name": "LEAP Public-School Shelter Rehabilitation Procurement Batch 1",
+      "place": "Lebanon • Public schools and educational facilities • Posted 28 Sep 2026",
+      "filter": "Financing",
+      "period": "Cross-cutting",
+      "status": "Council for Development and Reconstruction / Ministry of Education and Higher Education / World Bank",
+      "funding": "World Bank-financed pre-award works procurement",
+      "marker": "Three open tender lots for light repairs; bids due 8 Oct; no award or repairs reported",
+      "date": "2026-09-28",
+      "sourceId": "cdr-leap-public-schools-batch1-2026",
+      "href": "https://www.ppa.gov.lb/ar/tenders/details/12896/tenders"
+    },
+    "finance": "not_stated",
+    "delivery": "procurement"
+  },
+  "rec-0189": {
+    "source": "src-122",
+    "snapshot": {
+      "name": "LEAP Public-School Shelter Rehabilitation Procurement Batch 3",
+      "place": "Lebanon • Public schools and educational facilities • Posted 25 Sep 2026",
+      "filter": "Financing",
+      "period": "Cross-cutting",
+      "status": "Council for Development and Reconstruction / Ministry of Education and Higher Education / World Bank",
+      "funding": "World Bank-financed pre-award works procurement",
+      "marker": "Four open tender lots for light repairs; bids due 6 Oct; no award or repairs reported",
+      "date": "2026-09-25",
+      "sourceId": "cdr-leap-public-schools-batch3-2026",
+      "href": "https://www.ppa.gov.lb/ar/tenders/details/12889"
+    },
+    "finance": "not_stated",
+    "delivery": "procurement"
+  },
   "rec-0187": {
     "source": "src-120",
     "snapshot": {

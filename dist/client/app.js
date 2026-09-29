@@ -27,6 +27,18 @@ if (initialLibraryState.lang) activeLocale = initialLibraryState.lang;
 
 const arabicText = Object.freeze({
   "NEWLY REVIEWED · 28 SEP 2026": "مراجعة حديثة · 28 أيلول 2026",
+  "CDR opens three LEAP school-shelter rehabilitation tenders": "مجلس الإنماء والإعمار يفتح ثلاث مناقصات لتأهيل مدارس الإيواء ضمن ليب",
+  "The Batch 1 notices cover light repairs to affected public schools and educational facilities. Bids are due 8 October; no award or repairs are reported.": "تغطي إعلانات الحزمة الأولى إصلاحات خفيفة للمدارس والمنشآت التربوية الرسمية المتضررة. تنتهي مهلة العروض في 8 تشرين الأول؛ ولا يُبلّغ عن إرساء أو إصلاحات.",
+  "CDR opens four LEAP school-shelter rehabilitation tenders": "مجلس الإنماء والإعمار يفتح أربع مناقصات لتأهيل مدارس الإيواء ضمن ليب",
+  "The Batch 3 notices cover light repairs to affected public schools and educational facilities. Bids are due 6 October; no award or repairs are reported.": "تغطي إعلانات الحزمة الثالثة إصلاحات خفيفة للمدارس والمنشآت التربوية الرسمية المتضررة. تنتهي مهلة العروض في 6 تشرين الأول؛ ولا يُبلّغ عن إرساء أو إصلاحات.",
+  "Three open tender lots for light repairs; bids due 8 Oct; no award or repairs reported": "ثلاث مجموعات مناقصة مفتوحة لإصلاحات خفيفة؛ المهلة 8 تشرين الأول؛ لا إرساء أو إصلاحات مُبلّغ عنها",
+  "Four open tender lots for light repairs; bids due 6 Oct; no award or repairs reported": "أربع مجموعات مناقصة مفتوحة لإصلاحات خفيفة؛ المهلة 6 تشرين الأول؛ لا إرساء أو إصلاحات مُبلّغ عنها",
+  "World Bank-financed pre-award works procurement": "شراء أشغال قبل الإرساء بتمويل من البنك الدولي",
+  "Lebanon • Public schools and educational facilities • Posted 28 Sep 2026": "لبنان • مدارس ومنشآت تربوية رسمية • نُشر في 28 أيلول 2026",
+  "Lebanon • Public schools and educational facilities • Posted 25 Sep 2026": "لبنان • مدارس ومنشآت تربوية رسمية • نُشر في 25 أيلول 2026",
+  "Open cross-conflict public-school shelter rehabilitation tenders": "فتح مناقصات عابرة للفترتين لتأهيل مدارس الإيواء الرسمية",
+  "CDR and the Public Procurement Authority list seven LEAP works tenders in Batches 1 and 3 for public schools and educational facilities damaged through their use as shelters during the 2024 and 2026 hostilities. The notices describe light repairs to restore basic safety and use, but establish neither a selected contractor, a works contract nor completed repairs.": "يسجل مجلس الإنماء والإعمار وهيئة الشراء العام سبع مناقصات أشغال ضمن ليب في الحزمتين الأولى والثالثة لمدارس ومنشآت تربوية رسمية تضررت من استخدامها كمراكز إيواء خلال أعمال 2024 و2026. وتصف الإعلانات إصلاحات خفيفة لاستعادة السلامة الأساسية وصلاحية الاستخدام، لكنها لا تثبت اختيار متعهد أو عقد أشغال أو إصلاحات مكتملة.",
+  "Council for Development and Reconstruction / Ministry of Education and Higher Education / Public Procurement Authority / World Bank": "مجلس الإنماء والإعمار / وزارة التربية والتعليم العالي / هيئة الشراء العام / البنك الدولي",
   "UN and Government publish 2026 Response Plan Addendum": "الأمم المتحدة والحكومة تنشران ملحق خطة الاستجابة لعام 2026",
   "The September–December addendum seeks US$385.88M for 732,125 people. It is a humanitarian and stabilization appeal, not evidence of funding received or completed work.": "يطلب ملحق أيلول إلى كانون الأول US$385.88M لصالح 732,125 شخصاً. وهو نداء إنساني واستقراري، وليس دليلاً على أموال متلقاة أو أعمال مكتملة.",
   "Appeal seeks assistance for 732,125 people; it does not establish funding received or completed outputs": "يطلب النداء مساعدة 732,125 شخصاً؛ ولا يثبت أموالاً متلقاة أو مخرجات مكتملة",
