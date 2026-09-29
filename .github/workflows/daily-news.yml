@@ -17,13 +17,25 @@ jobs:
   review:
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
-    timeout-minutes: 40
+    timeout-minutes: 25
     outputs:
       result: ${{ steps.review.outputs.final-message }}
     steps:
       - uses: actions/checkout@v4
         with:
           persist-credentials: false
+      - name: Load the pinned Codex action
+        uses: actions/checkout@v4
+        with:
+          repository: openai/codex-action
+          ref: 86365089eb2b84e0a8fb0717b304f8bdcb13b20e
+          path: .github/actions/codex-runtime
+          persist-credentials: false
+      - name: Fix the upstream action shutdown hang
+        run: |
+          python scripts/patch_codex_action.py .github/actions/codex-runtime
+          node --check .github/actions/codex-runtime/dist/main.js
+          python -m unittest discover -s scripts -p 'test_codex_action_wrapper.py'
       - name: Check OpenRouter API secret
         env:
           REVIEW_API_KEY: ${{ secrets.OPENROUTER_API_KEY || secrets.OPENAI_API_KEY }}
@@ -53,8 +65,7 @@ jobs:
       # Keep Codex last; later jobs start on fresh runners without the API key.
       - name: Review new primary publications
         id: review
-        timeout-minutes: 15
-        uses: openai/codex-action@86365089eb2b84e0a8fb0717b304f8bdcb13b20e # v1
+        uses: ./.github/actions/codex-runtime
         with:
           # The action uses this input name for any compatible Responses endpoint.
           openai-api-key: ${{ secrets.OPENROUTER_API_KEY || secrets.OPENAI_API_KEY }}
