@@ -90,6 +90,13 @@ Complete and describe a search for EACH coverage group:
 - services_municipal_ngo: municipalities, service authorities, ICRC, Anera and registered NGOs.
 - occupation: UNIFIL and official reporting on occupation-related reconstruction/access constraints.
 
+Budget searches across all five groups before deepening any one group. Start with
+at most two targeted searches and two useful primary-page fetches per group, then
+use the remaining allowance for material additions and inaccessible-source
+alternatives. The named publishers guide selection, not an exhaustive requirement
+to retrieve every organization on every run. Describe retrieval limits accurately;
+a complete report still requires meaningful primary-source coverage of all groups.
+
 Keep publication and event dates separate. Read exact passages; supply a short
 supporting excerpt of at most 25 words per source, its page/section locator and
 a careful paraphrase. Set material_change only for a verified addition or
@@ -109,10 +116,10 @@ Current public index for deduplication:
         "messages": [{"role": "user", "content": instructions}],
         "tools": [
             {"type": "openrouter:web_search", "parameters": {
-                "engine": "exa", "max_results": 5, "max_total_results": 60, "max_uses": 12,
+                "engine": "exa", "max_results": 5, "max_total_results": 100, "max_uses": 20,
             }},
             {"type": "openrouter:web_fetch", "parameters": {
-                "engine": "openrouter", "max_uses": 20, "max_content_tokens": 12000,
+                "engine": "openrouter", "max_uses": 30, "max_content_tokens": 8000,
             }},
         ],
         "reasoning": {"effort": "medium"},
