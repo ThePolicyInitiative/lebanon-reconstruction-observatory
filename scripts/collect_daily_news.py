@@ -112,7 +112,7 @@ The exact output JSON Schema is:
 Current public index for deduplication:
 {json.dumps(context, ensure_ascii=False)}"""
     body = {
-        "model": os.environ.get("OPENROUTER_MODEL", "openai/gpt-5.6-sol"),
+        "model": os.environ.get("OPENROUTER_MODEL", "openrouter/free"),
         "messages": [{"role": "user", "content": instructions}],
         "tools": [
             {"type": "openrouter:web_search", "parameters": {

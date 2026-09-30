@@ -54,7 +54,7 @@ jobs:
       - name: Collect current primary-source evidence
         env:
           REVIEW_API_KEY: ${{ secrets.OPENROUTER_API_KEY || secrets.OPENAI_API_KEY }}
-          OPENROUTER_MODEL: ${{ vars.OPENROUTER_MODEL || 'openai/gpt-5.6-sol' }}
+          OPENROUTER_MODEL: ${{ vars.OPENROUTER_MODEL || 'openrouter/free' }}
         run: python scripts/collect_daily_news.py "$RUNNER_TEMP/daily-research"
       - uses: actions/upload-artifact@v4
         with:
@@ -70,7 +70,7 @@ jobs:
           # The action uses this input name for any compatible Responses endpoint.
           openai-api-key: ${{ secrets.OPENROUTER_API_KEY || secrets.OPENAI_API_KEY }}
           responses-api-endpoint: https://openrouter.ai/api/v1/responses
-          model: ${{ vars.OPENROUTER_MODEL || 'openai/gpt-5.6-sol' }}
+          model: ${{ vars.OPENROUTER_MODEL || 'openrouter/free' }}
           effort: low
           permission-profile: ":workspace"
           safety-strategy: drop-sudo
