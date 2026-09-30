@@ -116,7 +116,7 @@ Current public index for deduplication:
         "messages": [{"role": "user", "content": instructions}],
         "tools": [
             {"type": "openrouter:web_search", "parameters": {
-                "engine": "exa", "max_results": 5, "max_total_results": 100, "max_uses": 20,
+                "engine": "parallel", "mode": "fast", "max_results": 5, "max_total_results": 100, "max_uses": 20,
             }},
             {"type": "openrouter:web_fetch", "parameters": {
                 "engine": "openrouter", "max_uses": 30, "max_content_tokens": 8000,
