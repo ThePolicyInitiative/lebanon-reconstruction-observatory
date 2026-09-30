@@ -9,6 +9,13 @@
   const data = {
   "checkedAt": "2026-09-08",
   "sources": {
+  "src-126": {
+    "originalUrl": "https://www.ppa.gov.lb/en/plan/details/12491",
+    "url": "https://www.ppa.gov.lb/en/plan/details/12491",
+    "checkedAt": "2026-09-30", "status": "reviewed", "access": "direct",
+    "locator": ["PPA procurement plan 12491: active planning status, geographic scope, framework-service modules and empty award, contract and implementation fields", "خطة المشتريات 12491 لدى هيئة الشراء العام: حالة التخطيط النشطة والنطاق الجغرافي ووحدات الخدمات الإطارية وحقول الإرساء والعقد والتنفيذ الخالية"],
+    "note": ["CDR's active LEAP plan proposes a framework agreement for assessment, design, permit preparation and construction supervision of totally damaged public buildings in Beirut and Mount Lebanon, Beqaa and South Lebanon. It records planning only and does not establish a tender announcement, qualified firm, award, contract or works.", "تقترح خطة مجلس الإنماء والإعمار النشطة ضمن ليب اتفاقاً إطارياً للتقييم والتصميم وإعداد التراخيص والإشراف على تنفيذ المباني العامة المتضررة كلياً في بيروت وجبل لبنان والبقاع وجنوب لبنان. وتسجل التخطيط فقط ولا تثبت إعلان مناقصة أو شركة مؤهلة أو إرساءً أو عقداً أو أعمالاً."]
+  },
   "src-123": {
     "originalUrl": "https://www.ppa.gov.lb/ar/tenders/details/12779",
     "url": "https://www.ppa.gov.lb/ar/tenders/details/12779",
@@ -1707,6 +1714,7 @@
     }
   },
   "records": {
+  "rec-0193": {"source":"src-126","snapshot":{"name":"LEAP Totally Damaged Public-Buildings Consultancy Plan","place":"Beirut & Mount Lebanon, Beqaa and South Lebanon • Announced 6 Sep 2026","filter":"Financing","period":"2024","status":"Council for Development and Reconstruction / Public Procurement Authority","funding":"Active procurement plan; estimated value and funding stage not publicly stated","marker":"Proposed framework for assessment, design and construction supervision; no announcement, award, contract or works reported","date":"2026-09-06","sourceId":"ppa-leap-total-damaged-public-buildings-plan-2026","href":"https://www.ppa.gov.lb/en/plan/details/12491"},"finance":"not_stated","delivery":"planning"},
   "rec-0190": {"source":"src-123","snapshot":{"name":"Zahle Caza Drinking-Water Systems Rehabilitation Tender","place":"Wadi al-Dalam, Qabb Elias and Mreijat, Zahle Caza • Posted 15 Sep 2026","filter":"Financing","period":"2024","status":"Council for Development and Reconstruction / Public Procurement Authority","funding":"Open works procurement; financing and payment stage not stated","marker":"Tender for drinking-water system rehabilitation and upgrading; offers due 26 Oct; no award or works reported","date":"2026-09-15","sourceId":"ppa-zahle-water-tender-2026","href":"https://www.ppa.gov.lb/ar/tenders/details/12779"},"finance":"not_stated","delivery":"procurement"},
   "rec-0191": {"source":"src-124","snapshot":{"name":"Adaptive TVET Community Kitchens","place":"Saida and participating TVET institutions • September 2026 update","filter":"Local recovery","period":"2026","status":"UNICEF / WFP / Technical and Vocational Education and Training institutions","funding":"UN-supported kitchen rehabilitation and equipment; amount and payment stage not stated","marker":"UN reports rehabilitated and equipped kitchens shifting from school meals to food support for displaced families","date":"2026-09-23","sourceId":"un-adaptive-tvet-kitchens-2026","href":"https://lebanon.un.org/en/323178-how-un-strengthening-local-institutions-support-communities-across-lebanon-times-crisis"},"finance":"not_stated","delivery":"in_progress"},
   "rec-0192": {"source":"src-125","snapshot":{"name":"Bint Jbeil Municipal Recovery Priorities","place":"Bint Jbeil • September 2026","filter":"Municipal","period":"2026","status":"Bint Jbeil Municipality / Council for Development and Reconstruction","funding":"Technical recovery planning; no financing or programme inclusion confirmed","marker":"Municipality presented public-facility and infrastructure priorities to CDR; further technical preparation planned","date":"2026-09-23","sourceId":"bint-jbeil-cdr-recovery-priorities-2026","href":"https://www.amalbaladi.org.lb/details/10078/"},"finance":"not_stated","delivery":"planning"},

@@ -7,9 +7,9 @@ A local public-data web application for reviewing Lebanon reconstruction and rec
 
 Generated from the editorial registries by npm run data:summary and npm run build.
 
-- 192 source records and 176 registered source entries (entries can share a URL).
-- 176 source-reviewed records, 14 record-wording annotations, and 2 records awaiting readable sources.
-- Latest individual editorial review: 2026-09-29. The baseline dataset review remains 7 Sep 2026.
+- 193 source records and 177 registered source entries (entries can share a URL).
+- 177 source-reviewed records, 14 record-wording annotations, and 2 records awaiting readable sources.
+- Latest individual editorial review: 2026-09-30. The baseline dataset review remains 7 Sep 2026.
 - 3 selected programme histories; 15 events in the LEAP history.
 - 7 dated deadline observations, including past dates. These are not live procurement statuses.
 <!-- data-summary:end -->

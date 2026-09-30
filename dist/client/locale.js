@@ -1,5 +1,16 @@
 /* Bilingual copy, attributes and number formatting. Loaded before app.js. */
 const arabicText = Object.freeze({
+  "CDR lists active LEAP plan for totally damaged public buildings": "مجلس الإنماء والإعمار يسجل خطة ليب نشطة للمباني العامة المتضررة كلياً",
+  "The plan sets out a proposed framework for assessment, design and construction supervision across three regions. It is a planning record with no published tender, award, contract or works reported.": "تطرح الخطة إطاراً مقترحاً للتقييم والتصميم والإشراف على التنفيذ عبر ثلاث مناطق. وهي سجل تخطيطي لا يتضمن مناقصة منشورة أو إرساءً أو عقداً أو أعمالاً مُبلّغاً عنها.",
+  "LEAP Totally Damaged Public-Buildings Consultancy Plan": "خطة خدمات استشارية للمباني العامة المتضررة كلياً ضمن ليب",
+  "Beirut & Mount Lebanon, Beqaa and South Lebanon • Announced 6 Sep 2026": "بيروت وجبل لبنان والبقاع وجنوب لبنان • أُعلن في 6 أيلول 2026",
+  "Active procurement plan; estimated value and funding stage not publicly stated": "خطة مشتريات نشطة؛ القيمة التقديرية ومرحلة التمويل غير معلنتين",
+  "Proposed framework for assessment, design and construction supervision; no announcement, award, contract or works reported": "إطار مقترح للتقييم والتصميم والإشراف على التنفيذ؛ لا إعلان أو إرساء أو عقد أو أعمال مُبلّغ عنها",
+  "Plan a framework for totally damaged public-building reconstruction services": "التخطيط لإطار خدمات إعادة إعمار المباني العامة المتضررة كلياً",
+  "The Public Procurement Authority's active LEAP procurement-plan record describes a proposed framework agreement for assessment, engineering design, permit preparation and construction supervision of totally damaged public buildings in Beirut and Mount Lebanon, Beqaa and South Lebanon. It does not show a published tender, qualified firms, award, signed contract or works.": "يصف سجل خطة المشتريات النشطة لدى هيئة الشراء العام ضمن ليب اتفاقاً إطارياً مقترحاً للتقييم والتصميم الهندسي وإعداد التراخيص والإشراف على تنفيذ المباني العامة المتضررة كلياً في بيروت وجبل لبنان والبقاع وجنوب لبنان. ولا يظهر مناقصة منشورة أو شركات مؤهلة أو إرساءً أو عقداً موقّعاً أو أعمالاً.",
+  "Council for Development and Reconstruction / LEAP Project Management Unit / Public Procurement Authority": "مجلس الإنماء والإعمار / وحدة إدارة مشروع ليب / هيئة الشراء العام",
+  "Official active procurement plan": "خطة مشتريات رسمية نشطة",
+  "Proposed framework agreement for technical investigation, design, permit preparation and construction supervision; no tender, award or contract displayed": "اتفاق إطار مقترح للتحقيقات الفنية والتصميم وإعداد التراخيص والإشراف على التنفيذ؛ لا مناقصة أو إرساء أو عقد ظاهر",
   "UN reports adaptive community kitchens supporting displaced families": "الأمم المتحدة تفيد بدعم مطابخ مجتمعية متكيّفة للأسر النازحة",
   "UNICEF and WFP supported rehabilitation and equipment for TVET kitchens that can shift from school meals to food assistance. The report is operational reporting, not a new financing approval.": "دعمت اليونيسف وبرنامج الأغذية العالمي تأهيل وتجهيز مطابخ التعليم المهني والتقني القادرة على التحول من الوجبات المدرسية إلى المساعدة الغذائية. هذا إبلاغ تشغيلي وليس موافقة تمويل جديدة.",
   "Bint Jbeil presents technical recovery priorities to CDR": "بنت جبيل تعرض على مجلس الإنماء والإعمار أولويات تقنية للتعافي",

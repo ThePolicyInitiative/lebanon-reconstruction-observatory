@@ -8,6 +8,7 @@
   // IDs are assigned once. Preserve each literal ID if its reading title changes;
   // never renumber this registry when adding, removing or reordering records.
   const readingRecords = Object.freeze({
+    "LEAP Totally Damaged Public-Buildings Consultancy Plan": ["rec-0193","خطة خدمات استشارية للمباني العامة المتضررة كلياً ضمن ليب"],
     "Zahle Caza Drinking-Water Systems Rehabilitation Tender": ["rec-0190","مناقصة تأهيل منظومات مياه الشرب في قضاء زحلة"],
     "Adaptive TVET Community Kitchens": ["rec-0191","مطابخ مجتمعية متكيّفة في مؤسسات التعليم المهني والتقني"],
     "Bint Jbeil Municipal Recovery Priorities": ["rec-0192","أولويات التعافي البلدية في بنت جبيل"],
