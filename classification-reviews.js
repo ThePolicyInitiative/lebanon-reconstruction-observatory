@@ -9,6 +9,13 @@
   const data = {
   "checkedAt": "2026-09-08",
   "sources": {
+  "src-127": {
+    "originalUrl": "https://www.ppa.gov.lb/ar/tenders/details/12899",
+    "url": "https://www.ppa.gov.lb/ar/tenders/details/12899",
+    "checkedAt": "2026-10-01", "status": "reviewed", "access": "direct",
+    "locator": ["PPA tender 12899 and CDR Batch 2 listing: three public-school shelter-rehabilitation lots, World Bank funding source and 9 October submission deadline", "مناقصة هيئة الشراء العام 12899 وقائمة مجلس الإنماء والإعمار للحزمة الثانية: ثلاث مجموعات لتأهيل مدارس الإيواء ومصدر تمويل البنك الدولي ومهلة التقديم في 9 تشرين الأول"],
+    "note": ["The Batch 2 notices cover public schools and educational facilities damaged through use as shelters during the 2024 and 2026 hostilities. They are pre-award works procurements for light repairs; the notices establish neither contractor selection, a works contract nor completed repairs.", "تغطي إعلانات الحزمة الثانية مدارس ومنشآت تربوية رسمية تضررت من استخدامها كمراكز إيواء خلال أعمال 2024 و2026. وهي مشتريات أشغال قبل الإرساء لإصلاحات خفيفة ولا تثبت اختيار متعهد أو عقد أشغال أو إصلاحات مكتملة."]
+  },
   "src-126": {
     "originalUrl": "https://www.ppa.gov.lb/en/plan/details/12491",
     "url": "https://www.ppa.gov.lb/en/plan/details/12491",
@@ -1714,6 +1721,7 @@
     }
   },
   "records": {
+  "rec-0194": {"source":"src-127","snapshot":{"name":"LEAP Public-School Shelter Rehabilitation Procurement Batch 2","place":"Lebanon • Public schools and educational facilities • Posted 29 Sep 2026","filter":"Financing","period":"Cross-cutting","status":"Council for Development and Reconstruction / Ministry of Education and Higher Education / World Bank","funding":"World Bank-financed pre-award works procurement","marker":"Three open tender lots for light repairs; bids due 9 Oct; no award or repairs reported","date":"2026-09-29","sourceId":"cdr-leap-public-schools-batch2-2026","href":"https://www.ppa.gov.lb/ar/tenders/details/12899"},"finance":"not_stated","delivery":"procurement"},
   "rec-0193": {"source":"src-126","snapshot":{"name":"LEAP Totally Damaged Public-Buildings Consultancy Plan","place":"Beirut & Mount Lebanon, Beqaa and South Lebanon • Announced 6 Sep 2026","filter":"Financing","period":"2024","status":"Council for Development and Reconstruction / Public Procurement Authority","funding":"Active procurement plan; estimated value and funding stage not publicly stated","marker":"Proposed framework for assessment, design and construction supervision; no announcement, award, contract or works reported","date":"2026-09-06","sourceId":"ppa-leap-total-damaged-public-buildings-plan-2026","href":"https://www.ppa.gov.lb/en/plan/details/12491"},"finance":"not_stated","delivery":"planning"},
   "rec-0190": {"source":"src-123","snapshot":{"name":"Zahle Caza Drinking-Water Systems Rehabilitation Tender","place":"Wadi al-Dalam, Qabb Elias and Mreijat, Zahle Caza • Posted 15 Sep 2026","filter":"Financing","period":"2024","status":"Council for Development and Reconstruction / Public Procurement Authority","funding":"Open works procurement; financing and payment stage not stated","marker":"Tender for drinking-water system rehabilitation and upgrading; offers due 26 Oct; no award or works reported","date":"2026-09-15","sourceId":"ppa-zahle-water-tender-2026","href":"https://www.ppa.gov.lb/ar/tenders/details/12779"},"finance":"not_stated","delivery":"procurement"},
   "rec-0191": {"source":"src-124","snapshot":{"name":"Adaptive TVET Community Kitchens","place":"Saida and participating TVET institutions • September 2026 update","filter":"Local recovery","period":"2026","status":"UNICEF / WFP / Technical and Vocational Education and Training institutions","funding":"UN-supported kitchen rehabilitation and equipment; amount and payment stage not stated","marker":"UN reports rehabilitated and equipped kitchens shifting from school meals to food support for displaced families","date":"2026-09-23","sourceId":"un-adaptive-tvet-kitchens-2026","href":"https://lebanon.un.org/en/323178-how-un-strengthening-local-institutions-support-communities-across-lebanon-times-crisis"},"finance":"not_stated","delivery":"in_progress"},

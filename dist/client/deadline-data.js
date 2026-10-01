@@ -77,6 +77,25 @@
     }
   },
   {
+    "id": "rec-0194",
+    "date": "2026-10-09",
+    "time": null,
+    "checkedAt": "2026-10-01",
+    "title": [
+      "School repairs · Batch 2",
+      "إصلاح المدارس · الحزمة الثانية"
+    ],
+    "timeZone": "Asia/Beirut",
+    "snapshot": {
+      "name": "LEAP Public-School Shelter Rehabilitation Procurement Batch 2",
+      "date": "2026-09-29",
+      "place": "Lebanon • Public schools and educational facilities • Posted 29 Sep 2026",
+      "funding": "World Bank-financed pre-award works procurement",
+      "marker": "Three open tender lots for light repairs; bids due 9 Oct; no award or repairs reported",
+      "href": "https://www.ppa.gov.lb/ar/tenders/details/12899"
+    }
+  },
+  {
     "id": "rec-0184",
     "date": "2026-10-12",
     "time": "12:00",
