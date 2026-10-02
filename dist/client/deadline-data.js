@@ -3,6 +3,44 @@
 (function (root) {
   const entries = [
   {
+    "id": "rec-0195",
+    "date": "2026-10-27",
+    "time": "12:00",
+    "checkedAt": "2026-10-02",
+    "title": [
+      "Civil Defense ambulances",
+      "سيارات إسعاف الدفاع المدني"
+    ],
+    "timeZone": "Asia/Beirut",
+    "snapshot": {
+      "name": "LEAP Civil Defense Ambulance Procurement",
+      "date": "2026-09-30",
+      "place": "Lebanon / General Directorate of Civil Defense • Posted 30 Sep 2026",
+      "funding": "World Bank-financed pre-award supply procurement",
+      "marker": "Tender for 34 fully equipped ambulances; bids due 27 Oct; no award or delivery reported",
+      "href": "https://www.ppa.gov.lb/ar/tenders/details/12916"
+    }
+  },
+  {
+    "id": "rec-0196",
+    "date": "2026-11-05",
+    "time": "12:00",
+    "checkedAt": "2026-10-02",
+    "title": [
+      "RHUH radiotherapy machine",
+      "وحدة العلاج الشعاعي في مستشفى رفيق الحريري"
+    ],
+    "timeZone": "Asia/Beirut",
+    "snapshot": {
+      "name": "LEAP RHUH Radiotherapy Machine Procurement",
+      "date": "2026-09-30",
+      "place": "Rafik Hariri University Hospital, Beirut • Posted 30 Sep 2026",
+      "funding": "World Bank-financed pre-award supply procurement",
+      "marker": "Tender for radiotherapy-machine supply and installation; bids due 5 Nov; no award, delivery or installation reported",
+      "href": "https://www.ppa.gov.lb/ar/tenders/details/12941"
+    }
+  },
+  {
     "id": "rec-0190",
     "date": "2026-10-26",
     "time": null,

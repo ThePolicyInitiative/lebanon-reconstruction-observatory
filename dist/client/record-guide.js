@@ -8,6 +8,8 @@
   // IDs are assigned once. Preserve each literal ID if its reading title changes;
   // never renumber this registry when adding, removing or reordering records.
   const readingRecords = Object.freeze({
+    "LEAP Civil Defense Ambulance Procurement": ["rec-0195","مناقصة توريد 34 سيارة إسعاف للدفاع المدني ضمن ليب"],
+    "LEAP RHUH Radiotherapy Machine Procurement": ["rec-0196","مناقصة توريد وتركيب وحدة العلاج الشعاعي في مستشفى رفيق الحريري ضمن ليب"],
     "LEAP Totally Damaged Public-Buildings Consultancy Plan": ["rec-0193","خطة خدمات استشارية للمباني العامة المتضررة كلياً ضمن ليب"],
     "LEAP Public-School Shelter Rehabilitation Procurement Batch 2": ["rec-0194","مناقصات تأهيل مدارس الإيواء الرسمية ضمن ليب، الحزمة الثانية"],
     "Zahle Caza Drinking-Water Systems Rehabilitation Tender": ["rec-0190","مناقصة تأهيل منظومات مياه الشرب في قضاء زحلة"],
