@@ -1,5 +1,18 @@
 /* Bilingual copy, attributes and number formatting. Loaded before app.js. */
 const arabicText = Object.freeze({
+  "Sep 2026": "أيلول 2026",
+  "UNICEF and MEHE publish 2026 education-sector recovery brief": "اليونيسف ووزارة التربية تنشران موجز تعافي قطاع التعليم لعام 2026",
+  "The brief reports MEHE-verified data through August 2026: 436 facilities affected among 1,089 assessed, including 37 destroyed. It sets out recovery priorities, not a financing approval, procurement award or completed repair programme.": "يعرض الموجز بيانات تحققت منها وزارة التربية حتى آب 2026: 436 منشأة متضررة من أصل 1,089 منشأة جرى تقييمها، منها 37 مدمرة. ويحدد أولويات للتعافي، وليس موافقة تمويل أو إرساء مشتريات أو برنامج إصلاح مكتمل.",
+  "Education-Sector Damage and Recovery Brief": "موجز أضرار قطاع التعليم وأولويات التعافي",
+  "UNICEF and MEHE education-sector damage and recovery brief": "موجز اليونيسف ووزارة التربية لأضرار قطاع التعليم وأولويات التعافي",
+  "Lebanon • MEHE data through Aug 2026 • Published Sep 2026": "لبنان • بيانات وزارة التربية حتى آب 2026 • نُشر في أيلول 2026",
+  "Education-sector damage and recovery evidence; no financing decision reported": "أدلة عن أضرار قطاع التعليم والتعافي؛ لا قرار تمويل مُبلّغ عنه",
+  "436 affected facilities among 1,089 assessed; 37 destroyed; recovery priorities stated": "436 منشأة متضررة من أصل 1,089 منشأة مقيمة؛ 37 مدمرة؛ أولويات التعافي محددة",
+  "Document 2026 education-sector damage and recovery priorities": "توثيق أضرار قطاع التعليم وأولويات التعافي لعام 2026",
+  "MEHE and UNICEF's education-sector brief reports MEHE-verified information through August 2026 on conflict effects, learning disruption and school damage. It sets out recovery priorities for rehabilitation, learning recovery, protection, support to personnel and stronger systems. It is an evidence and planning brief, not a financing approval, procurement award or completed repair programme.": "يعرض موجز وزارة التربية واليونيسف لقطاع التعليم معلومات تحققت منها الوزارة حتى آب 2026 عن آثار النزاع وتعطل التعلم وأضرار المدارس. ويحدد أولويات للتأهيل وتعافي التعلم والحماية ودعم العاملين وتقوية النظم. وهو موجز أدلة وتخطيط، وليس موافقة تمويل أو إرساء مشتريات أو برنامج إصلاح مكتمل.",
+  "Ministry of Education and Higher Education / UNICEF": "وزارة التربية والتعليم العالي / اليونيسف",
+  "Official education-sector assessment and recovery brief": "موجز رسمي لتقييم قطاع التعليم والتعافي",
+  "MEHE data through August 2026: 1,089 facilities assessed, 436 affected and 37 destroyed; recovery priorities for repair, learning and protection": "بيانات وزارة التربية حتى آب 2026: 1,089 منشأة جرى تقييمها، و436 متضررة و37 مدمرة؛ أولويات للتأهيل والتعلم والحماية",
   "CDR opens LEAP tender for 34 Civil Defense ambulances": "مجلس الإنماء والإعمار يفتح مناقصة ليب لتوريد 34 سيارة إسعاف للدفاع المدني",
   "The public tender is for 34 fully equipped ambulances for the General Directorate of Civil Defense. Bids are due 27 October; no award or delivery is reported.": "المناقصة العمومية لتوريد 34 سيارة إسعاف مجهزة بالكامل للمديرية العامة للدفاع المدني. تنتهي مهلة العروض في 27 تشرين الأول؛ ولا يُبلّغ عن إرساء أو تسليم.",
   "CDR opens LEAP radiotherapy-machine tender for RHUH": "مجلس الإنماء والإعمار يفتح مناقصة ليب لوحدة العلاج الشعاعي في مستشفى رفيق الحريري",

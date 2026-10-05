@@ -8,6 +8,7 @@
   // IDs are assigned once. Preserve each literal ID if its reading title changes;
   // never renumber this registry when adding, removing or reordering records.
   const readingRecords = Object.freeze({
+    "Education-Sector Damage and Recovery Brief": ["rec-0197","موجز أضرار قطاع التعليم وأولويات التعافي"],
     "LEAP Civil Defense Ambulance Procurement": ["rec-0195","مناقصة توريد 34 سيارة إسعاف للدفاع المدني ضمن ليب"],
     "LEAP RHUH Radiotherapy Machine Procurement": ["rec-0196","مناقصة توريد وتركيب وحدة العلاج الشعاعي في مستشفى رفيق الحريري ضمن ليب"],
     "LEAP Totally Damaged Public-Buildings Consultancy Plan": ["rec-0193","خطة خدمات استشارية للمباني العامة المتضررة كلياً ضمن ليب"],

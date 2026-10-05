@@ -9,6 +9,13 @@
   const data = {
   "checkedAt": "2026-09-08",
   "sources": {
+  "src-130": {
+    "originalUrl": "https://www.unicef.org/lebanon/reports/lebanons-schools-caught-crossfire",
+    "url": "https://www.unicef.org/lebanon/reports/lebanons-schools-caught-crossfire",
+    "checkedAt": "2026-10-05", "status": "reviewed", "access": "direct",
+    "locator": ["UNICEF's September 2026 brief and report PDF: MEHE-verified information through August 2026, 1,089 facilities assessed, 436 affected, 37 destroyed, and stated recovery priorities", "موجز اليونيسف وملف التقرير الصادران في أيلول 2026: معلومات تحققت منها وزارة التربية حتى آب 2026، و1,089 منشأة جرى تقييمها، و436 متضررة، و37 مدمرة، وأولويات التعافي المعلنة"],
+    "note": ["The UNICEF and MEHE brief presents a September 2026 evidence snapshot of education-sector effects and recovery priorities. It reports assessment and planning information, including facility-damage figures, but it does not establish a financing approval, procurement award or completed repair programme.", "يعرض موجز اليونيسف ووزارة التربية لقطة أدلة صادرة في أيلول 2026 عن آثار النزاع في قطاع التعليم وأولويات التعافي. ويبلغ عن معلومات تقييم وتخطيط، منها أرقام أضرار المنشآت، لكنه لا يثبت موافقة تمويل أو إرساء مشتريات أو برنامج إصلاح مكتمل."]
+  },
   "src-128": {
     "originalUrl": "https://www.ppa.gov.lb/ar/tenders/details/12916",
     "url": "https://www.ppa.gov.lb/ar/tenders/details/12916",
@@ -1735,6 +1742,7 @@
     }
   },
   "records": {
+  "rec-0197": {"source":"src-130","snapshot":{"name":"Education-Sector Damage and Recovery Brief","place":"Lebanon • MEHE data through Aug 2026 • Published Sep 2026","filter":"Assessment","period":"2026","status":"Ministry of Education and Higher Education / UNICEF","funding":"Education-sector damage and recovery evidence; no financing decision reported","marker":"436 affected facilities among 1,089 assessed; 37 destroyed; recovery priorities stated","date":"2026-09-01","sourceId":"unicef-school-crossfire-2026","href":"https://www.unicef.org/lebanon/reports/lebanons-schools-caught-crossfire"},"finance":"not_applicable","delivery":"not_applicable"},
   "rec-0195": {"source":"src-128","snapshot":{"name":"LEAP Civil Defense Ambulance Procurement","place":"Lebanon / General Directorate of Civil Defense • Posted 30 Sep 2026","filter":"Financing","period":"2024","status":"Council for Development and Reconstruction / General Directorate of Civil Defense / World Bank","funding":"World Bank-financed pre-award supply procurement","marker":"Tender for 34 fully equipped ambulances; bids due 27 Oct; no award or delivery reported","date":"2026-09-30","sourceId":"ppa-leap-civil-defense-ambulance-procurement-2026","href":"https://www.ppa.gov.lb/ar/tenders/details/12916"},"finance":"not_stated","delivery":"procurement"},
   "rec-0196": {"source":"src-129","snapshot":{"name":"LEAP RHUH Radiotherapy Machine Procurement","place":"Rafik Hariri University Hospital, Beirut • Posted 30 Sep 2026","filter":"Financing","period":"2024","status":"Council for Development and Reconstruction / Ministry of Public Health / Rafik Hariri University Hospital / World Bank","funding":"World Bank-financed pre-award supply procurement","marker":"Tender for radiotherapy-machine supply and installation; bids due 5 Nov; no award, delivery or installation reported","date":"2026-09-30","sourceId":"ppa-leap-rhuh-radiotherapy-procurement-2026","href":"https://www.ppa.gov.lb/ar/tenders/details/12941"},"finance":"not_stated","delivery":"procurement"},
   "rec-0194": {"source":"src-127","snapshot":{"name":"LEAP Public-School Shelter Rehabilitation Procurement Batch 2","place":"Lebanon • Public schools and educational facilities • Posted 29 Sep 2026","filter":"Financing","period":"Cross-cutting","status":"Council for Development and Reconstruction / Ministry of Education and Higher Education / World Bank","funding":"World Bank-financed pre-award works procurement","marker":"Three open tender lots for light repairs; bids due 9 Oct; no award or repairs reported","date":"2026-09-29","sourceId":"cdr-leap-public-schools-batch2-2026","href":"https://www.ppa.gov.lb/ar/tenders/details/12899"},"finance":"not_stated","delivery":"procurement"},
