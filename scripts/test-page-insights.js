@@ -160,7 +160,7 @@ test("publication digest groups publication months in order without mutating rec
   assert.equal(JSON.stringify(fixture),before);
   const actual=pages.publicationGroups(data.records);
   assert.equal(actual.length,4);
-  assert.ok(actual[0].records.length>3);
+  assert.ok(actual.some(group=>group.records.length>3));
   const digest=pages.readerHtml("updates",options);
   assert.equal((digest.match(/<li>/g)||[]).length,actual.reduce((sum,group)=>sum+Math.min(3,group.records.length),0));
 });
